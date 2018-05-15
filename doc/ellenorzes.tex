@@ -1,0 +1,145 @@
+\chapter{A Magyar Ispell tesztelése}
+
+A tesztrendszer a \url{http://www.szofi.hu/gnu/magyarispell/magyarispell.zip}
+állományban található.
+
+A Magyar Ispell mûködésének tesztelésére egy független szókincstár,
+a Huhyph 4.0 elválasztási szóadattár szolgált.
+
+A tesztrendszer két tesztelést végez el: az elsõ
+a Huhyph szókincstár felismerését teszteli,
+a második a HuHyph-ból kinyert véletlen mintából
+különféle algoritmusokkal elõállított hibás
+alakok helyesként való elfogadását teszteli.
+
+\section{A szókincs tesztelése}
+
+Csomagoljuk ki a \texttt{magyarispell-teszt.zip}
+állományt, és a könyvtárba lépve adjuk ki
+a \texttt{make teszt1} parancsot.
+
+A szóadat szavai kötõjellel jelölve tartalmazzák az
+elválasztási pontokat, valamint fordított perjellel
+bevezetve, és kapcsos zárójelpárral lezárva a kettõzött
+többjegyû mássalhangzókat. Ezeket a jeleket 
+az 1. teszt során töröljük, és a Magyar MySpell függvénykönyvtárat
+használó \texttt{badwords} programmal kiszûrjük az állományból
+a hibás szavakat.
+
+Jelenleg (2002. július) a Magyar Ispell szótármodullal a \texttt{huwords.hyph}
+állomány 98,5\%-a helyesnek bizonyul.
+
+A maradék részben (ami mintegy 900 szót jelent a huwords.hyph
+kb. 65\,000 szavából) még feldolgozás alatt álló, részben
+pedig idegen szavakat tartalmaz. Ha ezek elfogadását szeretnénk,
+az elsõ teszt futtatásánál kapott \texttt{GEN.nemismert}
+állományt vegyük fel a Magyar Ispellben új szótári modulként,
+\texttt{ragozatlan}-ra átkeresztelve az állományt.
+
+\section{Tévesztések ellenõrzése}
+
+A tesztelés megkezdése elõtt a \texttt{teszt.sh}
+állomány \texttt{JAVA\_PATH} változójának adjuk meg
+a \texttt{java} virtuális gép helyét, mivel a téves
+alakokat elõállító program (\texttt{MITest}) Java nyelvû.
+
+Adjuk ki a  \texttt{make teszt2} parancsot a tévesztések
+elfogadásának tesztelésére.
+
+A tesztprogram a huwords.hyph szavaiból egy
+véletlen, 1000 szóból álló mintát vesz.
+Ebbõl a mintából a \texttt{MITest} program
+téves alakokat képez az alapvetõ Ispell
+javítási algoritmusokkal (betûkihagyás,
+betûbetoldás, betûcsere, szomszédos betûk
+felcserélése). 
+
+A teszt során három állomány keletkezik:
+A \texttt{GEN.osszes} állomány tartalmazza az összes
+elõállított téves alakot. Ez mintegy 750-szerese
+az eredetileg 1000 szavas véletlen mintának.
+
+A \texttt{GEN.osszes} állományból a \texttt{badwords}
+program kiszûri a helytelennek felismert szavakat,
+ez kerül a \texttt{GEN.hibas} állományba.
+
+Végül ezeket a szavakat kivonjuk a \texttt{GEN.osszes} állományból,
+így kapjuk meg a \texttt{GEN.helyes} állományt.
+
+A \texttt{GEN.helyes} tartalmazza tehát 
+a \texttt{huwords.hyph}-ból nyert véletlen minta ,,elrontásából'' keletkezett,
+mégis helyesnek felismert szóalakokat.
+
+\section{A tesztek értékelése}
+
+\subsection{Szókincs}
+
+A \texttt{huwords.hyph} elsõ feldolgozása során
+az eredeti állomány mintegy 5\%-a,
+3700 szó nem került felismerésre.
+
+A listában az idegen, régies, ill. ritka szavak mellett a hiányzó
+tövek ragozott alakjai is elõfordultak, így mintegy 2000
+db. hiányzó tõrõl beszélhetünk, amely szám -- tekintve a
+szavak többnyire nem hétköznapi jellegét -- jónak mondható!
+
+A hiányzó szavak listája nagyrészt feldolgozásra került
+Bíró Árpád munkája révén, így sikerült az 5\%-ot
+jelentõsen lecsökkenteni.
+
+\subsection{Tévesztések}
+
+A \texttt{GEN.helyes} szólista a többszörös tesztelések során átlagosan 16-szor
+bizonyult nagyobbnak, mint a véletlen minta.
+
+Íme az ,,álomszerû'' szó téves alakjaiból elõállt helyes
+alakok:
+
+\begin{verbatim}
+álomászerû
+álomészerû
+álomízerû
+álomõszerû
+álomõzerû
+álomsíerû
+álomsóerû
+álomszedrû
+álomszegû
+álomszelû
+álomszemû
+álomszenû
+álomszer
+álomszerb
+álomszerbû
+álomszere
+álomszeré
+álomszerfû
+álomszeri
+álomszermû
+álomszert
+álomszertû
+alomszerû
+álomszerû
+álomszérû
+álomszerûr
+álomszerût
+álomszerv
+álomszervû
+álomszexû
+álomszírû
+álomszóerû
+álomszõrû
+álomszúerû
+álomszûrû
+\end{verbatim}
+
+Látható, hogy a szavak nagy része szokatlan
+szóösszetételként került elfogadásra.
+
+Az ilyen szóösszetételek a Magyar MySpell 0.4-es változatában
+részben már nem kerülnek elfogadásra. Szerencsére erre a legtipikusabb
+hibák esetében (pl. i/í, o/ó, u/ú, ü/û, j/l, j/ly, stb.)
+kerül sor, így a Magyar Ispell/MySpell már (ellentétben pl. a
+Helyes-e?-vel) nem fogadja el az ilyen típusú, tipikus és súlyos tévesztéseket
+(pl. szervíz, szeméj, súlytó, stb.).
+

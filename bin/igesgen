@@ -1,0 +1,146 @@
+#!/bin/sh
+# igébõl képzett szavak elõállítása
+# generate words derived from verbs
+#
+# $1: a Magyar Ispell gyökérkönyvtára / Magyar Ispell root directory
+# $2: spellchecker
+export LC_ALL=C
+
+if [ "$1" = "" ]; then
+	echo "usage: $0 magyar_ispell_root_directory [spellchecker]"
+	exit 1
+fi
+
+ROOT=${1:-'.'}
+SPELL=${2:-"ISPELL"}
+
+. $ROOT/config
+export LC_ALL=C
+
+
+cd $WRKDIR || exit 1
+
+# mez¿k törlése
+rmfld () {
+      sed 's/^\([^  ]*\)[[].*]/\1/'
+}
+
+# mûveltetõ képzõs alakok
+cat ige_targy.1 | rmfld | $AWK -v MELYRAG="¡" -v MAGASRAG="¢" -f $AWKDIR/iges2.awk >>$DICT
+egrep '(l|z|zik)$' ige_alanyi.1 | \
+    $AWK -v MELYRAG="¡" -v MAGASRAG="¢" -f $AWKDIR/iges2.awk >>$DICT
+echo_n .
+
+# -hat/-het képzõs ható igék
+cat ige_alanyi.1 ige_targy.1 | rmfld | \
+    $AWK -v MELYRAG="£" -v MAGASRAG="¤" -f $AWKDIR/iges2.awk >>$DICT
+egrep '(l|z|zik)$' ige_alanyi.1 | rmfld \
+    $AWK -v MELYRAG="£" -v MAGASRAG="¤" -f $AWKDIR/iges2.awk >>$DICT
+echo_n .
+
+# -ó/-õ és -ás/-és fõnévképzõs fõnevek
+cat ige_alanyi.1 ige_targy.1 | rmfld | \
+    $AWK -v MELYRAG="©" -v MAGASRAG="ª" -f $AWKDIR/iges2.awk >>$DICT
+egrep '(l|z|zik)$' ige_alanyi.1 | rmfld | \
+    $AWK -v MELYRAG="©" -v MAGASRAG="ª" -f $AWKDIR/iges2.awk >>$DICT
+echo_n .
+
+# -andó/-endõ képzõs (beálló) melléknévi igenevek, tárgyas -hat, -het
+cat ige_targy.1 | rmfld | \
+    $AWK -v MELYRAG="¥" -v MAGASRAG="¦" -f $AWKDIR/iges2.awk >>$DICT
+egrep '(l|z|zik)$' ige_alanyi.1 | rmfld | \
+    $AWK -v MELYRAG="¥" -v MAGASRAG="¦" -f $AWKDIR/iges2.awk >>$DICT
+echo_n .
+
+# -gat/-get képzõs ható igék
+cat ige_alanyi.1 ige_targy.1 | rmfld | egrep '(l|[^s]z|[^s]zik|[áé]szik|szt|nt)$' |
+    $AWK -v MELYRAG="§" -v MAGASRAG="¨" -f $AWKDIR/iges2.awk >>$DICT
+egrep '(l|z|zik)$' ige_alanyi.1 | \
+    $AWK -v MELYRAG="§" -v MAGASRAG="¨" -f $AWKDIR/iges2.awk >>$DICT
+echo_n .
+
+cat $SZOTAR/kivetelek/ige_kepzos.11 | recode u8..l2 | sed 's/ *#.*$//' | grep -v '^[ 	]*$' >ige_kepzos.11
+
+cut -sf 2 ige_kepzos.11 | grep -v '^[ 	]*$' >>ige_eas.1
+cat ige_eas.1 | sed 's#$#/X#' >>$DICT
+cut -f 1,2 ige_kepzos.11 | grep '	.' | grep -v '^[ 	]*$' |
+sed 's/	/[vrb]+[Ás_PROCESS\/RESULT_noun]{+[NOM]}	/' >ige_kepzos.2
+
+cut -sf 3 ige_kepzos.11 | grep -v '^[ 	]*$' | sed 's#^#[adj]#
+s#$#/XY#' >>$DICT
+
+cut -sf 3 ige_kepzos.11 | grep -v '^[ 	]*$' >>melleknev.1
+cut -f 1,3 ige_kepzos.11 | grep '	.' | grep -v '^[ 	]*$' |
+sed 's/	/[vrb]+[Ó_PRESPART_adj]{+[NOM]}	[adj]/' >>ige_kepzos.2
+#cut -f 1,3 ige_kepzos.11 | grep '	.' | grep -v '^[ 	]*$' |
+#sed 's/^/[adj]/
+#s/ó$/ó\/Ã/
+#s/õ$/õ\/Å/' >>$DICT
+
+cut -sf 4 ige_kepzos.11 | grep -v '^[ 	]*$' >>melleknev.1
+cut -sf 4 ige_kepzos.11 | grep -v '^[ 	]*$' >>melleknev_a.1
+
+grep '[oe]tt$' melleknev_a.1 |
+sed 's#ett$#ett/t#
+s#ott#ott/s#
+s#$#/X#
+s#^#[adj]#' >>$DICT
+
+cut -f 1,4 ige_kepzos.11 | grep '	.' | grep -v '^[ 	]*$' |
+sed 's/	/[vrb]+[tt_PASTPART_adj]{+[NOM]}	[adj]/' >>ige_kepzos.2
+
+cut -sf 5 ige_kepzos.11 | grep -v '^[ 	]*$' >>ige_ando.1
+cut -f 1,5 ige_kepzos.11 | grep '	.' | grep -v '^[ 	]*$' |
+sed 's/	/[vrb]+[AndÓ_FUTPART_adj]{+[NOM]}	[adj]/' >>ige_kepzos.2
+cut -sf 5 ige_kepzos.11 | grep -v '^[ 	]*$' | sed 's#^#[adj]#
+s#$#/X#' >>$DICT
+
+cut -sf 6 ige_kepzos.11 | grep -v '^[ 	]*$' |
+$AWK -v o="/«" -v e="/¬" -v p="/­" -f $AWKDIR/ige_gen.awk  >>$DICT
+cut -f 1,6 ige_kepzos.11 | grep '	.' | grep -v '^[ 	]*$' |
+sed 's/	/[vrb]+[hAt_MODAL_vrb]{+[PRES_INDIC_INDEF_SG_3]}	[vrb]/' >>ige_kepzos.2
+echo_n .
+
+cut -sf 7 ige_kepzos.11 | grep -v '^[ 	]*$' |
+$AWK -v o="/o/«" -v e="/e/¬" -v p="/p/­" -f $AWKDIR/ige_gen.awk >>$DICT
+cut -f 1,7 ige_kepzos.11 | grep '	.' | grep -v '^[ 	]*$' |
+sed 's/	/[vrb]+[hAt_MODAL_vrb]{+[PRES_INDIC_INDEF_SG_3]}	[vrb]/' >>ige_kepzos.2
+echo_n .
+
+cut -sf 8 ige_kepzos.11 | grep -v '^[ 	]*$' >>ige_hato.1
+cat ige_hato.1 | sed 's#^#[adj]#
+s#$#/X#' >>$DICT
+cut -f 1,8 ige_kepzos.11 | grep '	.' | grep -v '^[ 	]*$' |
+sed 's/	/[vrb]+[hAtÓ_ABLE_(adj,present_part)]{+[NOM]}	[adj]/' >>ige_kepzos.2
+echo_n .
+
+cut -sf 9 ige_kepzos.11 | grep -v '^[ 	]*$'>>ige_hatosag.1
+cat ige_hatosag.1 | sed 's#$#/X#' >>$DICT
+cut -f 1,9 ige_kepzos.11 | grep '	.' | grep -v '^[ 	]*$' |
+sed 's/	/[vrb]+[hAtÓ_ABLE_(adj,present_part)]+[sÁg_ABSTRACT_noun]{+[NOM]}	/' >>ige_kepzos.2
+
+cut -sf 10 ige_kepzos.11 | grep -v '^[ 	]*$' >>ige_hatatlan.1
+cat ige_hatatlan.1 | sed 's#^#[adj]#
+s#$#/X#' >>$DICT
+cut -f 1,10 ige_kepzos.11 | grep '	.' | grep -v '^[ 	]*$' |
+sed 's/	/[vrb]+[hAtAtlAn_UNABLE_adj]{+[NOM]}	[adj]/' >>ige_kepzos.2
+
+cut -sf 11 ige_kepzos.11 | grep -v '^[ 	]*$' >>ige_hatosag.1
+cat ige_hatosag.1 | sed 's#$#/X#' >>$DICT
+cut -f 1,11 ige_kepzos.11 | grep '	.' | grep -v '^[ 	]*$' |
+sed 's/	/[vrb]+[hAtAtlAn_UNABLE_adj]+[sÁg_ABSTRACT_noun]{+[NOM]}	/' >>ige_kepzos.2
+
+#cut -sf 6-7 ige_kepzos.11 | grep -v '^[ 	]*$' | tr '\t' '\n' | sed 's#$#/X#' | sed 's/^/[vrb]/' >>$DICT
+#cut -sf 2,8-11 ige_kepzos.11 | grep -v '^[ 	]*$' | tr '\t' '\n' | sed 's#$#/X#' >>$DICT
+
+cat ige_kepzos.2 | $AWK '{print $2"\t"$1}' >>$DICT
+echo_n .
+
+#grep NEM_IKES $SZOTAR/kivetelek/ige_kepzos.11 | sed 's/#.*$//' | \
+#cut2 -sf 6-7 | tr '\t' '\n' | sed 's#$#/-X#' | sed 's/^/[vrb]/' >>$DICT
+#grep NEM_IKES $SZOTAR/kivetelek/ige_kepzos.11 | sed 's/#.*$//' | \
+#cut2 -sf 1-5,8-11 | tr '\t' '\n' | sed 's#$#/-X#' >>$DICT
+
+echo_n .
+
+echo " Rendben."

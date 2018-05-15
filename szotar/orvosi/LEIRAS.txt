@@ -1,0 +1,4 @@
+Név: orvosi
+Leírás: Orvosi szakszókincs
+Felelős: Tímár András <timar@fsf.hu>
+Szavak száma: ~850

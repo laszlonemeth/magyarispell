@@ -1,0 +1,4 @@
+Név: földrajz
+Leírás: földrajzi szakszókincs
+Felelős: Bíró Árpád <biro_arpad@yahoo.com>
+Szavak száma: ~200

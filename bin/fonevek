@@ -1,0 +1,229 @@
+#!/bin/sh
+# fonevek 0.1
+# nouns
+#
+# $1: a Magyar Ispell gyökérkönyvtára / Magyar Ispell root directory
+# $2: spellchecker
+export LC_ALL=C
+
+if [ "$1" = "" ]; then
+	echo "usage: $0 magyar_ispell_root_directory [spellchecker]"
+	exit 1
+fi
+
+ROOT=${1:-'.'}
+SPELL=${2:-"ISPELL"}
+
+. $ROOT/config
+
+cd $WRKDIR || exit 1
+
+# generate different forms of pronounciation of words with hyphen
+field_kot () {
+  awk '/^[^	]*[[]/{
+	print $1 >>"mezok.txt"
+	i = index($1, "[")
+	fi = substr($1, i, length($1) - i)
+
+# roots with foreign pronounciation and suffixes with hyphen
+# will get a ph: field without hyphen to support correct
+# suggestions, for example: "rönók" -> "Renault-k", based on
+# "Renault- ph:rönó" dictionary item.
+    print substr($1, 1, i-1) "-" gensub("ph:[^, \t]*", "&", "g", fi) "]" >>"mezok.txt"
+	x=$2; gsub("^.*-","",x)
+	print $2 gensub("ph:[^, \t]*", "&"x, "g", fi) "]" >>"mezok.txt"
+	x=$3; gsub("^.*-","",x)
+	print $3 gensub("ph:[^, \t]*", "&"x, "g", fi) "]" >>"mezok.txt"
+	if ($4) {
+		x=$4; gsub("^.*-","",x)
+        print $4 gensub("ph:[^, \t]*", "&"x, "g", fi) "]" >>"mezok.txt"
+	}
+	if ($5) {
+		x=$5; gsub("^.*-","",x)
+        print $5 gensub("ph:[^, \t]*", "&"x, "g", fi) "]" >>"mezok.txt"
+	}
+	if ($6 && ! $6~/\//) {
+		x=$6; gsub("^.*-","",x)
+		print $6 gensub("ph:[^, \t]*", "&"x, "g", fi) "]" >>"mezok.txt"
+	}
+}{print$0}' |
+  sed 's/\([^ 	]\)[[].*]/\1/'
+}
+
+
+# fõnevek ragozási osztályokba sorolása
+
+cat fonev.1 | field | $AWK -f $AWKDIR/fonev_gen.awk >>$DICT
+
+# egyéb kiejtés
+
+cat ragozatlan.2 | field >/dev/null
+
+# -e végû mély hangrendûek:
+
+grep '^[a-zöüóõúéáûí].*/.*u' $ROOT/szotar/kivetelek/ragozatlan/pseudoroot.2 | sed 's#/.*##' | recode u8..l2 |
+$AWK -f $AWKDIR/fonev_gen.awk >>$DICT
+
+echo_n .
+
+# melléknevek -ság/-ség képzõs alakjainak elõállítása,
+# és ragozási osztályokba való sorolása
+
+cat melleknev.1 | field | $AWK -f $AWKDIR/mellek_sag2.awk  >>$DICT
+
+echo_n .
+
+
+
+# tulajdonnév állomány feldolgozása
+
+# Ady Endré-s
+grep TÖBBTAGÚ $ROOT/szotar/*/tulajdonnev* | cat $ROOT/szotar/*/tulajdonnev-keresztnev.2 - | $AWK 'BEGIN{FS="[#\t[]"}{print$1}' | recode u8..l2 >tobbtagu.1
+
+cat tulajdonnev*.2 | grep "^	" | cut -f 2 | field >>$DICT
+
+# -e végû mély hangrendûek:
+
+grep '^[A-ZÖÜÓÕÚÉÁÛÍ].*/.*u' $ROOT/szotar/kivetelek/ragozatlan/pseudoroot.2 | sed 's#/.*##' | recode u8..l2 >>tulajdonnev.2
+
+# tövek kinyerése
+##cat tulajdonnev*.2 | $AWK -f $AWKDIR/tovek4.awk >>$DICT
+
+cat tulajdonnev*.2 | grep "^	" | cut -f 2 | field >>$DICT
+cat tulajdonnev*.2 | grep "^	" | sed 's/^	//' | field >>$DICT
+#cat tulajdonnev*.2 | grep "^	" | sed 's/^	//' | field |
+#sed 's/^	//;s/$/\/,/' >>$DICT
+# sed '/[[]/s/$/\/,/;/\t/s/\t/\/,\t/' >>$DICT
+echo_n .
+
+cat tulajdonnev_geo*.2 | grep -v "^	" | cut -f 1 | field >magyar.fonev.1
+$AWK -f $AWKDIR/fonev_gen.awk -v tulaj_e=1 -v tulaj_geo_e=1 <magyar.fonev.1 >>$DICT
+echo_n .
+
+cat tulajdonnev.2 | grep -v "^	" | cut -f 1 | field >magyar.fonev.1
+
+$AWK -f $AWKDIR/fonev_gen.awk -v tulaj_e=1 <magyar.fonev.1 >>$DICT
+echo_n .
+
+# képzõs alakok tiltása, ahol külön meg volt adva
+
+cat tulajdonnev*.2 | grep -v "^	" | field | awk 'NF==2{print $1 "/-²-³-Ç-È-µ-¶-¿-À-Á-Ã-Ä-Å"}' >>$DICT
+
+# tulajdonnevekbõl képzett melléknévképzõs alakok feldolgozása
+# szabály: a szó végi -i képzõs alakok hangrendjét az azt megelõzõ
+# szótag hangrendje dönti el.
+
+cat tulajdonnev*.2 | field | grep '[aáoóuú][bcdfghjklmnprstvxyz]*[	].*i$' |
+grep -v beli$ | cut -sf 2 >>melleknev_mely.1
+cat tulajdonnev*.2 | grep -v "^	" | cut -s -f 2 | field >>melleknev.1
+echo_n .
+
+# fonev_oe zárt tõosztály -en/-hez képzõs alakjainak letiltása
+# pl. könyvöt, könyven, könyvhez rossz; helyette könyvet, könyvön, könyvhöz
+# kivétel a könnyen alak, mivel ez más tõbõl származó helyes alak
+
+#cat fonev_oe.1 | sed 's/$/en\/w/' | egrep -v '(könnyen|csöppen|szörnyen)' >>$DICT
+#cat fonev_oe.1 melleknev_oe.1 melleknev_e.1 | sed 's/$/hez\/w/' >>$DICT
+echo_n .
+
+
+# idegen kiejtésû, és mozaikszavak feldolgozása
+
+cat kotojeles_mely.7 |  field_kot | 
+$AWK -f $AWKDIR/kotojeles.awk -v V1="AUQÏÑÕi" -v V2="KUÒÖmQSsi" -v V3="ÒÙmAFUKQF" -v V4="ÑÏÕAFUKSsF" >>$DICT
+cat kotojeles_magas.7 | field_kot |
+$AWK -f $AWKDIR/kotojeles.awk -v V1="BVRÐÑÕj" -v V2="LVÓ×nRTtj" -v V3="Ó×nBGVLRG" -v V4="ÑÐÕBGVLTtG" >>$DICT
+cat kotojeles_magas2.7 | field_kot | $AWK -f $AWKDIR/kotojeles.awk -v V1="CWRÞÑÕj" -v V2="MWÔØÝRTtj" -v V3="Ô×nCHWMRH" -v V4="ÑÐÕCHWMTtH" >>$DICT
+
+# morfonetikus alternáns igékbõl folyamatos melléknévi igenevek és fõnevek
+# elõállítása
+
+cat ige_morfo.1 | \
+sed 's/\(.*\)[ao]\(.\)$/\1\2ó\
+\1\2ás/
+s/\(.*\)[ieö]\(.\)$/\1\2õ\
+\1\2és/' >magyar.fonev.1
+echo_n .
+
+cat ige_morfo.1 | \
+sed 's/\(.*\)[ao]\(.\)$/\1\2ó\/X\
+\1\2ás\/X/
+s/\(.*\)[ieö]\(.\)$/\1\2õ\/X\
+\1\2és\/X/' >>$DICT
+echo_n .
+
+cat ige_morfo.1 | \
+sed 's/\(.*\)\([ao]\)\(.\)$/\1\3ó	\1\2\3[vrb]+[Ó_PRESPART_adj]{+[NOM]}\
+\1\3ás	\1\2\3[vrb]+[Ás_PROCESS\/RESULT_noun]{+[NOM]}/
+s/\(.*\)\([ieö]\)\(.\)$/\1\3õ	\1\2\3[vrb]+[Ó_PRESPART_adj]{+[NOM]}\
+\1\3és	\1\2\3[vrb]+[Ás_PROCESS\/RESULT_noun]{+[NOM]}/' >>$DICT
+echo_n .
+
+cat ige_morfo.1 | \
+sed 's/\(.*\)[ao]\(.\)$/\1\2ó/
+s/\(.*\)[ieö]\(.\)$/\1\2õ/' >>melleknev.1
+echo_n .
+
+cat ige_morfo.1 | \
+sed 's/\(.*\)[ao]\(.\)$/[adj]\1\2ó\/X/
+s/\(.*\)[ieö]\(.\)$/[adj]\1\2õ\/X/' >>$DICT
+echo_n .
+
+cat ige_morfo.1 | grep -v '^\(haboz\|képez\|osztályoz\|szabályoz\|szegélyez\)' | \
+sed 's/\(.*\)$/[vrb]\1\/-©\/-ª/' >>$DICT
+echo_n .
+
+cat fonev_igemorfo.1 | \
+sed 's/$/\/X/' >>$DICT
+echo_n .
+
+cat melleknev_igemorfo.1 | \
+sed 's/\(.*\)$/[adj]\1\/X/' >>$DICT
+echo_n .
+
+cat ige_eas.1 >>magyar.fonev.1
+cat ige_hatosag.1 >>magyar.fonev.1
+cat ige_hatosag.1 >>fonev.1
+echo_n .
+
+$AWK -f $AWKDIR/fonev_gen.awk <magyar.fonev.1 >>$DICT
+echo_n .
+
+# népnevek
+
+cat melleknev_nyelv.1 >>fonev.1
+cat melleknev_mely.1 >>fonev_mely.1
+cat melleknev_nyelv.1 >>fonev_kulon.1
+$AWK -f $AWKDIR/fonev_gen.awk <melleknev_nyelv.1 >>$DICT
+
+cat melleknev_nyelv.1 | sed 's/\(^.*$\)/\1barát\
+\1ellenes\
+\1centrikus\
+\1gyûlölõ/' >>melleknev.1
+
+cat melleknev_nyelv.1 | sed 's/\(^.*$\)/\1üldözés\
+\1centrikusság\
+\1tanítás\
+\1imádat/' |
+tee -a fonev_osszetett.1 | field | $AWK -f $AWKDIR/fonev_gen.awk >>$DICT
+
+cat melleknev_nyelv.1 | sed 's/\(^.*$\)/\1nyelv-/' |
+tee -a fonev_osszetett.1 | tee -a fonev_eleje.1 |
+field | $AWK -f $AWKDIR/fonev_gen.awk >>$DICT
+
+
+# melléknevek
+
+cat melleknev_nyelv.1 melleknev.1 ige_ando.1 ige_hato.1 ige_hatatlan.1 | \
+    field | $AWK -f $AWKDIR/melleknev_gen.awk >> $DICT
+echo_n .
+
+# kiejtés javítása (kivéve "^észszer" mintájú sorokban)
+cat mezok.txt |
+# kapcsolók törlése (pl. tizennyolc)
+sed 's#/.*\[#	[#' |
+sort | uniq | sed 's/_/ /g;s/sszsz/ssz/g;/^észszer/!s/szsz/ssz/g;s/zszs/zzs/g;s/nyny/nny/g;s/\(.\)\1\1/\1\1/g;s/,\([a-z][a-z]:\)/	\1/g;s/[[]/\t/;s/\]//g' >mezok2.txt
+cat mezok2.txt | iconv -f latin2 -t utf-8 | sed -f $BINDIR/l1_u8.sed >mezok_utf.txt
+echo_n .
+
+echo " Rendben."

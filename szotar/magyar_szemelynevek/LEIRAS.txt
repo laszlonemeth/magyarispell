@@ -1,0 +1,6 @@
+Név: magyar személynevek
+Leírás: Mai és történelmi magyar személynevek, ld. még OLVASSEL
+Felelős: Goldman Eleonóra (eleonora46@gmx.net)
+Szavak száma: ~6000
+Megjegyzés: a hosszú ő-k helyén rövid o szerepel több esetben
+Megjegyzés: y végűeknél az a kötőhangzós toldalék hiányzik (pl. Závodszkyak)

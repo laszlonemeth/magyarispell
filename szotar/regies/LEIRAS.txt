@@ -1,0 +1,4 @@
+Név: régies
+Leírás: a mai köznyelvben elvétve, vagy nem használt szavak
+Felelős: Németh László <nemethl@gyorsposta.hu>
+Szavak száma: ~10

@@ -1,0 +1,790 @@
+
+\chapter{Telepítés és használat}
+
+A Magyar Ispell fejlesztés eredményei Linux, Windows és Mac OS X
+operációs rendszereken is használhatóak olyan programokkal,
+mint az OpenOffice.org, AbiWord, Hunspell, Emacs, vagy a magyar nyelv
+támogatása szempontjából elavult Ispell.
+
+\section{OpenOffice.org}
+
+Az OpenOffice.org a legjobb
+nyitott forráskódú irodai csomag, ezért a legtöbb felhasználó
+az OpenOffice.org révén kerül kapcsolatba a Magyar Ispell
+fejlesztés eredményeivel.
+
+\subsection{Telepítés}
+
+Az OpenOffice.org hivatalos magyar változata az FSF.hu Alapítvány
+honlapjáról érhetõ el: \url{http://office.fsf.hu}.
+Itt tölthetõ le Windows, és Linux platformra is, illetve
+már letöltött formában számítástechnikai lapok
+mellékletén is megtaláljuk.
+
+A program magyar nyelvû telepítõvel rendelkezik.
+Kövessük a telepítõ, vagy a honlap (illetve az újság)
+útmutatását!
+
+\subsection{Használat}
+
+Az OpenOffice.org magyar változataiban alapértelmezett
+nyelv a magyar, és rendszerint a beírás közbeni
+ellenõrzés is be van kapcsolva. Ez utóbbi lehetõséget
+a bal oldali eszköztáron található piros hullámvonallal aláhúzott \textsc{ABC} ikonnal
+tudjuk ki- és újra bekapcsolni.
+
+Az OpenOffice.org kis hibája, hogy a szövegszerkesztõben az
+elsõ betû beírása után töltõdik be a magyar helyesírási
+szótár. Ez lassabb gépeken másodperceket is igénybe vesz.
+Mivel az ellenõrzés párhuzamosan folyik az írással, nem
+kell megvárnunk a szótár betöltõdését, nyugodtan elkezdhetünk gépelni.
+(Igaz, a gépelt szöveg egy részét a szótár betöltõdésének befejezõdéséig
+nem fogjuk látni.)
+
+Ha beírás közben hibás szót írtunk be, a szó piros hullámvonallal
+kerül aláhúzásra. Ha a jobb egérgombbal kattintunk a szón, a megjelenõ
+helyi menü tartalmazza a javaslatokat a hibás szóra.
+
+Az ellenõrzést külön párbeszédablak segítségével is elvégezhetjük.
+Ez az ablak az F7-es gomb lenyomásával hívható elõ a leggyorsabban.
+A késõbb tárgyalt beállításokhoz itt egy helyen férhetünk hozzá,
+így célszerû lehet megismerkedni a használatával.
+
+\subsection{A szöveg nyelvének kiválasztása}
+
+Elõfordul, hogy olyan dokumentummal találkozunk, ahol a szöveg,
+vagy annak egy része hibásként jelenik meg, bár helyes magyar
+szavakat tartalmaz. Ennek oka, hogy a szöveg -- bár magyar --
+más nyelvûnek lett beállítva.
+
+Jelöljük ki a szöveget, és válasszuk ki a Formátum$\rightarrow$Karakter
+párbeszédablakban a Betûtípus lapot! Válasszuk ki a Nyelv
+listából a magyart, és kattintsunk a \textsc{OK} gombon!
+
+Ha egy szó, vagy bekezdés nyelvét szeretnénk átállítani,
+az OpenOffice.org rendelkezik egy kényelmes lehetõséggel:
+kattintsunk egy hibásnak jelzett szón a jobb gombbal. Az OpenOffice.org
+a rendelkezésre álló helyesírási szótárak alapján megpróbálja megállapítani,
+hogy milyen nyelvû a kérdéses szó. Ha ez sikerül, a felnyíló helyi
+menü alján két új menüpontot is láthatunk. A példánknál maradva, ,,A szó: magyar''
+menüponttal a kiválasztott szó, a ,,bekezdés: magyar'' menüponttal a teljes bekezdés nyelvét
+állíthatjuk egy kattintással magyarra.
+
+\subsection{Nagybetûs és számokat tartalmazó szavak ellenõrzése}
+
+Az Eszközök$\rightarrow$Beállítások párbeszédablakban a
+Nyelvi beállítások$\rightarrow$Írástámogatás lapon egyéb
+beállításokat is megtehetünk. A nagybetûs és számokat tartalmazó
+szavak ellenõrzését a Beállítások dobozban lehet kérni.
+Ezt igényesebb dokumentumok ellenõrzése esetén érdemes megtenni.
+
+(A korábbi változatok
+a nagybetûs szavakat helyességtõl függetlenül hibásnak jelezték,
+ha kértük az ilyen szavak ellenõrzését. Ez a probléma
+az OpenOffice.org 1.02 magyar változatával megszûnt.)
+
+\subsection{Alapértelmezett nyelv beállítása}
+
+Az Eszközök$\rightarrow$Beállítások párbeszédablakban a
+Nyelvi beállítások$\rightarrow$Nyelvek lapon állíthatjuk be az OpenOffice.org
+dokumentumok alapértelmezett nyelvét. Jelöljük be a Csak az aktuális
+dokumentumban jelölõnégyzetet, ha csak az éppen szerkesztett
+dokumentum alapértelmezett nyelvét szeretnénk megváltoztatni!
+
+\subsection{Automatikus elválasztás beállítása}
+
+A helyesírás része a helyes elválasztás. Ennek automatikus változatát
+az Eszközök$\rightarrow$Beállítások párbeszédablakban a
+Nyelvi beállítások$\rightarrow$Írástámogatás lapon választhatjuk ki.
+Kattintsunk a Szerkesztés gombon, a megjelenõ párbeszédablakban válasszuk ki
+a magyar nyelvet, majd az ALTLinux LibHnj Hyphenator jelölõnégyzetet
+válasszuk ki.
+
+Az OpenOffice.org magyar változatai között akadnak olyanok is, ahol az
+elõzõ beállítás nem mûködik (könnyen ellenõrizhetõ: kattintsunk
+újra a Szerkesztés gombon, ha az elõzõ jelölõnégyzet újra
+nincs kiválasztva, a beállítás nem lehetséges). Ilyenkor ha mégis
+elválasztást szeretnénk, jelöljük ki az egész dokumentumot,
+és a Formátum$\rightarrow$Bekezdés
+párbeszédablakban válasszuk ki a Szövegfolyam lapot, és jelöljük
+be az Elválasztás szakaszban az Automatikusan jelölõnégyzetet!
+
+\subsection{Helyesírási állományok frissítése}
+
+A helyesírási állományokat (\verb+hu_HU.dic+, \verb+hu_HU.aff+,
+\verb+hyph_hu.dic+) a Magyar Ispell honlapról
+(\url{http://magyarispell.sf.net}) tölthetjük le, és az OpenOffice.org
+\texttt{share/dict/ooo} (régebben \texttt{user/wordbook}) könyvtárába
+másoljuk át kibontás után. Az OpenOffice.org újraindítás
+után már az új állományokat fogja használni.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Az OpenOffice.org nem magyar változatai}
+
+\subsubsection{Különbségek}
+
+Az OpenOffice.org nem magyar változatai nem tartalmazzák
+az OpenOffice.org Myspell nevû helyesírás-ellenõrzõjének
+magyar bõvítését (amelyen tulajdonképpen a Hunspell program is
+alapszik), emiatt sok hibát követnek el a helyesírás
+ellenõrzésében, különösen az összetett szavak
+kezelése terén. Például nincs korlátozva az összetett
+szavak hossza; nem ismeri fel az olyan tipikus hibákat,
+mint a \emph{színtû}, \emph{karvaj}, \emph{rovarirtószer}; sok
+helyes szót sem fogad el, mint például
+\emph{kéthavi}, \emph{Sydneyvel}; nem kezeli a kötõjeles
+szavakat, mint a \emph{MÁV-ot}, \emph{Voltaire-rel} stb.
+
+Könnyen meggyõzõdhetünk róla, hogy az OpenOffice.org nem magyar
+változatával van dolgunk: írjuk be a szövegszerkesztõbe, hogy
+\emph{helyesírásellenõrzõ}. A nem magyar változatok helyesnek
+fogadják el  a szót, ha egyébként a magyar helyesírási szótár
+lett kiválasztva az Eszközök$\rightarrow$Beállítások párbeszédablakban a
+Nyelvi beállítások$\rightarrow$Írástámogatás lapon. A
+magyar változatok hibásnak jelzik a szót, és a
+\emph{helyesírás-ellenõrzõ} alakot javasolják helyette.
+
+\subsubsection{Helyesírási állományok telepítése}
+
+Ha mindezek ellenére a nem magyar változat használata mellett döntünk,
+szükségünk lehet a helyesírási állományok (\verb+hu_HU.dic+, \verb+hu_HU.aff+,
+\verb+hyph_hu.dic+) kézi telepítésére, ha ezeket nem tartalmazza az OpenOffice
+változat. Az említett állományokat a Magyar Ispell honlapról
+(\url{http://magyarispell.sf.net}) tölthetjük le, és az OpenOffice.org
+megfelelõ könyvtárában kell elhelyeznünk.
+
+A könyvtár helye az újabb változatokban a \texttt{share/dict/ooo}.
+Az itt található \emph{dictionary.lst} állományba kell még bejegyeznünk
+a helyesírási állományokat a
+
+\begin{verbatim}
+DICT hu HU hu_HU
+HYPH hu HU hyph_hu
+\end{verbatim}
+
+sorokkal. Az OpenOffice.org indítása után az
+Eszközök$\rightarrow$Beállítások párbeszédablakban a
+Nyelvi beállítások$\rightarrow$Írástámogatás lapon válasszuk ki a Szerkesztés
+gombot, és a megjelenõ lapon a magyar nyelvhez kapcsoljuk be az
+OpenOffice MySpell SpellCheckert és az ALTLinux LibHnj Hyphenatort,
+és az alapértelmezett nyelvet is módosítsuk a korábban ismertetett
+módon, a Nyelvi beállítások$\rightarrow$Nyelvek lapon.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{A Hunspell telepítése és használata}
+
+\subsection{Linux és egyéb Unix-típusú rendszerek alatt}
+
+A Hunspell már része egyes Linux terjesztéseknek,
+például az UHU-Linuxnak (az 1.0-s változatban még
+Mispell néven). A legfrissebb változatokat
+forráskódból fordíthatjuk le.
+
+\subsubsection{Fordítás}
+
+Töltsük le a \url{http://magyarispell.sf.net} oldalról a
+legfrissebb Hunspell csomagot.
+
+Telepítsük a következõ GNU, vagy ezzel egyenértékû fejlesztõi
+csomagokat: \texttt{glibc-devel}, \texttt{make}, \texttt{libncurses5-devel},
+\texttt{readline-devel}, \texttt{gettext-devel}.
+
+Csomagoljuk ki, és fordítsuk le a Hunspell forrást:
+
+\begin{verbatim}
+tar xvzf hunspell.tar.gz
+cd hunspell
+make
+make install
+\end{verbatim}
+
+Amennyiben a telepítési útvonalak nem megfelelõek, a
+Makefile állományban pontosíthatunk ezeken.
+
+Ellenõrizzük a program mûködését a
+
+\begin{verbatim}
+hunspell latin12.html
+\end{verbatim}
+
+vagy a
+
+\begin{verbatim}
+hunspell ooomagyarispellteszt.txt
+\end{verbatim}
+
+parancs kiadásával.
+
+\subsubsection{Fordítás menüs felület nélkül}
+
+A \texttt{hunspell.cxx} állományban kapcsoljuk ki a
+\textsc{CURSES} makrót, megjegyzésbe téve, vagy törölve a
+
+\begin{verbatim}
+#define CURSES
+\end{verbatim}
+
+sort. Ez esetben a menüs felület nem fog mûködni, csak
+a parancssori. Fordítsuk és telepítsük a programot az elõzõ
+szakaszban ismertetett módon.
+
+\subsubsection{A Hunspell használata}
+
+A program és szótárállománya formátumának leírását a két
+feltelepített kézikönyvoldal (Hunspell(1), Hunspell(4))
+tartalmazza.
+
+A telepítés során kiadott \texttt{make install} parancs az
+Ispell parancshoz is a Hunspell programot
+állítja be. Az eredeti Ispell \texttt{ispell.orig} néven indítható
+a továbbiakban.
+ 
+A személyes szótárat a \texttt{\$HOME/.hunspell\_default}, vagy
+ha nem az alapértelmezett magyar szótárakat használjuk, akkor a
+\texttt{\$HOME/.hunspell\_[nyelv]} fájlba írja a program.
+
+A saját szótár késõbb kézzel is átszerkeszthetõ, érdekes
+tulajdonsága, hogy ragozható szavakat is felvehetünk ide.
+
+A Hunspell az Ispellhez hasonlóan együttmûködik 
+az Emacs, LyX, KWord programokkal. A KWordhöz való
+beállításban Szántó Tamás leírása segít. A leírás a
+\texttt{http://magyarispell.sf.net} oldalon található.
+
+Ha a Hunspell programot állománynév paraméterekkel
+hívjuk meg, sorban megnyitja az állományokat, és a hibás
+szavakat egy menüs felület segítségével felkínálja
+javításra.
+
+A kiterjesztés alapján felismeri a szöveges,
+\TeX{}, Nroff/Troff és HTML állományokat, de kapcsolókkal
+is befolyásolhatjuk ezt: \emph{-t} (\TeX{}),
+\emph{-H} (HTML), \emph{-n} (Nroff/Troff).
+
+A felület további ismertetését a függelékben található
+Hunspell kézikönyvoldal tartalmazza. Itt csak a
+használható billentyûkombinációk leírását idézzük.
+Zárójelben megadjuk a billentyûparancsok angol
+megfelelõit is.
+
+\begin{itemize}
+\item  \emph{Szóköz}: Továbblépés javítás nélkül a következõ hibás szóra.
+
+\item  \emph{Számok}: A megfelelõ javaslat kiválasztása.
+
+\item  \emph{c} (r):      Csere. A hibás szó cseréje a megadott  szóra,  vagy
+              szavakra.     Az    Escape    billentyû    kétszeri
+              lenyomásával megszakíthatjuk a a cserét.
+
+       \item  \emph{j} (a):            A    szó    elfogadása    a    program    futásának
+              befejezõdéséig.
+
+\item  \emph{f} (i):            A szó felvétele a saját szótárba.
+
+\item  \emph{k} (u):            A szó kisbetûsként való felvétele a saját szótárba.
+
+\item  \emph{t} (--):            Ragozott tõszó felvétele. A ragozás  a  másodikként
+              megadott,  mintául  szolgáló  szó alapján történik.
+              Ha  ez  a  szó  nincs   felvéve   a   szótárba,   a
+              tõszófelvételt elölrõl kell kezdeni.
+
+              Példa:   gyakran   hiányoznak   az   idegen   és  a
+              mozaikszavak. Vegyük fel a hiányzó OTP  szót  a  tv
+              köznévi  mozaikszó  toldalékaival!   Lenyomjuk  a t
+              billentyût, beírjuk, hogy OTP, Enter, beírjuk, hogy
+              tv,  és  Enter.  A  tv  szó  ugyanis már szerepel a
+              szótárban, és ragozása  mondja  meg  a  programnak,
+              hogy  az  OTP  szót milyen toldalékokkal szeretnénk
+              látni, pl.  OTP-hez, OTP-met stb. a tv-hez,  tv-met
+              mintájára.   A  -val/-vel,  -vá/-vé  toldalékokat a
+              kötõjellel kapcsolt toldalékú szavak esetében külön
+              kell  felvenni, de még így is sokkal kényelmesebb a
+              speciális tõfelvétel, mint minden (akár több  száz)
+              toldalékos alakot külön-külön felvenni.
+
+              Egy  kis  segítség  a  minta  kiválasztásához: elsõ
+              menetben a hangrend számít. Pl.  mozaikszavaknál  a
+              mély hangrendû új szavak felvételénél használhatjuk
+              a MÁV szót példaként, ajakréses  magas  hangrendnél
+              pedig   az  említett  tv-t.  Ajakkerekítéses  magas
+              hangrend esetében a HÖK szót használhatjuk (amíg át
+              nem lesz javítva a helyes hök-re). Ha a hiányzó szó
+              nem mozaikszó, hanem például  tulajdonnév,  a  Pál,
+              Péter,   Örs   szavakat  adhatjuk  meg  példának  a
+              hangrendtõl függõen. Ha meg egyszerû köznévrõl  van
+              szó,  akkor  használjuk  az  ok,  ék,  ük szavakat.
+              Igéknél áll, vél, ül, ikes  igéknél  ázik,  vérzik,
+              nõzik  lehet  a  példa  (remélhetõleg  a  következõ
+              változatokban egyszerûsödik ez a tõfelvétel).
+
+              Az   Escape   billentyû    kétszeri    lenyomásával
+              megszakíthatjuk ezt a mûveletet.
+	      
+Az itt felvett szavak automatikusan a saját
+szótárba kerülnek. Ha ezt innen törölni
+szeretnénk, a programból kilépve
+a saját szótár kézi átszerkesztésével tehetjük meg.
+
+\item  \emph{m} (q):            Kilépés  a  változtatások mentése nélkül. A program
+              változtatás megléte esetén megerõsítést kér.
+
+\item  \emph{v} (x):            Az   állomány   ellenõrzésének    megszakítása    a
+              változtatások    mentésével.   Ha   van   következõ
+              állomány, akkor a program annak ellenõrzését  kezdi
+              el.
+
+\item  \emph{?} (?):            Segítség.  Hasonló  rövid  leírás  megjelenítése  a
+              billentyûparancsokról.
+\end{itemize}
+
+\subsection{Windows alatt}
+
+Töltsük le a \url{http://magyarispell.sf.net} oldalról a
+Windowsra készített csomagot, és csomagoljuk ki
+a \texttt{C:\\} meghajtó gyökerében a WinZip programmal.
+
+A kicsomagolás után a futtatható
+program (\texttt{Hunspell}) és a szótárállományok a
+\texttt{C:\\Myspell} könyvtárba kerülnek.
+
+Nyissunk meg egy Parancssor ablakot, majd adjuk ki a
+\texttt{C:\\Myspell\\Hunspell} parancsot. A beírt szavakat,
+illetve mondatokat a Hunspell feldolgozza, és a hibás
+szavakat \&, vagy \# jellel kezdve írja ki. (A kimeneti
+formátum részletes ismertetését a függelékben közölt
+kézikönyvlapok tartalmazzák.)
+
+Ha egy meglévõ állományban szeretnénk a hibás szavakat
+megkeresni, a \emph{-l} kapcsolót, és esetleg az
+állomány típusát adjuk meg, az állományt pedig a
+standard bemeneten keresztül adjuk a Hunspell programnak.
+
+\begin{verbatim}
+hunspell -l -H <próba.html
+\end{verbatim}
+
+A példában a \texttt{próba.html} állomány hibás szavait
+irattuk ki a képernyõre. Ha a kimenetet el szeretnénk
+menteni, irányítsuk fájlba:
+
+\begin{verbatim}
+hunspell -l -H <próba.html >hibás_szavak.txt
+\end{verbatim}
+
+A Windows alá letölthetõ futtatható állomány nem tartalmazza
+a Linux alatt alapértelmezésként mûködõ menüs felületet, amely
+lehetõvé teszi a szöveges, \textsc{HTML}, \LaTeX{} és
+Groff formátumú állományok gyors javítását.\footnote{A Cygwin
+környezet lehetõvé teszi a menüs rendszer fordítását.
+A menüs rendszer Ncurses, Readline,
+és Gettext függvénykönyvtárakat használ, amelyeket az Visual C++
+-- szemben a Cygwinnel -- alapból nem tartalmaz.
+A Cygwin címe: \url{http://www.cygwin.com}.
+}
+
+
+\subsection{Hunspell Mac OS X alatt}
+
+Fazekas Mihály (\url{boga@mac.com}) a
+Hunspell 0.94-es változatát egy Cocoa felülettel bõvítette,
+ezzel lehetõvé téve a helyesírás-ellenõrzõ rendszerszintû
+használatát Mac OS X alatt. Letölthetõ csomagok, és részletes telepítési
+útmutató található a \url{http://myspellx.sf.com} címen.
+
+A Hunspell program lefordítható Mac OS X alá is. Telepítsük
+a GNU fejlesztõeszközöket (glibc-devel, ncurses-devel,
+readline-devel, gettext-devel), vagy a \texttt{hunspell.cxx}
+állományban kapcsoljuk ki a \textsc{CURSES} makrót, megjegyzésbe
+téve, vagy törölve a
+
+\begin{verbatim}
+#define CURSES
+\end{verbatim}
+
+sort. Ez utóbbi esetben a menüs felület nem fog mûködni, csak
+a parancssori.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Emacs}
+
+Az \texttt{Emacs}, illetve a \texttt{Xemacs} program mind Windows,
+mind Linux alatt képes a Hunspell programot használni.
+
+Ismeretlen okból csak a Xemacs kezeli jól
+a kötõjeleket tartalmazó szavakat, így ennek használata
+javasolt az Emacs helyett.
+
+\subsection{Az Emacs telepítése Linuxra}
+
+Linux esetében a terjesztések tartalmazzák mindkét programot.
+Az alapcsomag az \texttt{emacs}. Ha az \texttt{emacs-X11}
+csomagot is telepítjük, az X grafikus felületen egy bõvebb
+változat indul el, ami menüsorral és eszköztárral is rendelkezik.
+Ez utóbbival jelentõs részben megegyezik a \texttt{xemacs} csomagban található
+\texttt{Xemacs}.
+
+\subsection{Az Emacs telepítése Windowsra}
+
+Windowsra több helyen is találhatunk bináris csomagot, például az
+\url{ftp://ftp.gnu.org/gnu/windows/emacs/latest/} címen.
+Általános esetben az \texttt{emacs-21.2-bin-i386.tar.gz} csomagra van
+szükség, melyet az
+\url{ftp://ftp.gnu.org/gnu/windows/emacs/utilities/i386/} címen
+található programokkal  vagy a WinZIP programmal is kibonthatunk.
+
+Egy másik lelõhely a CTAN archívum, például:
+\url{ftp://ftp.dante.de/tex-archive/systems/win32/fptex/0.5/support/emacs-21.1.1-win32.zip}.
+
+\subsection{A Xemacs telepítése Windowsra}
+
+A \url{http://www.xemacs.org} címrõl tölthetõ le a Xemacs
+windowsos változata.
+
+\subsection{A Hunspell telepítése az Emacs alá}
+
+Az Emacs és Xemacs programok a háttérben indított Hunspell-lel
+együttmûködve képesek a helyesírás-ellenõrzésre.
+
+A Hunspell-nek a keresési útvonalon kell elhelyezkednie, méghozzá \texttt{ispell}
+néven. A Linuxra történõ telepítés során ez megtörénik.
+Windows alatt készítsünk a \texttt{C:\\Myspell\\Hunspell} programról
+egy másolatot \texttt{Ispell} néven valamelyik rendszerkönyvtárba
+(például \texttt{C:\\Windows}, \texttt{C:\\WinNT}).
+
+Windows, és az Emacs X-en futó változatai (Emacs-X11, Xemacs)
+esetében további beállításra nincs szükség. Az \texttt{M-x\ ispell}
+parancs kiadása után az Emacs elindítja a Hunspell programot,
+és ellenõrzi a segítségével az éppen szerkesztett szöveget.
+
+A Xemacs esetében a \texttt{M-x\ ispell-buffer} parancsot
+adjuk ki elsõnek, majd a következõ ellenõrzések
+során már használható \texttt{M-x\ ispell} is.
+
+\subsection{A Hunspell telepítése konzolon indított Emacshoz}
+
+Az Emacs (tehát nem Xemacs) konzolon való használathoz szükségünk
+lehet az \texttt{ispell.el}
+módosított változatára, bár inkább javasolt helyette a
+Xemacs konzolon történõ indítása.
+
+Az ispell.el állomány a \url{http://magyarispell.sf.net/ispell.el} címen
+található meg. A letöltött és kibontott állományt másoljuk abba a könyvtárba, ahol
+a lefordított \texttt{ispell.elc} található (például
+\texttt{/usr/share/emacs-21.1/lisp/textmodes/} könyvtár, vagy régebben
+\texttt{/usr/share/emacs/20.7/lisp/}).
+
+Ezután töröljük az ebben a könyvtárban található \texttt{ispell.elc} állományt!
+
+A telepített Ispell.el \texttt{magyar} nevû szótárállományokat
+keres, ezért gyõzödjünk meg arról, hogy a default.aff, default.dic
+állományok ilyen néven is elérhetõk (Windows alatt a
+\texttt{C:\\Myspell}, Linux alatt a \texttt{/usr/share/myspell} könyvtárakban).
+Ha nem, akkor készítsünk másolatot (vagy kötést) ezekrõl \texttt{magyar.aff}
+és \texttt{magyar.dic} néven ugyanabban a könyvtárban.
+
+Adjuk ki az \texttt{M-x} \texttt{ispell-change-dictionary} parancsot,
+és válasszuk ki a magyar szó beírásával a magyar Ispell szótármodult.
+
+Ha magyar az alapbeállításunk, természetesen az Emacs indító
+konfigurációjába (vagyis a \verb+~/.emacs+ fájlba) is beleírhatjuk:
+
+\begin{verbatim}
+(ispell-change-dictionary "magyar")
+(ispell)
+(ispell-kill-ispell)
+\end{verbatim}
+
+A folyamatos ellenõrzés alatt használható billentyûparancsok
+megegyeznek a Hunspell angol billentyûparancsaival.
+
+A saját szótárba felvett szavak
+a \texttt{\~/.hunspell\_default}, a módosított ispell.el használata esetén
+a \texttt{\~/.hunspell\_magyar} állományba kerülnek.
+
+Minthogy a Spell-menü tartalmának alapbeállítása az emacs programba
+bele van fordítva, indításkor az nem tartalmazza a magyar lehetõséget,
+viszont az ispell legalább egyszeri indítása után már igen, tehát
+ekkor már a menü is használható a parancssori utasítások helyett: a
+20.\ verzió esetében Edit$\rightarrow$Spell, a 21.\ verzió esetében
+pedig Tools$\rightarrow$Spell Checking.
+
+\subsection{Az Emacs használata}
+
+A teljes szöveg ellenõrzésére szolgál az \texttt{M-x ispell} parancs.
+
+Az itt használható billentyûparancsok
+megegyeznek a Hunspell angol billentyûparancsaival.
+
+Egy szót az \texttt{M-x} \texttt{ispell-word} paranccsal 
+ellenõriztethetünk. Ehhez létezik gyorsbillentyû is: \texttt{M-\$}.
+
+Az Emacs \emph{flyspell} üzemmódja lehetõséget nyújt a beírás
+közbeni helyesírás-ellenõrzésre, de a magyar beállításokkal
+nem mûködik tökéletesen együtt. Az üzemmódba az
+\texttt{M-x} \texttt{flyspell-mode} paranccsal léphetünk be.
+
+Ezután a hibás szavak grafikus felületen
+piros színûvé és aláhúzottá válnak. Ha a 3.\ egérgombbal (vagy a
+két szélsõvel egyszerre) kattintunk a szón, felnyílik egy
+menü, amellyel a javasolt cseréket fogadhatjuk el, illetve továbbléphetünk,
+felvehetjük a hibás szót az elfogadott szavak közé az ellenõrzés idejére,
+illetve ,,végérvényesen''.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Az Ispell telepítése és használata}
+
+Az Ispell a Hunspell képességeit tekintve elavult, és
+magyar nyelvû szövegek helyesírás-ellenõrzésére csak
+végszükség esetén, a Hunspell hiányában javasolt. A különbségeket a
+függelékben található Hunspell kézikönyvoldal foglalja
+össze.
+
+\subsection{Telepítés Linuxra}
+
+Az Ispell része a legnagyobb Linux terjesztéseknek,
+és egy átlagos Linux telepítésnél az Ispell telepítésére
+is sor kerül automatikusan.
+
+Linux alatt az Ispell szótárállományai a \texttt{/usr/lib/ispell}
+állományban kerülnek elhelyezésre. A magyar Ispell szótár,
+vagyis a (\texttt{magyar.hash}) állomány is ide kerül.
+
+\subsection{Telepítés Linuxra, forráskódból}
+Az ispell-honlapról
+(\url{http://fmg-www.cs.ucla.edu/fmg-members/geoff/tars/}) letölthetõ
+forráscsomag a benne lévõ \texttt{README} fájlban leírtak szerint
+(make all ; su ; make install) lefordítható.  A local.h fájl linux
+esetében javasolható módosításai a
+\begin{verbatim}
+#define NO8BIT    /* Remove this if you use ISO character sets */
+\end{verbatim}
+\noindent sor törlése és a 
+\begin{verbatim}
+#define USG       /* Define on System V or if term.c won't compile */
+#define LIBDIR    "/usr/lib/ispell"
+\end{verbatim}
+\noindent sorok eredetijeinek átírása a közöltekké.
+
+Némely rendszerek esetében szükség lehet a \texttt{/usr/lib/} könyvtárban a 
+\verb+# ln -s libtermcap.so.2 libtermcap.so+ kötés létrehozására.
+
+Ezután már csak make és -- rootként -- make install, mely parancs a
+\texttt{/usr/lib/ispell/}-be teszi az angol adatfájlokat és 
+/usr/local/bin/-be a programokat.
+
+\subsection{Windows\label{w32-ispell}}
+
+A Windowsra történõ telepítéshez Geoff Kuenning Ispell honlapján
+(\url{http://fmg-www.cs.ucla.edu/fmg-members/geoff/ispell-winnt.html})
+több lehetõséget is találunk.
+
+Windows alatt két fõ módja van az Ispell telepítésének
+és használatának. Az elsõben a teljes Cygwin környezetet
+telepítjük a Windows NT, 2000, illetve XP operációs rendszerünkre.
+Ez gyakorlatilag teljes Unix környezetté egészíti ki
+a Windowst, és utána telepítünk egy Cygwin környezet alá
+fordított Ispell változatot.
+
+A másik módszer azok számára, akik a szokásos Windows környezetet
+elõnyben részesítik, egyszerûbb: ez a bináris csomag formájában
+letölthetõ WIN32-re fordított Ispell változat Cygwin nélküli
+használata.
+
+Mindkét módszer esetében az
+\url{ftp://ftp.franken.de/pub/win32/develop/gnuwin32/cygwin/%
+porters/Humblet_Pierre_A/V1.1/} címen található verziót javasoljuk. A
+telepítést az \texttt{ispell-3.2.06-cygwin-1.3-bin.README} nevû fájl
+ismerteti. Az egyszerûbb esetben a csomagból kizárólag a
+\texttt{usr/local/bin/ispell.exe} fájlra van szükség, melyet a
+PATH-ban található valamelyik könyvtárba kell elhelyezni.  A
+szótárfájlok (lásd \ref{MI-telep}) a \texttt{DICTDIR} környezeti
+változó által meghatározható helyre teendõk.  (A .tar.gz végzõdésû
+fájl kicsomagolásához a Cygwin környezeten kívül pl.\ a djtarnt.exe
+program, vagy akár a népszerû WinZIP újabb változatai használhatók.)
+
+Ha tehát a \verb+C:\AUTOEXEC.BAT+ fájlban a
+\begin{verbatim}
+SET PATH=C:\WINDOWS;C:\WINDOWS\COMMAND;C:\BIN
+SET DICTDIR=C:\ISPELL
+\end{verbatim}
+\noindent sorok találhatók, akkor az ispell.exe fájlt a \verb+c:\bin+, 
+a magyar.hash és a magyar.aff fájlt a \verb+c:\ispell+ alkönyvtárba
+kell helyezni.
+
+Szintén a PATH-ban kell elhelyezni a cygwin1.dll nevû fájlt.
+
+Egy másik bináris csomag formájában letölthetõ WIN32-re fordított
+Ispell változat található a
+\url{ftp://ftp.tue.nl/pub/tex/GB85/ispell-dutch96/ispellw32.zip}
+címen.
+
+A letöltés után csomagoljuk ki a ZIP állományt a
+\verb|C:\| meghajtó gyökerében, és adjuk a
+keresési útvonalunkhoz a \verb|C:\Ispell\bin|
+könyvtárat. Ehhez nyissuk meg a 
+Start menü$\rightarrow$Beállítások$\rightarrow$Rendszer
+párbeszédablakot, és a Speciális lapon
+a középsõ részben (Környezet)
+keressük meg a keresési útvonalakat rögzítõ környezeti
+változót (PATH), és írjuk a végére
+pontosvesszõvel elválasztva a
+\verb|C:\Ispell\bin| útvonalat.
+
+Sajnos ez a dán Ispell modulhoz készült csomag
+még kis számú ragozási osztállyal
+lett lefordítva, ezért ha a legfrissebb
+Magyar Ispell szótármodult szeretnénk használni vele,
+újra kell fordítanunk az Ispellt. Ehhez
+az EMX+gcc csomagokra van szükség.
+
+Egy harmadik win32-változat a CTAN:fptex
+(\url{ftp://ftp.dante.de/tex-archive/systems/win32/}) disztribúcióban
+található.
+
+\subsection{A \texttt{magyar.hash} állomány telepítése és használata}
+
+A \texttt{magyar.hash} állomány, vagyis a magyar Ispell szótár része több Linux
+terjesztésnek is (különbözõ neveken: \texttt{ispell-hu}, \texttt{ihungarian} stb.).
+
+A \url{http://magyarispell.sf.net/} oldalról töltsük
+le a legfrissebb változatát a Magyar Ispell csomagnak
+(\texttt{magyarispell-XXX-tar.gz}), majd adjuk ki a
+következõ parancsokat:
+
+\begin{verbatim}
+tar xvzf magyarispell-XXX.tar.gz
+cd magyarispell-XXX
+make ispell
+cp tmp/magyar4ispell.hash /usr/lib/ispell/magyar.hash
+\end{verbatim}
+
+Windows esetében a \texttt{magyar.hash} állomány a
+\ref{w32-ispell} pontban leírt helyre kell tenni.
+
+Ha a magyart alapértelmezett nyelvként szeretnénk látni,
+akkor gondoskodjunk arról, hogy a szótárállományokat
+tartalmazó könyvtárban a \texttt{default.hash}
+a \texttt{magyar.hash}-ra mutasson.
+
+\begin{verbatim}
+rm /usr/lib/ispell/default.hash
+ln -s /usr/lib/ispell/magyar.hash /usr/lib/ispell/default.hash
+\end{verbatim}
+
+\subsection{Az Ispell változat megfelelõsége}
+
+Ahogy már említésre került, az Ispell számos fordítás során
+beállított paramétertõl függõen végzi tevékenységét.
+Különösen régebbi Linux terjesztésekben, vagy Windows alatt
+meg kell gyõzõdnünk arról, hogy az Ispell képes
+helyesen lefordítani és kezelni
+a Magyar Ispell forrásállományait.
+
+Adjuk ki Linux/Unix alatt a következõ parancsot:
+
+\begin{verbatim}
+ispell -vv | grep BIT
+\end{verbatim}
+
+Ha a bináris Ispell megfelel a céljainknak, akkor a következõ
+két sort kell látnunk:
+
+\begin{verbatim}
+       MASKBITS = 64
+       !NO8BIT (8BIT)
+\end{verbatim}
+
+Az elsõ sor jelzi, hogy elegendõ számú ragozási osztályt kezel az Ispell
+(a régebbi Ispell változatoknál a 32 volt az alapértelmezett).
+
+A második sor jelzi, hogy a szótárban található szavak
+tartalmazhatnak ékezetes betûket is.
+
+Windows alatt a következõ parancsot adjuk ki a
+parancssorban:
+
+\begin{verbatim}
+ispell -vv | more
+\end{verbatim}
+
+A listában keressük meg a fenti két sort.
+Ha a MASKBITS értéke 32, vagy a NO8BIT értéke igaz,
+akkor a Magyar Ispell használatához szükség van
+az Ispell újrafordítására.
+
+\subsection{Az Ispell használata}
+
+\subsubsection{Szöveges állományok}
+
+A következõ paranccsal kérhetjük szövegfájlok ellenõrzését:
+
+\begin{verbatim}
+ispell -d magyar fájl(ok)
+\end{verbatim}
+
+Ebben az esetben megjelenik egy kényelmes és gyors menü,
+amely sorban felmutatja a hibásnak vélt szavakat.
+
+Ha van javítási javaslat, akkor a javaslat elõtt látható
+számjegyek leütésével fogadjuk el a javaslatot.
+
+A legfontosabb billentyûparancsok a következõek:
+
+\begin{itemize}
+\item szóköz: Átugrik a szón, azt változatlanul hagyva.
+\item számok: Választás a javasolt cserék közül.
+\item \emph{r}: Csere az általunk megadott szóra.
+\item \emph{a}: Elfogadjuk a szót az ellenõrzés befejezõdéséig.
+\item \emph{i}: Felvesszük a saját szótárunkba. (Ez a \verb+~/.ispell_magyar+, 
+vagy ha létezik az aktuális könyvtárban az \texttt{.ispell\_magyar}
+állomány, akkor az.  Késõbb -- ha elhagytuk az Ispell programot -- ez
+akár kézzel is módosítható.)
+\item \emph{u}: Felvesszük a saját szótárunkba, de kisbetûsre
+alakítjuk elõtte.
+\item \emph{x}: A következõ fájlra ugrunk. A félig ellenõrzött 
+állománynak a fennmaradó része nem lesz kijavítva.
+\item \emph{l}: A rendszerszótárban végezhetünk kereséseket.
+A \texttt{*} jel segítségével mintázatot is megadhatunk, hasonlóan
+a fájlrendszerben megadott útvonalakhoz: pl. az \texttt{L*}
+mintázat minden L betûvel kezdõdõ szót kilistáz a
+\texttt{/usr/dict/words} állományból. A rendszerszótár angol nyelvû.
+\item \emph{q}: Kilépés mentés nélkül, ha a ,,q'' után ,,y''-t
+nyomunk megerõsítõ kérdésre. A vizsgált állomány javításai elvesznek.
+\end{itemize}
+
+A Hunspell program hasonló felülettel rendelkezik Linux alatt,
+de több újdonsággal is szolgál a magyar nyelv számára.
+Leírást a Hunspell(1) kézikönyv oldalon találunk.
+
+\subsubsection{\TeX{} állományok}
+
+A következõ paranccsal kérhetjük \TeX{}, illetve \LaTeX{} állományok
+ellenõrzését:
+
+\begin{verbatim}
+ispell -t -d magyar fájl(ok)
+\end{verbatim}
+
+Amennyiben az állomány(ok) kiterjesztése .tex, a -t kapcsolót
+nem szükséges megadni.
+
+A -t kapcsoló hatására az Ispell nem törõdik
+a fordított perjellel kezdõdõ, ékezetes betûket nem tartalmazó
+szavakkal (vagyis a TeX parancsokkal). Bizonyos parancsokat
+felismer, és az utána következõ egy, vagy két argumentummal
+sem foglalkozik. A matematikai környezetben lévõ szavakat
+nem ellenõrzi az Ispell.
+
+\subsubsection{HTML állományok}
+
+A következõ paranccsal kérhetjük HTML állományok
+ellenõrzését:
+
+\begin{verbatim}
+ispell -H magyar fájl(ok)
+\end{verbatim}
+

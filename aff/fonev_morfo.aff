@@ -1,0 +1,177 @@
+# 	
+#	magyar.aff/magyar.dict: Hungarian Ispell affix table and dictionary 
+#
+#	Copyright (C) 1998-2006 László Németh
+#
+#	This program is free software; you can redistribute it and/or modify
+#	it under the terms of the GNU General Public License as published by
+#	the free software foundation; either version 2 of the license, or
+#	(at your option) any later version.
+#
+#	this program is distributed in the hope that it will be useful,
+#	but WITHOUT ANY WARRANTY; without even the implied warranty of
+#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#	GNU General Public License for more details.
+#
+#	You should have received a copy of the GNU General Public License
+#	along with this program; if not, write to the free software
+#	foundation, inc., 59 temple place, suite 330, boston, ma  02111-1307  usa
+
+############################################################
+# névszó toldalékok - morfonetikus alternációk (pl. szerelem - szerelmek)
+############################################################
+
+#		   3 4 5 6 7 8 9
+# nev_jel(mit,mire,ó,a,o,á,u,o,o)
+# nev_jel(mit,mire,õ,e,e,é,ü,ö,e)
+# nev_jel(mit,mire,õ,e,ö,é,ü,ö,e)
+
+define(nev_jel_massal_morfo,
+# $1	>	$2$11k
+nev_birtokjel_2($1,$2$11k,$3,$4,$5,$6,$7,+[PLUR])
+nev_birtokjel_3($1,$2$11k,$3,$4,$9,$6,$7,+[PLUR])
+nev_rag_2($1,$2$11k,$3,$4,$5,$6,$7,+[PLUR])
+COMMENT(# melléknévképzõ - kivesszük a j: csoportba úti, vízi stb. miatt
+  $1	>	$2i
+  nev_birtokjel($1,$2i,$3,$4,$5,$6,$7)
+  nev_rag_2($1,$2i,$3,$4,$5,$6,$7))
+$1	>	$2$11m +[POSS_SG_1]+[NOM]
+$1	>	$2$11m/& +[POSS_SG_1]+[ACC]
+nev_birtokjel_2($1,$2$11m,$3,$4,$5,$6,$7,+[POSS_SG_1])
+nev_birtokjel_3($1,$2$11m,$3,$4,$9,$6,$7,+[POSS_SG_1])
+nev_rag_2($1,$2$11m,$3,$4,$5,$6,$7,+[POSS_SG_1])
+$1	>	$2$4im +[PLUR]+[POSS_SG_1]+[NOM]
+nev_birtokjel($1,$2$4im,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_1])
+nev_rag_2($1,$2$4im,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_1])
+$1	>	$2$11d +[POSS_SG_2]+[NOM]
+$1	>	$2$11d/& +[POSS_SG_2]+[ACC]
+nev_birtokjel_2($1,$2$11d,$3,$4,$5,$6,$7,+[POSS_SG_2])
+nev_birtokjel_3($1,$2$11d,$3,$4,$9,$6,$7,+[POSS_SG_2])
+nev_rag_2($1,$2$11d,$3,$4,$5,$6,$7,+[POSS_SG_2])
+$1	>	$2$4id +[PLUR]+[POSS_SG_2]+[NOM]
+nev_birtokjel($1,$2$4id,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_2])
+nev_rag_2($1,$2$4id,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_2])
+[^dt]$1	>	$2$4 +[POSS_SG_3]+[NOM]
+nev_birtokjel([^dt]$1,$2$6,$3,$4,$9,$6,$7,+[POSS_SG_3])
+nev_rag_2([^dt]$1,$2$4,$3,$4,$9,$6,$7,+[POSS_SG_3])
+$1	>	$2$4i +[PLUR]+[POSS_SG_3]+[NOM]
+nev_birtokjel($1,$2$4i,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_3])
+nev_rag_2($1,$2$4i,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_3])
+$1	>	$2$7nk +[POSS_PL_1]+[NOM]
+$1	>	$2$7nk/& +[POSS_PL_1]+[ACC]
+COMMENT( spec. : ünkhez -> ünkhöz)
+nev_birtokjel_2($1,$2$7nk,$3,$4,$8,$6,$7,+[POSS_PL_1])
+nev_birtokjel_3($1,$2$7nk,$3,$4,$9,$6,$7,+[POSS_PL_1])
+nev_rag_2($1,$2$7nk,$3,$4,$5,$6,$7,+[POSS_PL_1])
+$1	>	$2$4ink +[PLUR]+[POSS_PL_1]+[NOM]
+nev_birtokjel($1,$2$4ink,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_1])
+nev_rag_2($1,$2$4ink,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_1])
+$1	>	$2$11t$10k +[POSS_PL_2]+[NOM]
+$1	>	$2$11t$10k/& +[POSS_PL_2]+[ACC]
+nev_birtokjel_2($1,$2$11t$10k,$3,$4,$5,$6,$7,+[POSS_PL_2])
+nev_birtokjel_3($1,$2$11t$10k,$3,$4,$9,$6,$7,+[POSS_PL_2])
+nev_rag_2($1,$2$11t$10k,$3,$4,$5,$6,$7,+[POSS_PL_2])
+$1	>	$2$4it$9k +[PLUR]+[POSS_PL_2]+[NOM]
+nev_birtokjel($1,$2$4it$9k,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_2])
+nev_rag_2($1,$2$4it$9k,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_2])
+$1	>	$2$7k +[POSS_PL_3]+[NOM]
+$1	>	$2$7k/& +[POSS_PL_3]+[ACC]
+COMMENT( spec. : jükhez -> jükhöz)
+nev_birtokjel_2($1,$2$7k,$3,$4,$8,$6,$7,+[POSS_PL_3])
+nev_birtokjel_3($1,$2$7k,$3,$4,$9,$6,$7,+[POSS_PL_3])
+nev_rag_2($1,$2$7k,$3,$4,$8,$6,$7,+[POSS_PL_3])
+$1	>	$2$4ik +[PLUR]+[POSS_PL_3]+[NOM]
+nev_birtokjel($1,$2$4ik,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_3])
+nev_rag_2($1,$2$4ik,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_3])
+# $1	>	$2é 
+# nev_rag($1,$2é,$3,$4,$9,$6,$7)
+# nev_rag_2($1,$2é,$3,$4,$9,$6,$7)
+COMMENT(********************* -a/o/e/önként, -a/o/e/östu/ül)
+$1	>	$2$11nként +[nként_PERIOD_adv]
+$1	>	$2$11st$7l +[stUl_COMITATIVE_adv]
+)
+
+# -----------------melléknévképzõk mássalhangzó-végû fõnevekhez
+# melléknévképzõk, (ez nem kéne a melléknevekhez, de még spórolunk)
+#		   3 4 5 6 7 8 9 10
+# nev_jel(mit,mire,ó,a,o,á,u,o,o,ú)
+# nev_jel(mit,mire,õ,e,e,é,ü,ö,e,û)
+# nev_jel(mit,mire,õ,e,ö,é,ü,ö,e,û)
+
+#		   3 4 5 6 7 8
+# nev_jel(mit,mire,ó,a,o,á,u,o)
+# nev_jel(mit,mire,õ,e,e,é,ü,ö)
+# nev_jel(mit,mire,õ,e,ö,é,ü,ö)
+
+# kiesõ magánhangzójú névszói morfonetikus alternációk
+
+flag *I:
+
+# *oldalat
+
+#a k > -ak,at +[ACC]
+[^d] a l a k > -ak,at +[ACC]
+[^a] l a k > -ak,at +[ACC]
+[^l] a k > -ak,at +[ACC]
+o k > -ok,ot    +[ACC]
+e k > -ek,et    +[ACC]
+ö k > -ök,öt    +[ACC]
+
+# <csövön>, <füvön>, <kövön>, <nyüvön>, <tövön>, <mûvön>
+# <*tüzön> <*vizen> <leven>
+[öüû] v e k		>	-ek,ön +[SUE]
+e v e k		>	-ek,en +[SUE]
+v a k	>	-ak,on +[SUE]
+
+nev_jel_massal_morfo(`a k',`-ak,',ó,a,o,á,u,o,o,o,a)
+nev_jel_massal_morfo(`o k',`-ok,',ó,a,o,á,u,o,o,o,o)
+nev_jel_massal_morfo(`e k',`-ek,',õ,e,e,é,ü,ö,e,e,e)
+nev_jel_massal_morfo(`ö k',`-ök,',õ,e,ö,é,ü,ö,e,ö,ö)
+
+a k > -ak,ankénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
+o k > -ok,onkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
+e k > -ek,enkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
+ö k > -ök,önkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
+
+flag *J:
+
+# szerelmen
+
+a k > -ak,on +[SUE]
+o k > -ok,on +[SUE]
+e k > -ek,en +[SUE]
+ö k > -ök,ön +[SUE]
+
+#a k > -ak,i ???
+#o k > -ok,i ???
+#e k > -ek,i ???
+#ö k > -ök,i ???
+
+# fiaik?
+# i k > -ik,i
+
+#a k > -ak,ilag +[DER_N_ADV_lAg]
+#o k > -ok,ilag +[DER_N_ADV_lAg]
+#e k > -ek,ileg +[DER_N_ADV_lAg]
+#ö k > -ök,ileg +[DER_N_ADV_lAg]
+
+a k > -ak,ul +[ESS]
+o k > -ok,ul +[ESS]
+e k > -ek,ül +[ESS]
+ö k > -ök,ül +[ESS]
+
+#nev_rag(a k,``-ak,i'',ó,a,o,á,u,???)
+#nev_rag_2(a k,``-ak,i'',ó,a,o,á,u,???)
+#nev_rag(o k,``-ok,i'',ó,a,o,á,u,???)
+#nev_rag_2(o k,``-ok,i'',ó,a,o,á,u,???)
+#nev_rag(e k,``-ek,i'',õ,e,e,é,ü,???)
+#nev_rag_2(e k,``-ek,i'',õ,e,e,é,ü,???)
+#nev_rag(ö k,``-ök,i'',õ,e,e,é,ü,???)
+#nev_rag_2(ö k,``-ök,i'',õ,e,ö,é,ü,???)
+
+flag *N:
+
+# ezen a kis földen kívül nincs semmije, csak az a pár földönkívüli
+
+.	>	ön  +[SUE]
+.	>	höz +[ALL]

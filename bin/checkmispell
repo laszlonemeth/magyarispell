@@ -1,0 +1,173 @@
+#!/bin/bash
+# check mispell files for errors
+
+removecomments()
+{
+sed 's/\([^ ]*\)[ ]*#.*/\1/g'
+}
+
+helytelen_tobbes_szam()
+{
+echo "-----helytelen többes szám-----------------------------------------"
+# fõnév esetén a második alak nem "k"-ra végzõdik
+
+for f in `find . -type f -name "*fonev_morfo*" -noleaf`; do
+  cat "$f"|removecomments|grep -i '^[^	]*[	][^	]*[^k]$'
+  if [ $? -eq 0 ]; then echo "$f"; echo; fi
+  cat "$f"|removecomments|grep -i '^[^	]*[	][^	]*[^k][	]'
+  if [ $? -eq 0 ]; then echo "$f"; echo; fi
+done
+}
+
+duplikatum()
+{
+echo "-----duplikátum----------------------------------------------------"
+# több azonos sor egy fájlon belül
+
+for d in `find . -type d -name "_*" -o -name "kivetelek" -noleaf`; do
+  for f in `find "$d" -type f -noleaf`; do
+    linecount=`cat "$f"|removecomments|sed '/^$/d'|sort|uniq -d|wc -l`
+    if [ $linecount -ne 0 ]; then
+      cat "$f"|removecomments|sed '/^$/d'|sort|uniq -d
+      echo "$f"; echo
+    fi
+  done
+done
+}
+
+szokoz_rossz_helyen()
+{
+echo "-----szóköz rossz helyen-------------------------------------------"
+# szóköz nem megfelelõ helyen, azaz nem megjegyzéshez kapcsolódóan
+
+for d in `find . -type d -name "_*" -o -name "kivetelek" -noleaf`; do
+  for f in `find "$d" -type f -noleaf`; do
+    cat "$f"|removecomments|grep '[ ]'
+    if [ $? -eq 0 ]; then echo "$f"; echo; fi
+  done
+done
+}
+
+kis_kezdobetus_tulajdonnev()
+{
+echo "-----kis kezdõbetûs tulajdonnév------------------------------------"
+# kis kezdõbetûs tulajdonnév (nem mind hiba, például "haiti")
+
+for d in `find . -type d -name "_*" -noleaf`; do
+  for f in `find "$d" -type f -name "tulajdonnev*" -noleaf`; do
+    cat "$f"|removecomments|grep '^[	]\?[aábcdeéfghiíjklmnoóöõpqrstuúüûvwxyz]'
+    if [ $? -eq 0 ]; then echo "$f"; echo; fi
+  done
+done
+}
+
+nagybetus_melleknevkepzos_alak()
+{
+echo "-----nagybetûs melléknévképzõs alak--------------------------------"
+# tulajdonnév esetén a második alak nem csupa kisbetû
+
+for d in `find . -type d -name "_*" -noleaf`; do
+  for f in `find "$d" -type f -name "tulajdonnev*" -noleaf`; do
+    cat "$f"|removecomments|grep '^[^	]\+[	][^	]*[AÁBCDEÉFGHIÍJKLMNOÓÖÕPQRSTUÚÜÛVWXYZ]'
+    if [ $? -eq 0 ]; then echo "$f"; echo; fi
+  done
+done
+}
+
+melleknevkepzos_alak_hianyzik()
+{
+echo "-----melléknévképzõs alak hiányzik---------------------------------"
+# nagy kezdõbetûs földrajzi név a sor elején, amely után nincs második alak
+
+for d in `find . -type d -name "_*" -noleaf`; do
+  for f in `find "$d" -type f -name "tulajdonnev_geo" -noleaf`; do
+    cat "$f"|removecomments|grep '^[AÁBCDEÉFGHIÍJKLMNOÓÖÕPQRSTUÚÜÛVWXYZ][^	]*[	]*$'
+    if [ $? -eq 0 ]; then echo "$f"; echo; fi
+  done
+done
+}
+
+nagybetut_tartalmazo_ige_melleknev()
+{
+echo "-----nagybetût tartalmazó ige/melléknév----------------------------"
+# nagybetût tartalmazó ige illetve melléknév
+
+for d in `find . -type d -name "_*" -noleaf`; do
+  for f in `find "$d" -type f -name "ige*" -o -name "melleknev*" -noleaf`; do
+    cat "$f"|removecomments|grep '[AÁBCDEÉFGHIÍJKLMNOÓÖÕPQRSTUÚÜÛVWXYZ]'
+    if [ $? -eq 0 ]; then echo "$f"; echo; fi
+  done
+done
+}
+
+ugyanazon_ige_targyasban_es_alanyiban()
+{
+echo "-----ugyanazon ige tárgyasban és alanyiban-------------------------"
+# ugyanazon ige szerepel a tárgyasok és az alanyik közt
+
+comm -12 <(
+for d in `find . -type d -name "_*" -noleaf`; do
+  for f in `find "$d" -type f -name "ige_targy" -noleaf`; do
+    cat "$f"|removecomments|sed '/^$/d'
+  done
+done|sort|uniq) <(
+for d in `find . -type d -name "_*" -noleaf`; do
+  for f in `find "$d" -type f -name "ige_alanyi" -noleaf`; do
+    cat "$f"|removecomments|sed '/^$/d'
+  done
+done|sort|uniq)
+}
+
+alfajlban_levo_melleknev_nincs_a_fofajlban()
+{
+echo "-----alfájlban levõ melléknév nincs a fõfájlban--------------------"
+# egy alfájlban szereplõ melléknév nem szerepel a megfelelõ fõfájlban;
+#  például szerepel a "melleknev_mely" fájlban, de a "melleknev" fájlban nem
+
+for d in `find . -type d -name "_*" -noleaf`; do
+  comm -23 <(
+  for f in `find "$d" -type f -name "melleknev_*" -noleaf`; do
+    cat "$f"|removecomments|sed '/^$/d'
+  done|sort|uniq) <(
+  for f in `find "$d" -type f -name "melleknev" -noleaf`; do
+    cat "$f"|removecomments|sed '/^$/d'
+  done|sort|uniq)
+done
+}
+
+Ispell-fajlban_levo_szo_el_nem_fogadasa()
+{
+echo "-----Ispell-fájlban levõ szó el nem fogadása-----------------------"
+# saját fájljában levõ szót hibásnak jelez az Ispell, vagy csak
+#  összetettként fogad el
+
+for d in `find . -type d -name "_*" -o -name "kivetelek" -noleaf`; do
+  for f in `find "$d" -type f -noleaf`; do
+    echo "$f"|grep -E "\.m4$" >/dev/null
+    if [ $? -eq 0 ]; then
+      linecount=`cat "$f"|removecomments|sed '/^.*[$()].*$/d'|ispell -d magyar -l -B|wc -l`
+      if [ $linecount -ne 0 ]; then
+        cat "$f"|removecomments|sed '/^.*[$()].*$/d'|ispell -d magyar -l -B
+        echo "$f"; echo
+      fi
+    else
+      linecount=`cat "$f"|removecomments|ispell -d magyar -l -B|wc -l`
+      if [ $linecount -ne 0 ]; then
+        cat "$f"|removecomments|ispell -d magyar -l -B
+        echo "$f"; echo
+      fi
+    fi
+  done
+done
+}
+
+helytelen_tobbes_szam
+duplikatum
+szokoz_rossz_helyen
+kis_kezdobetus_tulajdonnev
+nagybetus_melleknevkepzos_alak
+melleknevkepzos_alak_hianyzik
+nagybetut_tartalmazo_ige_melleknev
+ugyanazon_ige_targyasban_es_alanyiban
+alfajlban_levo_melleknev_nincs_a_fofajlban
+Ispell-fajlban_levo_szo_el_nem_fogadasa

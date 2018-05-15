@@ -1,0 +1,17 @@
+#!/bin/sh
+# OpenOffice.org custom.dic converter
+# Authors: Khiraly <khiraly123@gmx.net> and others
+
+case $# in
+ 0) echo "OpenOffice.org custom.dic->wordlist converter
+Usage: dic2txt custom.dic >words.txt"; exit 0;;
+esac
+
+if [ "`type -p iconv`" != "" ]; then
+     filter="iconv -f utf-8 -t latin2"
+else
+     filter="recode utf8..latin"
+fi
+
+cat "$1" | $filter | tr -d '\001-\011\013-\037\056' | \
+tr '\000' '\n' | grep -v ^$ | sort -u

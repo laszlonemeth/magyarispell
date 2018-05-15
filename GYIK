@@ -1,0 +1,276 @@
+GYAKRAN ISMÉTELT KÉRDÉSEK ÉS SZÓTÁRÉPÍTÉSI SEGÉDLET 1.6.1
+
+-----------------------------------------------------------------
+Mi ez?
+
+A Magyar Ispell egy nyílt forráskódú (korlátozások nélkül
+használható, módosítható, terjeszthető, mindezt ingyenesen)
+professzionális magyar helyesírás-ellenőrző rendszer.
+A LibreOffice (korábban OpenOffice.org), a Google Gmail, a
+Mozilla Thunderbird és Firefox, Google Chrome és Dokumentumok,
+és számos magyarított alkalmazás helyesírás-ellenőrzője.
+
+A Szószablya (http://www.szoszablya.hu) projektnek köszönhetően
+a Hunspell helyesírás-ellenőrzőből kiindulva egy morfológiai
+elemző (Hunmorph), valamint a Magyar Ispell morfológiai
+szótár is elkészült.
+
+-----------------------------------------------------------------
+Miből áll?
+
+Három fő részből áll, egy szótár-előállító
+keretrendszerből (Magyar Ispell szótár), és egy
+helyesírás-ellenőrző programkönyvtárból (Hunspell)
+valamint egy futtatható programból (hunspell).
+
+Ez a GYIK állomány a szótári keretrendszer része.
+
+-----------------------------------------------------------------
+Hol található?
+
+Magyar Ispell szótár:
+http://magyarispell.sourceforge.net/
+
+Hunspell programkönyvtár és program:
+http://hunspell.sourceforge.net és http://hunspell.github.io
+
+-----------------------------------------------------------------
+Hol találok leírást?
+
+Magyar Ispell dokumentáció:
+http://magyarispell.sourceforge.net/magyarispell.pdf
+
+A IV. GNU/Linux konferencia kiadványában megjelent cikk:
+http://mek.niif.hu/01200/01240/01240.pdf
+
+Az új szókincs-modulok létrehozásával
+a GYIK utolsó szakasza foglalkozik.
+
+-----------------------------------------------------------------
+Milyen segítséget várunk?
+
+Várjuk azokat a gyakori szavakat, szóalakokat, amelyeket hibásnak
+jelez a Magyar Ispell, és bármilyen egyéb észrevételt.
+
+Örömmel vesszük a szakmai lektorálást, illetve új szakmai
+modulok elkészítését!
+
+-----------------------------------------------------------------
+Tőszavak felvétele
+
+Ragozható tőszavak felvételét jelenleg csak a hunspell névre
+hallgató felület támogatja közvetlenül.
+
+A szótárépítést megkönnyíti, ha a hunspell a szabályos bemenetet dolgozza
+fel, így szavanként, vagy akár soronként adhatjuk meg az ellenőrizendő
+szöveget. Ehhez paraméter nélkül indítsuk a programot:
+
+$ hunspell
+*
+fűtetlen
+# fűtetlen 0
+látatlan
+& látatlan 1 0: lábatlan
+fát
++ FA
+fapofa
+-
+
+Értelmezése:
+csillag: ebben az alakban a szótárban,
++: ragozottként előáll,
+# nincs, még hasonló sem,
+& nincs, lásd a hasonlókat,
+- összetett szóként előáll
+
+-----------------------------------------------------------------
+Új szavak felvétele
+
+Indítsuk el a terjesztés gyökérkönyvárában
+(magyarispell/*) a bin/felvesz segédprogramot,
+és a leírás alapján adjuk meg az új szavainkat, amelyeket
+szeretnénk toldalékolva is felismerni az ellenőrzés során.
+
+-----------------------------------------------------------------
+Hogyan készíthetjük el a saját
+terminológiánkat, hasonlóan az informatikaihoz?
+
+Nagyon egyszerű a szótárépítés. Általában egyszerű szófaji
+kategorizálás megteszi: fonev, melleknev, ige_alanyi, ige_targy,
+melleknev. Ne ijedjünk meg, nézzük meg például az _informatika
+modult!
+
+1. mkdir _botanika
+Létrehozzuk az új modulkönyvtárat. Ennek neve aláhúzásjellel
+kell, hogy kezdődjék.
+
+2. Lépjünk be a könyvtárba, és kezdjük bővíteni!  Bizonytalan helyesírású
+szavakat ellenőrizzük le a helyesírási szótárban, (csak végső esetben a
+Google-val).
+
+cd _botanika
+echo >>fonev iringó
+echo >>ige_targy kvadrátoz
+
+(Használhatunk szövegszerkesztőt is, de ha felfele nyíl, Ctrl-r, valamint
+Alt-backspace billentyűparancsokat ismerjük, akkor a parancssor gyorsabb.)
+
+3. Ha létezik a Botanika->_botanika szimbolikus kötés, akkor fordításnál
+a _botanika modul tartalma is befordul a szótárba. Ha ezt nem szeretnénk,
+akkor töröljük a kötést:
+
+rm -f Botanika
+
+Ha mégis meggondoltuk magunkat:
+
+ln -s _botanika Botanika
+
+Ha elindítjuk a szótár fordítását, akkor egy menü segítségével
+végezhetjük el ugyanezt,
+
+-----------------------------------------------------------------
+Hogyan döntjük el, hogy egy szó mely állományokba kerüljön?
+
+A speciális szótárállományok leírását a szotar/_alap/LEIRAS
+állomány tartalmazza!
+
+A ragozási osztályok kapcsolóit az aff/aff.fej állomány
+ismerteti. (A ragozatlan szavak felvételéhez van erre
+esetlegesen szükség.)
+
+A következőket csak akkor olvassuk el, ha a LEIRAS állományt
+már áttanulmányoztuk!
+
+Meg kell tudnunk különböztetni a közneveket, tulajdonneveket, igéket
+és mellékneveket.
+
+Pl. a katona beker
+
+Legyen a szó pl. katona:
+
+1. ez főnév, betesszük a fonev állományba.
+2. magas magánhangzót (iíéöüőű) tartalmazó szótagra végződő és
+    vegyes hangrendű (van benne még aáoóuú)
+    vagy csak ií magánhangzó(ka)t tartalmaz? Nem.
+3. mássalhangzóra végződik? Nem. 
+Vége.
+
+Legyen a szó pl. csekk:
+
+1. ez főnév, betesszük a fonev állományba.
+2. magas magánhangzót (iíéöüőű) tartalmazó szótagra végződő és
+    vegyes hangrendű (van benne még aáoóuú)
+    vagy csak ií magánhangzó(ka)t tartalmaz? Nem.
+3. mássalhangzóra végződik? Igen.
+    a. -jaje és -ae birtokos  személyjelet is kap? Nem. 
+    b. b, d, f, k, l, n, p, r és t a vége, és mégis 
+	-a/-e birtokos személyjelet kap? Nem.
+Vége.
+
+Legyen a szó pl. menedék:
+
+1. ez főnév, betesszük a fonev állományba.
+2. magas magánhangzót (iíéöüőű) tartalmazó szótagra végződő és
+    vegyes hangrendű (van benne még aáoóuú)
+    vagy csak ií magánhangzó(ka)t tartalmaz? Nem.
+3. mássalhangzóra végződik? Igen.
+    a. -jaje és -ae birtokos  személyjelet is kap? Nem. 
+    b. b, d, f, k, l, n, p, r és t a vége, és mégis 
+	-a/-e birtokos személyjelet kap? Igen. Betesszük a fonev_ae állományba is.
+Vége.
+
+Legyen a szó pl. koszadék:
+
+1. ez főnév, betesszük a fonev állományba.
+2. magas magánhangzót (iíéöüőű) tartalmazó szótagra végződő és  (igen)
+    vegyes hangrendű (van benne még aáoóuú),
+    VAGY csak ií magánhangzó(ka)t tartalmaz?  nem, de a végeredmény igen.
+    a. ragozása ingadozó (magas és mély ragokkal is előfordul)? Nem.
+    b. mély hangrendű toldalékokat kap? Igen
+    
+    Betesszük a fonev_mely állományba is.
+    
+3. mássalhangzóra végződik? Igen.
+    a. -jaje és -ae birtokos  személyjelet is kap? Nem. 
+    b. b, d, f, k, l, n, p, r és t a vége, és mégis 
+	-a/-e birtokos személyjelet kap? Igen. Betesszük a fonev_ae állományba is.
+Vége.
+
+Egyébként ha a szó ingadozó ragozású (fotellel, fotellal) bekerül a fonev_ing-be
+
+Ha a -ja/-je -a/-e személyjelet is elviseli (pl. monitora, monitorja), akkor
+a fonev_jajeae-be is bekerül
+
+Ha c, g, h, j, m, s, x, y, v, vagy z a vége, és mégis csak -ja/-je ragot kap,
+bekerül a fonev_jaje-be (pl. lánya)
+
+(A semleges ií magánhangzót tartalmazó utolsó szótagú 
+szavak gyakran kapnak mély ragokat: nyíllal, forinttal, stb.
+a magas hangrendű, csak e, é-t tartalmazóak nagyon ritkák, pl.
+derékkal)
+
+-----------------------------------------------------------------
+Igék
+
+1. Tárgyas ragozású-e az ige? 
+
+pl. titkosítja a kutyát: titkosít -> ige_targy
+de! titkosítódja a kutyát már nem cseng jól: titkosítódik -> ige_alanyi
+
+2. A mély hangrendre ugyanaz vonatkozik, mint a főnevekre.
+
+3. -tat/-tet, vagy csak -at/-et műveltető ige képzőket kap?
+
+titkosíttat, és nem titkosítat.  Nem csinálunk vele semmit.
+Ha -at/-et ragos egy ige, pl. ad/adat, akkor mindkét alak szerepel
+az ige_targy-ban, és az ige_tat_kiv állományban is (az utóbbiban
+azért, hogy a program ne állítsa elő az adtat és az adattat alakokat.)
+
+-----------------------------------------------------------------
+Melléknevek
+
+igékhez hasonlóak. A főneveknek van melléknévképzős (-es/-os, -i, -jú,-jű)
+változata is, így ezek, hacsak nem valamilyen szóösszetétel (pl.
+nagyszájú), előállnak a főnevekből is.
+
+-----------------------------------------------------------------
+Tulajdonnevek
+
+Az állományok formátuma elsőre kicsit zavaró lehet:
+ha egy tulajdonnév nem kap toldalékot a magyar nyelvben 
+(mozaikszó, vagy a szó vége idegen), akkor egy tabulátor után
+(tehát a második mezőbe) írjuk a szavakat.
+
+	Bastille
+
+Ha ragozzuk, akkor rögtön sor elejére
+
+Einstein
+
+Ha a ragozott alakok között melléknévképzős (kisbetűs) is akad, akkor
+az ugyanebbe a sorba, egy tabulátorral elválasztva írjuk:
+
+Einstein	einsteini
+
+-----------------------------------------------------------------
+Ragozatlan
+
+Ha sehová nem illik a szó, felvehetjük a ragozatlan
+alakok közé. Ha azért valamilyen mértékben ragozott,
+akkor puskázzunk. A legenerált magyar.dict-et szűrjük meg arra vonatkozóan,
+hogy egy hasonló ragozású, hangrendű, stb. szó milyen ragozási 
+csoportjelzőkkel  került a szótárba:
+
+grep  ^milyen/ magyar.dict
+milyen/B/V/L/R
+
+A szavunkhoz ugyanezt rendelhetjük hozzá a ,,ragozatlan'' állományban.
+
+ilyen/B/V/L/R
+
+A kötőjel speciális kapcsoló a Magyar Ispell keretrendszerben: az automatikusan
+hozzáadott kapcsolókat vehetjük el egy tőtől, a ragozatlan szavak közötti felsorolással:
+pl.: erő/-R (egyéb szófajoknál még az automatikus előjel, pl. [vrb] hozzáadására
+is szükség van). Szintaxis: -k, ahol a k egy tetszőleges kapcsoló.
+
+Németh László

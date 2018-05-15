@@ -1,0 +1,1547 @@
+# 	
+#	magyar.aff/magyar.dict: Hungarian Ispell affix table and dictionary 
+#
+#	Copyright (C) 1998-2006 László Németh
+#
+#	This program is free software; you can redistribute it and/or modify
+#	it under the terms of the GNU General Public License as published by
+#	the free software foundation; either version 2 of the license, or
+#	(at your option) any later version.
+#
+#	this program is distributed in the hope that it will be useful,
+#	but WITHOUT ANY WARRANTY; without even the implied warranty of
+#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#	GNU General Public License for more details.
+#
+#	You should have received a copy of the GNU General Public License
+#	along with this program; if not, write to the free software
+#	foundation, inc., 59 temple place, suite 330, boston, ma  02111-1307  usa
+
+############################################################
+# névszó toldalékok (fõnév és melléknév)
+############################################################
+
+# megjegyzés
+
+define(COMMENT,)
+
+# birtokjel+birtoktöbbesítõ jel
+# kettõskeresztet törölni, ha szeretnénk ilyen alakokat: macskáéi 
+define(_ei_,`') # korábban (_ei_,`#')
+
+# névszók ragjai a névszók jeleihez
+
+#                  3 4 5 6 7
+# nev_rag(mit,mire,ó,a,o,á,u)
+# nev_rag(mit,mire,õ,e,e,é,ü)
+# nev_rag(mit,mire,õ,e,ö,é,ü)
+
+
+define(nev_rag,
+COMMENT(********************* -t, -at, -et, tárgyeset!!!)
+`ifelse(regexp('$2`,[^aáeéiíoóöõuúüû123456789]$),-1,
+$1	>	$2t $8+[ACC] $9,
+$1	>	$2$4t $8+[ACC] $9)'
+COMMENT(********************* -nak, -nek *******)
+$1	>	$2n$4k $8+[DAT] $9
+COMMENT(********************* -ban, -ben *******)
+$1	>	$2b$4n $8+[INE] $9
+COMMENT(********************* -ba, -be ********)
+$1	>	$2b$4 $8+[ILL] $9
+COMMENT(********************* -ból, -bõl *******)
+$1	>	$2b$3l $8+[ELA] $9
+COMMENT(********************* -n, -on, -en, -ön **)
+`ifelse(regexp('$2`,[aáeéiíoóöõuúüû123456789]$),-1,
+$1	>	$2$5n $8+[SUE] $9,
+$1	>	$2n $8+[SUE] $9)'
+COMMENT(********************* -ról, -rõl ********)
+$1	>	$2r$3l $8+[DEL] $9
+COMMENT(********************* -ra, -re *********)
+$1	>	$2r$4 $8+[SBL] $9
+COMMENT(********************* -nál, -nél *******)
+$1	>	$2n$6l $8+[ADE] $9
+COMMENT(********************* -tól, -tõl *******)
+$1	>	$2t$3l $8+[ABL] $9
+COMMENT(********************* -hoz,-hez,-höz **)
+$1	>	$2h$5z $8+[ALL] $9
+COMMENT(********************* -ig *************)
+$1	>	$2ig $8+[TERM] $9
+COMMENT(********************* -vá,-vé *********)
+`ifelse(regexp('$2`,[^aáeéiíoóöõuúüû0123456789]$),-1,
+$1	>	$2v$6 $8+[TRANS] $9,
+$1	>	$2`'substr($2,eval(len($2)-1))$6 $8+[TRANS] $9)'
+COMMENT(********************* -val,-vel *******)
+`ifelse(regexp(`'$2`',[^aáeéiíoóöõuúüû0123456789]$),-1,
+$1	>	$2`'v$4l $8+[INSTR] $9,
+$1	>	$2`'substr($2,eval(len($2)-1))$4l $8+[INSTR] $9)'
+COMMENT(********************* -ért ************)
+$1	>	$2ért $8+[CAUS/FIN] $9
+COMMENT(********************* -nként, -onként, -enként, de nincs birtokjel)
+COMMENT(`ifelse(regexp('$2`,[aáeéiíoóöõuúüû123456789]$),-1,
+$1	>	$2$5nként $8+[nként_PERIOD_adv] $9,
+$1	>	$2nként $8+[nként_PERIOD_adv] $9)')
+COMMENT(********************* -ul,-ül)
+$1	>	$2$7l $8+[ESS] $9
+COMMENT(********************* -stul,-stül, -ostul)
+COMMENT( $1	>	$2st$7l $8+[stUl_COMITATIVE_adv] $9)
+)
+
+# a kutyájáként -> kutyájaként formák külön kezelése
+
+define(nev_rag_2,
+COMMENT(********************* -képp(en) **************)
+COMMENT( $1	>	$2képp $8+[képp_MODE_adv] $9)
+COMMENT( $1	>	$2képpen $8+[képpen_MODE_adv] $9)
+COMMENT(********************* -ként ******************)
+$1	>	$2ként $8+[FORM] $9
+COMMENT(********************* -kor *******************)
+$1	>	$2kor $8+[TEMP] $9
+COMMENT( kiváltható egyedi esetekben? telente, nyaranta, évente, havonta,
+hetente, naponta )
+COMMENT(********************* -anta *******************)
+COMMENT($1	>	$2$4nta)
+)
+
+define(nev_birtokjel,
+`nev_rag($1,'$2`,$3,$4,$5,$6,$7,$8,$9)'
+COMMENT( nõhÖz/nõihEz )
+`$1	>	'$2`é $8+[POSSESSEE]+[NOM] $9'
+nev_rag($1,$2é,$3,$4,$5,$6,$7,$8+[POSSESSEE],$9)
+_ei_ `$1	>	'$2`éi $8+[POSSESSEE]+[PLUR]+[NOM]'
+_ei_ nev_rag($1,$2éi,$3,$4,$5,$6,$7,$8+[POSSESSEE]+[PLUR],$9)
+)
+
+# *tököméhöz, *tûméhöz
+
+define(nev_birtokjel_2,
+`nev_rag($1,'$2`,$3,$4,$5,$6,$7,$8,$9)'
+)
+
+define(nev_birtokjel_3,
+COMMENT( nõhÖz/nõihEz )
+`$1	>	'$2`é $8+[POSSESSEE]+[NOM] $9'
+nev_rag($1,$2é,$3,$4,$5,$6,$7,$8+[POSSESSEE],$9)
+_ei_ `$1	>	'$2`éi $8+[POSSESSEE]+[PLUR]+[NOM]'
+_ei_ nev_rag($1,$2éi,$3,$4,$5,$6,$7,$8+[POSSESSEE]+[PLUR],$9)
+)
+
+# ------------------------------------------------------
+# melléknevek
+
+define(nev_rag_melleknev,
+$1	>	$2 $8+[NOM] D
+COMMENT(********************* -at, -et, tárgyeset!!!)
+$1	>	$2$4t $8+[ACC] D
+COMMENT(********************* -nak,-nek *******)
+$1	>	$2n$4k $8+[DAT] D
+COMMENT(********************* -ban,-ben *******)
+$1	>	$2$4n $8+[INE] D
+COMMENT(********************* -ba, -be ********)
+$1	>	$2$4 $8+[ILL] D
+COMMENT(********************* -ból,-bõl *******)
+$1	>	$2$3l $8+[ELA] D
+COMMENT(********************* -n,-on,-en,-ön **)
+$1	>	$2$5n $8+[SUE] D
+COMMENT(********************* -ról,-rõl ********)
+$1	>	$2r$3l $8+[DEL] D
+COMMENT(********************* -ra,-re *********)
+$1	>	$2r$4 $8+[SBL] D
+COMMENT(********************* -nál,-nél *******)
+$1	>	$2n$6l $8+[ADE] D
+COMMENT(********************* -tól,-tõl *******)
+$1	>	$2t$3l $8+[ABL] D
+COMMENT(********************* -hoz,-hez,-höz **)
+$1	>	$2h$5z $8+[ALL] D
+COMMENT(********************* -ig *************)
+$1	>	$2ig $8+[TERM] D
+COMMENT(********************* -vá,-vé *********)
+$1	>	$2$6 $8+[TRANS] D
+COMMENT(********************* -val,-vel *******)
+$1	>	$2`'$4l $8+[INSTR] D
+COMMENT(********************* -ért ************)
+$1	>	$2ért $8+[CAUS/FIN] D
+COMMENT(********************* -ként ***********)
+$1	>	$2ként $8+[FORM] D
+)
+
+define(nev_birtokjel2,
+`nev_rag_melleknev($1,'$2`,$3,$4,$5,$6,$7,$8,$9)'
+$1	>	$2é $8+[POSSESSEE]+[NOM] $9
+nev_rag($1,$2é,$3,$4,$5,$6,$7,$8+[POSSESSEE],$9)
+)
+
+define(nev_jel_jaje2,
+$1	>	$2j$4 $11+[POSS_SG_3]+[NOM] $12
+nev_birtokjel($1,$2j$6,$3,$4,$9,$6,$7,$11+[POSS_SG_3],$12)
+nev_rag_2($1,$2j$4,$3,$4,$9,$6,$7,$11+[POSS_SG_3],$12)
+$1	>	$2j$4i $11+[PLUR]+[POSS_SG_3]+[NOM] $12
+nev_birtokjel($1,$2j$4i,$3,$4,$9,$6,$7,$11+[PLUR]+[POSS_SG_3],$12)
+nev_rag_2($1,$2j$4i,$3,$4,$9,$6,$7,$11+[PLUR]+[POSS_SG_3],$12)
+$1	>	$2j$4ink $11+[PLUR]+[POSS_PL_1]+[NOM] $12
+nev_birtokjel($1,$2j$4ink,$3,$4,$9,$6,$7,$11+[PLUR]+[POSS_PL_1],$12)
+nev_rag_2($1,$2j$4ink,$3,$4,$9,$6,$7,$11+[PLUR]+[POSS_PL_1],$12)
+)
+
+
+############################################################
+# F osztály: mély melléknévi toldalékok (-at, -ak, -bb stb.)
+#
+# Példa: <okosat>, <okosak>, <okosabb>, <okosabbik>
+# <okosabbika> <okosabbikát> <okosabbikját> <vádlóan>
+############################################################
+
+flag *F:
+
+nev_birtokjel2([^aeáéiíóõúû&agrave;&ugrave;&oslash;],`abb',ó,a,o,á,u,+Abb,D)
+nev_jel_jaje2([^aáéóõuúüû&agrave;&ugrave;&oslash;],`abb',ó,a,o,á,u,o,o,ú,+Abb,D)
+nev_birtokjel2(a,``-a,ább'',ó,a,o,á,u,+Abb,D)
+nev_jel_jaje2(a,``-a,ább'',ó,a,o,á,u,o,o,ú,+Abb,D)
+nev_birtokjel2([áéiíóõúû&agrave;&ugrave;&oslash;],`bb',ó,a,o,á,u,+Abb,D)
+nev_jel_jaje2([áéiíóõúû&agrave;&ugrave;&oslash;],`bb',ó,a,o,á,u,o,o,ú,+Abb,D)
+[^aeáéiíóõn&agrave;&ugrave;&oslash;]	>	at +[ACC]
+[^aeáéíõ&agrave;&ugrave;&oslash;]	>	ak +[PLUR]+[NOM]
+nev_birtokjel([^aeáéíõ&agrave;&ugrave;&oslash;],`ak',ó,a,o,á,u,+[PLUR])
+[^aeáéiíóõúû]	>	abbak +Abb+[PLUR]+[NOM] D
+nev_birtokjel([^aeáéiíóõúû&agrave;&ugrave;&oslash;],`abbak',ó,a,o,á,u,+Abb+[PLUR],D)
+a		>	-a,ábbak +Abb+[PLUR]+[NOM] D
+nev_birtokjel(a,``-a`,'ábbak'',ó,a,o,á,u,+Abb+[PLUR],D)
+[áéiíóõúû&agrave;&ugrave;&oslash;]	>	bbak +Abb+[PLUR]+[NOM] D
+nev_birtokjel([áéiíóõúû&agrave;&ugrave;&oslash;],`bbak',ó,a,o,á,u,+Abb+[PLUR],D)
+
+[^aeáéiíóõúû&agrave;&ugrave;&oslash;]	>	abbik +Abbik+[NOM] DQS
+nev_birtokjel([^aeáéiíóõúû&agrave;&ugrave;&oslash;],`abbik',ó,a,o,á,u,+Abbik,D)
+a		>	-a,ábbik +Abbik+[NOM] DQS
+nev_birtokjel(a,``-a`,'ábbik'',ó,a,o,á,u,+Abbik,D)
+[áéiíóõúû&agrave;&ugrave;&oslash;]	>	bbik +Abbik+[NOM] DQS
+nev_birtokjel([áéiíóõúû&agrave;&ugrave;&oslash;],`bbik',ó,a,o,á,u,+Abbik,D)
+
+[^aeáéiíóõúû&agrave;&ugrave;&oslash;]	>	abbul +Abb+Ul D
+a		>	-a,ábbul +Abb+Ul D
+[áéiíóõúû&agrave;&ugrave;&oslash;]	>	bbul +Abb+Ul D
+
+[^aeáéiíóõúû&agrave;&ugrave;&oslash;]	>	abban +Abb+[An_MODE_adv] D
+a		>	-a,ábban +Abb+[An_MODE_adv] D
+[áéiíóõúû&agrave;&ugrave;&oslash;]	>	bban +Abb+[An_MODE_adv] D
+
+a	>	-a,án	[An_MODE_adv]
+é	>	n	[An_MODE_adv] # csálén
+[^aeáéíõû&agrave;&ugrave;&oslash;]	> an +[An_MODE_adv] # vádlóan, szomorúan (de! lassan)
+
+s z	>	t +[ACC]
+[^c] s >	t +[ACC]
+
+############################################################
+# G osztály: ajakréses magas melléknévi toldalékok (-bb)
+#
+# Példa: remekebbek, remekebbiket (remeket, remekek)
+#
+# A -et, -ek is szerepel itt a mély hangrend -ak, -at
+# és -ot, -ok különbsége miatt.
+############################################################
+
+flag *G:
+
+nev_birtokjel2([^aeáéiíóõúû],`ebb',õ,e,e,é,ü,+Abb,D)
+nev_jel_jaje2([^aeáéiíóõúû],`ebb',õ,e,e,é,ü,ö,e,û,+Abb,D)
+nev_birtokjel2(e,``-e,ébb'',õ,e,e,é,ü,+Abb,D)
+nev_jel_jaje2(e,``-e,ébb'',õ,e,e,é,ü,ö,e,û,+Abb,D)
+nev_birtokjel2([áéiíóõúû],`bb',õ,e,e,é,ü,+Abb,D)
+nev_jel_jaje2([áéiíóõúû],`bb',õ,e,e,é,ü,ö,e,û,+Abb,D)
+
+[^aeáéiíóõn]	>	et +[ACC]
+[^aeáéíó]	>	ek +[PLUR]+[NOM]
+#nev_rag([^aeáéíó],`ek',õ,e,e,é,ü,+[PLUR])
+nev_birtokjel([^aeáéíó],`ek',õ,e,e,é,ü,+[PLUR])
+
+[^aeáéiíóõúû]	>	ebbek +Abb+[PLUR]+[NOM] D
+nev_birtokjel([^aeáéiíóõúû],`ebbek',õ,e,e,é,ü,+Abb+[PLUR],D)
+e		>	-e,ébbek +Abb+[PLUR] D
+nev_birtokjel(e,``-e`,'ébbek'',õ,e,e,é,ü,+Abb+[PLUR],D)
+[áéiíóõúû]	>	bbek +Abb+[PLUR]+[NOM] D
+nev_birtokjel([áéiíóõúû],`bbek',õ,e,e,é,ü,+Abb+[PLUR],D)
+
+[^aeáéiíóõúû]	>	ebbik +Abbik+[NOM] DRT
+nev_birtokjel([^aeáéiíóõúû],`ebbik',õ,e,e,é,ü,+Abbik,D)
+e		>	-e,ébbik +Abbik DRT
+nev_birtokjel(e,``-e`,'ébbik'',õ,e,e,é,ü,+Abbik,D)
+[áéiíóõúû]	>	bbik +Abbik+[NOM] DRT
+nev_birtokjel([áéiíóõúû],`bbik',õ,e,e,é,ü,+Abbik,D)
+
+[^aeáéiíóõúû]	>	ebben +Abb+[An_MODE_adv] D
+e		>	-e,ébben +Abb+[An_MODE_adv] D
+[áéiíóõúû]	>	bben +Abb+[An_MODE_adv] D
+
+e	>	-e,én +[An_MODE_adv]
+[^aeéáíóú]	> en +[An_MODE_adv] #  (de! lassan)
+
+[^aeáéiíóõúû]	>	ebbül +Abb+Ul D
+e		>	-e,ébbül +Abb+Ul D
+[áéiíóõúû]	>	bbül +Abb+Ul D
+
+############################################################
+# H osztály: ajakkerekítéses magas melléknévi toldalékok (-bb)
+#
+# Példa: keserûbbik, (keserûet, keserûek)
+############################################################
+
+flag *H:
+
+# ua. mint elõzõ, kivéve õû
+nev_birtokjel2([^aeáéiíóõúû],`ebb',õ,e,e,é,ü,+Abb,D)
+nev_jel_jaje2([^aeáéiíóõúû],`ebb',õ,e,e,é,ü,ö,e,û,+Abb,D)
+nev_birtokjel2(e,``-e,ébb'',õ,e,e,é,ü,+Abb,D)
+nev_jel_jaje2(e,``-e,ébb'',õ,e,e,é,ü,ö,e,û,+Abb,D)
+nev_birtokjel2([õû],`bb',õ,e,ö,é,ü,+Abb,D)
+nev_jel_jaje2([õû],`bb',õ,e,ö,é,ü,ö,e,û,+Abb,D)
+[^aeáéiíóõn]	>	et +[ACC]
+[^aeáéíó]	>	ek +[PLUR]+[NOM]
+#nev_rag([^aeáéíó],`ek',õ,e,e,é,ü,+[PLUR])
+nev_birtokjel([^aeáéíó],`ek',õ,e,e,é,ü,+[PLUR])
+
+[^aeáéiíóõúû]	>	ebbek +Abb+[PLUR]+[NOM] D
+nev_birtokjel([^aeáéiíóõúû],`ebbek',õ,e,e,é,ü,+Abb+[PLUR],D)
+e		>	-e,ébbek +Abb+[PLUR]+[NOM] D
+nev_birtokjel(e,``-e`,'ébbek'',õ,e,e,é,ü,+Abb+[PLUR],D)
+[õû]		>	bbek +Abb+[PLUR]+[NOM] D
+nev_birtokjel([õû],`bbek',õ,e,e,é,ü,+Abb+[PLUR],D)
+
+[^aeáéiíóõúû]	>	ebbik +Abbik+[NOM] DRT
+nev_birtokjel([^aeáéiíóõúû],`ebbik',õ,e,e,é,ü,+Abbik,D)
+e		>	-e,ébbik +Abbik+[NOM] DRT
+nev_birtokjel(e,``-e`,'ébbik'',õ,e,e,é,ü,+Abbik,D)
+[õû]		>	bbik +Abbik+[NOM] DRT
+nev_birtokjel([õû],`bbik',õ,e,e,é,ü,+Abbik,D)
+
+[^aeáéiíóõúû]	>	ebben +Abb+[An_MODE_adv] D
+e		>	-e,ébben +Abb+[An_MODE_adv] D
+[áéiíóõúû]	>	bben +Abb+[An_MODE_adv] D
+
+# a	>	-a,án
+[^aeáéíóú]	> en +[An_MODE_adv] # körültekintõen (de! szörnyen, könnyen)
+
+[^aeáéiíóõúû]	>	ebbül +Abb+Ul D
+e		>	-e,ébbül +Abb+Ul D
+[õû]		>	bbül +Abb+Ul D
+
+# ------------------------------------------------------
+# fonevek
+
+#		   3 4 5 6 7 8 9 10
+# nev_jel(mit,mire,ó,a,o,á,u,o,o,ú)
+# nev_jel(mit,mire,õ,e,e,é,ü,ö,e,û)
+# nev_jel(mit,mire,õ,e,ö,é,ü,ö,e,û)
+
+define(nev_jel_a,
+$1	>	$2k +[PLUR]+[NOM]
+nev_birtokjel_2($1,$2k,$3,$4,$5,$6,$7,+[PLUR])
+nev_birtokjel_3($1,$2k,$3,$4,$9,$6,$7,+[PLUR])
+nev_rag_2($1,$2k,$3,$4,$5,$6,$7,+[PLUR])
+$1	>	$2i +[PLUR]+[POSS_SG_3]+[NOM]
+COMMENT( spec.: nõhÖz/nõihEz)
+nev_birtokjel($1,$2i,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_3])
+nev_rag_2($1,$2i,$3,$4,$5,$6,$7,+[PLUR]+[POSS_SG_3])
+COMMENT( spec. ék fõnévképzõ anyáék anyámék anyádék)
+$1	>	$2ék +[ék_FAMILIAR_noun]+[NOM]
+nev_birtokjel($1,$2ék,$3,$4,$9,$6,$7,+[ék_FAMILIAR_noun])
+$1	>	$2mék +[POSS_SG_1]+[ék_FAMILIAR_noun]+[NOM]
+nev_birtokjel($1,$2mék,$3,$4,$9,$6,$7,+[POSS_SG_1]+[ék_FAMILIAR_noun])
+$1	>	$2dék +[POSS_SG_2]+[ék_FAMILIAR_noun]+[NOM]
+nev_birtokjel($1,$2dék,$3,$4,$9,$6,$7,+[POSS_SG_2]+[ék_FAMILIAR_noun])
+$1	>	$2m +[POSS_SG_1]+[NOM]
+$1	>	$2m/& +[POSS_SG_1]+[ACC]
+nev_birtokjel_2($1,$2m,$3,$4,$5,$6,$7,+[POSS_SG_1])
+nev_birtokjel_3($1,$2m,$3,$4,$9,$6,$7,+[POSS_SG_1])
+nev_rag_2($1,$2m,$3,$4,$5,$6,$7,+[POSS_SG_1])
+$1	>	$2d +[POSS_SG_2]+[NOM]
+$1	>	$2d/& +[POSS_SG_2]+[ACC]
+nev_birtokjel_2($1,$2d,$3,$4,$5,$6,$7,+[POSS_SG_2])
+nev_birtokjel_3($1,$2d,$3,$4,$9,$6,$7,+[POSS_SG_2])
+nev_rag_2($1,$2d,$3,$4,$5,$6,$7,+[POSS_SG_2])
+# -> q
+# $1	>	$2j$4
+# nev_birtokjel($1,$2j$6,$3,$4,$9,$6,$7)
+# nev_rag_2($1,$2j$4,$3,$4,$5,$6,$7)
+$1	>	$2nk +[POSS_PL_1]+[NOM]
+$1	>	$2nk/& +[POSS_PL_1]+[ACC]
+nev_birtokjel_2($1,$2nk,$3,$4,$5,$6,$7,+[POSS_PL_1])
+nev_birtokjel_3($1,$2nk,$3,$4,$9,$6,$7,+[POSS_PL_1])
+nev_rag_2($1,$2nk,$3,$4,$5,$6,$7,+[POSS_PL_1])
+$1	>	$2t$5k +[POSS_PL_2]+[NOM]
+$1	>	$2t$5k/& +[POSS_PL_2]+[ACC]
+nev_birtokjel_2($1,$2t$5k,$3,$4,$5,$6,$7,+[POSS_PL_2])
+nev_birtokjel_3($1,$2t$5k,$3,$4,$9,$6,$7,+[POSS_PL_2])
+nev_rag_2($1,$2t$5k,$3,$4,$5,$6,$7,+[POSS_PL_2])
+# $1	>	$2j$7k
+# COMMENT( spec. : jükhez -> jükhöz)
+# nev_birtokjel($1,$2j$7k,$3,$4,$8,$6,$7)
+# nev_rag_2($1,$2j$7k,$3,$4,$8,$6,$7)
+$1	>	$2ik +[PLUR]+[POSS_PL_3]+[NOM]
+COMMENT( spec.: nõhÖz/nõikhEz)
+nev_birtokjel($1,$2ik,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_3])
+nev_rag_2($1,$2ik,$3,$4,$5,$6,$7,+[PLUR]+[POSS_PL_3])
+$1	>	$2im +[PLUR]+[POSS_SG_1]+[NOM]
+nev_birtokjel($1,$2im,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_1])
+nev_rag_2($1,$2im,$3,$4,$5,$6,$7,+[PLUR]+[POSS_SG_1])
+$1	>	$2id +[PLUR]+[POSS_SG_2]+[NOM]
+nev_birtokjel($1,$2id,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_2])
+nev_rag_2($1,$2id,$3,$4,$5,$6,$7,+[PLUR]+[POSS_SG_2])
+$1	>	$2ink +[PLUR]+[POSS_PL_1]+[NOM]
+nev_birtokjel($1,$2ink,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_1])
+nev_rag_2($1,$2ink,$3,$4,$5,$6,$7,+[PLUR]+[POSS_PL_1])
+$1	>	$2it$9k +[PLUR]+[POSS_PL_2]+[NOM]
+nev_birtokjel($1,$2it$9k,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_2])
+nev_rag_2($1,$2it$9k,$3,$4,$5,$6,$7,+[PLUR]+[POSS_PL_2])
+$1	>	$2é +[POSSESSEE]+[NOM]
+nev_rag($1,$2é,$3,$4,$9,$6,$7,+[POSSESSEE])
+# nev_rag($1,$2é,$3,$4,$5,$6,$7,+[POSSESSEE])
+_ei_ $1	>	$2éi +[POSSESSEE]+[PLUR]+[NOM]
+_ei_ nev_rag($1,$2éi,$3,$4,$9,$6,$7,+[POSSESSEE]+[PLUR])
+# nev_rag($1,$2éi,$3,$4,$5,$6,$7,+[POSSESSEE]+[PLUR])
+)
+
+define(birtokjel_massal,
+$1	>	$2é +[POSSESSEE]+[NOM]
+nev_rag($1,$2é,$3,$4,$9,$6,$7,+[POSSESSEE])
+_ei_ $1	>	$2éi +[POSSESSEE]+[PLUR]+[NOM]
+_ei_ nev_rag($1,$2éi,$3,$4,$9,$6,$7,+[POSSESSEE]+[PLUR])
+)
+
+#		   3 4 5 6 7 8 9
+# nev_jel(mit,mire,ó,a,o,á,u,o,o,ú,o)
+# nev_jel(mit,mire,õ,e,e,é,ü,ö,e,û,e)
+# nev_jel(mit,mire,õ,e,ö,é,ü,ö,ö,û,e)
+# nev_jel(mit,mire,ó,a,a,á,u,o,o,ú,o)
+
+define(nev_jel_massal,
+$1	>	$2$5k +[PLUR]+[NOM]
+nev_birtokjel_2($1,$2$5k,$3,$4,$5,$6,$7,+[PLUR])
+nev_birtokjel_3($1,$2$5k,$3,$4,$11,$6,$7,+[PLUR])
+nev_rag_2($1,$2$5k,$3,$4,$5,$6,$7,+[PLUR])
+COMMENT( spec. ék fõnévképzõ anyáék anyámék anyádék)
+$1	>	$2ék +[ék_FAMILIAR_noun]+[NOM]
+nev_birtokjel($1,$2ék,$3,$4,$11,$6,$7,+[ék_FAMILIAR_noun])
+$1	>	$2$5mék +[POSS_SG_1]+[ék_FAMILIAR_noun]+[NOM]
+nev_birtokjel($1,$2$5mék,$3,$4,$11,$6,$7,+[POSS_SG_1]+[ék_FAMILIAR_noun])
+$1	>	$2$5dék +[POSS_SG_2]+[ék_FAMILIAR_noun]+[NOM]
+nev_birtokjel($1,$2$5dék,$3,$4,$11,$6,$7,+[POSS_SG_1]+[ék_FAMILIAR_noun])
+$1	>	$2$5m +[POSS_SG_1]+[NOM]
+$1	>	$2$5m/& +[POSS_SG_1]+[ACC]
+nev_birtokjel_2($1,$2$5m,$3,$4,$5,$6,$7,+[POSS_SG_1])
+nev_birtokjel_3($1,$2$5m,$3,$4,$11,$6,$7,+[POSS_SG_1])
+nev_rag_2($1,$2$5m,$3,$4,$5,$6,$7,+[POSS_SG_1])
+$1	>	$2$5d +[POSS_SG_2]+[NOM]
+$1	>	$2$5d/& +[POSS_SG_2]+[ACC]
+nev_birtokjel_2($1,$2$5d,$3,$4,$5,$6,$7,+[POSS_SG_2])
+nev_birtokjel_3($1,$2$5d,$3,$4,$11,$6,$7,+[POSS_SG_2])
+nev_rag_2($1,$2$5d,$3,$4,$5,$6,$7,+[POSS_SG_2])
+$1	>	$2$7nk +[POSS_PL_1]+[NOM]
+$1	>	$2$7nk/& +[POSS_PL_1]+[ACC]
+COMMENT( spec. : ünkhez -> ünkhöz)
+nev_birtokjel_2($1,$2$7nk,$3,$4,$8,$6,$7,+[POSS_PL_1])
+nev_birtokjel_3($1,$2$7nk,$3,$4,$11,$6,$7,+[POSS_PL_1])
+nev_rag_2($1,$2$7nk,$3,$4,$5,$6,$7,+[POSS_PL_1])
+$1	>	$2$5t$9k +[POSS_PL_2]+[NOM]
+$1	>	$2$5t$9k/& +[POSS_PL_2]+[ACC]
+nev_birtokjel_2($1,$2$5t$9k,$3,$4,$5,$6,$7,+[POSS_PL_2])
+nev_birtokjel_3($1,$2$5t$9k,$3,$4,$11,$6,$7,+[POSS_PL_2])
+nev_rag_2($1,$2$5t$9k,$3,$4,$5,$6,$7,+[POSS_PL_2])
+$1	>	$2$7l +[ESS]
+)
+
+
+define(nev_jel_massal_a,
+$1	>	$2ak +[PLUR]+[NOM]
+nev_birtokjel_2($1,$2ak,$3,$4,$5,$6,$7,+[PLUR])
+nev_birtokjel_3($1,$2ak,$3,$4,$11,$6,$7,+[PLUR])
+nev_rag_2($1,$2ak,$3,$4,$5,$6,$7,+[PLUR])
+COMMENT( spec. ék fõnévképzõ anyáék anyámék anyádék)
+$1	>	$2ék +[ék_FAMILIAR_noun]+[NOM]
+nev_birtokjel($1,$2ék,$3,$4,$11,$6,$7,+[ék_FAMILIAR_noun])
+$1	>	$2amék +[POSS_SG_1]+[ék_FAMILIAR_noun]+[NOM]
+nev_birtokjel($1,$2amék,$3,$4,$11,$6,$7,+[POSS_SG_1]+[ék_FAMILIAR_noun])
+$1	>	$2adék +[POSS_SG_2]+[ék_FAMILIAR_noun]+[NOM]
+nev_birtokjel($1,$2adék,$3,$4,$11,$6,$7,+[POSS_SG_1]+[ék_FAMILIAR_noun])
+$1	>	$2am +[POSS_SG_1]+[NOM]
+$1	>	$2am/& +[POSS_SG_1]+[ACC]
+nev_birtokjel_2($1,$2am,$3,$4,$5,$6,$7,+[POSS_SG_1])
+nev_birtokjel_3($1,$2am,$3,$4,$11,$6,$7,+[POSS_SG_1])
+nev_rag_2($1,$2am,$3,$4,$5,$6,$7,+[POSS_SG_1])
+$1	>	$2ad +[POSS_SG_2]+[NOM]
+$1	>	$2ad/& +[POSS_SG_2]+[ACC]
+nev_birtokjel_2($1,$2ad,$3,$4,$5,$6,$7,+[POSS_SG_2])
+nev_birtokjel_3($1,$2ad,$3,$4,$11,$6,$7,+[POSS_SG_2])
+nev_rag_2($1,$2ad,$3,$4,$5,$6,$7,+[POSS_SG_2])
+$1	>	$2$7nk +[POSS_PL_1]+[NOM]
+$1	>	$2$7nk/& +[POSS_PL_1]+[ACC]
+COMMENT( spec. : ünkhez -> ünkhöz)
+nev_birtokjel_2($1,$2$7nk,$3,$4,$8,$6,$7,+[POSS_PL_1])
+nev_birtokjel_3($1,$2$7nk,$3,$4,$11,$6,$7,+[POSS_PL_1])
+nev_rag_2($1,$2$7nk,$3,$4,$5,$6,$7,+[POSS_PL_1])
+$1	>	$2at$9k +[POSS_PL_2]+[NOM]
+$1	>	$2at$9k/& +[POSS_PL_2]+[ACC]
+nev_birtokjel_2($1,$2at$9k,$3,$4,$5,$6,$7,+[POSS_PL_2])
+nev_birtokjel_3($1,$2at$9k,$3,$4,$11,$6,$7,+[POSS_PL_2])
+nev_rag_2($1,$2at$9k,$3,$4,$5,$6,$7,+[POSS_PL_2])
+$1	>	$2$7l +[ESS]
+)
+
+#		   3 4 5 6 7 8 9
+# nev_jel(mit,mire,ó,a,o,á,u,o,o)
+# nev_jel(mit,mire,õ,e,e,é,ü,ö,e)
+# nev_jel(mit,mire,õ,e,ö,é,ü,ö,e)
+
+define(nev_jel_jaje,
+$1	>	$2j$4im +[PLUR]+[POSS_SG_1]+[NOM]
+nev_birtokjel($1,$2j$4im,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_1])
+nev_rag_2($1,$2j$4im,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_1])
+$1	>	$2j$4id +[PLUR]+[POSS_SG_2]+[NOM]
+nev_birtokjel($1,$2j$4id,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_2])
+nev_rag_2($1,$2j$4id,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_2])
+$1	>	$2j$4 +[POSS_SG_3]+[NOM]
+nev_birtokjel($1,$2j$6,$3,$4,$9,$6,$7,+[POSS_SG_3])
+nev_rag_2($1,$2j$4,$3,$4,$9,$6,$7,+[POSS_SG_3])
+$1	>	$2j$4i +[PLUR]+[POSS_SG_3]+[NOM]
+nev_birtokjel($1,$2j$4i,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_3])
+nev_rag_2($1,$2j$4i,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_3])
+$1	>	$2j$4ink +[PLUR]+[POSS_PL_1]+[NOM]
+nev_birtokjel($1,$2j$4ink,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_1])
+nev_rag_2($1,$2j$4ink,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_1])
+$1	>	$2j$4it$5k +[PLUR]+[POSS_PL_2]+[NOM]
+nev_birtokjel($1,$2j$4it$5k,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_2])
+nev_rag_2($1,$2j$4it$5k,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_2])
+$1	>	$2j$7k +[POSS_PL_3]+[NOM]
+$1	>	$2j$7k/& +[POSS_PL_3]+[ACC]
+COMMENT( spec. : jükhez -> jükhöz)
+nev_birtokjel($1,$2j$7k,$3,$4,$8,$6,$7,+[POSS_PL_3])
+nev_rag_2($1,$2j$7k,$3,$4,$8,$6,$7,+[POSS_PL_3])
+$1	>	$2j$4ik +[PLUR]+[POSS_PL_3]+[NOM]
+nev_birtokjel($1,$2j$4ik,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_3])
+nev_rag_2($1,$2j$4ik,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_3])
+)
+
+define(nev_jel_ae,
+$1	>	$2$4 +[POSS_SG_3]+[NOM]
+nev_birtokjel($1,$2$6,$3,$4,$9,$6,$7,+[POSS_SG_3])
+nev_rag_2($1,$2$4,$3,$4,$9,$6,$7,+[POSS_SG_3])
+$1	>	$2$7k +[POSS_PL_3]+[NOM]
+$1	>	$2$7k/& +[POSS_PL_3]+[ACC]
+COMMENT( spec. : jükhez -> jükhöz)
+nev_birtokjel($1,$2$7k,$3,$4,$8,$6,$7,+[POSS_PL_3])
+nev_rag_2($1,$2$7k,$3,$4,$8,$6,$7,+[POSS_PL_3])
+)
+
+define(nev_jel_aei,
+$1	>	$2$4im +[PLUR]+[POSS_SG_1]+[NOM]
+nev_birtokjel($1,$2$4im,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_1])
+nev_rag_2($1,$2$4im,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_1])
+$1	>	$2$4id +[PLUR]+[POSS_SG_2]+[NOM]
+nev_birtokjel($1,$2$4id,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_2])
+nev_rag_2($1,$2$4id,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_2])
+$1	>	$2$4i +[PLUR]+[POSS_SG_3]+[NOM]
+nev_birtokjel($1,$2$4i,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_3])
+nev_rag_2($1,$2$4i,$3,$4,$9,$6,$7,+[PLUR]+[POSS_SG_3])
+$1	>	$2$4ink +[PLUR]+[POSS_PL_1]+[NOM]
+nev_birtokjel($1,$2$4ink,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_1])
+nev_rag_2($1,$2$4ink,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_1])
+$1	>	$2$4it$5k +[PLUR]+[POSS_PL_2]+[NOM]
+nev_birtokjel($1,$2$4it$5k,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_2])
+nev_rag_2($1,$2$4it$5k,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_2])
+$1	>	$2$4ik +[PLUR]+[POSS_PL_3]+[NOM]
+nev_birtokjel($1,$2$4ik,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_3])
+nev_rag_2($1,$2$4ik,$3,$4,$9,$6,$7,+[PLUR]+[POSS_PL_3])
+)
+
+COMMENT(  közös ragok )
+define(nev_rag_uniform,
+COMMENT(********************* -képp(en) **************)
+$1	>	$2képp +[képp_MODE_adv]
+$1	>	$2képpen +[képpen_MODE_adv]
+COMMENT(********************* -ként ******************)
+$1	>	$2ként +[FORM]
+COMMENT(********************* -kor *******************)
+$1	>	$2kor +[TEMP]
+COMMENT( kiváltható egyedi esetekben? telente, nyaranta, évente, havonta,
+hetente, naponta )
+COMMENT(********************* -anta *******************)
+COMMENT($1	>	$2$4nta)
+)
+
+define(nev_rag_magan_valvel,
+[-áéiíóõuúüûy&agrave;&ugrave;&oslash;] >	v$1 $2
+)
+
+define(nev_rag_massal_valvel,
+[^b] b	>	b$1 $2
+b b	>	-b`,'b$1 $2
+b b	>	-b$1 $2
+B -	>	b$1 $2
+
+#[^c] c	>	c$1 $2
+c c	>	-c`,'c$1 $2
+c c	>	-c$1 $2
+C -	>	c$1 $2
+
+[^c]c s	>	-s`,'cs$1 $2
+c c s	>	-cs`,'cs$1 $2
+c c s	>	-cs$1 $2
+C S -	>	cs$1 $2
+
+[^d] d	>	d$1 $2
+d d	>	-d`,'d$1 $2
+d d	>	-d$1 $2
+D -	>	d$1 $2
+
+[^f] f	>	f$1 $2
+f f	>	-f`,'f$1 $2
+f f	>	-f$1 $2
+F -	>	f$1 $2
+
+[^g] g	>	g$1 $2
+g g	>	-g`,'g$1 $2
+g g	>	-g$1 $2
+G -	>	g$1 $2
+
+[^g]g y	>	-y`,'gy$1 $2
+g g y 	>	-gy`,'gy$1 $2
+g g y 	>	-gy$1 $2
+G Y - 	>	$1 $2
+
+[áeéuü]h	>	v$1 $2 # <méhvel>, <juhval>, <dühvel>, <csehvel>, <pléhvel>, <Enéhvel>
+[^ctgsáe]h	>	h$1 $2 # <méhhel>, <juhhal>, <dühhel>, de <*csehhel>, <*pléhhel>, <*Enéhhel>
+[^s] c h	>	h$1 $2
+t s c h	>	cs$1 $2
+[^t] s c h	>	s$1 $2
+g h	>	g$1 $2
+t h	>	t$1 $2
+s h	>	s$1 $2
+H -	>	h$1 $2
+
+[^j] j	>	j$1 $2
+j j	>	-j`,'j$1 $2
+j j	>	-j$1 $2
+J -	>	j$1 $2
+
+[^k] k	>	k$1 $2
+k k	>	-k`,'k$1 $2
+k k	>	-k$1 $2
+K -	>	k$1 $2
+
+[^l] l	>	l$1 $2
+l l	>	-l`,'l$1 $2
+l l	>	-l$1 $2
+L -	>	l$1 $2
+
+[^l]l y	>	-y`,'ly$1 $2
+l l y	>	-ly`,'ly$1 $2
+l l y	>	-ly$1 $2
+L Y -	>	ly$1 $2
+
+[^m] m	>	m$1 $2
+m m	>	-m`,'m$1 $2
+m m	>	-m$1 $2
+M -	>	m$1 $2
+
+[^n] n	>	n$1 $2
+n n	>	-n`,'n$1 $2
+n n	>	-n$1 $2
+N -	>	n$1 $2
+
+[^n]n y	>	-y`,'ny$1 $2
+n n y	>	-ny`,'ny$1 $2
+n n y	>	-ny$1 $2
+N Y -	>	ny$1 $2
+
+[^p] p	>	p$1 $2
+p p	>	-p`,'p$1 $2
+p p	>	-p$1 $2
+P -	>	p$1 $2
+
+[^r] r	>	r$1 $2
+r r	>	-r`,'r$1 $2
+r r	>	-r$1 $2
+R -	>	r$1 $2
+
+# [^tczsw]s	>	s$1 $2
+# s s	>	-s`,'s$1 $2
+# s s	>	-s$1 $2
+# t s	>	c$1 $2 # dartscal
+l d s	>	c$1 $2 # Oldscal, Torvaldscal
+[^l] d s	>	dz$1 $2 # Leedsdzel
+[^s]s z	>	-z`,'sz$1 $2
+s s z	>	-sz`,'sz$1 $2
+s s z	>	-sz$1 $2
+w s	>	z$1 $2
+[^Z] S -	>	s$1 $2
+S Z -	>	sz$1 $2
+Z S -	>	zs$1 $2
+
+[^t]t	>	t$1 $2
+t t	>	-t`,'t$1 $2
+t t	>	-t$1 $2
+T -	>	t$1 $2
+
+[^t]t y	>	-y`,'ty$1 $2
+t t y	>	-ty`,'ty$1 $2
+t t y	>	-ty$1 $2
+T Y -	>	ty$1 $2
+
+x	>	sz$1 $2
+X -	>	sz$1 $2
+
+[^ctsz]z	>	z$1 $2
+[ct]z	>	c$1 $2
+z z	>	-z`,'z$1 $2 # <jazzel>
+z z	>	-z$1 $2 # <jazz-zel> (tulajdonnévben)
+[^cts] Z -	>	z$1 $2
+
+[^d]z s	>	-s`,'zs$1 $2
+d z s	>	-zs`,'dzs$1 $2
+D Z S -	>	dzs$1 $2
+
+[^glnt]y >	j$1 $2
+
+v	>	v$1 $2
+V -	>	v$1 $2
+)
+
+#		   3 4 5 6 7 8
+# nev_jel(mit,mire,ó,a,o,á,u,o)
+# nev_jel(mit,mire,õ,e,e,é,ü,ö)
+# nev_jel(mit,mire,õ,e,ö,é,ü,ö)
+
+define(nev_rag_sima,
+COMMENT(********************* -nak,-nek *******)
+$1	>	$2n$4k +[DAT]
+COMMENT(********************* -ban,-ben *******)
+$1	>	$2b$4n +[INE]
+COMMENT(********************* -ba, -be ********)
+$1	>	$2b$4 +[ILL]
+COMMENT(********************* -ból,-bõl *******)
+$1	>	$2b$3l +[ELA]
+COMMENT(********************* ról,-rõl ********)
+$1	>	$2r$3l +[DEL]
+COMMENT(********************* -ra,-re *********)
+$1	>	$2r$4 +[SBL]
+COMMENT(********************* -nál,-nél *******)
+$1	>	$2n$6l +[ADE]
+COMMENT(********************* -tól,-tõl *******)
+$1	>	$2t$3l +[ABL]
+COMMENT(********************* -hoz,-hez,-höz **)
+$1	>	$2h$5z +[ALL]
+COMMENT(********************* -ig *************)
+$1	>	$2ig +[TERM]
+ 
+COMMENT(********************* -ért ************)
+$1	>	$2ért +[CAUS/FIN]
+COMMENT(********************* -ul,-ül *********)
+$1	>	$2$7l +[ESS]
+)
+
+# --------- massalhangzo, illetve nem a e o ö végû fonevek --------------
+#
+define(nev_rag_sima_massal,
+COMMENT(********************* -nak,-nek *******)
+n n		>	$4k +[DAT]
+n n		>	-n$4k +[DAT]
+[^n] n		>	n$4k +[DAT]
+[^naeoö]	>	n$4k +[DAT]
+COMMENT(********************* -ban,-ben *******)
+b b		>	$4n +[INE]
+b b		>	-b$4n +[INE]
+[^b] b		>	b$4n +[INE]
+[^baeoö]	>	b$4n +[INE]
+COMMENT(********************* -ba, -be ********)
+b b		>	$4 +[ILL]
+b b		>	-b$4 +[ILL]
+[^b] b		>	b$4 +[ILL]
+[^baeoö]	>	b$4 +[ILL]
+COMMENT(********************* -ból,-bõl *******)
+b b		>	$3l +[ELA]
+b b		>	-b$3l +[ELA]
+[^b] b		>	b$3l +[ELA]
+[^baeoö]	>	b$3l +[ELA]
+COMMENT(********************* ról,-rõl ********)
+r r		>	$3l +[DEL]
+r r		>	-r$3l +[DEL]
+[^r] r		>	r$3l +[DEL]
+[^raeoö]	>	r$3l +[DEL]
+COMMENT(********************* -ra,-re *********)
+r r		>	$4 +[SBL]
+r r		>	-r$4 +[SBL]
+[^r] r		>	r$4 +[SBL]
+[^raeoö]	>	r$4 +[SBL]
+COMMENT(********************* -nál,-nél *******)
+n n		>	$6l +[ADE]
+n n		>	-n$6l +[ADE]
+[^n] n		>	n$6l +[ADE]
+[^naeoö]	>	n$6l +[ADE]
+COMMENT(********************* -tól,-tõl *******)
+t t		>	$3l +[ABL]
+t t		>	-t$3l +[ABL]
+[^t] t		>	t$3l +[ABL]
+[^taeoö]	>	t$3l +[ABL]
+COMMENT(********************* -hoz,-hez,-höz **)
+COMMENT($1	>	$2h$5z +[ALL]) # külön kezelve
+COMMENT(********************* -ig *************)
+$1	>	$2ig +[TERM]
+COMMENT(********************* -ért ************)
+$1	>	$2ért +[CAUS/FIN]
+COMMENT(********************* -ul,-ül *********)
+$1	>	$2$7l +[ESS]
+)
+
+# ---------------- névszók -----------------
+
+# mély hangrendû birtokos személyragok magánhangzóra végzõdõ szavak esetén
+# 
+
+############################################################
+# A osztály: mély hangrendû birtokos személyragok 
+# magánhangzóra végzõdõ szavak esetén
+#
+# Példa: <kutyámat>, <kutyáihoz>, <kutyáikat>, <kávétokról>
+#
+# kivétel: -ja, -juk személyrag (l. Q osztály)
+############################################################
+
+flag *A:
+
+# <MÁV-unk> <*MÁV-nk>
+# <MÁV-ja> <*MÁV-a>
+
+# <*URH-unk> <URH-nk>
+# <URH-ja> <*URH-a>
+
+# <boyunk> <*boynk>
+# <boyjal> <*boyval> <*boyal>
+# <boyon> <*boyn>
+# <boya> <*boyja>
+# <boyt> <*boyot>
+
+# <*cityünk> <citynk>
+# <cityvel> <*cittyel>
+# <*cityen> <cityn>
+# <*citye> <cityje>
+# <*cityet> <cityt>
+
+nev_jel_a(a,`-a,á',ó,a,o,á,u,o,o,ú)
+nev_jel_a([^o]o,`-o,ó',ó,a,o,á,u,o,o,ú)
+nev_jel_a(oo,`',ó,a,o,á,u,o,o,ú)
+nev_jel_a([áéiíóõuúüûy-&agrave;&ugrave;&oslash;],`',ó,a,o,á,u,o,o,ú)
+
+COMMENT(********************* -nként, -onként, -enként, de nincs birtokjel)
+[áéiíóõuúüû-&agrave;&ugrave;&oslash;]	>	nként +[nként_PERIOD_adv]
+[^aáeéiíoóöõuúüû&agrave;&ugrave;&oslash;]	>	onként +[nként_PERIOD_adv]
+a		>	-a,ánként +[nként_PERIOD_adv]
+[^o]o	>	-o,ónként +[nként_PERIOD_adv]
+oo	>	nként +[nként_PERIOD_adv]
+
+[áéiíóõuúüû-&agrave;&ugrave;&oslash;]	>	nkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
+[^aáeéiíoóöõuúüû&agrave;&ugrave;&oslash;]	>	onkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
+a		>	-a,ánkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
+[^o]o	>	-o,ónkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
+oo	>	nkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
+
+COMMENT(********************* -kénti (tanúkénti) mégsem esetrag)
+[^ok]	>	kénti +[kénti_FORM_adj]{+[NOM]} UFÖ
+[^o]o	>	-o,ókénti +[kénti_FORM_adj]{+[NOM]} UFÖ
+oo	>	kénti +[kénti_FORM_adj]{+[NOM]} UFÖ
+[^k] k	>	kénti +[kénti_FORM_adj]{+[NOM]} UFÖ
+kk	>	-k,kénti +[kénti_FORM_adj]{+[NOM]} UFÖ
+
+COMMENT(********************* -stul,-stül, -ostul)
+[áéiíóõuúüû-&agrave;&ugrave;&oslash;]	>	stul +[stUl_COMITATIVE_adv]
+[^aáeéiíoóöõuúüû&agrave;&ugrave;&oslash;]	>	ostul +[stUl_COMITATIVE_adv]
+a		>	-a,ástul +[stUl_COMITATIVE_adv]
+[^o]o	>	-o,óstul +[stUl_COMITATIVE_adv]
+oo	>	stul +[stUl_COMITATIVE_adv]
+
+############################################################
+# U osztály: mély hangrendû esetragok 
+#
+# Példa: <kutyáról>, <motorhoz>
+#
+# kivétel: tárgyeset, -vAl, -vÁ és -On
+############################################################
+
+flag *U:
+
+birtokjel_massal([^ao],`',ó,a,o,á,u,o,o,ú)
+birtokjel_massal(a,`-a,á',ó,a,o,á,u,o,o,ú)
+birtokjel_massal([^o]o,`-o,ó',ó,a,o,á,u,o,o,ú)
+birtokjel_massal(oo,`',ó,a,o,á,u,o,o,ú)
+nev_rag_uniform([^ok],`')
+nev_rag_uniform([^o]o,`-o,ó')
+nev_rag_uniform(oo,`')
+nev_rag_uniform(`[^k] k',`')
+nev_rag_uniform(`k k',`-k,')
+nev_rag_sima(a,`-a,á',ó,a,o,á,u)
+nev_rag_sima([^o]o,`-o,ó',ó,a,o,á,u)
+nev_rag_sima(oo,`',ó,a,o,á,u)
+nev_rag_sima_massal([^ao],`',ó,a,o,á,u)
+
+COMMENT(************ tárgyeset, ha nincs kötõhang **********)
+a	>	-a,át +[ACC]
+[^o]o	>	-o,ót +[ACC]
+oo	>	t +[ACC]
+
+#[éóõûljnr-]	>	t +[ACC]
+[ljnr]	>	t +[ACC]
+[ln] y	>	t +[ACC]
+
+############################################################
+# m osztály: hasonuló -val, -vá
+############################################################
+
+flag *m:
+nev_rag_massal_valvel(al,+[INSTR])
+nev_rag_massal_valvel(á,+[TRANS])
+
+[^aeoö]	>	hoz +[ALL]
+a		>	-a,ához +[ALL]
+[^o]o	>	-o,óhoz +[ALL]
+oo	>	hoz +[ALL]
+
+############################################################
+# ò, ô, õ, ö osztályok: hasonuló -cal, -sal vagy -szal
+############################################################
+
+flag *ò:
+
+[^c]c	>	cel +[INSTR]
+[^c]c	>	cé +[TRANS]
+[^tczsw]s	>	sel +[INSTR]
+[^tczsw]s	>	sé +[TRANS]
+t s	>	csel +[INSTR]
+t s	>	csé +[TRANS]
+s s	>	-s`,'sel [INSTR]
+s s	>	-sel [INSTR]
+s s	>	-s`,'sé [TRANS]
+s s	>	-sé [TRANS]
+
+flag *ô:
+
+[^c]c	>	cal +[INSTR]
+[^c]c	>	cá +[TRANS]
+[^tczsw]s	>	sal +[INSTR]
+[^tczsw]s	>	sá +[TRANS]
+t s	>	csal +[INSTR] # Átscsal
+t s	>	csá +[TRANS]
+s s	>	-s`,'sal [INSTR]
+s s	>	-sal [INSTR]
+s s	>	-s`,'sá [TRANS]
+s s	>	-sá [TRANS]
+
+############################################################
+# õ, ö osztályok: idegen kiejtés. hasonuló -val/-vel
+# c+kal, s+szal, ts+cal
+############################################################
+
+flag *õ:
+
+[^c]c	>	kel +[INSTR]
+[^c]c	>	ké +[TRANS]
+[^tczsw]s	>	szel +[INSTR]
+[^tczsw]s	>	szé +[TRANS]
+t s	>	cel +[INSTR] # Keatscel
+t s	>	cé +[TRANS]
+s s	>	-s`,'szel [INSTR]
+s s	>	-szel [INSTR]
+s s	>	-s`,'szé [TRANS]
+s s	>	-szé [TRANS]
+
+flag *ö:
+
+[^c]c	>	kal +[INSTR]
+[^c]c	>	ká +[TRANS]
+[^tczsw]s	>	szal +[INSTR]
+[^tczsw]s	>	szá +[TRANS]
+t s	>	cal +[INSTR]
+t s	>	cá +[TRANS]
+s s	>	-s`,'szal [INSTR]
+s s	>	-szal [INSTR]
+s s	>	-s`,'szá [TRANS]
+s s	>	-szá [TRANS]
+
+############################################################
+# Ï osztály: -val, -vá magánhangzóra végzõdõ szavakhoz
+############################################################
+
+flag *Ï:
+
+COMMENT(*************** -val, -vá ************)
+nev_rag_magan_valvel(al,+[INSTR])
+nev_rag_magan_valvel(á,+[TRANS])
+a		>	-a,ával +[INSTR]
+a		>	-a,ává +[TRANS]
+[^o]o	>	-o,óval +[INSTR]
+oo	>	val +[INSTR]
+[^o]o	>	-o,óvá +[TRANS]
+oo	>	vá +[TRANS]
+
+[^aeoö]	>	hoz +[ALL]
+a		>	-a,ához +[ALL]
+[^o]o	>	-o,óhoz +[ALL]
+oo	>	hoz +[ALL]
+
+############################################################
+# Ñ osztály: -n
+############################################################
+
+flag *Ñ:
+
+COMMENT(********************* -n **)
+# y-ra és kötõjelre végzõdõ szavak -n esetragja
+[y-]	>	n +[SUE]
+
+############################################################
+# Ò osztály: -on
+############################################################
+
+flag *Ò:
+
+COMMENT(********************* -n,-on,-en,-ön **)
+# kötõjelre és y-ra végzõdõ szavak is -on toldalékot kapnak
+[^aáeéiíoóõuúüû&agrave;&ugrave;&oslash;]	>	on +[SUE]
+[áéiíóõuúüû&agrave;&ugrave;&oslash;]	>	n +[SUE]
+a		>	-a,án +[SUE]
+[^o]o	>	-o,ón +[SUE]
+oo	>	n +[SUE]
+
+############################################################
+# Õ osztály: -t (mahánhangzóra és y-ra végzõdõ szavakhoz)
+############################################################
+
+flag *Õ:
+
+COMMENT(********************* -t **)
+[áéiíóõuúüûhy-&agrave;&ugrave;&oslash;]	>	t +[ACC]
+a		>	-a,át +[ACC]
+[^o]o	>	-o,ót +[ACC]
+oo	>	t +[ACC]
+e		>	-e,ét +[ACC]
+ö		>	-ö,õt +[ACC]
+
+############################################################
+# Ù osztály: -at
+############################################################
+
+flag *Ù:
+
+COMMENT(********************* -at **)
+[^aáeéiíoóöõuúüû&agrave;&ugrave;&oslash;]	>	at +[ACC]
+
+############################################################
+# Ö osztály: -ot, -t mássalhangzóra végzõdõ szavakhoz
+############################################################
+
+flag *Ö:
+
+- > ot +[ACC]
+
+[áéiíóöõuúüûlnrx&agrave;&ugrave;&oslash;] > t +[ACC]
+[^aáeéiíóöõuúüûcs] [hj]	>	ot +[ACC]
+
+# <Bachot> <*Bacht>
+# <übermenscht> <*übermenschet>?
+# <Deutschot> <*Deutscht>
+# <Busht> <*Buschot>
+
+[^s] c h	>	ot +[ACC]
+[^t] s c h	>	t +[ACC]
+t s c h	>	ot +[ACC]
+s h	>	t +[ACC]
+
+[aáeéiíóöõuúüû] j	>	t +[ACC]
+[^aáeéiíoóöõuúüûjlnrsyz] > ot +[ACC]
+
+# <rajzot> <rajzt>? <földrajzt>
+# <spejzot> <spejzt>
+# <pénzt> <*pénzet>
+# <borzot> <*borzt>
+# <hertzet> <*hertzt>
+
+[cjrt] z	> ot +[ACC] # rajzot, csak mély hangrendû példa
+[^crst] z	> t +[ACC]
+
+# <halászt> <*halászot>
+# <passzot> <passzt>
+# <reneszánszot> <reneszánszt>
+# <kommerszet> <kommerszt>
+[bknprs] sz	>	ot +[ACC]
+# <*plebszt>
+# <*bokszt>
+# <*gipszt>
+[^bkp] sz	>	t +[ACC]
+
+g y	> ot +[ACC]
+[^aáeéiíoóöõuúüû] [^g] y	>	ot +[ACC]
+[aáeéiíoóöõuúüû] [^g] y	>	t +[ACC]
+
+#<abszorbenset> <abszorbenst>
+#<borsot> <*borst>
+#<plüssöt> <plüsst>
+#<õrsöt> <*õrst>
+#<tapsot> <*tapst>
+
+c s	>	ot +[ACC]
+[^aáeéiíoóöõuúüû] z s	>	ot +[ACC]
+[aáeéiíoóöõuúüû] z s	>	t +[ACC]
+[knsprty] s	>	ot +[ACC]
+[^ckprtz] s	>	t +[ACC]
+
+############################################################
+# B osztály: ajakréses magas hangrendû birtokos személyragok 
+# magánhangzóra végzõdõ szavak esetén
+#
+# Példa: <tévédet>, <kecskémet>, <kecskénket>
+#
+# kivétel: harmadik személyû esetragok
+############################################################
+
+flag *B:
+
+nev_jel_a([^ae]e,`-e,é',õ,e,e,é,ü,ö,e,û)
+nev_jel_a([ae]e,`',õ,e,e,é,ü,ö,e,û)
+nev_jel_a([áéiíóõuúüûy-],`',õ,e,e,é,ü,ö,e,û)
+
+COMMENT(********************* -nként, -onként, -enként, de nincs birtokjel)
+[áéiíóõöuúüû-]	>	nként +[nként_PERIOD_adv]
+[^aáeéiíoóöõuúüû]		>	enként +[nként_PERIOD_adv]
+[^ae]e		>	-e,énként +[nként_PERIOD_adv]
+[ae]e		>	nként +[nként_PERIOD_adv]
+
+[áéiíóõöuúüû-]	>	nkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
+[^aáeéiíoóöõuúüû]		>	enkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
+[^ae]e		>	-e,énkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
+[ae]e		>	nkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
+
+COMMENT(********************* -kénti (tanúkénti) mégsem esetrag)
+[^k]	>	kénti +[kénti_FORM_adj]{+[NOM]} VG×
+[^k] k	>	kénti +[kénti_FORM_adj]{+[NOM]} VG×
+kk	>	-k,kénti +[kénti_FORM_adj]{+[NOM]} VG×
+
+COMMENT(********************* -stul,-stül, -ostul)
+[áéiíóõöuúüû-]		>	stül +[stUl_COMITATIVE_adv]
+[^aáeéiíoóöõuúüû]		>	estül +[stUl_COMITATIVE_adv]
+[^ae]e		>	-e,éstül +[stUl_COMITATIVE_adv]
+[ae]e		>	stül +[stUl_COMITATIVE_adv]
+
+############################################################
+# V osztály: ajakréses magas hangrendû esetragok 
+#
+# Példa: <kecskétõl>, <betegbõl>
+#
+# kivétel: tárgyeset, -vAl, -vÁ és -On, <Tennesseeben>
+############################################################
+
+flag *V:
+
+nev_rag_uniform([^k],`')
+nev_rag_uniform(`[^k] k',`')
+nev_rag_uniform(`k k',`-k,')
+
+birtokjel_massal([^e],`',õ,e,e,é,ü,ö,e,û)
+birtokjel_massal([^ae]e,`-e,é',õ,e,e,é,ü,ö,e,û)
+birtokjel_massal([ae]e,`',õ,e,e,é,ü,ö,e,û)
+
+nev_rag_sima([^ae]e,`-e,é',õ,e,e,é,ü)
+nev_rag_sima([ae]e,`',õ,e,e,é,ü)
+nev_rag_sima_massal([^e],`',õ,e,e,é,ü)
+
+COMMENT(************ tárgy eset, ha nincs kötõhang **********)
+[^ae]e	>	-e,ét +[ACC]
+[ae]e	>	t +[ACC]
+
+#[éóõûljnr-]	>	t +[ACC]
+[ljnr]	>	t +[ACC]
+[ln] y	>	t +[ACC]
+
+############################################################
+# n osztály: -val, -vá mássalhangzóra végzõdõ szavakhoz
+############################################################
+
+flag *n:
+COMMENT(*************** -val, -vá ************)
+nev_rag_massal_valvel(el,+[INSTR])
+nev_rag_massal_valvel(é,+[TRANS])
+
+[^aeoö]	>	hez +[ALL]
+[^ae]e		>	-e,éhez +[ALL]
+[ae]e		>	hez +[ALL]
+
+############################################################
+# Ð osztály: -val, -vá magánhangzóra végzõdõ szavakhoz
+############################################################
+
+flag *Ð:
+
+COMMENT(*************** -val, -vá ************)
+nev_rag_magan_valvel(el,+[INSTR])
+nev_rag_magan_valvel(é,+[TRANS])
+[^ae]e		>	-e,ével +[INSTR]
+[ae]e		>	vel +[INSTR]
+[^ae]e		>	-e,évé +[TRANS]
+[ae]e		>	vé +[TRANS]
+ö		>	-ö,õvel +[INSTR]
+ö		>	-ö,õvé +[TRANS]
+
+[^aeoö]	>	hez +[ALL]
+[^ae]e		>	-e,éhez +[ALL]
+[ae]e		>	hez +[ALL]
+
+
+############################################################
+# Ó osztály: -n, -én
+############################################################
+
+flag *Ó:
+
+COMMENT(********************* -n,-on,-en,-ön **)
+[^aáeéiíóõuúüû&agrave;&ugrave;&oslash;]	>	en +[SUE]
+[áéiíóõuúüû&agrave;&ugrave;&oslash;]	>	n +[SUE]
+[^ae]e		>	-e,én +[SUE]
+[ae]e		>	n +[SUE]
+
+############################################################
+# × osztály: -et, -t mássalhangzóra végzõdõ szavakhoz
+############################################################
+
+flag *×:
+
+COMMENT(********************* -t **)
+[^ae]e		>	-e,ét +[ACC]
+[ae]e		>	t +[ACC]
+- > et +[ACC]
+
+[áéiíóöõuúüûlnrx&agrave;&ugrave;&oslash;] > t +[ACC]
+[^aáeéiíóöõuúüûcs] [hj]	>	et +[ACC]
+
+[^s] c h	>	et +[ACC]
+[^t] s c h	>	t +[ACC]
+t s c h	>	et +[ACC]
+s h	>	t +[ACC]
+
+[aáeéiíóöõuúüû] j	>	t +[ACC]
+
+[^aáeéiíoóöõuúüûjlnrsyz&agrave;&ugrave;&oslash;] > et +[ACC]
+negyven	>	et +[ACC]
+ötven	>	et +[ACC]
+hetven	>	et +[ACC]
+kilencven	>	et +[ACC]
+
+[cjrt] z	> et +[ACC]
+[^cjrst] z	> t +[ACC]
+
+# <passzot> <passzt>
+# <reneszánszot> <reneszánszt>
+# <kommerszet> <kommerszt>
+[bknprs] sz	>	et +[ACC]
+# <*plebszt>
+# <*bokszt>
+# <*gipszt>
+[^bkp] sz	>	t +[ACC]
+
+g y	> et +[ACC]
+[^aáeéiíoóöõuúüû] [^g] y	>	et +[ACC]
+[aáeéiíoóöõuúüû] [^g] y	>	t +[ACC]
+c s	>	et +[ACC]
+[^aáeéiíoóöõuúüû] z s	>	et +[ACC]
+[aáeéiíoóöõuúüû] z s	>	t +[ACC]
+[knsprty] s	>	et +[ACC]
+[^ckprtz] s	>	t +[ACC]
+
+############################################################
+# C osztály: ajakkerekítéses magas hangrendû birtokos személyragok 
+# magánhangzóra végzõdõ szavak esetén
+#
+# Példa: <teknõtöket> <teknõtökhöz> <Malmõnket>
+#
+# kivétel: harmadik személyû esetragok
+############################################################
+
+flag *C:
+
+# <Malmõnk> <*Malmönk>
+
+nev_jel_a(ö,`-ö,õ',õ,e,ö,é,ü,ö,e,û)
+nev_jel_a([áéiíoóõuúüûy-&oslash;],`',õ,e,ö,é,ü,ö,e,û)
+
+COMMENT(********************* -nként, -onként, -enként, de nincs birtokjel)
+[áéiíoóõuúüû-&oslash;]	>	nként +[nként_PERIOD_adv]
+[^aáeéiíóõöuúüû&oslash;]	>	önként +[nként_PERIOD_adv]
+ö		>	-ö,õnként +[nként_PERIOD_adv]
+
+[áéiíoóõuúüû-&oslash;]	>	nkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
+[^aáeéiíóõöuúüû&oslash;]	>	önkénti +[nként_PERIOD_adv] VG×
+ö		>	-ö,õnkénti +[nként_PERIOD_adv] VG×
+
+COMMENT(********************* -kénti (tanúkénti) mégsem esetrag)
+[^ök]	>	kénti +[kénti_FORM_adj]{+[NOM]}  VG×
+ö	>	-ö,õkénti +[kénti_FORM_adj]{+[NOM]}  VG×
+[^k] k	>	kénti +[kénti_FORM_adj]{+[NOM]}  VG×
+kk	>	-k,kénti +[kénti_FORM_adj]{+[NOM]}  VG×
+
+COMMENT(********************* -stul,-stül, -ostul)
+[áéiíoóõuúüû-&oslash;]	>	stül +[stUl_COMITATIVE_adv]
+[^aáeéiíóõöuúüû&oslash;]	>	östül +[stUl_COMITATIVE_adv]
+ö		>	-ö,õstül +[stUl_COMITATIVE_adv]
+
+############################################################
+# W osztály: ajakkerekítéses magas hangrendû esetragok 
+#
+# Példa: <teknõig>, <Malmõnek>
+#
+# kivétel: tárgyeset, -vAl, -vÁ és -On
+############################################################
+
+flag *W:
+
+# malmö > malmõt
+### nev_jel_a(ö,`-ö,õ',õ,e,e,é,ü,ö,e,û)
+nev_rag_uniform([^ök],`')
+nev_rag_uniform(ö,`-ö,õ')
+nev_rag_uniform(`[^k] k',`')
+nev_rag_uniform(`k k',`-k,')
+
+birtokjel_massal([^ö],`',õ,e,e,é,ü,ö,e,û)
+birtokjel_massal(ö,`-ö,õ',õ,e,e,é,ü,ö,e,û)
+
+nev_rag_sima(ö,`-ö,õ',õ,e,ö,é,ü)
+nev_rag_sima_massal([^ö],`',õ,e,ö,é,ü)
+
+COMMENT(************ tárgy eset, ha nincs kötõhang **********)
+ö	>	-ö,õt +[ACC]
+
+#[éóõûljnr-]	>	t +[ACC]
+[ljnr]	>	t +[ACC]
+[ln] y	>	t +[ACC]
+
+############################################################
+# Ý osztály: -val, -vel, -höz
+############################################################
+
+flag *Ý:
+COMMENT(*************** -val, -vá ************)
+nev_rag_massal_valvel(el,+[INSTR])
+nev_rag_massal_valvel(é,+[TRANS])
+
+[^aeoö]	>	höz +[ALL]
+ö		>	-ö,õhöz +[ALL]
+
+############################################################
+# Þ osztály: -höz, -vá magánhangzóra végzõdõ szavakhoz
+############################################################
+
+flag *Þ:
+
+COMMENT(*************** -val, -vá ************)
+nev_rag_magan_valvel(el,+[INSTR])
+nev_rag_magan_valvel(é,+[TRANS])
+e		>	-e,ével +[INSTR]
+e		>	-e,évé +[TRANS]
+ö		>	-ö,õvel +[INSTR]
+ö		>	-ö,õvé +[TRANS]
+
+[^aeoö]	>	höz +[ALL]
+ö		>	-ö,õhöz +[ALL]
+
+
+############################################################
+# Ô osztály: -ön, -höz
+############################################################
+
+flag *Ô:
+
+COMMENT(********************* -n,-on,-en,-ön **)
+[^aáeéiíóõuúüû]	>	ön +[SUE]
+[áéiíóõuúüû]	>	n +[SUE]
+ö		>	-ö,õn +[SUE]
+
+############################################################
+# Ø osztály: -öt, -t mássalhangzóra végzõdõ szavakhoz
+############################################################
+
+flag *Ø:
+
+COMMENT(********************* -t, -öt **)
+ö		>	-ö,õt +[ACC]
+- > t +[ACC]
+
+[áéiíóöõuúüûlnrx&agrave;&ugrave;&oslash;] > t +[ACC]
+[^aáeéiíóöõuúüûcs] [hj]	>	öt +[ACC]
+
+[^s] c h	>	öt +[ACC]
+[^t] s c h	>	t +[ACC]
+t s c h	>	öt +[ACC]
+s h	>	t +[ACC]
+
+[aáeéiíóöõuúüû] j	>	t +[ACC]
+[^aáeéiíoóöõuúüûjlnrsyz&agrave;&ugrave;&oslash;] > öt +[ACC]
+
+[cjrt] z	> öt +[ACC]
+[^cjrst] z	> t +[ACC]
+
+# <passzot> <passzt>
+# <reneszánszot> <reneszánszt>
+# <kommerszet> <kommerszt>
+[bknprs] sz	>	öt +[ACC]
+# <*plebszt>
+# <*bokszt>
+# <*gipszt>
+[^bkp] sz	>	t +[ACC]
+
+g y	> öt +[ACC]
+[^aáeéiíoóöõuúüû] [^g] y	>	öt +[ACC]
+[aáeéiíoóöõuúüû] [^g] y	>	t +[ACC]
+c s	>	öt +[ACC]
+[^aáeéiíoóöõuúüû] z s	>	öt +[ACC]
+[aáeéiíoóöõuúüû] z s	>	t +[ACC]
+[knsprty] s	>	öt +[ACC]
+[^ckprtz] s	>	t +[ACC]
+
+############################################################
+# K osztály: mély hangrendû birtokos személyragok 
+# mássalhangzóra végzõdõ szavak esetén
+#
+# Példa: <motoromat>, <motorunkat>, <motorotokról>
+#
+# kivétel: harmadik személyû esetragok
+############################################################
+
+flag *K:
+nev_jel_massal([^aáéiíoóöõuúüû&agrave;&ugrave;&oslash;],`',ó,a,o,á,u,o,o,ú,o)
+
+[^aáeéiíoóöõuúüû&agrave;&ugrave;&oslash;]	>	onként +[nként_PERIOD_adv]
+[^aáeéiíoóöõuúüû&agrave;&ugrave;&oslash;]	>	onkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
+[^aáeéiíoóöõuúüû&agrave;&ugrave;&oslash;]	>	ostul +[stUl_COMITATIVE_adv]
+
+############################################################
+# L osztály: ajakréses magas hangrendû birtokos személyragok 
+# mássalhangzóra végzõdõ szavak esetén
+#
+# Példa: <motoromat>, <motorunkat>, <motorotokról>
+#
+# kivétel: harmadik személyû esetragok
+############################################################
+
+flag *L:
+nev_jel_massal([^eáéiíoóöõuúüû],`',õ,e,e,é,ü,ö,e,û,e)
+
+[^aáeéiíoóöõuúüû]	>	enként +[nként_PERIOD_adv]
+[^aáeéiíoóöõuúüû]	>	enkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
+[^aáeéiíoóöõuúüû]	>	estül +[stUl_COMITATIVE_adv]
+
+############################################################
+# M osztály: ajakkerekítéses magas hangrendû birtokos személyragok 
+# mássalhangzóra végzõdõ szavak esetén
+#
+# Példa: <motoromat>, <motorunkat>, <motorotokról>
+#
+# kivétel: harmadik személyû esetragok
+############################################################
+
+flag *M:
+nev_jel_massal([^eáéiíoóöõuúüû],`',õ,e,ö,é,ü,ö,ö,û,e)
+
+[^aáeéiíoóöõuúüû]	>	önként +[nként_PERIOD_adv]
+[^aáeéiíoóöõuúüû]	>	önkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
+[^aáeéiíoóöõuúüû]	>	östül +[stUl_COMITATIVE_adv]
+
+############################################################
+# $ osztály: ,,a'' kötõhangzós mély hangrendû birtokos személyragok 
+# mássalhangzóra végzõdõ szavak esetén
+#
+# Példa: <alkalmazottamat>, <halottatokat>, <halottatokról>
+#
+# kivétel: harmadik személyû esetragok
+############################################################
+
+flag *$:
+nev_jel_massal_a([^aáéiíoóöõuúüû],`',ó,a,o,á,u,o,o,ú,o)
+[^aáeéiíoóöõuúüûjlnrsyz] > at +[ACC]
+[^aáeéiíoóöõuúüû]	>	anként +[nként_PERIOD_adv]
+[^aáeéiíoóöõuúüû]	>	ankénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
+[^aáeéiíoóöõuúüû]	>	astul +[stUl_COMITATIVE_adv]
+
+# ----3. személyû birtokos személyjelek---(ja/je v. a/e)-------------------
+# ----és birtoktöbbesítõ jeles toldalékok (jaim/jeim v. aim/eim)-----------
+
+define(nev_birtokjel_magan,
+$1	>	$2j$4 +[POSS_SG_3]+[NOM]
+nev_birtokjel($1,$2j$6,$3,$4,$9,$6,$7,+[POSS_SG_3])
+nev_rag_2($1,$2j$4,$3,$4,$5,$6,$7,+[POSS_SG_3])
+$1	>	$2j$7k +[POSS_PL_3]+[NOM]
+COMMENT( spec. : jükhez -> jükhöz)
+nev_birtokjel($1,$2j$7k,$3,$4,$8,$6,$7,+[POSS_PL_3])
+nev_rag_2($1,$2j$7k,$3,$4,$8,$6,$7,+[POSS_PL_3])
+)
+
+############################################################
+# Q osztály: -ja, -jai, -juk, -jaik
+# mély hangrendû, harmadik személyû birtokos személyragok 
+#
+# Példa: <kacatja>, <kacatjai>, <kacatjuk>, <kacatjaik>
+############################################################
+
+flag *Q:
+
+nev_jel_jaje([^aáéoóõuúüû&agrave;&ugrave;&oslash;],`',ó,a,o,á,u,o,o,ú)
+nev_birtokjel_magan(a,`-a,á',ó,a,o,á,u,o,o,ú)
+nev_birtokjel_magan([^o]o,`-o,ó',ó,a,o,á,u,o,o,ú)
+nev_birtokjel_magan(oo,`',ó,a,o,á,u,o,o,ú)
+nev_birtokjel_magan([áéióõuúüûy&agrave;&ugrave;&oslash;],`',ó,a,o,á,u,o,o,ú)
+
+############################################################
+# R osztály: -je, -jei, -jük, -jeik
+# magas hangrendû, harmadik személyû birtokos személyragok 
+#
+# Példa: <keszegje>, <keszegjei>, <keszegjük>, <keszegjeik>
+############################################################
+
+flag *R:
+nev_jel_jaje([^áeéóöõuúüû],`',õ,e,e,é,ü,ö,e,û)
+nev_birtokjel_magan([^ae]e,`-e,é',õ,e,e,é,ü,ö,e,û)
+nev_birtokjel_magan([ae]e,`',õ,e,e,é,ü,ö,e,û)
+nev_birtokjel_magan(ö,`-ö,õ',õ,e,e,é,ü,ö,e,û)
+nev_birtokjel_magan([áéiíóõuúüûy],`',õ,e,e,é,ü,ö,e,û)
+
+############################################################
+# S osztály: -a, -uk
+# mély hangrendû, harmadik személyû birtokos személyragok 
+#
+# Példa: <tojása>, <tojásuk>
+############################################################
+
+flag *S:
+nev_jel_ae(`[cghjmsxyvzbdfklnprt-]',`',ó,a,o,á,u,o,o,ú)
+
+############################################################
+# T osztály: -e, -ük
+# magas hangrendû, harmadik személyû birtokos személyragok 
+#
+# Példa: <eleme>, <elemük>
+############################################################
+
+flag *T:
+nev_jel_ae(`[cghjmsxyvzbdfklnprt-]',`',õ,e,e,é,ü,ö,e,û)
+
+############################################################
+# s osztály: -ai, -aik
+# mély hangrendû, harmadik személyû birtokos személyragok 
+#
+# Példa: <tojásai>, <tojásaik>
+############################################################
+
+flag *s:
+nev_jel_aei(`[cghjmsxyvzbdfklnprt-]',`',ó,a,o,á,u,o,o,ú)
+
+############################################################
+# t osztály: -ei, -eik
+# magas hangrendû, harmadik személyû birtokos személyragok 
+#
+# Példa: <elemei>, <elemeik>
+############################################################
+
+flag *t:
+nev_jel_aei(`[cghjmsxyvzbdfklnprt-]',`',õ,e,e,é,ü,ö,e,û)

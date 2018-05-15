@@ -1,0 +1,87 @@
+#!/bin/sh
+# igek 0.1
+# verbs
+#
+# $1: a Magyar Ispell gyökérkönyvtára / Magyar Ispell root directory
+# $2: spellchecker
+export LC_ALL=C
+
+if [ "$1" = "" ]; then
+    echo "usage: $0 magyar_ispell_root_directory [spellchecker]"
+    exit 1
+fi
+
+ROOT=${1:-'.'}
+SPELL=${2:-"ISPELL"}
+
+. $ROOT/config
+
+cd $WRKDIR || exit 1
+
+cat ige_alanyi.1 | field | $AWK -v o="/«" -v e="/¬" -v p="/­" -f $AWKDIR/ige_gen.awk >>$DICT
+cat ige_targy.1 | field | $AWK -v o="/o/«" -v e="/e/¬" -v p="/p/­" -v m="'" -f $AWKDIR/ige_gen.awk >>$DICT
+echo_n .
+
+#grep '[gmz]$' ige_morfo.1 | sed -e 's/eg$/gett\/BDLGRVXn/
+#s/em$/mett\/BDLGRVXn/
+#s/ez$/zett\/BDLGRVXn/
+#s/og$/gott\/ADKFQUXm/
+#s/oz$/zott\/ADKFQUXm/
+#s/ög$/gött\/CDMHRWXÝ/
+#s/iz$/zött\/CDMHRWXÝ/' >>$DICT
+#echo_n .
+
+#grep z$ ige_morfo.1 | sed 's/o\([zl]\)$/\1andó/
+#s/[ieö]\([zl]\)$/\1endõ/' | sed 's/^/[vrb]/' | \
+    #$AWK -f $AWKDIR/melleknev_gen.awk >>$DICT
+#echo_n .
+
+# kivételes ragozású fõnevek
+
+# toldalékolt alakok összetettként való felvétele, ha
+# a tõ is összetett
+cat fonev_morfo.2 fonev_morfo2.2 | $AWK 'FILENAME!="-"{ossz[$1]=1;next}ossz[$1]==1{print$2}' fonev_osszetett.1 - >>fonev_osszetett.1
+# összetétel is
+cat fonev_morfo.2 fonev_morfo2.2 | $AWK 'BEGIN{FS="[[	]"}FILENAME=="-"{ossz[$1]=$2;next}ossz[$1]!=""{print ossz[$1]"["$2}' - mezok.txt  >mezok_morfo.txt
+cat mezok_morfo.txt >>mezok.txt
+
+# toldalékolt alakok szóösszetételben való tiltása, ha
+# a tõ is tiltva van
+cat fonev_morfo.2 fonev_morfo2.2 | $AWK 'FILENAME!="-"{ossz[$1]=1;next}ossz[$1]==1{print$2}' fonev_kulon.1 - >>fonev_kulon.1
+
+cat fonev_morfo.2 | cut -s -f 2 | $AWK -f $AWKDIR/fonev_gen3.awk \
+    -v RAG="J" >>$DICT
+cat fonev_morfo.2 | cut -f 1    | $AWK -f $AWKDIR/fonev_gen2.awk \
+    -v RAG="J" >>$DICT
+cat fonev_morfo.2 | cut -f 3-   | tr "\t" "\n" >>$DICT
+cat fonev_morfo2.2 | cut -s -f 2 | $AWK -f $AWKDIR/fonev_gen3.awk >>$DICT
+cat fonev_morfo2.2 | cut -f 1    | $AWK -f $AWKDIR/fonev_gen2.awk >>$DICT
+cat fonev_morfo2.2 | cut -f 3-   | tr "\t" "\n" >>$DICT
+
+cat fonev_morfo.2 fonev_morfo2.2 | $AWK -f $AWKDIR/tovek2.awk >>$DICT
+
+echo_n .
+
+# rendhagyó igék tiltása
+
+grep g$ ige_morfo.1 | grep -v ^görög$ | sed '
+s#^\(.*\(.\)g$\)#\1\2k/w\
+\1\2m/w\
+\1\2tt/w\
+\1\2d/w#
+' >>$DICT
+
+echo 'görögött/w' >>$DICT
+
+grep g$ ige_morfo.1 | sed '
+s#og$#ogunk/w#
+s#\([eö]\)g$#\1günk/w#
+' >>$DICT
+
+#s#^\(.*og$\)#ogunk/w#
+#s#^\(.*\([eö]\)g$\)#\1günk/w#
+#s#^\(.*ög$\)#ögünk/w#
+
+echo_n .
+
+echo " Rendben."

@@ -1,0 +1,167 @@
+#!/bin/sh
+# i2myspell
+# Ispell->MySpell ragozási táblázat és szótár konvertálása
+# Ispell->MySpell affix table and dictionary converter
+#
+#	Version 1.7.0 (2003.02.20.)
+#	Version 1.6.2 (2003.02.04.)
+#	Version 1.6.1 (2002.12.12.)
+#	Version 1.6.0 (2002.9.22.)
+#	Version 1.5.1 (2002.4.17.)
+#
+#	(c) Copyright 2002 László Németh, All Rights Reserved
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the BSD License (see http://www.opensource.org)
+
+# configuration
+
+# AWK and ISPELL paths
+
+# configure GNU AWK (run Magyar Ispell distribution's config file or set AWK here
+test -f ./config && . ./config || AWK="/usr/bin/awk"
+
+# ispell's name is ispell.orig after mispell installation
+test -f /usr/bin/ispell.orig && ISPELL=ispell.orig || ISPELL=ispell
+
+# END of configuration
+
+case "$#" in
+0|1)
+	echo "i2myspell ispell->myspell affix table and 
+dictionary converter
+
+to generate Myspell aff file:
+ 1. i2myspell ispell_hash_dictionary affix_file_heading [upper lower]
+
+to generate Myspell dic file:
+ 2. i2myspell -d ispell_dict_file
+
+Example: 
+1. i2myspell magyar hu_HU_heading.txt A-ZÁÉÍÓÖÕÚÜÛ a-záéíóöõúüû > hu_HU.aff
+2. i2myspell -d magyar.dict > hu_HU.dic
+
+ispell_hash_dictionary argument: the alternative Ispell dictionary (Ispell's
+-d argument) - this is needed because i2myspell uses Ispell-generated affix
+tables. (See Ispell -D affix dump flag.)"
+	exit
+	;;
+esac
+
+# set correct sort, because sorting with Hungarian locale is wrong
+LC_SAVE=$LC_ALL
+LC_ALL="C"
+export LC_ALL
+
+case "$1" in
+-d)
+	# dict file uniq
+	sed 's#/# #' $2 | sort -r -k 1 | uniq | grep -v ^$ |
+	$AWK '{ 
+    if (p!=$1) { 
+	printf "\n%s", $0; 
+	p=$1 } 
+    else { 
+	if ($2!="") printf "/%s", $2; 
+    }
+}' | sed 's#/##g
+s# #/#' |
+# uniq duplicated flags, and parse spec. syntax (-FLAG)
+$AWK '
+BEGIN { FS = "/" }
+/^__/ { 
+    # words with roots, for example __vizek/víz, handled by Magyar MySpell
+    print $0;
+    next
+}
+{
+	printf "%s", $1;
+	op = NR;
+	if (NF > 1) {
+		printf "/";
+		ln = length($2);
+		for (i = 1; i <= ln; i++) {
+			c = substr($2, i, 1);
+			if (c == "-") {
+				op = 0;
+			} else {
+				b[c] = op;
+				op = NR;
+			}
+		}
+		for (i = 1; i <= ln; i++) {
+			c = substr($2, i, 1);
+			if (b[c] == NR) {
+				printf "%s", c;
+				b[c] = 0;
+			}
+		}
+	}
+	print "";
+}' >/tmp/i2my$$.1
+
+	cat /tmp/i2my$$.1 | wc -l | tr -cd '0-9\n'
+
+	tail +2 /tmp/i2my$$.1
+	echo
+	rm -f /tmp/i2my$$.1
+
+	LC_ALL=$LC_SAVE
+	export LC_ALL
+	exit
+	;;
+esac
+
+# dump affix table from the ispell hash
+
+$ISPELL -d $1 -D |
+sed 's/ //g
+/prefixes/,/suffixes/s/flag[*]\(.\):/PFX \1 Y /
+/prefixes/,/suffixes/s/flag\(.\):/PFX \1 N /
+/suffixes/,//s/flag[*]\(.\):/SFX \1 Y /
+/suffixes/,//s/flag\(.\):/SFX \1 N /
+s/\([^ ]*\).>.\([^,]*\)$/0 \2 \1/
+s/\([^ ]*\).>.-\([^,]*\),\(.*\)$/\2 \3 \1/' |
+tee /tmp/i2my$$.1 | cut -c -7 > /tmp/i2my$$.2
+
+# myspell affix table header
+cat "$2"
+
+UPPER=A-Z
+LOWER=a-z
+if [ -n "$3" ]; then UPPER=$3; fi;
+if [ -n "$4" ]; then LOWER=$4; fi;
+
+cut -c 8- /tmp/i2my$$.1 | 
+tr $UPPER $LOWER |
+paste -d "\0" /tmp/i2my$$.2 - | 
+egrep -v '^(suffixes|prefixes|flagmarker)' |
+sort -k 2 | $AWK '
+    NR==1 { o1=$1; o2=$2; o3=$3; n[o2]=-1; }
+    { 
+    printf "%s %s   %-4s %-12s %-25s %s\n", $1, $2, $4, $5, $6, $7;
+    if ($2==o2) { 
+	n[$2]++; 
+    } else { 
+	printf "%s %s %s %s\n", o1, o2, o3, n[o2]+1; 
+	o1=$1; o2=$2; o3=$3;
+    }
+} END { printf "%s %s %s %s\n", o1, o2, o3, n[o2]+1; } ' |
+sed 's/  *$//' | sort -r | sed 's/\(^.*[0-9]\)$/\
+\1/' | $AWK '
+# [a-fq-x] -> [abcdefqrstuvwx] converter
+BEGIN { abc="abcdefghijklmnopqrstuvwxyz" }
+/\[.*-.*\]/ { 
+	r=$0;
+	while (x=index(r,"-")) { 
+		a=index(abc,substr(r,x-1,1));
+		b=index(abc,substr(r,x+1,1));
+		r = substr(r,0,x-2) substr(abc,a,b-a) substr(r,x+1)
+	}
+	print r;
+	next
+}
+{ print $0 }'
+rm -f /tmp/i2my$$.*
+LC_ALL=$LC_SAVE
+export LC_ALL

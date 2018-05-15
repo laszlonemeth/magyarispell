@@ -1,0 +1,352 @@
+# 	
+#	magyar.aff/magyar.dict: Hungarian Ispell affix table and dictionary 
+#
+#	Copyright (C) 1998-2003 László Németh
+#
+#	This program is free software; you can redistribute it and/or modify
+#	it under the terms of the GNU General Public License as published by
+#	the free software foundation; either version 2 of the license, or
+#	(at your option) any later version.
+#
+#	this program is distributed in the hope that it will be useful,
+#	but WITHOUT ANY WARRANTY; without even the implied warranty of
+#	[MERCHANTABILITY] or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#	[GNU] General Public License for more details.
+#
+#	You should have received a copy of the GNU General Public License
+#	along with this program; if not, write to the free software
+#	foundation, inc., 59 temple place, suite 330, boston, ma  02111-1307  usa
+
+############################################################
+# improduktív igeragok
+############################################################
+
+define(`k_',
+$1 $2 $3$4$5$6$7$8$9$10
+)
+
+define(`k2_',
+`k_'($1, +Ott, $2, noun_con, noun_On, noun_nonmorph_, Adj_, noun_jA, noun_Ai, round_hoz)
+)
+
+flag *d:
+
+# eg, csicsereg
+
+e g	>	-eg,gek	+[PRES_INDIC_INDEF_SG_1]
+e g	>	-eg,gesz	+[PRES_INDIC_INDEF_SG_2]	&
+e g	>	-eg,günk	+[PRES_INDIC_INDEF_PL_1]
+e g	>	-eg,gett	+[PAST_INDIC_INDEF_SG_3]
+
+NONROUND 
+
+k2_(``e g	>	-eg,gett'')
+
+flag *':
+
+e g	>	-eg,gem	+[PRES_INDIC_DEF_SG_1]
+e g	>	-eg,ged	+[PRES_INDIC_DEF_SG_2]
+e g	>	-eg,gi	+[PRES_INDIC_DEF_SG_3]
+e g	>	-eg,gitek	+[PRES_INDIC_DEF_PL_2]
+e g	>	-eg,gik	+[PRES_INDIC_DEF_PL_3]
+
+flag *d:
+
+# el, érdemel	+[PRES_INDIC_INDEF_SG_2]
+
+e l	>	-el,lek	+[PRES_INDIC_INDEF_SG_1]
+# el	>	-el,lesz	+[PRES_INDIC_INDEF_SG_2]
+e l	>	-el,lünk	+[PRES_INDIC_INDEF_PL_1]
+# el	>	-el,lett	+[PAST_INDIC_INDEF_SG_3]
+# e l	>	-el,letek	+[PRES_INDIC_INDEF_PL_2] &
+# e l	>	-el,lenek	+[PRES_INDIC_INDEF_PL_3] &
+
+# e l	>	-el,leni	+[ni_INFINITIVE_inf] &
+# e l	>	-el,lenem	+[INF_SG_1] &
+# e l	>	-el,lened	+[INF_SG_2] &
+# e l	>	-el,lenie	+[INF_SG_3] &
+# e l	>	-el,lenünk	+[INF_PL_1] &
+# e l	>	-el,lenetek	+[INF_PL_2] &
+# e l	>	-el,leniük	+[INF_PL_3] &
+# e l	>	-el,leniök	+[INF_PL_3]	&
+
+# e l	>	-el,leném	+[PRES_COND_INDEF_SG_1] &
+# e l	>	-el,lenék	+[PRES_COND_INDEF_SG_1] &
+# e l	>	-el,lenél	+[PRES_COND_INDEF_SG_2] &
+# e l	>	-el,lene	+[PRES_COND_INDEF_SG_3] &
+# e l	>	-el,lenénk	+[PRES_COND_INDEF_PL_1] &
+# e l	>	-el,lenétek	+[PRES_COND_INDEF_PL_2] &
+# e l	>	-el,lenének	+[PRES_COND_INDEF_PL_3] &
+
+flag *':
+
+e l	>	-el,lem	+[PRES_INDIC_DEF_SG_1]
+e l	>	-el,led	+[PRES_INDIC_DEF_SG_2]
+e l	>	-el,li	+[PRES_INDIC_DEF_SG_3]
+e l	>	-el,litek	+[PRES_INDIC_DEF_PL_2]
+e l	>	-el,lik	+[PRES_INDIC_DEF_PL_3]
+
+flag *d:
+
+# em, terem
+
+e m	>	-em,mek	+[PRES_INDIC_INDEF_SG_1]
+e m	>	-em,mesz	+[PRES_INDIC_INDEF_SG_2]	&
+e m	>	-em,münk	+[PRES_INDIC_INDEF_PL_1]
+e m	>	-em,mett	+[PAST_INDIC_INDEF_SG_3]
+
+k2_(``e m	>	-em,mett'')
+
+flag *':
+
+e m	>	-em,mem	+[PRES_INDIC_DEF_SG_1]
+e m	>	-em,med	+[PRES_INDIC_DEF_SG_2]
+e m	>	-em,mi	+[PRES_INDIC_DEF_SG_3]
+e m	>	-em,mitek	+[PRES_INDIC_DEF_PL_2]
+e m	>	-em,mik	+[PRES_INDIC_DEF_PL_3]
+
+flag *d:
+
+# ER pl. seper
+
+e r	>	-er,rek	+[PRES_INDIC_INDEF_SG_1]
+# söpresz tájnyelvi, de *tekresz
+# er	>	-er,resz	+[PRES_INDIC_INDEF_SG_2]
+e r	>	-er,rünk	+[PRES_INDIC_INDEF_PL_1]
+# er	>	-er,rett	+[PAST_INDIC_INDEF_SG_3]
+
+flag *':
+
+e r	>	-er,rem	+[PRES_INDIC_DEF_SG_1]
+e r	>	-er,red	+[PRES_INDIC_DEF_SG_2]
+e r	>	-er,ri	+[PRES_INDIC_DEF_SG_3]
+e r	>	-er,ritek	+[PRES_INDIC_DEF_PL_2]
+e r	>	-er,rik	+[PRES_INDIC_DEF_PL_3]
+
+flag *d:
+
+# ez érez, jelez
+
+# jelzem, fémjelzi gyakoribb, de rejtjelzem nem, *kérdõjelzem egyáltalán nem
+# l. kivetelek/igekotos/jelez.2
+
+e z	>	-ez,zek	+[PRES_INDIC_INDEF_SG_1]	&
+e z	>	-ez,zel	+[PRES_INDIC_INDEF_SG_2]	&
+e z	>	-ez,zünk	+[PRES_INDIC_INDEF_PL_1]	&
+e z	>	-ez,zett	+[PAST_INDIC_INDEF_SG_3]	&
+
+k2_(``e z	>	-ez,zett'',&)
+
+flag *':
+
+e z	>	-ez,zem	+[PRES_INDIC_DEF_SG_1]	&
+e z	>	-ez,zed	+[PRES_INDIC_DEF_SG_2]	&
+e z	>	-ez,zi	+[PRES_INDIC_DEF_SG_3]	&
+e z	>	-ez,zitek	+[PRES_INDIC_DEF_PL_2]	&
+e z	>	-ez,zik	+[PRES_INDIC_DEF_PL_3]	&
+
+flag *d:
+
+# og, mosolyog
+
+o g	>	-og,gok	+[PRES_INDIC_INDEF_SG_1]	(
+o g	>	-og,gol	+[PRES_INDIC_INDEF_SG_2]	&
+o g	>	-og,gasz	+[PRES_INDIC_INDEF_SG_2]	&
+o g	>	-og,gott	+[PAST_INDIC_INDEF_SG_3]	(
+o g	>	-og,gunk	+[PRES_INDIC_INDEF_PL_1]	(
+
+UNDEF BACK
+
+k2_(``o g	>	-og,gott'')
+
+flag *':
+
+o g	>	-og,gom	+[PRES_INDIC_DEF_SG_1]	(
+o g	>	-og,god	+[PRES_INDIC_DEF_SG_2]	(
+# og	>	-og,gi	+[PRES_INDIC_DEF_SG_3]	(
+#o g	>	-og,gunk	+[PRES_INDIC_DEF_PL_1]	(
+# og	>	-og,gitok	+[PRES_INDIC_DEF_PL_2]	(
+# og	>	-og,gik	+[PRES_INDIC_DEF_PL_3]	(
+
+flag *d:
+
+# ikes kl kicsit gyakoribb (fuldoklok, bicsaklok, kevésbé indoklok, rostoklok)
+
+# ol, porol	+[PRES_INDIC_INDEF_SG_2]
+
+o l	>	-ol,lok	+[PRES_INDIC_INDEF_SG_1]	&
+# ol	>	-ol,zol	+[PRES_INDIC_INDEF_SG_2]
+o l	>	-ol,lasz	+[PRES_INDIC_INDEF_SG_2]	&
+o l	>	-ol,lunk	+[PRES_INDIC_INDEF_PL_1]	&
+# -ott igenév és múltidõ is egyedi besorolást igényel! XXX 
+
+flag *':
+
+o l	>	-ol,lom	+[PRES_INDIC_DEF_SG_1]	&
+o l	>	-ol,lod	+[PRES_INDIC_DEF_SG_2]	&
+# ol	>	-ol,li	+[PRES_INDIC_DEF_SG_3]
+# ol	>	-ol,litok	+[PRES_INDIC_DEF_PL_2]
+# ol	>	-ol,lik	+[PRES_INDIC_DEF_PL_3]
+
+flag *d:
+
+# or, kotor
+
+o r	>	-or,rok	+[PRES_INDIC_INDEF_SG_1]	(
+# or	>	-or,rol	+[PRES_INDIC_INDEF_SG_2]
+o r	>	-or,rasz	+[PRES_INDIC_INDEF_SG_2]	&
+o r	>	-or,runk	+[PRES_INDIC_INDEF_PL_1]	(
+#or	>	-or,rott	+[PAST_INDIC_INDEF_SG_3]	&
+
+k2_(``o r	>	-or,rott'',&)
+
+flag *':
+
+o r	>	-or,rom	+[PRES_INDIC_DEF_SG_1]	(
+o r	>	-or,rod	+[PRES_INDIC_DEF_SG_2]	(
+# or	>	-or,ri	+[PRES_INDIC_DEF_SG_3]
+# or	>	-or,ritok	+[PRES_INDIC_DEF_PL_2]
+# o r	>	-or,rik	+[PRES_INDIC_DEF_PL_3]
+
+flag *d:
+
+# ahol gyakoribb: céloz, oroz, szoroz, toboroz, (túloz), irányoz?
+# kormányozom, kormányzott
+# ritkább: ragzom, fuvarzom, egyensúlyzom, ellensúlyzom
+
+[oéú] [lr] o z	>	-oz,zok	+[PRES_INDIC_INDEF_SG_1]	(
+[oéú] [lr] o z	>	-oz,zol	+[PRES_INDIC_INDEF_SG_2]	(
+[oéú] [lr] o z	>	-oz,zunk	+[PRES_INDIC_INDEF_PL_1]	(
+[oéú] [lr] o z	>	-oz,zott	+[PAST_INDIC_INDEF_SG_3]	(
+k2_(``[oéú] [lr] o z	>	-oz,zott'',')
+
+o z	>	-oz,zok	+[PRES_INDIC_INDEF_SG_1]	&
+o z	>	-oz,zol	+[PRES_INDIC_INDEF_SG_2]	&
+o z	>	-oz,zunk	+[PRES_INDIC_INDEF_PL_1]	&
+o z	>	-oz,zott	+[PAST_INDIC_INDEF_SG_3]	&
+k2_(``o z	>	-oz,zott'',&)
+
+flag *':
+
+[oéú] [lr] o z	>	-oz,zom	+[PRES_INDIC_DEF_SG_1]	(
+[oéú] [lr] o z	>	-oz,zod	+[PRES_INDIC_DEF_SG_2]	(
+
+o z	>	-oz,zom	+[PRES_INDIC_DEF_SG_1]	&
+o z	>	-oz,zod	+[PRES_INDIC_DEF_SG_2]	&
+#oz	>	-oz,zi	+[PRES_INDIC_DEF_SG_3]
+#o z	>	-oz,zotok
+#o z	>	-oz,zanak
+
+flag *d:
+
+ö g	>	-ög,gök	+[PRES_INDIC_INDEF_SG_1]	(
+ö g	>	-ög,göl	+[PRES_INDIC_INDEF_SG_2]	(
+ö g	>	-ög,gesz	+[PRES_INDIC_INDEF_SG_2]	(
+ö g	>	-ög,günk	+[PRES_INDIC_INDEF_PL_1]	(
+ö g	>	-ög,gött	+[PAST_INDIC_INDEF_SG_3]	(
+
+UNDEF ROUND
+
+k2_(``ö g	>	-ög,gött'')
+
+flag *':
+
+ö g	>	-ög,göm	+[PRES_INDIC_DEF_SG_1]	(
+ö g	>	-ög,göd	+[PRES_INDIC_DEF_SG_2]	(
+ö g	>	-ög,gi	+[PRES_INDIC_DEF_SG_3]	(
+ö g	>	-ög,gitek	+[PRES_INDIC_DEF_PL_2]	(
+ö g	>	-ög,gik	+[PRES_INDIC_DEF_PL_3]	(
+
+
+flag *d:
+
+ö l	>	-öl,lök	+[PRES_INDIC_INDEF_SG_1]	(
+#ö l	>	-öl,löl	+[PRES_INDIC_INDEF_SG_2]
+ö l	>	-öl,lesz	+[PRES_INDIC_INDEF_SG_2]	(
+ö l	>	-öl,lünk	+[PRES_INDIC_INDEF_PL_1]	(
+#ö l	>	-öl,lött	+[PAST_INDIC_INDEF_SG_3]
+
+flag *':
+
+# közölöm, ötölök (de! ötölök-hatolok), üdvözölök ritka! XXX
+# öröklök-örökölök, õrlök-õrölök, törölök-törlök fele-fele
+
+ö l	>	-öl,löm	+[PRES_INDIC_DEF_SG_1]	(
+ö l	>	-öl,löd	+[PRES_INDIC_DEF_SG_2]	(
+ö l	>	-öl,li	+[PRES_INDIC_DEF_SG_3]	(
+ö l	>	-öl,litek	+[PRES_INDIC_DEF_PL_2]	(
+ö l	>	-öl,lik	+[PRES_INDIC_DEF_PL_3]	(
+
+flag *d:
+
+# ör, söpör
+
+ö r	>	-ör,rök	+[PRES_INDIC_INDEF_SG_1]	(
+#ö r	>	-ör,röl	+[PRES_INDIC_INDEF_SG_2]	(
+ö r	>	-ör,resz	+[PRES_INDIC_INDEF_SG_2]	(
+ö r	>	-ör,rünk	+[PRES_INDIC_INDEF_PL_1]	(
+#ö r	>	-ör,rött	+[PAST_INDIC_INDEF_SG_3]
+
+flag *':
+
+ö r	>	-ör,röm	+[PRES_INDIC_DEF_SG_1]	(
+ö r	>	-ör,röd	+[PRES_INDIC_DEF_SG_2]	(
+ö r	>	-ör,ri	+[PRES_INDIC_DEF_SG_3]	(
+ö r	>	-ör,ritek	+[PRES_INDIC_DEF_PL_2]	(
+ö r	>	-ör,rik	+[PRES_INDIC_DEF_PL_3]	(
+
+flag *d:
+
+# öz, köröz, ösztönöz, sürgönyöz
+# körözök, ösztönzök, gyakoribb XXX
+
+r ö z	>	-öz,zök	+[PRES_INDIC_INDEF_SG_1]	&
+r ö z	>	-öz,zöl	+[PRES_INDIC_INDEF_SG_2]	&
+r ö z	>	-öz,zesz	+[PRES_INDIC_INDEF_SG_2]	&
+k2_(``r ö z	>	-öz,zött'')
+
+[^r] ö z	>	-öz,zök	+[PRES_INDIC_INDEF_SG_1]	(
+[^r] ö z	>	-öz,zöl	+[PRES_INDIC_INDEF_SG_2]	(
+[^r] ö z	>	-öz,zesz	+[PRES_INDIC_INDEF_SG_2]
+
+
+flag *':
+
+r ö z	>	-öz,zöm	+[PRES_INDIC_DEF_SG_1]	&
+r ö z	>	-öz,zöd	+[PRES_INDIC_DEF_SG_2]	&
+r ö z	>	-öz,zi	+[PRES_INDIC_DEF_SG_3]	&
+r ö z	>	-öz,zünk	+[PRES_INDIC_INDEF_PL_1]	&
+r ö z	>	-öz,zitek	+[PRES_INDIC_DEF_PL_2]	&
+r ö z	>	-öz,zik	+[PRES_INDIC_DEF_PL_3]	&
+r ö z	>	-öz,zött	+[PAST_INDIC_INDEF_SG_3]	&
+
+[^r] ö z	>	-öz,zöm	+[PRES_INDIC_DEF_SG_1]	(
+[^r] ö z	>	-öz,zöd	+[PRES_INDIC_DEF_SG_2]	(
+[^r] ö z	>	-öz,zi	+[PRES_INDIC_DEF_SG_3]	(
+[^r] ö z	>	-öz,zünk	+[PRES_INDIC_INDEF_PL_1]	(
+[^r] ö z	>	-öz,zitek	+[PRES_INDIC_DEF_PL_2]	(
+[^r] ö z	>	-öz,zik	+[PRES_INDIC_DEF_PL_3]	(
+[^r] ö z	>	-öz,zött	+[PAST_INDIC_INDEF_SG_3]	(
+
+flag *d:
+
+# iz, õriz, ellenõriz
+
+i z	>	-iz,zök	+[PRES_INDIC_INDEF_SG_1]	(
+i z	>	-iz,zöm	+[PRES_INDIC_DEF_SG_1]	(
+i z	>	-iz,zöl	+[PRES_INDIC_INDEF_SG_2]	(
+# õrzesz elavult
+#i z	>	-iz,zesz	+[PRES_INDIC_INDEF_SG_2]	(
+i z	>	-iz,zünk	+[PRES_INDIC_INDEF_PL_1]	(
+i z	>	-iz,zött	+[PAST_INDIC_INDEF_SG_3]	(
+
+k2_(``i z	>	-iz,zött'',')
+
+flag *':
+
+i z	>	-iz,zöd	+[PRES_INDIC_DEF_SG_2]
+i z	>	-iz,zi	+[PRES_INDIC_DEF_SG_3]
+i z	>	-iz,zitek	+[PRES_INDIC_DEF_PL_2]
+i z	>	-iz,zik	+[PRES_INDIC_DEF_PL_3]
+
+

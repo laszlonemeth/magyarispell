@@ -1,0 +1,4 @@
+Név: biológia
+Leírás: Mintegy félezer hazai edényes növény, ill. -nemzetség nevét tartalmazza
+Felelős: Németh László <nemethl@gyorsposta.hu>
+Szavak száma: ~550

@@ -1,0 +1,4 @@
+Név: sport
+Leírás: Jelenleg a gól stilisztikai változatait tartalmazza, 40 ó-ig bezárólag
+Felelős: Németh László <nemethl@gyorsposta.hu>
+Szavak száma: ~39

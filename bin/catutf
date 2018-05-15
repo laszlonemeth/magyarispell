@@ -1,0 +1,5 @@
+#!/bin/sh
+case "$LANG" in
+*UTF-8) iconv -f latin2 -t utf-8;;
+*) cat;;
+esac

@@ -1,0 +1,57 @@
+#!/bin/bash
+export LANG=en_US
+export LC_ALL=C
+
+case $# in
+0|1|2) echo "u8myspell - converts MySpell dictionaries to UTF-8
+usage: u8myspell source_name output_name source_charset"; exit 1;;
+esac
+
+i=$1
+o=$2
+charset=$3
+localdir="$(dirname $0)"
+
+paste <(sed 's#[\t/].*##' $i.dic | iconv -f ${charset} -t UTF-8) <(sed 's#^[^\t/]*##' $i.dic) |
+sed "s#`echo -e '\t'`/#/#" | sed -f "$localdir"/l1_u8.sed >$o.tmp
+
+paste <(sed 's#	.*##' $o.tmp) <(sed 's#^[^	]*##' $o.tmp | iconv -f ${charset} -t UTF-8) |
+sed "s#`echo -e '\t'`/#/#;s/		/	/" | sed -f "$localdir"/l1_u8.sed >$o.dic
+
+cat $i.aff | awk '
+/^SET/{
+print "SET UTF-8" >"u8.beg"
+print "" >"u8.mid"
+print "" >"u8.cont"
+print "" >"u8.mid2"
+print "" >"u8.morph"
+print "" >"u8.end"
+next
+}
+/^(TRY|COMPOUNDSYLLABLE|ACCENT|REP|MAP|CHECKCOMPOUND|KEY|BREAK)/{
+print $1 >"u8.beg"
+print $2,$3,$4,$5,$6 >"u8.mid"
+print "" >"u8.cont"
+print "" >"u8.mid2"
+print "" >"u8.morph"
+print "" >"u8.end"
+next
+}
+/^[SP]FX/&&(NF>4){print $1,$2 >"u8.beg";
+i=index($4,"/");
+if (!i) print $3,$4 >"u8.mid"; else print $3, substr($4, 1, i) >"u8.mid"
+if (i) print substr($4, i) >"u8.cont"; else print "" >"u8.cont";
+print $5 >"u8.mid2";
+print $6 >"u8.morph"; next}
+{print >"u8.beg";
+print"" >"u8.mid";
+print"" >"u8.cont";
+print"" >"u8.mid2";
+print"" >"u8.morph";
+print"" >"u8.end"}'
+iconv -f ${charset} -t UTF-8 u8.mid >u8.mid3
+iconv -f ${charset} -t UTF-8 u8.mid2 >u8.mid4
+iconv -f ${charset} -t UTF-8 u8.morph >u8.morph2
+paste u8.{beg,mid3,cont,mid4,morph2,end} | sed 's#/	/#/#' | tr '\t' ' ' |
+sed -f "$localdir"/l1_u8.sed >$o.aff
+rm u8.{beg,mid,cont,mid2,morph,end,mid3,mid4,morph2} $o.tmp

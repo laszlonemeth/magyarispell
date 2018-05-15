@@ -1,0 +1,39 @@
+#!/bin/sh
+# szimbolikus kötések létrehozása a szotar.konf alapján
+# make symlinks for setting dictionary modules
+# see dic.conf
+#
+# $1: a szótár helye / dictionary location
+# $2: munkakönyvtár / working directory (default: ./)
+# $3: szotar.konf (default: szotar.konf)
+export LC_ALL=C
+. ./config
+
+WRKDIR=${1:-"./"}
+CATUTF="bin/catutf"
+
+if [ ! -d $WRKDIR ]; then
+	mkdir -p $WRKDIR
+	if [ $? -ne 0 ]; then
+		echo "nem sikerült kialakítani a munkateret" | $CATUTF
+		exit 1
+	fi
+fi
+
+if [ "$3" = "" ]; then
+	echo "konfigurációs állomány nincs megadva, alapértelmezett a szotar.konf" | $CATUTF
+fi
+
+DICCONF=${2:-"szotar.konf"}
+pwd
+grep -v '^#' $DICCONF | grep -v '^$' |
+while read i
+do 
+  test -d $WRKDIR/`basename $i`.modul || ln -s ../$i $WRKDIR/`basename $i`.modul
+done
+
+echo_n .
+
+echo " Rendben."
+
+exit 0

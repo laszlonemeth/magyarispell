@@ -1,0 +1,4 @@
+Név: Huhyph
+Leírás: Mayer Gyula Huhyph.tex 4.0 szókincsének Bíró Árpád által feldolgozott része
+Felelős: Németh László <nemethl@gyorsposta.hu>
+Szavak száma: ~700

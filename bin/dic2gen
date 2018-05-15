@@ -1,0 +1,42 @@
+#!/bin/sh
+export LC_ALL=C
+# convert morphological codes
+sed -e 's/\t[[]\([^]]*LATIVE[^]]*\)\]+/\tip:\1\t/
+s/\t\([^[]\+\)[[]\([^]]*\(PREF\|LATIVE\)[^]]*\)\]+/\tip:\2\tpr:\1\t/
+s/\t\([^[\:]\+\)[[]/\tst:\1\t[/g
+s/{+[[]\([^}]*\)\]}$/\tts:\1/
+s/\t\[\([^][]*\)\]/\tpo:\1\t/g
+s/{[^{]*}//g
+s/+[[]\([^[]\+\)\]/\tis:\1\t/g
+s/\t\(ts:[^]]*\)\]+[[]/\t\1\tts:/
+s/\t\+/\t/g;s/\t*$//' |
+sed 's/\t[^\t:]\+\t/\t/g;s/\t[^\t:]\+$//g
+s/is:\([^_\t]*_\)\(ABLE\|ABSTRACT\|ACTION\|ATTRIBUTE\|DIMINUTIVE\|FACTITIVE\|FORMAL\|FREE\|FREQ\|FUTPART\|LESS\|LOCATIVE\|MEDIAL\|MODE\|MRS\|MULTIPLICATION\|MULTORD\|OCCUPATION\|PASSIVE\|PASTPART\|PRESPART\|PROCESS\/RESULT\|SORT\|SUPPLY\|TRANSITIVE\|UNABLE\)_/ds:\1\2_/g' |
+sed 's/is:\(.*ds:\)/ds:\1/g;s/\tst:\t/\t/' >tmp/x.dic
+
+# create allomorph table
+cat tmp/x.dic |  grep -v '/[^	]*w' |
+sed -n '/\tst:/s/\t.[^tr]:[^\t]*//gp' |
+sed 's/\tpr:\([^\t]*\)\tst:/\t\1/' |
+sed 's/\/.*\t/\t/;s/\tst:/\t/' |
+ awk '{a[$2]=a[$2] "\tal:" $1}
+END{for(i in a)print i"\t"a[i]}' >tmp/allomorf.txt
+
+# expand the dictionary with allomorph and pronounciation data
+cat tmp/x.dic | LC_ALL=hu_HU.UTF-8 awk 'BEGIN{FS="[\t/ ]"}
+FILENAME!="-"{a[$1]=a[$1] substr($0,index($0,"\t"));next}
+# ph: field with simplified double consonants get extra
+# ph: field, for example: "bitlisz" -> "Beatles" extended
+# with ph:bitlis (without "z") for "bitlisszel" -> "Beatlesszel"
+# exception: "->" in ph, eg. ph:klafá->klassza
+a[$1] && a[$1]~/ph:[^ \t]*[szyae]\>/ && a[$1]!~/[-]>/ {
+a[$1]=gensub(/(ph:[^ \t]*[ae]) /, "\\1* ", "g", a[$1])
+a[$1]=gensub(/(ph:[^ \t]*[ae])$/, "\\1*", "g", a[$1])
+a[$1]=gensub(/((ph:[^ \t]*s)z)\>/, "\\1\t\\2", "g", a[$1])
+a[$1]=gensub(/((ph:[^ \t]*[cz])s)\>/, "\\1\t\\2", "g", a[$1])
+a[$1]=gensub(/((ph:[^ \t]*[gnt])y)\>/, "\\1\t\\2", "g", a[$1])
+}
+# concatenate with allomorphes
+a[$1]{print $0 a[$1];next}{print$0}' tmp/allomorf.txt $1 -
+
+rm tmp/x.dic

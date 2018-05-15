@@ -1,0 +1,4 @@
+Név: javítómodul
+Leírás: Mesterséges korlátozások a jobb hibajavítás érdekében
+Felelős: Németh László <nemethl@gyorsposta.hu>
+Szavak száma: ~50

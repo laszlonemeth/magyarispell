@@ -1,0 +1,4 @@
+Név: magyar_helységnevek
+Leírás: Mai és történelmi magyar helységnevek, ld. még OLVASSEL
+Felelős: Trón Viktor <tron@coli.uni-sb.de>
+Szavak száma: ~16000

@@ -1,0 +1,5 @@
+#!/bin/sed -f
+:a s#<NOU\(.*\)>+*<NOUN#/NOUN#;t a
+:b s#<VER\(.*\)>+*<VERB#/VERB#;t b
+:c s#<AD\(.*\)>+*<ADJ#/ADJ#;t c
+s#<AD\(.*\)>+*<NOUN#<AD\1[0]NOUN#

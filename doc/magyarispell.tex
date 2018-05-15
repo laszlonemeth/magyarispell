@@ -1,0 +1,114 @@
+%& --translate-file=cp8bit.tcx
+% papírméret és alapértelmezett betûméret:
+\documentclass[12pt, hungarian, a4paper, oneside]{book}
+% magyar nyelvi támogatás:
+\usepackage[latin2]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[magyar]{babel}
+\usepackage{indentfirst}
+\usepackage{times}
+\usepackage{longtable}
+\usepackage{verbatim}
+\usepackage{multicol}
+\usepackage{url}
+%\usepackage[dvipdf]{graphicx}
+% fejléc és lábléc támogatás:
+\usepackage{fancyhdr}
+\usepackage[normalem]{ulem}
+\usepackage{color}
+
+\def\pic#1#2#3{
+\begin{figure}
+\begin{center}
+\noindent\includegraphics[#3]{#1.eps}
+\caption{#2}\label{#1}
+\end{center}
+\end{figure}
+}
+
+\def\mc#1#2{\noindent
+\begin{tabular}{p{17.5cc}p{17.5cc}}#1&#2\end{tabular}
+}
+
+% alapértelmezett betûtípusok beállítása:
+%\usepackage{mathptm}
+%\renewcommand{\rmdefault}{phv}
+%\renewcommand{\ttdefault}{pcr}
+\renewcommand{\ttdefault}{cmss}
+
+% a dokumentum kezdete:
+
+\hoffset=-1cc
+\voffset=-1cc
+\oddsidemargin=0cc
+\topmargin=0cc
+\headheight=1cc
+\headsep=1cc
+\textheight=52cc
+\textwidth=36cc
+%\textwidth=36cc \hyphenpenalty-9999 \emergencystretch=12dd
+%\hsize=\textwidth
+\marginparsep=0cc
+\marginparwidth=0cc
+\marginparpush=0cc
+\renewcommand{\footnoterule}{}
+\frenchspacing
+\pretolerance-1
+
+\begin{document}
+
+\hyphenation{open-of-fice vas-árú}
+
+% oldalbeállítás:
+% fejléc és lábléc beállítása:
+\pagestyle{fancy}
+\lhead{Magyar Ispell dokumentáció \ \ \the\year. \the\month. \the\day.}
+\rhead{}
+\renewcommand{\headrulewidth}{0.4dd}
+\lfoot{}
+\rfoot{}
+\cfoot{\thepage}
+\renewcommand{\footrulewidth}{0.4dd}
+
+% címoldal:
+\title{Magyar Ispell dokumentáció}
+\author{Németh László}
+\date{2003. november}
+\maketitle
+
+% tartalomjegyzék:
+%\pagenumbering{roman}
+\stepcounter{page} % így egyszerûbb a lapra ugrás xdviben
+\thispagestyle{fancy}
+\tableofcontents
+\thispagestyle{fancy}
+\newpage
+
+% törzsszöveg:
+% ------------
+%\pagenumbering{arabic}
+\parskip=6dd
+\sloppy
+
+\include{bevezetes}
+\include{hasznalat}
+\include{fejleszt}
+\include{programozas}
+\include{fuggelek}
+\include{ellenorzes}
+\include{megfeleles}
+
+\nocite{szotar1999}
+\nocite{idegen}
+\nocite{mhsz1994}
+\nocite{magy}
+\nocite{smny2}
+\nocite{smny3}
+\nocite{manispell}
+\nocite{papp}
+\nocite{jakab}
+\addcontentsline{toc}{chapter}{Irodalomjegyzék}
+\bibliography{hu}
+\bibliographystyle{hplain}
+
+\end{document}

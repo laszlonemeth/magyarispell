@@ -1,0 +1,18 @@
+*************************************************************************
+* Figyelmeztetés: a szótár a Hunspell programmal, vagy a Hunspellt      *
+* tartalmazó LibreOffice (valamint annak elődje, az OpenOffice.org),    *
+* Mozilla Firefox, Google Chrome stb. programokkal működik együtt.      *
+*************************************************************************
+
+Morfológiai elemzéshez, tövezéshez a hu_HU_morph állományokra van szükség.
+
+Hunspell szótárállományok:
+hu_HU.* - ISO-8859-2-es szótárállományok
+hu_HU_gen.* - ISO-8859-2-es szótárállományok tövezéshez és toldalékoláshoz
+hu_HU_morph.* - ISO-8859-2-es szótárállományok morfológiai kódokkal
+hu_HU_u8.* - UTF-8-as szótárállományok
+hu_HU_u8_alias.* - UTF-8-as tömörített szótárállományok kiejtési információval
+hu_HU_u8_gen.* - UTF-8-as szótárállományok tövezéshez és toldalékoláshoz
+hu_HU_u8_gen_alias.* - UTF-8-as tömörített szótár tövezéshez és toldalékoláshoz
+hu_HU_u8_morph.* - UTF-8-as szótárállományok morfológiai kódokkal
+hu_HU_u8_morph2.* - UTF-8-as szótárállományok más (K&R) morfológiai kódokkal

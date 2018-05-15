@@ -1,0 +1,49 @@
+lookdb(1)                                               lookdb(1)
+
+
+
+NÉV
+       lookdb   -   keresés   a   makedb  paranccsal  elõállított
+       indexállományban
+
+ÁTTEKINTÉS
+       lookdb hunstem_adatbázisfájl kulcsszó(k)
+
+LEÍRÁS
+       A lookdb  parancs  gyors  keresést  hajt  végre  a  makedb
+       paranccsal   létrehozott   indexállományban.    A  program
+       kimenete azon állományok listája, amelyek minden  megadott
+       kulcsszót tartalmaznak.
+
+       Mivel  a  makedb a hunstem-et futtatja, aminek hatására az
+       indexelt állományok szavainak töve  is  bekerül  a  makedb
+       adatbázisba,  a  lookdb kimenete azokat az állományokat is
+       tartalmazni  fogja,   amelyek   a   megadott   kulcsszavak
+       toldalékolt  alakjait  tartalmazzák  csak. Például a bokor
+       kulcsszóra a bokrot szót tartalmazó állományok is kiírásra
+       kerülnek.   Fordítva,  vagyis  nem  szótõ kulcsszót, hanem
+       ragozott alakot használva ez már nem lesz igaz.
+
+       Ha nem pontos, hanem szó  eleji  egyezés  alapján  akarunk
+       keresni,  akkor  helyezzünk  csillagot  a kulcsszó végére.
+       Ennek nagy jelentõsége van,  mivel  az  ismeretlen  szavak
+       (többnyire  tulajdonnevekrõl van szó) toldalékolt alakjait
+       nem képes a Hunstem tövezni, ezért itt erõsen  javasolt  a
+       csillag használata).
+
+PÉLDÁK
+       lookdb hunstem.index macska egér 'Verseghy*'
+              A   keresés   eredménye  azon  állományok  listája,
+              amelyek tartalmazzák a macska ÉS az egér szót (vagy
+              ezek  toldalékolt alakjait) ÉS egy ,,Verseghy''-vel
+              kezdõdõ szót.
+
+
+LÁSD MÉG
+       makedb (1), hunspell (1), look (1).  A Lookdb rövid és jól
+       dokumentált   héjprogram,  ezért  érdemes  a  forrását  is
+       megtekinteni.
+
+
+
+                         2003. június 13.               lookdb(1)

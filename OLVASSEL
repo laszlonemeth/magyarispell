@@ -1,0 +1,298 @@
+* Szabad magyar (Magyar Ispell) szótár *
+
+ (c) 2008-2018, Németh László és Godó Ferenc
+
+ (c) 2002-2007 Németh László <nemeth@numbertext.org>
+
+ Licenc: GNU GPL/GNU LGPL/Mozilla MPL, lásd a mellékelt COPYING állományokat.
+ (A licencek alkönyvtárban az FSF.hu Alapítvány és a Novell Magyarország
+ által készített licencfordítások előzetes változatai olvashatók magyarul.)
+
+ Honlap: http://magyarispell.sourceforge.net és
+         https://github.com/laszlonemeth/magyarispell
+
+ Az Akadémiai helyesírás 12. kiadásának megfelelő átdolgozást, és a
+ Magyar helyesírási szótár 2017-es kiadása új átírásainak felvételét,
+ a magyar betűrendbe soroláshoz szükséges egyértelműsítéseket, valamint
+ részben a szótári összetett szavak összetételi határainak jelölését az FSF.hu
+ Alapítvány (http://www.fsf.hu) támogatása tette lehetővé 2017 októbere és
+ 2018 májusa között.
+
+ A kiadásban található dokumentáció részben elavult. Ennek frissítését,
+ a szótár átdolgozását a 2.0 változat fogja tartalmazni.
+
+Használat
+=========
+
+A szótár a Hunspell programmal működik tökéletesen együtt!
+
+Lásd: http://hunspell.sourceforge.net.
+
+hunspell -d hu_HU valami.txt
+
+Amennyiben mégis az Ispell, vagy MySpell (például LibreOffice)
+programokkal szeretnénk használni a szótárat, akkor a Magyar Ispell
+0.99.4-es változatára van szükség kell, ami még nem kettős
+toldaléklevágással kezeli a képzett szavakat.
+
+ispell -d magyar <ellenőrizendő állományok> (lásd: man ispell)
+
+Morfológiai elemzéshez, tövezéshez a hu_HU_morph állományokra van szükség.
+
+Megjegyzés: a hu_HU_u8_morph állományok javításra szorulnak, mivel a
+morfológiai leírás egy része ISO-8859-2-es karakterkódolású maradt,
+nem pedig UTF-8.
+
+A szótárállományok:
+
+tmp/hu_HU.aff - Hunspell affixumállomány
+tmp/hu_HU.dic - Hunspell szótárállomány
+tmp/hu_HU_morph.aff - Hunspell affixumállomány morfológiai kódokkal
+tmp/hu_HU_morph.dic - Hunspell szótárállomány morfológiai kódokkal
+tmp/hu_HU_morph2.aff - affixumállomány más (K&R) morfológiai kódokkal
+tmp/hu_HU_morph2.dic - szótárállomány más (K&R) morfológiai kódokkal
+tmp/hu_HU_u8.aff - Hunspell affixumállomány (Unicode)
+tmp/hu_HU_u8.dic - Hunspell szótárállomány (Unicode)
+tmp/hu_HU_u8_morph.aff - Hunspell affixumállomány morfológiai kódokkal (Unicode)
+tmp/hu_HU_u8_morph.dic - Hunspell szótárállomány morfológiai kódokkal (Unicode)
+
+A morfológiai kódokról a http://www.szoszablya.hu oldalon található
+leírás.
+
+
+Követelmények
+=============
+
+m4
+recode
+gawk (GNU awk)
+
+
+ KOMPONENS			SZÜKSÉGES KÖRNYEZETEK
+ 			telepítéshez		installáláshoz	használathoz
+ ---------------------------------------------------------------------
+ ispell			(gnu) make		install		ispell
+			(gnu) m4
+			(ispell) buildhash
+ myspell		(gnu) make
+			(gnu) m4
+			(ispell) buildhash
+ LibreOffice		(gnu) make		install
+			(gnu) m4
+			(ispell) buildhash
+
+
+Telepítés
+=========
+
+ make			# a default target ugyanaz mint
+			# 'Minden komponens telepítése' - lásd alább
+
+Minden komponens telepítése
+===========================
+
+ make menu		# kihagyható, ha a default szóállományt kívánjuk telepíteni
+ make all		# szótárállományok előállítása
+ make install_all 	# telepítés
+ make clean		# átmeneti állományok törlése az új szótárkészítés előtt
+
+Telepítés (csak) MySpellhez (a make alapértelmezett célja)
+==========================================================
+
+ make menu		# kihagyható, ha a default szóállományt kívánjuk telepíteni
+ make			# hu_HU.aff, hu_HU.dic a Myspell részére
+ make install_myspell	# hu_HU.aff, hu_HU.dic a helyére (MYSPELLDIR) + linkek
+ make clean		# átmeneti állományok törlése az új szótárkészítés előtt
+
+Telepítés (csak) Ispellhez
+==========================
+
+ make menu		# kihagyható, ha a default szóállományt kívánjuk telepíteni
+ make ispell		# magyar.hash Ispell szótár
+ make install_ispell	# magyar.hash, magyar.aff a helyére (ISPELLDIR) + linkek
+ make clean		# átmeneti állományok törlése az új szótárkészítés előtt
+
+Telepítés (csak) LibreOffice-hoz 
+===============================
+
+ make menu		# kihagyható, ha a default szóállományt kívánjuk telepíteni
+ make			# hu_HU.aff, hu_HU.dic a LibreOffice részére
+ make install_OO	# hu_HU.aff, hu_HU.dic a helyére (LODIR)
+ make clean		# átmeneti állományok törlése az új szótárkészítés előtt
+
+Célkönyvtárak
+=============
+
+Ahhoz, hogy a telepítéskor egy meghatározott helyre kerüljenek az állományok,
+a komponensek célkönyvtárát kell megváltoztatni:
+
+ komponens	változó		default érték
+ -------------------------------------------------------------------
+		PREFIX		/usr/local
+ ispell		ISPELLDIR	PREFIX/lib/ispell
+ myspell	MYSPELLDIR	PREFIX/lib/myspell
+ LibreOffice	LODIR		$(USER)/libreoffice/dictionaries/hu_HU
+
+például a make parancsnak átadva:
+ make ISPELLDIR=/home/bela/ispell \
+  MYSPELLDIR=/home/bela/myspell \
+  LODIR=/usr/share/hunspell \
+	install_all
+vagy
+ make PREFIX=/home/bela
+
+Fejlesztés
+==========
+
+A Magyar Ispell fejlesztésében közreműködtek:
+
+Szántó Tamás <tszanto@mol.hu>
+Bíró Árpád <biro_arpad@yahoo.com>
+Hilzinger Marcel <hili@suselinux.hu>
+Koblinger Egmont <egmont@cs.bme.hu>
+Godó Ferenc <godo@trillian.hu>
+Trón Viktor <tron@coli.uni-sb.de>
+Fransoa Holop <fred@francis.sk>
+Goldmann Eleonóra <eleonora46@gmx.net>
+Rung András <rung@itm.bme.hu>
+Rebrus Péter <rebrus@nytud.hu>
+Halácsy Péter <hp@mokk.bme.hu>
+Kornai András <andras@kornai.com>
+
+és sokan mások.
+
+Támogatók
+=========
+
+2002. április, Mátó Péter - 12000 Ft
+az összegen 2 példányt sikerült vásárolni a Magyar Helyesírási szótárból
+
+2002. július, TypoTeX kiadó - 300 000 Ft, Mayer Gyula közreműködésével
+a Magyar Ispell dokumentáció és tesztelés elkészítéséért
+az összeg nagyrészt a fejlesztői gép lecserélésére lett fordítva:
+AMD Athlon XP 1800+-os gép (korábban Pentium I, 150 Mhz, 24 MB RAM)
+
+2003. februártól, UHU-Linux (http://www.uhulinux.hu)
+
+2003. márciustól, Szószablya projekt (http://www.szoszablya.hu),
+BME MOKK Kutatóközpont.
+
+2007, 2017–2018. FSF.hu Alapítvány (http://www.fsf.hu)
+
+A segítséget és a támogatást köszönöm!
+
+Németh László
+
+Hivatkozások
+============
+
+Magyar Tudományos Akadémia szerk.: A magyar helyesírás szabályai. 12. kiadás.
+Budapest, 2015
+
+Magyar helyesírási szótár. Szerk. Tóth Etelka, Akadémiai Kiadó, Budapest, 2017
+
+Lackó Krisztina – Mártonfi Attila: Helyesírás, Osiris Kiadó, Budapest, 2004
+
+és
+
+Magyar Tudományos Akadémia szerk.: A magyar helyesírás szabályai. 12. kiadás.
+Budapest, 2015.
+
+Magyar helyesírási szótár. Szerk. Tóth Etelka,
+Akadémiai Kiadó, Budapest, 2017.
+
+Deme László, Fábián Pál, Tóth Etelka: Magyar helyesírási szótár.
+Akadémiai Kiadó, Budapest, 1999.
+
+Funkcionális magyar nyelvtan.
+Osiris Kiadó, Budapest, 1998.
+
+Grétsy László, Kovalovszky Miklós, szerk.: Magyar
+nyelvművelő kézikönyv. Akadémiai Kiadó, Budapest, 1985
+
+Jakab László: Tanulmányok az igeragozás köréből.
+KLTE Nytud. Int. 73. Debrecen, 1999.
+
+Kiefer Ferenc, szerk.: Strukturális magyar nyelvtan 2. Fonológia.
+Akadémiai Kiadó, Budapest, 1994.
+
+Kiefer Ferenc, szerk.: Strukturális magyar nyelvtan 3. Morfológia.
+Akadémiai Kiadó, Budapest, 2000.
+
+Magyar értelmező kéziszótár (2. kiadás), Akadémiai Kiadó, Budapest, 2003
+
+Magyar Tudományos Akadémia szerk.: A magyar helyesírás szabályai. 11. kiadás.
+Budapest, 1984.
+
+Németh Anikó: A magyar nyelvtan. Merényi Könyvkiadó, Budapest, 1997.
+
+Papp Ferenc, szerk.: A magyar nyelv szóvégmutató szótára.
+Akadémiai Kiadó, Budapest, 1969.
+
+Többek.
+ispell manpages (man ispell, man 4 ispell).
+
+Vonyó Attila: Angol-magyar szótár.
+http://almos.vein.hu/~vonyoa
+
+
+Történet
+========
+
+2018-05-15 Magyar Ispell 1.7
+2017–18    Magyar Ispell 1.7 béta 2–5
+2015       Magyar Ispell 1.7 béta
+2010-03-29 Magyar Ispell 1.6.1
+2010-02-06 Magyar Ispell 1.6
+2009-09-18 Magyar Ispell 1.5
+2008-11-20 Magyar Ispell 1.4
+2008-03-15 Magyar Ispell 1.3
+2007-10-26 Magyar Ispell 1.2.2
+2007-09-18 Magyar Ispell 1.2.1
+2007-05-11 Magyar Ispell 1.2
+2006-07-27 Magyar Ispell 1.1.1
+2006-06-15 Magyar Ispell 1.1
+2005-12-19 Magyar Ispell 1.0
+2005-10-24 Magyar Ispell 1.0-RC3
+2004-10-07 Magyar Ispell 1.0-RC2
+2004-06-29 Magyar Ispell 1.0-RC1
+2004-06-09 Magyar Ispell 0.99.6
+2004-04-09 Magyar Ispell 0.99.5
+2003-09-15 Magyar Ispell 0.99.4.2
+2003-09-01 Magyar Ispell 0.99.4
+2003-07-11 Magyar Ispell 0.99.3
+2003-06-30 Magyar Ispell 0.99.2
+2003-06-11 Magyar Ispell 0.99.1
+2003-06-05 Magyar Ispell 0.99
+2003-04-30 Magyar Ispell 0.98
+2003-04-12 Magyar Ispell 0.98b
+2003-02-26 Magyar Ispell 0.97
+2003-02-07 Magyar Ispell 0.96
+2003-02-05 Magyar Ispell 0.95
+2002-12-13 Magyar Ispell 0.94
+2002-11-25 Magyar Ispell 0.93
+2002-11-20 Magyar Ispell 0.92
+2002-11-15 Magyar Ispell 0.91
+2002-11-07 Magyar Ispell 0.90
+2002-06-27 Magyar Ispell 0.86
+2002-06-14 Magyar Ispell 0.85
+2002-06-03 Magyar Ispell 0.84
+2002-05-21 Magyar Ispell 0.83
+2002-05-14 Magyar Ispell 0.82
+2002-05-10 Magyar Ispell 0.81
+2002-04-30 Magyar Ispell 0.8
+2002-04-17 Magyar Ispell 0.71
+2002-04-17 Magyar Ispell 0.7
+2002-02-21 Magyar Ispell 0.65. 2. változat
+2002-02-20 Magyar Ispell 0.65
+2002-02-12 Magyar Ispell 0.64
+2002-02-11 Magyar Ispell 0.63
+2002-01-11 Magyar Ispell 0.62
+2002-01-11 Magyar Ispell 0.61
+2002-01-10 Magyar Ispell 0.6
+2001-12-07 Magyar Ispell 0.5
+2001-11-23 Magyar Ispell 0.4
+2001-11-08 Magyar Ispell 0.3
+2001-10-19 Magyar Ispell 0.2
+2001-10-09 Magyar Ispell 0.1
+1998, 1999, 2000 Magyar Ispell (kiadatlan)

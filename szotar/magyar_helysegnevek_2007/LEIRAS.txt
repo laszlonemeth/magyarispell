@@ -1,0 +1,5 @@
+Név: magyar_helységnevek
+Leírás: Magyar helységnevek a KSH adatok alapján
+Forrás: A Magyar Köztársaság helységnévkönyve, 2007. jan. 1., http://www.ksh.hu
+Felelős: Németh László 
+Szavak száma: ~3600

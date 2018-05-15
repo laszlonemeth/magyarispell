@@ -1,0 +1,62 @@
+#!/bin/sh
+# tiltott szavak 0.1
+# forbidden words
+#
+# $1: a Magyar Ispell gyökérkönyvtára / Magyar Ispell root directory
+# $2: spellchecker
+export LC_ALL=C
+
+if [ "$1" = "" ]; then
+	echo "usage: $0 magyar_ispell_root_directory [spellchecker]"
+	exit 1
+fi
+
+ROOT=${1:-'.'}
+SPELL=${2:-"ISPELL"}
+
+. $ROOT/config
+
+cd $WRKDIR || exit 1
+
+echo_n .
+if [ "$SPELL" = "myspell" ]; then
+  cat $WRKDIR/*.modul/fonev.1 $WRKDIR/*.modul/ragozatlan* \
+      $WRKDIR/*.modul/ige_alanyi.1 $WRKDIR/*.modul/ige_targy.1 \
+      $WRKDIR/*.modul/tulajdonnev* $SZOTAR/*/*/* 2>/dev/null |
+  grep '#MYSPELL TILTOTT' | cut -d '#' -f 1 |
+  tr '	 ' '\n\n' | grep -v ^$ | sed 's/$/\/w-Y/' | recode u8..l2 >>$DICT
+
+  echo_n .
+
+  cat $WRKDIR/*.modul/fonev.1 $WRKDIR/*.modul/ragozatlan* \
+  $WRKDIR/*.modul/tulajdonnev* $SZOTAR/*/*/* 2>/dev/null |
+  grep 'TÖBBTAGÚ' | cut -d '#' -f 1 | awk '{print$1}' |
+  tr '   ' '\n\n' | grep -v ^$ | sed 's/$/\/-ß-ż-ľ-ś-Ŕ-ŕ÷/' | recode u8..l2 >>$DICT
+
+fi
+
+echo_n .
+
+if [ "$SPELL" = "myspell" ]; then
+  cat $WRKDIR/*.modul/melleknev* 2>/dev/null |
+  grep '#MYSPELL TILTOTT' | cut -d '#' -f 1 |
+  tr '	 ' '\n\n' | grep -v ^$ | sed 's/\(^.*$\)/[adj]\1\/w-Y/' | recode u8..l2 >>$DICT
+fi
+echo_n .
+
+if [ "$SPELL" = "myspell" ]; then
+  cat $WRKDIR/*.modul/fonev_morfo* 2>/dev/null |
+  grep '#MYSPELL TILTOTT' | cut -d '	' -f 1 |
+  grep -v ^$ | sed 's/$/\/w-Y/' | recode u8..l2 >>$DICT
+fi
+echo_n .
+
+if [ "$SPELL" = "myspell" ]; then
+  cat $WRKDIR/*.modul/fonev_morfo* 2>/dev/null |
+  grep '#MYSPELL TILTOTT' | sed 's/[	 ]*#.*$//' | cut -d '	' -f 2 |
+  grep -v ^$ | sed 's/\(^.*\)$/[nounmorfo]\1\/w-Y/' | recode u8..l2 >>$DICT
+fi
+echo_n .
+
+
+echo " Rendben."

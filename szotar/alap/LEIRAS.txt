@@ -1,0 +1,62 @@
+Név: alap
+Leírás: Az alapszókincset tartalmazó modul
+Felelős: Németh László <nemeth@openoffice.org>
+Szavak száma: ~30000
+
+Új szókincs kialakításánál javasolt a
+
+fonev
+melleknev
+ige_alanyi
+ige_targy
+ragozatlan
+
+állományok kialakításával kezdeni. A következő fontosabb
+leíró állományok a _mely, és a -ae/-jaje/-jajeae
+állományok.
+
+
+LEIRAS ÁLLOMÁNYOK
+fonev	köznevek
+fonev_ae	b, d, f, k, l, n, p, r és t végű; -a, -e birtokos személyragot kapó főnevek (váll->válla)
+fonev_ing	mély és magas hangrendű ragot kapó főnevek (fotel->fotelban, fotelben)
+fonev_jaje	c, g, h, j, m, s, x, y, v, és z végű, -ja, -je birtokos személyragot kapó főnevek (hang->hangja)
+fonev_jajeae	-a/-e, és -ja/-je birtokos személyraggal is előforduló főnevek (beszéd->beszéde, beszédje)
+fonev_kulon	főnevek, amelyek összetett szóban nem szerepelhetnek (kicsi)
+fonev_magas	főnevek, amelyek utolsó szótagja mély hangrendű, de magas hangrendű ragot kapnak (gentleman->gentlemannel)
+fonev_magas2	főnevek, amelyek ajakkerekítéses magas hangrendű ragot kapnak (Weöreshöz)
+fonev_mely	főnevek, amelyek utolsó szótagja magas hangrendű, de mély hangrendű ragot kapnak (héj->héjjal)
+fonev_morfo1	hangkivető főnevek, többesszámú alakjaikkal (szerelem->szerelmen, kehely->kelyhen)
+fonev_morfo2	nyitótövek, és egyéb kivételek, többesszámú alakjaikkal
+fonev_oe	-et, -ek, -ön, -höz ragot kapó, ajakkerekítéses magas hangrendű főnevek (könyvet, könyvön)
+fonev_osszetett	összetett szavak (kerékpár)
+fonev_vege	összetett szavak végén szerepelhet csak
+ige_alanyi	nem tárgyas igék (történik, nincs történi, történed)
+ige_ikes_kiv	dupla mássalhangzó+ikes igék, -ó, -ás képzőkkel, l. iges.awk, igesgen
+ige_koto	igekötőt nem kapó igék (vagy külön kezelve az igekötős alakok)
+ige_mely	igék, amelyek utolsó szótagja magas hangrendű, de mély hangrendű ragot kapnak (sír->sírok)
+ige_morfo	hangkivetős igék (bicsakol->bicsakló)
+ige_targy	tárgyas igék (üt->üti, ütöm)
+ige_tat_kiv	-tat, -tet gyakorítóképzős alakok nincsenek (pl. mond, mondat, de nincs mondtat, mondattat)
+melleknev	melléknevek
+melleknev_a	-o kötőhangzót (főnévi ragozást) nem kap, (nincs állottot)
+melleknev_ae	b, d, f, k, l, n, p, r és t végű; -a, -e birtokos személyragot kapó melléknevek
+melleknev_e	csak ajakréses magas hangrendű toldalékok, kivéve -hez. -ön és -höz ragot is kap. (zöldet, zöldön, zöldök nincs)
+melleknev_ing	mély és magas hangrendű ragot kapó melléknevek
+melleknev_jaje	c, g, h, j, m, s, x, y, v, és z végű, -ja, -je birtokos személyragot kapó melléknevek
+melleknev_jajeae	-a/-e, és -ja/-je birtokos személyraggal is előforduló melléknevek
+melleknev_mely	melléknevek, amelyek utolsó szótagja magas hangrendű, de mély hangrendű ragot kapnak
+melleknev_oe	ajakkerekítéses és ajakréses magas hangrendű melléknevek, kivéve -hez toldalék
+ragozatlan	nem ragozott, vagy kivételek (kapcsolókkal megadva a ragokat)
+tulajdonnev	tulajdonnevek: ha az első mező üres, akkor a szó ragozatlan, ha nem, akkor a második mező melléknév
+tulajdonnev.geo	földrajzi nevek
+tulajdonnev.keresztnev	keresztnevek
+tulajdonnev.szemelynev	személynevek
+kotojeles_mely	mély ragozású, idegen ejtésű, vagy mozaikszavak kötőjellel elválasztott toldalékkal
+kotojeles_magas	magas ajakréses ragozású, idegen ejtésű, vagy mozaikszavak kötőjellel elválasztott toldalékkal
+kotojeles_magas2	magas ajakkerekítéses ragozású, idegen ejtésű, vagy mozaikszavak kötőjellel elválasztott toldalékkal
+kotojeles_hangzo	ezeknél nincs kötőhangzó a toldalék és a szó között, hamarosan megvalósítva
+
+A tulajdonnevek hangrendjéről: a -i végű melléknévképzős alakoknál a hangrend automatikusan
+mély, ha a tőszó utolsó magánhangzója mély. Ha ingadozó, (i, í, mint Párizs), akkor
+külön felveendő a melleknev_mely allomanyba a képzett alak (párizsi).

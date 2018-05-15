@@ -1,0 +1,42 @@
+====================================================
+magyar településnevek listája a magyarispell számára
+====================================================
+
+források:
+ postai irányítószámok jegyzéke:         www.posta.hu
+ gyalogló településlista:                www.gyaloglo.hu
+ polgármesteri hivatalok jegyzéke        www.b-m.hu
+
+Ezt a három forrást tekintettem irányadónak.
+További településjegyzékek (pl. http://parizs.tripod.com/,
+http://www.bogardi.com/) is belekerültek a listába, de ezek anyagát
+helyesírási szempontból gyakran felülbíráltam.
+
+A mai/hivatalos helyesírással nem rendelkező településneveket a bennük
+fellelhető szavak és hangok (sic!) mai helyesírásával (pl. 'cz'
+helyett 'c'), illetve analógiás alapon (pl. '-nyirád', de 'nyír-')
+határoztam meg.  A szabályok alól kivételek a személyneveket
+tartalmazó településnevek (pl. 'Bethlenfalva', 'Bácskossuthfalva',
+'Zichyfalva').  A településnevek mindig egybeírandók, kivéve
+pl. Farkaslyuk-bányatelep.
+
+A hosszú és rövid magánhangzók tekintetében még így is sok a
+bizonytalanság, hiszen a helyi ejtés gyakran vagy csak hosszú vagy
+csak rövid és ez befolyásolta az amúgy létező szavakat tartalmazó
+alakok írását, pl. 'nyír'.
+
+A -i képzős melléknevek esetében megengedő voltam.
+A sima összerakási minta (vagyis alanyeset + i) mellett megengedtem
+a következőket:
+
+- a 'falu' alakra (morfémára) végződőknél a falusi (pl. 'tahitótfalusi')
+- a 'falva' végűeknél a -falvi (pl. 'zichyfalvi')
+- az 'erdő', ill. 'mező' végűeknél az 'erdei', illetve 'mezei'
+  (pl. 'feketeerdei')
+- néhány hangkivető alakra is végződik tulajdonnév, pl. 'halom', 'telek',
+  ezeknél megengedtem a hangkivetős melléknevet is (pl. 'hegyeshalmi')
+- az -i végűeknél viszont nem a szabály szerint eljárva, nem engedtem
+  meg a két i-t írásban, holott így mondjuk (*'bugyii' -> 'bugyi')
+- kizárólagos kivételnek tekintettem még: 'egri', 'aggteleki'
+
+Trón Viktor 2001-2002

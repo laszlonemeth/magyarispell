@@ -1,0 +1,5 @@
+#!/bin/sh
+# kiejtés levágása és tárolása $1 fájlban
+# szó[ph:kiejtés] -> szó
+awk '/^[^[][^	 ]*[[].*	/{print gensub(/\/[^[]*/,"",1,$1) >>"tmp/mezok.txt";}{print$0}' |
+sed 's/^\([^[][^ 	]*\)[[].*]/\1/'

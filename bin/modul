@@ -1,0 +1,153 @@
+#!/bin/sh
+# modul
+# modulválasztási menü a Magyar Ispellhez
+# module selection menu for Magyar Ispell
+#
+#	Version 1.2 (2002.11.22.)
+#	Version 1.1 (2002.09.06.) 
+#	Version 1.0 (2002.07.30.) 
+#
+#	(c) Copyright 2002 László Németh, All Rights Reserved
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the BSD License (see http://www.opensource.org)
+#
+# $1: a szótár helye / dictionary location
+export LC_ALL=C
+
+if [ "$1" = "" ]; then
+	echo "A szótár helyének megadása kötelezõ (pl. ./szotar)"
+	exit 1
+fi
+
+. ./config
+
+cd $1 || exit 1
+
+
+# functions
+nevelo() {
+	case $1 in
+	[aeiou]*)
+		echo az
+		;;
+	*)
+		echo a
+		;;
+	esac
+}
+
+capitalize() {
+	A=`echo $1 | sed 's/^\(.\).*/\1/' | tr [:lower:] [:upper:]`
+	B=`echo $1 | sed 's/^.\(.*\)/\1/'`
+	echo $A$B
+}
+
+makemenu() {
+	for i in _*; do 
+		name=`echo $i | sed 's/^.//'`
+		if [ -d `capitalize $name` ]; then
+			echo_n "==>$name "
+		else
+			echo_n "$name "
+		fi
+	done
+}
+
+if [ "$2" = "uj" ]; then
+	echo_n "Új modulkönyvtár neve (kezdõ aláhúzásjel nélkül): _"
+	read D
+
+	if [ "$D" = "" ]; then
+		exit 0
+	fi
+
+	mkdir "_$D"
+
+	if [ $? -ne 0 ]; then
+		echo "==> A könyvtár létrehozása nem sikerült."
+		exit 1
+	fi
+
+	for i in `ls alap.modul/* | grep -v "\."` ; do
+		grep "^#" $i >"_$D/`basename $i`"
+		echo_n .
+	done
+
+	ln -s -f _$D `capitalize $D`
+	echo " Rendben."
+	exit
+fi
+
+
+CANCEL="mégsem: kilépés - exit"
+OK="kész: szótárkészítés (make all)"
+HELP="segítség - help"
+DESC="modulok leírása - about modules"
+TITLE1=" A nyíllal jelölt modulok kerülnek be a szótárba."
+TITLE2=" Változtatni a megfelelõ modul számának megadásával lehet."
+
+# start of script
+
+# example -> Example
+LC_SAVE=$LC_ALL
+LC_ALL="C"
+export LC_ALL
+
+clear
+echo
+echo "<<<< Magyar Ispell helyesírási szótár moduljainak kiválasztása >>>>"
+
+while true; do
+	echo
+	echo "$TITLE1"
+	echo "$TITLE2"
+	echo
+	select i in "$CANCEL" "$OK" "$HELP" "$DESC" `makemenu`; do
+	case $i in
+	==\>*)
+		dirname=`echo $i | sed 's/^==>//'`
+		echo "Kikapcsolom `nevelo $dirname` \"$dirname\" modult..."
+		rm -f `capitalize $dirname`
+		if [ $? -ne 0 ]; then
+			echo Nem sikerült.
+		else
+			echo Kész.
+		fi
+		break
+		;;
+	"$CANCEL")
+		# ez micsoda?
+		LC_ALL=$LC_SAVE
+		export LC_ALL
+		exit 1
+		;;
+	"$OK") # kilép
+		LC_ALL=$LC_SAVE
+		export LC_ALL
+		exit 0
+		;;
+	"$HELP")
+		echo $TITLE1
+		echo $TITLE2
+		;;
+	"$DESC")
+		more _*/LEIRAS.txt
+		;;
+	*)
+		if [ "$i" != "" ]; then
+			echo "Bekapcsolom `nevelo $i` \"$i\" modult..."
+			ln -s -f _$i `capitalize $i`
+			if [ $? -ne 0 ]; then
+				echo Nem sikerült.
+			else
+				echo Kész.
+			fi
+		else
+			echo "Nincs ilyen menüpont."
+		fi
+		break
+		;;
+	esac
+done
+done

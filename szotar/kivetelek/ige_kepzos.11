@@ -1,0 +1,177 @@
+##################################
+# Külön kezelt igék képzős alakjai
+##################################
+
+# XXX igekötős nincs elkülönítve
+
+# Mezők leírása:
+# 1. tő
+# 2. -ás/és
+# 3. -ó/-ő
+# 4. -t/-tt
+# 5. -andó/-endő
+# 6. -hat/-het (csak alanyi)
+# 7. -hat/-het (tárgyas igeragozású is lehet)
+# 8. -ható/-hető
+# 9. -hatóság/-hetőség
+# 10. -hatatlan/-hetetlen
+# 11. -hatatlanság/-hetetlenség
+
+# jönmegy hat_alanyi hat_targyas
+
+jön	jövés	jövő	jött	jövendő	jöhet
+létrejön	létrejövés	létrejövő	létrejött	létrejövendő	létrejöhet #NEM_IKES
+megy	menés	menő	ment		mehet
+tönkremegy	tönkremenés	tönkremenő	tönkrement		tönkremehet #NEM_IKES
+létrejön	létrejövés	létrejövő	létrejött		létrejöhet #NEM_IKES
+
+# teszvesz (igekötős)
+
+hisz	hívés	hívő	hitt	hiendő		hihet	hihető	hihetőség	hihetetlen	hihetetlenség
+tesz	tevés	tevő	tett	teendő		tehet	tehető	tehetőség	tehetetlen	tehetetlenség
+jóvátesz	jóvátevés	jóvátevő	jóvátett	jóváteendő		jóvátehet	jóvátehető	jóvátehetőség	jóvátehetetlen	jóvátehetetlenség #NEM_IKES
+közzétesz	közzétevés	közzétevő	közzétett	közzéteendő		közzétehet	közzétehető	közzétehetőség	közzétehetetlen	közzétehetetlenség #NEM_IKES
+tönkretesz	tönkretevés	tönkretevő	tönkretett	tönkreteendő		tönkretehet	tönkretehető	tönkretehetőség	tönkretehetetlen	tönkretehetetlenség #NEM_IKES
+vesz	vevés	vevő	vett	veendő		vehet	vehető	vehetőség	vehetetlen	vehetetlenség
+észrevesz	észrevevés	észrevevő	észrevett	észreveendő		észrevehet	észrevehető	észrevehetőség	észrevehetetlen	észrevehetetlenség #NEM_IKES
+visz	vivés	vivő	vitt			vihet	vihető	vihetőség	vihetetlen	vihetetlenség
+eszik	evés	evő	evett			ehet	ehető	ehetőség	ehetetlen	ehetetlenség
+iszik	ivás	ivó	ivott			ihat	iható	ihatóság	ihatatlan	ihatatlanság
+
+# lát
+
+lát	látás	látó	látott	látandó		láthat	látható	láthatóság	láthatatlan	láthatatlanság
+lót-fut	lótás-futás	lótó-futó	lótott-futott			lóthat-futhat
+viszontlát	viszontlátás	viszontlátó	viszontlátott	viszontlátandó		viszontláthat	viszontlátható	viszontláthatóság #NEM_IKES
+
+# lesz
+
+van	levés	levő		leendő	lehet		lehető	lehetőség	lehetetlen	lehetetlenség
+van	levés	lévő
+
+# telik
+
+telik	telés	telő	telt		telhet		telhető	telhetőség	telhetetlen	telhetetlenség
+
+# fürdik
+fürdik	fürdés	fürdő	fürdött		fürödhet	fürödhető
+
+# metsz, játszik
+
+metsz	metszés	metsző	metszett	metszendő		metszhet	metszhető	metszhetőség	metszhetetlen	metszhetetlenség
+játszik	játszás	játszó	játszott	játszandó		játszhat	játszható	játszhatóság	játszhatatlan	játszhatatlanság
+látszik	látszás	látszó	látszott	látszandó	látszhat
+# <*tettszik:tetszik> <*tettszék:tetsszék>
+tetszik	tetszés	tetsző	tetszett	tetszendő	tetszhet
+hallatszik	hallatszás	hallatszó	hallatszott	hallatszhat
+
+# alszik, fekszik
+alszik	alvás	alvó				alhat
+fekszik	fekvés	fekvő			fekhet
+alszik						aludhat
+fekszik					feküdhet
+
+# kettős hangzós szik
+
+cselekszik	cselekvés	cselekvő
+dicsekszik	dicsekvés	dicsekvő
+haragszik	haragvás	haragvó
+növekszik	növekvés	növekvő
+nyugszik	nyugvás	nyugvó			nyughat
+furakszik	furakvás	furakvó
+gyarapszik	gyarapvás	gyarapvó
+tolakszik	tolakvás	tolakvó
+tülekszik	tülekvés	tülekvő
+törekszik	törekvés	törekvő
+igyekszik	igyekvés	igyekvő
+gyanakszik	gyanakvás	gyanakvó
+esküszik	esküvés	esküvő
+alkuszik	alkuvás	alkuvó
+nyomakszik	nyomakvás	nyomakvó
+marakszik	marakvás	marakvó
+tanakszik	tanakvás	tanakvó
+kötekszik	kötekvés	kötekvő
+
+# edz/pedz
+
+edz	edzés	edző	edzett	edzendő		edzhet	edzhető	edzhetőség	edzetlen	edzetlenség
+pedz	pedzés	pedző	pedzett	pedzendő		pedzhet	pedzhető	pedzhetőség	pedzetlen	pedzetlenség
+	
+# lő/sző
+
+lő	lövés	lövő	lőtt	lövendő		lőhet	lőhető	lőhetőség	lövetlen	lövetlenség
+sző	szövés	szövő	szőtt	szövendő		szőhet	szőhető	szőhetőség	szövetlen	szövetlenség
+ró	rovás	rovó	rótt			róhat	róható	róhatóság
+rí	rívás	rívó	rítt			ríhat
+nyű	nyüvés	nyüvő	nyűtt	nyüvendő		nyűhet	nyűhető	nyűhetőség	nyüvetlen	nyüvetlenség
+fő	fövés	fövő	főtt	fövendő		főhet	főhető	főhetőség	fövetlen	fövetlenség
+nő	növés	növő	nőtt	növendő		nőhet	nőhető	nőhetőség	növetlen	növetlenség
+
+# fed -> kivetelek/ragozatlan
+
+#	fedés	fedő	fedendő		fedhet	fedhető	fedhetőség	# (feddhetetlen miatt)	fedhetetlen	fedhetetlenség
+#	befedés	befedő	befedendő		befedhet	befedhető	befedhetőség	# (feddhetetlen miatt)	fedhetetlen	fedhetetlenség
+#	elfedés	elfedő	elfedendő		elfedhet	elfedhető	elfedhetőség	elfedhetetlen	elfedhetetlenség
+#	felfedés	felfedő	felfedendő		felfedhet	felfedhető	felfedhetőség	felfedhetetlen	felfedhetetlenség
+#	fölfedés	fölfedő	fölfedendő		fölfedhet	fölfedhető	fölfedhetőség	fölfedhetetlen	fölfedhetetlenség
+#	kifedés	kifedő	kifedendő		kifedhet	kifedhető	kifedhetőség	kifedhetetlen	kifedhetetlenség
+#	lefedés	lefedő	lefedendő		lefedhet	lefedhető	lefedhetőség	lefedhetetlen	lefedhetetlenség
+#	átfedés	átfedő	átfedendő		átfedhet	átfedhető	átfedhetőség	átfedhetetlen	átfedhetetlenség
+
+# rak
+rak	rakás	rakó	rakott	rakandó		rakhat	rakható	rakhatóság	rakhatatlan	rakhatatlanság
+csuk	csukás	csukó	csukott	csukandó		csukhat	csukható	csukhatóság	csukhatatlan	csukhatatlanság
+bök	bökés	bökő	bökött	bökendő		bökhet	bökhető	bökhetőség	böketlen	böketlenség
+bök	bökés	bökős
+lök	lökés	lökő	lökött	lökendő		lökhet	lökhető	lökhetőség	löketlen	löketlenség
+lök	lökés	lökős
+pök	pökés	pökő	pökött	pökendő		pökhet	pökhető	pökhetőség	pöketlen	pöketlenség
+
+# ugrik
+
+ugrik	ugrás	ugró	ugrott	ugrandó		ugorhat	ugorható	ugorhatóság	ugorhatatlan	ugorhatatlanság
+
+# kevesell
+
+kevesell	keveslés	keveslő		keveslendő #NEM_IKES
+kétell	kétlés	kétlő	kétlendő #NEM_IKES
+kicsinyell	kicsinylés	kicsinylő	kicsinylendő #NEM_IKES
+kicsinyel	kicsinylés	kicsinylő	kicsinylendő
+
+# hall
+hall	hallás	halló	hallott			hallhat	hallható	hallhatóság	hallhatatlan	hallhatatlanság
+nagyotthall	nagyothallás	nagyothalló				nagyothallhat #NEM_IKES
+
+
+# illik
+illik	illés	illő	illett	illendő
+
+# kell
+#	kellés	kellő	kellett		kellhet
+	
+# sínylik
+#	sínylés	sínylő
+#	bagzás	bagzó
+#	kotlás	kotló
+#	zajlás	zajló
+#	porlás	porló
+#	botlás	botló
+
+# pisil
+
+pisil	pisilás	pisiló	pisilt			pisilhat	pisilható	pisilhatóság	pisilhatatlan	pisilhatatlanság
+pisil	pisilás	pisilós
+
+# légzés
+
+lélegez	légzés	légző	légzett	légzendő
+belélegez	belégzés	belégző	belégzett	belégzendő #NEM_IKES
+kilélegez	kilégzés	kilégző	kilégzett	kilégzendő #NEM_IKES
+
+# vet
+vet	vetés	vető	vetett	vetendő		vethet	vethető	vethetőség	vethetetlen	vethetetlenség
+
+# lovagol
+
+lovagol	lovaglás	lovagló
+lovagol	lovaglás	lovaglós

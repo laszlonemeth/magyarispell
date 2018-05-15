@@ -1,0 +1,4 @@
+Név: hírek
+Leírás: hírekből származó (nem alapszókincs, ált. tulajdonnevek)
+Felelős: Németh László <nemethl@gyorsposta.hu>
+Szavak száma: ~10

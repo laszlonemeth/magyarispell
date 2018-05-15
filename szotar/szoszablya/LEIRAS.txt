@@ -1,0 +1,4 @@
+Név: Szószablya
+Leírás: A Szószablya projekthez kapcsolódó szavak
+Felelős: Halácsy Péter <halacsy@mokk.bme.hu>
+Szavak száma: ~700

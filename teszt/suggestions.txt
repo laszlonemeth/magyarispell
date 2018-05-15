@@ -1,0 +1,11 @@
+
+<*porsche:Porsche>
+<*porschét:Porschét>
+<*porsés:porschés>
+<*porsésokat:porschésokat>
+
+<*Porse:Porsche>
+<*Porsét:Porschét>
+<*Porsés:porschés>
+<*Porsésokat:porschésokat>
+

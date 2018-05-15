@@ -1,0 +1,5 @@
+Név: teologia
+Leírás: Teológiai kifejezések (főleg katolikus)
+Felelős: Szép Attila <szep_attila@pphf.hu>
+Szavak száma: ~1900
+

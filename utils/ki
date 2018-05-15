@@ -1,0 +1,10 @@
+#!/bin/sh
+# description: subtract $1 from $2 without sorting
+# usage: ki $1 $2
+case $# in
+[0-1]) echo "description: subtract file1 from file2
+usage: ki file1 file2"; exit 0;;
+esac
+cat $2 | awk "BEGIN{while ((getline var < \"$1\") > 0) w[var]=1}
+w[\$0]!=1{print\$0}" >/tmp/ki$$ && mv /tmp/ki$$ $2
+[ -f /tmp/ki$$ ] && rm /tmp/ki$$

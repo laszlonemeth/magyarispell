@@ -1,0 +1,27 @@
+AMHSz 139.
+
+<*anyagcserevizsgálat>
+<anyagcserevizsgálat-kérés>
+<sejt-anyagcserevizsgálat>
+
+<*hajlítottbútor>
+<hajlítottbútor-gyár>
+
+<*hidegvíz>
+<hidegvíz-csap>
+
+<*házifeladat>
+<házifeladat-készítés>
+<számtan-házifeladat>
+
+<*légifénykép>
+<légifénykép-montázs>
+
+<*kiviteliengedély>
+<kiviteliengedély-kérés>
+
+<*pirospont>
+<pirospont-gyűjtés>
+
+<*elefántbolhalábujjköröm>
+<elefántbolhalábujjköröm-köszörülés>

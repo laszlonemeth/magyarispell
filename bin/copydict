@@ -1,0 +1,59 @@
+#!/bin/sh
+export LC_ALL=C
+# szótárak egybemásolása 0.1
+# merge dictionaries
+#
+# $1: a szótár helye / dictionary location
+# $2: munkakönyvtár / working directory (default: ./)
+# $3: spellchecker (default: ISPELL)
+
+if [ "$1" = "" ]; then
+	echo "A szótár helyének megadása kötelezõ (pl. ./szotar)"
+	exit 1
+fi
+
+. ./config
+
+cd $1 || exit 1
+
+WRKDIR=${2:-"./"}
+
+if [ ! -d $WRKDIR ]; then
+	mkdir -p $WRKDIR
+	if [ $? -ne 0 ]; then
+		echo "nem sikerült kialakítani a munkateret"
+		exit 1
+	fi
+fi
+
+if [ "$3" = "" ]; then
+	echo "szótártípus nincs megadva, default: ISPELL"
+fi
+
+SPELL=${3:-"ISPELL"}
+
+for i in alap.modul/*; do
+	j=`basename $i | sed 's/[-\.].*$//'`
+	k=`basename $i | sed 's/^.*\(\..*\)$/\1/'`
+
+	cat *.modul/$j$k *.modul/$j-* 2> /dev/null | \
+	    recode u8..l2 | \
+	    grep -v '#[A-Z]' | \
+	    sed 's/[	 ]*#.*$//' | \
+	    grep -v '^$' >$WRKDIR/$j$k
+
+	cat *.modul/$j$k *.modul/$j-* 2> /dev/null | \
+	    recode u8..l2 | \
+	    grep -i "$SPELL" | \
+	    sed 's/[	 ]*#.*$//' | \
+	    grep -v '^$' >>$WRKDIR/$j$k
+
+	echo_n .
+done
+
+# remove extra word breaking and hyphenation data
+sed -i 's/[ 	].*//' $WRKDIR/fonev_osszetett.1
+
+echo " Rendben."
+
+exit 0

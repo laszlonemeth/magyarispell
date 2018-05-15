@@ -1,0 +1,36 @@
+#!/bin/sh
+# breaking a file to words, 1.2v (c) László Németh, BSD License
+# 1.2: fix space, HTML, etc. problems.
+# 1.1: fix tabulator, ISO-8859-2, etc. problems
+break_lines()
+{
+tr -c '\-a-zA-Z\241-\254\256-\326\330-\366\370-\377' ' ' | # ISO-8859-2
+tr ' ' '\n' | 
+sort | 
+uniq
+}
+
+case $# in
+		0) echo "break -- collect words from text and html files
+Usage: break [-html] file(s)"; exit 0;;
+esac
+
+case $1 in
+ -html)
+ shift
+ cat $@ | 
+ tr '\n' ' ' | # make 1 line from files
+ sed 's/</\
+ </g' | # break at HTML tags
+ sed '/<head/I,/\/head/Id' |
+ sed '/<script/I,/\/script/Id' |
+ sed '/<style/I,/\/style/Id' |
+ sed '/<code/I,/\/code/Id' |
+ sed '/<pre/I,/\/pre/Id' |
+ sed 's/<[^>]*>//g' | break_lines;;
+
+ *)
+ cat $@ | break_lines;;
+
+esac
+

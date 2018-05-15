@@ -1,0 +1,823 @@
+\definecolor{gray}{rgb}{0.9,0.9,0.9}
+\definecolor{lightred}{rgb}{1,0.5,0.5}
+\def\a#1{\emph{#1}}
+%\def\b#1{\emph{\sout{#1}}}
+\def\b#1{\emph{*#1}}
+\def\w#1{\emph{\underline{#1}}}
+
+%\def\s#1#2#3#4{
+%\parbox[t]{7.8cm}{#2} &
+%\parbox[t]{7.8cm}{#4} \smallskip \\ \hline
+%}
+
+\def\s#1#2#3#4{
+\colorbox{#1}{\parbox[t]{7.8cm}{#2}} &
+\colorbox{#3}{\parbox[t]{7.8cm}{#4}} \\ \hline
+}
+
+\def\empty#1{
+\s{gray}{#1 \textcolor{gray}{X}}{gray}{\textcolor{gray}{X}}
+}
+\def\emptyx#1#2{
+\s{#1}{#2 \textcolor{#1}{X}}{#1}{\textcolor{#1}{X}}
+}
+
+\def\title#1{\addcontentsline{toc}{section}{#1}
+\emptyx{white}{\emph{#1}}
+\s{white}{#1 \textcolor{white}{X}}{white}{\textcolor{white}{X}}
+}
+
+%\chapter{Bevezetés}
+%
+%\section{Hunspell}
+%
+%A \a{Hunspell} fejlesztése egyéni kezdeményezésbõl indult
+%1997-ben \cite{linuxkonf2002}. A megoldott
+%technikai problémákat, és a felhasználásra vonatkozó
+%információkat a Magyar Ispell kézikönyv
+%\cite{magyarispell} tartalmazza.
+
+\chapter{Szabályok}
+
+A következõ táblázat a Magyar Ispell és a Microsoft Office
+XP-ben megtalálható helyesírás-ellenõrzõ magyar helyesírásnak
+való megfelelését részletezi.
+
+A vizsgálat során nem minden esetben a Microsoft Office XP,
+hanem a Morphologic
+cég Helyes-e? programjának Linux operációs rendszerre
+2002-ben megjelent változata, az Mspell 0.1 program
+szolgáltatta a szükséges információkat, de a tapasztalatok
+alapján ez megegyezik a Microsoft Office XP-ben
+található Helyes-e? változattal. A Magyar Ispell
+képességei a Magyar Ispell szótármodul 0.99.3-as és
+a Mispell/Magyar MySpell 0.9.4-es változata alapján
+lettek összefoglalva. Az ellenõrzõ és a szótármodul
+ezen változatát a Magyar OpenOffice.org
+(\url{http://office.fsf.hu}) közeljövõben megjelenõ
+változatai tartalmazni fogják.
+
+A táblázat a példaként megadott szóalakokat \a{kurzív}
+betûváltozattal jelöli. Az ilyen szóalakok, amennyiben
+a magyar helyesírás szerint hibásak, csillaggal bevezetve
+jelennek meg (például \b{hejesirás}).
+Amennyiben helyesek, de a helyesírás-ellenõrzõ mégis
+hibásnak jelzi ezeket, a
+Microsoft Office és az OpenOffice.org szövegszerkesztõkben
+ismerõs módon, vagyis hullámos aláhúzással
+vannak jelölve (például \w{helyesírás}).
+
+A leírások A magyar helyesírás szabályai 11.~kiadása pontjainak megfelelõen
+számozottak.
+Egy-két kiegészítõ megjegyzés külön sorban foglal helyett.
+
+%Az egyes leírások háttere színes.
+%A szín a kezelésben mutatkozó hibák
+%súlyosságát jelzi, bár ez a hiba lehet, hogy
+%a helyesen kezelt alakok számához képest kicsi (bár nem
+%elhanyagolható) arányban fordul elõ.\footnote{Például a Helyes-e?
+%egyetlen komoly \a{ly} betût érintõ hibája a
+%\b{csevely} elfogadása a \w{csevej}
+%tiltása mellett. Ha ehhez még hozzávesszük azt a
+%mintegy pár tucat tövet, illetve alapalakot, ahol a jó mellett a hibás alakot
+%is elfogadja a Helyes-e? (pl. \a{személyi}--\b{szeméji},
+%\a{karvaj}--\b{karvaly} stb.), akkor is csak az
+%1\%-ot közelíti meg a hiba az összes szótövet érintõ
+%\emph{ly}$\rightarrow$\emph{j} tévesztést tekintve. (A Magyar Ispell
+%esetében a hiba gyakorlatilag 0\%, eltekintve persze attól,
+%hogy egyes szavak, amelyeknek
+%mind a \a{j} és az \a{ly} betûs alakváltozatai helyesek,
+%a szövegkörnyezettõl függõen hibásnak bizonyulhatnak: pl. ilyen
+%a \a{lakályos}--\a{lakájos}, vagy a \a{gólya}--\a{gója}
+%alakpár. Gyakorlati megfontolásból a \a{gó} \emph{-ja} képzõs
+%alakját hibásnak jelzi a Magyar Ispell: \w{gója}, \w{góját}.
+%A Helyes-e?-ben a \w{gó} tõ sincs elfogadva.)}
+%A kék színnel jelölt szövegdoboz valamilyen plusz szolgáltatást,
+%általában javítási képességet ír le, a szürke a
+%helyesírás-ellenõrzéshez nem kapcsolódó pontokat jelöli.
+
+\pagebreak
+\begin{longtable}[l]{p{7.8cm}p{7.8cm}}
+\hline \hfil Magyar Ispell
+\hfil & \hfil MS Office XP helyesírás-ellenõrzõje \hfil \\ \hline \endhead \hline \endfoot \\
+
+\title{Általános tudnivalók}
+\addcontentsline{toc}{section}{Általános tudnivalók}
+
+\s
+{green}
+{1.\footnote{\ldots{}A helyesírás
+valamely nyelv írásának közmegállapodáson alapuló és közérdekbõl
+szabályozott eljárásmódja, illetõleg az ezt tükrözõ, rögzítõ és irányító
+szabályrendszer\ldots}
+Nyitott forráskódú program, amely a közérdeknek megfelelõen áttekinthetõ:
+folyamatosan dokumentált, ellenõrzött, javított és szabadon hozzáférhetõ
+mindenki számára.}
+{yellow}
+{Zárt, dokumentáció nélkül megjelenõ
+helyesírás-ellenõrzõ, amely legalább az MS Office 97 óta bármiféle javítás
+nélkül jelenik meg az MS Office különféle változataiban. Linuxos változata
+\emph{Mspell} néven otthoni felhasználásra ingyenes.
+}
+
+\empty{2.}
+
+\title{A betûk}
+
+\s
+{green}
+{3. A magyar ábécé minden betûjét önálló alakban helyesnek fogadja el.}
+{lightred}
+{A magyar ábécé többjegyû betûit hibásnak jelzi: \emph{\w{dzs} betû}.
+Az ékezetes betûk toldalékolt alakjait hibásnak jelzi: \emph{hosszú \w{ú-val}}.}
+
+
+\empty{4--5.}
+
+\s
+{yellow}
+{6. A stilisztikai célból megengedett
+magánhangzó-halmozást nem fogadja el helyesnek: \w{Één?},
+\w{Neeem.} Kivéve \a{góóól}, negyven \a{ó}-ig bezárólag.}
+{yellow}
+{Hasonlóan, de a \w{góóól} alakot hibásnak jelzi.}
+
+\s
+{green}
+{7.b. A mássalhangzók hosszúságát betûkettõzéssel jelöli.
+A többjegyû mássalhangzókat csak az összetett szavak tagjainak határán kettõzi
+teljesen, egyéb esetekben egyszerûsítve kettõzi õket.}
+{lightred}
+{Hiba a \a{-szerû} utótag
+összetett szóként való kezelése: \b{észszerû},
+\b{vadászszerû}, a helyes alakok (kivétel \a{ésszerû})
+hibásnak jelzése: \w{mésszerû}, \w{viasszerû}. L. még 62.}
+
+\s
+{green}
+{8. Nagybetûs formák esetében
+a megengedettek vannak elfogadva: \a{csibe}, \a{Csibe}, \a{CSIBE},
+de \emph{\b{\uwave{CSibe}}}, \emph{\b{\uwave{cSiBe}}}.
+Gyakorlati megfontolásból
+csak nagybetûvel (tulajdonnévként) kerül elfogadásra a \a{kis}
+legtöbb toldalékolt alakja (például \w{kissel},
+de \a{kissé} jó. }
+{green}
+{Hasonlóan jól mûködik. (L. még 164.)}
+
+\s
+{yellow}
+{9. A stilisztikai célból megengedett
+mássalhangzó-halmozást nem fogadja el helyesnek: \w{Nnem!},
+\w{Terringettét!}}
+{yellow}
+{Hasonlóan.}
+
+\empty{10--12.}
+
+\s
+{green}{13. A program kezeli az UNICODE
+karaktereket. Alapértelmezett az ISO 8859--2
+karakterkészlet:\footnote{A közép-európai nyelvek közül az albán, bosnyák, cseh, 
+horvát, lengyel, német, magyar, román, szerb, szlovák, szlovén nyelvek
+ábécéjének betûit tartalmazza, továbbá az angol, finn és ír ábécé betûit is
+lefedi. A Windows operációs rendszer ún. közép-európai kódtáblája (Windows-1250)
+egy kibõvített ISO 8859--2 kiosztásnak felel meg.} 
+\a{Dvoøák}, \a{Händel}, \a{©koda},
+\a{z³oty}\ldots{} stb. Az UNICODE karakterek ISO 8859--1 esetén
+HTML karakterentitással, egyébként pedig decimális
+karakterkóddal adhatók meg: \emph{Moli\&egrave;re} (Moli\`ere),
+\emph{Duna\&ndash;Tisza köze} (Duna--Tisza köze).}
+{lightred}
+{Csak a magyar ábécét, és a
+\a{q}, \a{w}, \a{x}, \a{y} betûket kezeli a szótár:
+\w{©koda}, \w{Moli\`ere} stb. 
+A \b{Skoda}, vagy a \b{zloty} alakok elfogadása
+hiba az UNICODE alapú, vagy ISO-8859--2-t támogató
+szövegszerkesztõk -- mint az OpenOffice.org, illetve a Microsoft Office --
+esetében.\footnote{Az OpenOffice.org
+teljes UNICODE támogatással rendelkezik, lehetõséget nyújt még az ázsiai
+írások kezelésére is. A Helyes-e? és az OpenOffice.org egybeépítésére
+a kereskedelmi forgalomban kapható Magyar Office mutat példát.}
+}
+
+\s
+{cyan}
+{Az idegen ékezetek esetében is javítva vannak az ékezet nélküli
+változatok: \a{Skoda}\,$\rightarrow$\emph{©koda}, \a{Dvorák}, sõt
+\a{Dvorak}\,$\rightarrow$\emph{Dvoøák}.
+%\footnote{A
+%hatékonysági korlátok miatt mindez nem az ACCENT kombinatorikus ékezetesítéssel,
+%hanem a REP cseretáblázat kézzel való bõvítésével történt. A teljes igényû
+%ellenõrzéshez és javításhoz vagy kiegészítõ, más karakter kódolású szótárakra, és ezek
+%egyidejû kezelésére van szükség, vagy a REP cseretáblázat hatékonyabb
+%kezelésére, amely magában foglalja az idegen ékezetes szavak ékezet nélküli
+%megfelelõinek automatikus elõállítását és cseretáblázatba való elhelyezését.
+%A több különbözõ szótár egyidejû kezelése már részben megvalósult az OpenOffice.org
+%szövegszerkesztõben, ahol lehetõség van több magyar, akár eltérõ kódolású szótár
+%egyidejû kezelésére is. Sajnos azonban a \emph{\a{Moli\`ere-rõl}}, és hasonló
+%alakok számára ez a módszer sem jelent megoldást, tehát valóban szükség van
+%az egy szótáron belüli UNICODE kezelésre.}
+}
+{white}
+{}
+
+\empty{14--16.}
+
+\title{A kiejtés szerinti írásmód}
+
+
+\s
+{yellow}
+{17--19. Ragaszkodik a helyesírás által
+rögzített köznyelvi formához. A leglényegesebb hibák (tipikus tévesztések;
+a hasonló, de nem rögzített helyesírású alakok elõfordulása; hibás, de
+a szótárba mégis felvett szóösszetételek) alapján ellenõrizve lett a
+szókincs. A teljes szókincs lektorálására azonban még nem került sor.}
+{lightred}
+{Számos, a helyesírásban nem rögzített
+beszélt nyelvi ingadozást helyesnek fogad el. Ilyen, késõbb
+nem említett példák: \b{lyány} (\a{lány}),
+\b{siserehad} (\a{siserahad}), \b{bédekker}
+(\a{bedekker}), \b{ekhó} (\a{echó}), \b{trikolor} (\a{trikolór}),
+stb. Valahol csak a rossz alakot engedi: \b{puzon} (\w{puzón}). L. még 28.
+\\ Egyéb probléma, hogy nem létezõ szavakat, illetve
+nem szótári töveket tartalmaz a szótár: \b{ál}, \b{fesz};
+\b{sepr}, \b{sodr}; \b{süv} \b{veé} stb.
+\\ Nem fogad el számos mai magyar szót, különösen
+az új, szaknyelvi és földrajzi elnevezéseket: \w{karalábé},
+\w{klónozás}, \w{ombudsman}, \w{szafari},
+\w{helló} vagy \w{heló} (helyette \b{hello}) stb.
+\\ A szótár pontatlan, illetve elnagyolt besorolásokat
+tartalmaz. Például hangrendi tévedések: \b{tettról}
+(\a{tettrõl}), \b{vésznak} (\a{vésznek}) stb. Elnagyolások:
+\b{fiája}, \b{híjája}, \b{aljájáról} (többszörös birtokos személyragok) stb.; \b{történed},
+\b{halja}, \b{évõdi} stb. (a nem tárgyas igék kezelésének hiánya).}
+
+\s
+{cyan}
+{Szaknyelvi modulokat (matematika, informatika stb.)
+tartalmaz több száz szakszóval. A történelmi és a mai magyar
+helységneveket is tartalmazza, ami a közigazgatási, valamint
+földrajz és történelem tárgyú munkák ellenõrzése céljából
+nélkülözhetetlen.
+A szókincs a felhasználók által is bõvíthetõ.}
+{lightred}
+{
+Nincsenek szaknyelvi modulok: \w{elempár}, \w{alterek},
+\w{variancia}, \w{bijektív}, \w{attraktor};
+\w{flopi}, \w{mikrocsip}, \w{élkiemelés}, \w{interpreter},
+\w{alhálózat}. A városi rangú települések neve közül is sokat nem ismer:
+\w{Gyomaendrõd}, \w{Szécsény}, \w{Vásárosnamény}, \w{Zalaszentgrót} stb.
+\\ Nincs lehetõség a szókincs bõvítésére, csak egyes szóalakok felvételére.}
+
+\s
+{green}
+{20--21. Az \a{i}, \a{u}, \a{ü} és ezek hosszú változatát mindig ugyanolyan
+formában tartalmazó szavak írásában pontos.\footnote{Az alapszókincsre
+vonatkozik a pontosság. A magyar helységneveket tartalmazó modul
+sok kettõs alakot tartalmaz még.}}
+{lightred}
+{Számos hibás alakot is elfogad:
+\b{egyivású} (\a{egyívású}), 
+\b{elitélt} (\a{elítélt}), 
+\b{hivõ} (\a{hívõ}),
+\b{izület} (\a{ízület});
+\b{neutrinó} (\a{neutrínó}),
+\b{szivató} (\a{szívató}),
+\b{telitett} (\a{telített}),
+\b{tikfa} (\a{tíkfa});
+\b{kompatíbilis} (\a{kompatibilis}),
+\b{színtû} (\a{szintû});
+\b{labdarugócsapat} (\a{labdarúgócsapat});
+\b{mélyfurás} (\a{mélyfúrás});
+\b{ramazuri} (\a{ramazúri});
+\b{harangbugás} (\a{harangbúgás});
+\b{lámpabúra} (\a{lámpabura});
+\b{kûzdõtér} (\a{küzdõtér}) stb.}
+
+\s
+{cyan}
+{
+Gyakorisági megfontolásból sok
+alakpár ritkán használt tagja le van tiltva: \w{csábit}, \w{öblit};
+\w{visszairt} stb.\footnote{L. a \url{szotar/kivetelek/ragozatlan/i}
+állományt a Magyar Ispell forrásában.}}
+{green}
+{
+Egy-két alak van letiltva: \w{tanit}, de például a \a{csábit},
+\a{öblit}, \a{visszairt} nem.
+}
+
+\s
+{green}
+{22. Az \a{i}, illetve \a{í} végû szavak esetében
+nincs ismert hiba.
+}
+{lightred}
+{Sok ilyen fõnév
+toldalékolása hibás, illetve hiányos: \w{kocsijai},
+\b{kocsiija}, \b{kocsiijai}.
+Hasonlóan \w{zsenijei}, \w{mozijai},
+\w{masnijai} stb. A \a{hí} toldalékolása
+is hibás: \w{híttak}, \b{hittak} stb. 
+}
+
+\s
+{green}
+{23--24. Az \a{u}, \a{ú}, \a{ü}, \a{û} végû szavak esetében
+nincs ismert hiba.}
+{lightred}
+{Elfogadásra kerülnek a
+\b{hiu}, \b{savanyu}, továbbá \b{átlagáru}, \b{vasárú} stb. alakok.
+A \a{hú}, \a{hû} indulatszavak mellett helyesli a \w{hu},
+és \w{hü} alakokat.}
+
+\s
+{green}
+{25.
+Kezeli a \a{csepp} és \a{csend} alakváltozatai közötti különbséget.
+}
+{yellow}
+{A nem használt alakváltozatokat
+is elfogadja: például \b{csöppkõ}, \b{csöndõr}.
+}
+
+\empty{26.}
+
+\s
+{green}
+{27. Az \a{í}, \a{ú}, \a{û} szabálytalan és szabályos
+váltakozását mutató szavak írásában pontos.
+Gyakorlati megfontolásból viszont nem fogadja el
+a ritka \w{tûntet} és \w{szûntet} alakokat (a \a{tûnt},
+és \a{szûnt} tárgyragos változatát).
+}
+{lightred}
+{a) A szabálytalan váltakozást mutató szavak
+esetében téves alakokat is elfogad:
+\b{hivat} (\a{hívat}), \b{hivató} (\a{hívató});
+\b{irogat} (\a{írogat}), \b{irogató} (\a{írogató}), \b{irogatás} (\a{írogatás});
+\b{bíztat} (\a{biztat}), \b{bíztató} (\a{biztató}), \b{bíztatás} (\a{biztat});
+\b{szûntetõ} (\a{szüntetõ}), \b{szûntetés} (\a{szüntetés});
+\b{tûntetõ} (\a{tüntetõ}), \b{tûntetés} (\a{tüntetés}). \\
+b) A szabályos váltakozást mutató szavak esetében téves
+a \a{fûz} toldalékolása: \b{fûzek} (\a{füzek}),
+\b{fûzes} (\a{füzes}) stb. Súlyos hiba mutatkozik még az ilyen
+szavak I/3. birtokos személyragos plusz birtokjeles toldalékolásában:
+\b{vízéé} (\a{vizéé}, \a{vízé}), \b{tûzéé} (\a{tüzéé}, \a{tûzé}),
+\b{kézéé} (\a{kezéé}, \a{kézé}) stb.
+Hasonlóan a \a{-nyi} képzõs alakok esetében:
+\b{viznyi} (\a{víznyi}), \b{tüznyi} (\a{tûznyi}), \b{keznyi} (\a{kéznyi}) stb.}
+
+\s
+{green}
+{28. A közkeletû idegen szavak magánhangzó-váltakozásában nincs ismert hiba.}
+{lightred}
+{A \a{kultúra} szó származtatott alakjait
+helytelenül kezeli: \b{kultúrál} (\a{kulturál}),
+\b{kultúrált} (\a{kulturált}), \b{kultúrálatlan} (\a{kulturálatlan}),
+\b{kultúrálódik} (\a{kulturálódik}).
+Számos egyéb esetben is elfogadja még a nem rögzített írásmódú alakokat:
+\b{analfabétizmus} (\a{analfabetizmus}), \b{polémikus} (\a{polemikus}),
+\b{aszkétikus} (\a{aszketikus}), \b{szférikus} (\a{szferikus}) stb.
+}
+
+\s
+{green}
+{29. A szó végi \a{a}, és \a{e} a megfelelõ toldalékolás során válik hosszúvá.}
+{lightred}
+{A \emph{-szerû} toldalék elõtt is megnyúlik a magánhangzó minden esetben:
+\b{kecskészerû} (\a{kecskeszerû}), 
+\b{allegrószerû} (\a{allegroszerû}),
+\b{mangrovészerû} (\a{mangroveszerû}).}
+
+\s
+{green}
+{30. Nem követ el hibát a kettõs alakok megengedésében.}
+{lightred}
+{Nem létezõ kettõs alakokat is megenged a \a{-nyi} toldalék
+esetében: \b{borjnyi} (\a{borjúnyi});
+\b{tetvnyi} (\a{tetûnyi}); \b{bokrnyi}
+(\a{bokornyi}) stb. \\ Az elõzõhöz hasonló probléma, hogy birtokjel is
+járulhat a nem szótári tõhöz:
+\b{bokré} (\a{bokoré}, \a{bokráé}),
+\b{terhé} (\a{teheré}, \a{terhéé}) stb.}
+
+\emptyx{green}{31.}
+
+\s
+{green}
+{32. A \a{metsz}, \a{látszik}, \a{tetszik} toldalékolt alakjai is helyesek.}
+{lightred}
+{A \w{mesd}; \w{lássék}, \w{tessem}, \w{tessek} stb. alakokat
+hibásnak jelzi.}
+
+\emptyx{green}{33--40.}
+
+\s
+{green}
+{41. A mûveltetõ képzõ kezelése helyes. \\
+A régies \a{-atik}, \a{-etik}, \a{-tatik}, \a{-tetik} szenvedõ igeképzõ
+kezelése csak a mai köznyelvben
+még megtalálható alakokra szorítkozik: \a{megadatik},
+de \w{oltatik}.}
+{lightred}
+{Az \a{-at}, \a{-et} és a \a{-tat}, \a{-tet} szabadon járul a tõhöz:
+\b{bonttat} (\a{bontat}); \b{kértet} (\a{kéret});
+\b{nyitat} (\a{nyittat}), \b{oktatatás}\footnote{Érdekes módon
+ez egy gyakori tévedés is egyben, aminek hátterében az írás során
+megismételt szótag áll. Az ilyen hibákat felismeri és javítja
+a Magyar Ispell.} (\a{oktattatás}), \b{történtetnek}, \b{történessél}
+(\a{történik}$+$\a{-et}) stb. \\
+Általánosan kezeli a szenvedõ igeképzõt,
+de a mûveltetõ képzõhöz hasonlóan hibásan: \a{oldtatik},
+de \b{olttatik}, \w{oltatik}).}
+
+\s
+{green}
+{42. A \a{-val}, \a{-vel} kezelése jó.}
+{yellow}
+{Szintén, egy hibával: \b{mohval} (\a{mohhal}).}
+
+\emptyx
+{green}
+{43--44.}
+
+\s
+{green}
+{45. A toldalékolásbeli kettõsséget jól kezeli,
+kivéve gyakorlati okból az elavuló
+formákat: \w{szeretniök}, \w{látniok}.}
+{green}
+{Hasonlóan.}
+
+\s
+{green}
+{46. Az elhomályosult képzésû szóelemek írásában nincs ismert hiba.}
+{lightred}
+{Nem ismeri a \a{lélegez} ige egyes alakváltozatait: \w{belégzem},
+\w{kilégzel} stb. \\
+Több \emph{-szt} végû igét sem kezel:
+\w{aggaszt},
+\w{apaszt},
+\w{áraszt},
+\w{ébreszt},
+\w{fagyaszt},
+\w{függeszt},
+\w{horgaszt},
+\w{kepeszt},
+\w{lehiggaszt},
+\w{sorvaszt},
+\w{szállaszt}.}
+
+\emptyx{green}{47--48.}
+
+\title{A szóelemzõ írásmód}
+
+\emptyx{green}{49--61.}
+
+\s
+{cyan}
+{Több tucat --, a beszélt nyelvi ingadozások,
+és hasonulások miatt elkövetett, több karaktert is érintõ -- tipikus tévesztést
+javít:
+\a{elösször}\,$\rightarrow$\a{elõször},
+\a{szöllõ}\,$\rightarrow$\a{szõlõ},
+\a{hüttõ}\,$\rightarrow$\a{hûtõ},
+\a{dijjas}\,$\rightarrow$\a{díjas},
+\a{csug}\,$\rightarrow$\a{csukd},
+\a{baráccság}\,$\rightarrow$\a{barátság},
+\a{licensz}\,$\rightarrow$\a{licenc} stb.\footnote{L. cseretáblázat leírását.}
+}
+{yellow}
+{A \emph{ly}/\emph{j},
+\emph{ts}/\emph{cs},
+\emph{ggy}/\emph{dj},
+\emph{ggy}/\emph{gyj},
+\emph{nny}/\emph{nj} több karaktert érintõ tévesztéseket javítja csak.
+}
+
+\s
+{green}
+{62. Az azonos hosszú és rövid mássalhangzók találkozását jól kezeli.}
+{lightred}
+{A \a{-szerû} és a \a{-féle} képzõszerû
+utótag esetében hibás alakokat is elfogad: \b{dzsesszszerû}
+(\a{dzsessz-szerû}), \b{puffféle} (\a{puff-féle}). \\
+A toldalékolásnál helyenként a nem egyszerûsített, hibás alakokat
+is elfogadja:
+\b{frissség}, \b{fessség}; \b{feddd};
+\b{izzzak}, \b{izzzam}\ldots{}\footnote{\ldots{}\b{izzzalak},
+\b{izzz},
+\b{izzzál},
+\b{izzzad},
+\b{izzzon},
+\b{izzza},
+\b{izzzunk},
+\b{izzzuk},
+\b{izzzatok},
+\b{izzzátok},
+\b{izzzanak},
+\b{izzzák}.} Egyéb példa még a \b{veddd}. A \a{tovább} igekötõ esetében
+csak a hibás alakot fogadja el: \b{továbbbotorkál} (\w{tovább-botorkál}),
+\b{továbbburjánzik} (\w{tovább-burjánzik}) stb.
+}
+
+\s
+{green}
+{63. A \a{d} végû igék ragozása jó.}
+{lightred}
+{A \a{d} végû igék módjára, de hibásan ragozza az
+\a{r}, és \a{j} végû igéket is: \b{írdd} (\a{írd}, \a{írjad}), \b{várdd} (\a{várd},
+\a{várjad}); \b{fújdd} (\a{fújd}, \a{fújjad}), \b{vájdd} (\a{vájd}, \a{vájjad}).
+}
+
+\s
+{green}
+{64. Helyesen kezeli az \a{-l} végû igéket.}
+{yellow}
+{Nem ismeri a \emph{múlik} ige kötõhangzót tartalmazó
+alakjait: \w{múlanak}, \w{múlanának}. Elfogadja viszont
+az \a{-at}, és \a{-tat} képzõs alakjait: \b{múlat}, \b{múltass} (\a{mulat},
+\a{mulaszt}). \\
+Nem ismeri a \emph{telik} ige hosszú \a{l}-lel írt
+alakjait: \w{tellene}, \w{tellenek} stb.}
+
+\s
+{green}
+{65. Helyesen kezeli az egyalakú \a{-ll} végû igéket.}
+{yellow}
+{Elfogadja a következõ alakot: \b{álnak} (\a{állnak}) stb.\footnote{
+Ennek hátterében a hibás \b{ál} (\a{ál-}) tõ felvétele \a{áll}.}
+}
+
+\emptyx{green}{66.}
+
+\s
+{green}
+{67. A hosszú magánhangzóra végzõdõ igék ragozásában közel
+megegyezik a Helyes-e?-vel. A \a{nõszik} igébõl képzett
+\w{nõssz} alak a jóval gyakoribb \a{nõsz} ellenõrzése
+miatt nincs elfogadva.
+}
+{yellow}
+{Hiányzó tõ: \w{nyí}, \w{nyíjatok}.
+Hibás alak: \b{hittak} (\w{híttak}). Nem fogadja el a régies \a{hí},
+és \a{fú} egyes toldalékolt alakjait: (\w{fúvok}, \w{hínak}
+stb).
+}
+
+\s
+{green}
+{69. A \a{jön} igét helyesen kezeli.}
+{yellow}
+{Hiányzó alak: \w{jõnek}.}
+
+\s
+{green}
+{70. Az \a{egy} számnevet helyesen kezeli.}
+{yellow}
+{Hibás alak: \b{egyûvé} (\a{együvé}).}
+
+\s
+{green}
+{72. A \a{kis} fokozott alakjaiban a hosszan ejtett
+\a{s}-t írásban nem tükrözi.}
+{yellow}
+{Hasonlóan, de elfogad egy-két zavaró
+alakot hibás szóösszetétel-képzés révén:
+\b{kisseb} (\a{kisebbség}), \b{kissebség} (\a{kisebbség}).}
+
+\s
+{green}
+{72. Az \a{-s} végû melléknevekben a hosszan ejtett
+\a{s}-t helyesen kezeli.}
+{yellow}
+{Hasonlóan, de elfogad egy zavaró
+alakot hibás szóösszetétel-képzés révén:
+\b{erõsseb} (\a{erõsebb}).}
+
+\emptyx{green}{73.}
+
+\s
+{cyan}
+{
+Helyes javaslatot tesz a \a{belölle},
+\a{elölle} hibás alakokra: \a{belõle},
+\a{elõle}.}
+{yellow}
+{Nem tesz javaslatot}
+
+\s
+{green}
+{74. Az \a{új} és \a{ujj} meg van különböztetve.}
+{yellow}
+{Az \a{ujj} \a{-ság} képzõt is kaphat:
+\b{ujjság} (\a{újság}). Az \a{új} a
+fõnevekhez hasonlóan bármely szóösszetételben
+szerepelhet: \b{újperc} (\a{ujjperc}).
+}
+
+% pechkel?
+
+\s
+{green}
+{75. A \a{h} végû szavak írása pontos.}
+{yellow}
+{Szintén, kivéve \b{mohval} (\a{mohhal}).
+}
+
+\empty{76.}
+
+\emptyx{green}{77.}
+
+\s
+{green}
+{78. A rövid magánhangzó $+$ \a{t} végû igék, illetve a
+\a{lát} és \a{bocsát} igék kezelése helyes.}
+{lightred}
+{A hibás \b{lássd} (\a{lásd}), \b{bocsássd} (\a{bocsásd}), \b{hallgassd} (\a{hallgasd}),
+\b{kössd} (\a{kösd}), \b{nyissd} (\a{nyisd}) stb. alakokat elfogadja.}
+
+\s
+{green}
+{79. Az \a{st} és \a{szt} végû igék kezelése helyes.}
+{lightred}
+{Az \a{st} végû igénél (\a{fest}) elfogadja a \b{fessd} (\a{fesd})
+alakot.}
+
+\s
+{green}
+{80--81. Az \a{s}, \a{sz}, \a{z} és \a{dz} végû igék ragozása helyes.}
+{lightred}
+{Az \a{s}, \a{sz} és \a{dz} végû igék kezelése hibás: 1. \b{olvassd} (\a{olvasd}),
+\b{késsd} (\a{késd}) stb.; 2. \b{mászza} (\a{mássza}), \b{játszzák} (\a{játsszák})
+stb.; 3. \w{tessem}, \w{tessél}, \w{lássék}, \w{mesd}. 4. \w{edzd}, \w{pedzd}.
+}
+
+\s
+{green}
+{82. A kivételes ragozású \a{sz} végû igék kezelése helyes.}
+{yellow}
+{A \a{tesz}, \a{visz}, \a{eszik} kezelése hibás: \b{tesszél} (\a{tegyél}),
+\b{visszétek} (\a{vigyétek}), \b{esszünk} (\a{együnk}) stb.
+}
+
+\s
+{green}
+{83. A \a{-val}, \a{-vel} toldalékolás jó.}
+{green}
+{Hasonlóan, a \b{mohval}, és a betûk toldalékolása (l. 3.)
+kivételével.
+}
+
+\emptyx{green}{84--85.}
+
+\title{A hagyományos írásmód}
+
+\empty{86.}
+
+\emptyx{green}{87--88.}
+
+\s
+{green}
+{89. Az \a{ly} írásában pontos.}
+{lightred}
+{Csak a hibás alakot fogadja a \w{csevej}
+esetében: \b{csevely}. \\
+Számos \a{ly}-t tartalmazó szó
+esetében a hibás alakot is elfogadja:
+\b{estéji}, \b{karvaj}, \b{szeméji},
+\b{ünnepéjes}; \b{bolyár}, \b{bolytár},
+\b{súlytó} stb. 
+}
+
+\s
+{cyan}
+{
+A keretrendszer lehetõséget ad a zárt \a{\"e} hangokat jelölõ
+helyesírási szótár létrehozására a magyar nyelv zárt \a{\"e} szótára
+alapján.
+}
+{white}
+{
+}
+
+\empty{green}{91.}
+
+\title{Az egyszerûsítõ írásmód}
+
+\empty{92--93.}
+
+
+\s
+{green}
+{94. Jól kezeli az egyszerûsítõ írásmódot. Az ezekben elkövetett
+hibákra javaslatot tesz (például Gaussal$\rightarrow$Gauss-szal.)}
+{lightred}
+{Akadnak típushibák, például \w{vadásszerû}, \b{vadászszerû}, vagy 
+\w{puff-féle} és \b{puffféle}. A helyes kötõjeles alakot
+nem javasolja.}
+
+\title{A különírás és az egybeírás}
+
+\s
+{yellow}
+{95. Fokozott hangsúly az egybe- és különírási szabályok betartásán.
+A helyesírási szótár szintjén kezel nagyon sok szóalakot.
+A kötõjeles szavak írásánál viszont még nagyon megengedõ.
+}
+{lightred}
+{Alapvetõ hiányosságok (például nagyon sok esetben
+melléknevek és fõnevek egybeírásának engedélyezése).
+A kötõjeles szavak írásánál is nagyon megengedõ.
+}
+
+\s
+{green}
+{96--99. Különírandó szóismétlések írásánál feltünteti a helyes kötõjeles
+alakot is.
+}
+{yellow}
+{Nem javasolja a kötõjeles alakot.
+}
+
+\s
+{green}
+{106. Az alanyos kapcsolatok esetében a jelentésváltozással bírókat
+engedi egybeírni.
+}
+{lightred}
+{Minden alanyos kapcsolatot elfogad (\b{macskaásított}, \b{egérfutott}.
+}
+
+\s
+{green}
+{107--108. A minõségjelzõs kapcsolatok esetében a jelentésváltozással bírókat
+engedi csak egybeírni.
+}
+{lightred}
+{Sok minõségjelzõ esetében minden kapcsolatot elfogad (\b{nagyépület},
+\b{butakutya}, \b{szépvers}.
+}
+
+\s
+{green}
+{111. Az önálló alakban nem szereplõ minõségjelzõs alakokat nem fogadja el,
+csak külön felvett összetett szóban, vagy kötõjellel (\a{al-}, \a{ál-}, \a{bel-},
+\a{fesz-}).
+}
+{lightred}
+{Több ilyet elfogad: \b{ál}, \b{bel}, \b{fesz}, \b{pót}.
+}
+
+\s
+{yellow}
+{112--114. Az -ó, -õ képzõs minõségjelzõs összetett alakokat, ha a szó valamely
+tagja összetett, szótári tiltások alapján a leggyakoribb esetekben nem engedi egybeírni.
+Az egybeírt alakokra helyes javaslatot tesz. A lista nem lehet teljes,
+de a leggyakoribb hibás egybeírásokat tartalmazni fogja a Szószablya fejlesztésnek
+köszönhetõen.
+}
+{lightred}
+{Nagyon sok különírandó alakot helyesen kezel, de így is sok gyakorit enged
+egybeírni: \b{ellenõrzõbizottság}, \b{elõadókörút}.
+}
+
+\s
+{lightred}
+{115. Az anyagnevek felismerése csak a gyakori esetekre van megoldva.
+}
+{lightred}
+{Hasonlóan.
+}
+
+\s
+{green}
+{116. A hónapok, illetve napok nevét nem engedi egybeírni.
+}
+{lightred}
+{A hónapok, illetve napok nevét engedi egybeírni.
+\b{januárhónapban}, \b{hétfõreggel}.
+}
+
+%\colorbox{green}{\parbox[t]{7.8cm}{164.
+%}} &
+%\colorbox{lightred}{\parbox[t]{7.8cm}{
+%A nagybetûs írásmódot érintõ szabály, egy-két
+%kivételtõl eltekintve: \b{Rt}. \\
+%Az \emph{-s} képzõs tulajdonnevek esetében a nagybetûs alakok
+%vannak hibásan kikényszerítve:
+%\w{trabantos}$\rightarrow$\a{Trabantos}}} \\
+
+\end{longtable}
+
+%\textcolor{blue}{A hibás alakoknál
+%helyes javaslatot tesz: \emph{\uwave{baletttáncos}$\rightarrow$balett-táncos},
+%\emph{\uwave{dzsesszszak}$\rightarrow$balett-táncos}}
+
+%Az a szó, hogy \uwave{csevely}, hibás.
+%Színesen: \textcolor{lightred}{\uwave{\textcolor{black}{csevely}}}.
+
+

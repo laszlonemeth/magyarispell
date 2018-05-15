@@ -1,0 +1,20 @@
+#!/bin/sh
+# test spell checking and suggestions
+HUNSPELL_PROGRAM=${HUNSPELL:-hunspell}
+# Syntax for words:
+# <good> <*bad> <*bad:requested_suggestion> <*bad:*bad_suggestion>
+echo "=== REJECTED GOOD WORDS ==="
+cat aff/* teszt/* szotar/kivetelek/ragozatlan/* szotar/*/*.* | grep -o '<[^ 	*>]*>' | grep -v '[@/]' | tr -d '>' | tr '<' '\n' | awk '{print$0"\t"}' | $HUNSPELL_PROGRAM -1 -l -d hu_HU_u8_gen_alias
+echo "=== ACCEPTED BAD WORDS ==="
+cat aff/* teszt/* szotar/kivetelek/ragozatlan/* szotar/*/*.* | grep -o '<\*[^ 	:>]*\(:[^:>]*\)\?>' | grep -v '[@/]' | tr -d '>*' | tr '<' '\n' | sed 's/:.*//' | awk '{print$0"\t"}' | $HUNSPELL_PROGRAM -1 -l -G -d hu_HU_u8_gen_alias
+echo "=== MISSING SUGGESTIONS ==="
+rm /tmp/mi_check
+cat aff/* teszt/* szotar/kivetelek/ragozatlan/* szotar/*/*.* | grep -o '<\*[^ 	:>]*:[^:>]*>' | grep -v '[@/]' | tr -d '>*' | tr ':<' '\t\n' | tee /tmp/mi_check >/tmp/mi
+cat /tmp/mi | $HUNSPELL_PROGRAM -1 -d hu_HU_u8_gen_alias | awk '
+FILENAME != "-" { FS="\t"; a[$1]=$2;next }
+{FS=" "}
+{na1=a[$2]","; na2=a[$2]"$"}
+$1=="#" || ($1=="&" && !($0~na1 || $0~na2)) {
+print $2"->"a[$2]"? (" $0 ")"
+}
+{next}' /tmp/mi_check -

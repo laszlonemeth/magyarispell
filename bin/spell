@@ -1,0 +1,3 @@
+#!/bin/sh
+# nyelvtani szabályok ellenõrzése
+hunspell -d ../tmp/hu_HU

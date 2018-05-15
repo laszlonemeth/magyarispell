@@ -1,0 +1,172 @@
+\chapter{Programozói dokumentáció}
+
+A Hunspell program, illetve a Magyar Myspell
+függvénykönyvtár képességeit saját programjainkhoz
+is hozzáadhatjuk. 
+
+\section{Hunspell csõfelület}
+
+A -a kapcsoló megadásával a Hunspell program az
+Ispell -a kapcsolójának hatását utánozza, egy kevés
+kivételtõl eltekintve. Ez az üzemmód ad lehetõséget
+arra, hogy alkalmazásaink a Hunspellt
+használják a helyesírás-ellenõrzésre.
+Ilyenkor a Hunspellt háttérben elindítják az alkalmazások,
+annak ellenõrizendõ szöveget adnak át,
+majd az ellenõrzés végeredményét visszakapva
+azt feldolgozzák.
+Számos program él ezzel a lehetõséggel: például
+a KWord, LyX, Emacs (Windows alatt is).
+
+A Hunspell indulásnál kiír a standard kimenetére egy
+bemutatkozó sort, majd a standard bemenetet
+soronként dolgozza fel. Minden egyes sor után a
+kimeneten a kézikönyvoldalon ismertetett információkat
+jeleníti meg, amit a saját programunk (amennyiben
+gondoskodtunk a kimenet átirányításáról) feldolgozhat.
+
+A Hunspell a bemenetet szövegsorként értelmezi,
+hacsak a bejövõ sor elsõ karaktere nem egy parancskarakter.
+
+A Hunspell által kezelt parancskaraktereket, és
+leírásukat a következõ táblázat ismerteti:
+
+\begin{tabular}{rl}
+! & Nem értelmezi a sort. \\
++ & \TeX üzemmód bekapcsolása. \\
+- & Visszalépés az elõzõ üzemmódba. \\
+@ & A jelet követõ szó szótárba kerül a futás idejére.\\
+$*$ & A jelet követõ szó szótárba kerül.\\
+\# & A szótár elmentésre kerül a saját szótárállományba.\\
+\^\ & A jelet követõ sor feldolgozása.
+\end{tabular}
+
+Az \& jel (kisbetûsként való felvétel) még nincs a Hunspellbe építve.
+Egyéb kezdõkarakterek esetén a sorok szövegsorként kerülnek feldolgozásra.
+
+\section{Magyar Myspell felület}
+
+A Magyar Myspell felület (API) lehetõséget nyújt a
+függvénykönyvtár közvetlen használatára, bár
+pár dolgot, mint például a saját szótár elmentését
+és betöltését, magunknak kell megoldani. 
+
+\subsection{Konstruktor}
+
+A felhasználói programban a MySpell osztály
+metódusaiként férhetünk hozzá a helyesírás-ellenõrzõhöz.
+
+\noindent\verb+MySpell(const char * affixum, const char * szotar);+
+
+A MySpell osztály konstruktora két karakterláncot vár paraméterként:
+az affixumállomány, és a szótárállomány útvonalát.
+
+\subsection{Metódusok}
+
+\noindent\verb+int spell(const char * alak);+
+
+A megadott szó ellenõrzése. Ha a visszatérési érték 0, a szó
+hibás, egyébként helyes.
+
+\noindent\verb+int suggest(char*** javaslatok, const char * alak);+
+
+Javítási javaslatok kérése a megadott szóra. A függvény visszatérési értéke
+a javaslatok száma, illetve a javaslatokat tároló
+karakterlánctömb címe. Ez utóbbi tömb a függvényhívás alatt
+kerül lefoglalásra, címe pedig a javaslatok változóban kerül
+elhelyezésre. A tömb felszabadításáról nekünk kell gondoskodni
+a késõbbiekben, ügyelve arra, hogy a tömb címe NULL is lehet,
+ha a helyfoglalás memóriaproblémák miatt sikertelen volt.
+(Több szálat kezelõ programban nem használható.)
+
+\noindent\verb+int suggest_stems(char*** javaslatok, const char * alak);+
+
+Helyes tövek elõállítása az elõzõ függvényhez hasonló szintaxissal.
+Ha nincs tõ, akkor a szót nem ismeri az ellenõrzõ.
+
+\noindent\verb+int suggest_pos_stems(char*** javaslatok, const char * alak);+
+
+Valószínû tövek elõállítása az elõzõ függvényhez hasonló szintaxissal.
+A Magyar Ispell szótárban szereplõ névszóragokat próbálja leválasztani a
+a megadott ismeretlen szóról a program.
+
+\noindent\verb+char * get_dic_encoding();+
+
+Visszaadja a betöltött affixumállomány SET paraméterét,
+vagyis a beállított karakterkódolást.
+(L. man 4 hunspell)
+
+\noindent\verb+char * get_wordchars();+
+
+Visszaadja a beállított karakterkészlet
+betûkaraktereinek karakterláncát, kiegészítve
+az affixumállomány WORDCHARS paramétereként
+megadott karaktereivel. Ez az információ
+a szavakra bontáshoz hasznos.
+
+\noindent\verb+struct cs_info * get_csconv();+
+
+Visszaadja a betöltött karaktertáblát, elsõsorban
+a késõbbi betûméret-átalakításokhoz.
+(L. \texttt{csutil.cxx}, \texttt{csutil.hxx} a forrásban.)
+
+\noindent\verb+int put_word(const char * alak);+
+
+A megadott szó futásidejû felvételére kerül sor.
+Ha az erre biztosított hely elfogy, a visszatérési érték 0,
+egyébként 1. (Az így maximálisan felvehetõ szavak számát
+az \texttt{atypes.hxx} állomány MAXUSERWORD makrója adja meg.)
+
+\noindent\verb+int put_word_suffix(const char * alak, const char * kapcsolok);+
+
+A megadott szó futásidejû felvételére kerül sor, a második
+paraméterként megadott kapcsolókkal (ezek lehetnek prefixumok is, a
+megtévesztõ név ellenére).
+
+Például \verb+put_word_suffix("leszörpözik","Pp");+
+
+\noindent\verb+int put_word_pattern(const char * alak, const char * alak2);+
+
+A megadott szó futásidejû felvételére kerül sor a második
+paraméterként megadott szó kapcsolóival.
+
+Például \verb+put_word_pattern("alfõnök","fõnök");+
+
+\noindent\verb+char * get_prevroot();+
+
+Visszaadja az elõzõleg ellenõrzött, és helyesnek
+talált szó szótári tövét.
+(Több szálat kezelõ programban nem használható.)
+
+\noindent\verb+int get_prevcompound();+
+
+A visszatérési érték 0, ha az elõzõleg
+ellenõrzött szó nem összetett szó volt, különben 1.
+(Több szálat kezelõ programban nem használható.)
+
+\noindent\verb+int get_forbidden_compound();+
+
+Az elõzõleg ellenõrzött szóról adja meg,
+hogy tiltott volt-e, vagy sem (rendelkezett
+tiltókapcsolóval). Ha nem volt tiltott,
+a visszatérési érték 0, ha igen, 1, és
+ha még összetett is volt, akkor 2.
+Belsõleg annak eldöntésére szolgál, hogy
+a javaslatokban szóköz, vagy kötõjel szerepeljen.
+A Hunspell pedig annak jelzésére használja, hogy
+egyértelmû szótári tiltásról van szó, megerõsítve
+ezzel a felhasználót helyes mûködésérõl.
+
+\noindent\verb+char * get_possible_root();+
+
+Visszaadja az elõzõleg ellenõrzött szóra illeszkedõ
+elsõ ragozási szabály alapján elõálló tövet.
+Ez a függvény a késõbbiekben bõvítve lesz.
+(Több szálat kezelõ programban nem használható.)
+
+\subsubsection{Példaprogram}
+
+A függvénykönyvtár \texttt{example.cxx} programja rövid összefoglalását
+adja a fontosabb függvényeknek:
+
+\verbatiminput{example.txt}

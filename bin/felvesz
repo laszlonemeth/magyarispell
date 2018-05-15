@@ -1,0 +1,69 @@
+#!/bin/bash
+#set -x
+echo "Szótárkezelő segédprogram az új szavak felvételére.
+Az új szó megadása után mintaszavakat adhatunk meg, és a
+megfelelő megadása esetén az ,,f'' bevitelével felvehetjük
+a mintaszónak megfelelő szótármodulba az új szót.
+
+Megjegyzés: mintaszó kereshető reguláris kifejezéssel is: .*béli.
+
+Ha a szó szerepelt már a szótárban, az ,,ö'' bevitelével
+jelölhetjük utólag összetettnek a helyes összetettszó-kezeléshez.
+
+A számok megadásával az n.-ik állományt nyitja meg módosításra.
+
+Megjegyzés: a magyarispell*/ könyvtárból indítva működik.
+
+Kilépés: Ctrl-c"
+
+message="A felvenni kívánt új szó (vagy 1-9 a listázott állományok szerkesztéshez, + = új állományba való felvételhez, - = állományból való törléshez)?"
+
+# latin() { echo "$1" | iconv -f utf-8 -t latin2; };
+
+#### latin() ##########
+
+latin() { echo "$1"; };
+
+#### list() ###########
+
+list() { ploc=$(search_color --color=aways `latin $1`); echo $ploc; };
+
+#### search_color() ###
+
+search_color() { grep --color=always -o "^$1\b.*" `grep ^szotar szotar.konf | awk '{print $0"/*"}'`; };
+
+####### search() ######
+
+search() { grep -l "^$@\b" `grep ^szotar szotar.konf | awk '{print $0"/*"}'`; }
+
+####### put() #########
+put() {
+		echo "Kérem a következő mintát a $1 szóhoz, vagy f (felvétel), f modul_minta (pl. f bio), u (felvétel új tővel), e (szerkeszti a minta állományát):"
+		LOC=""
+		while read j
+				do
+						[[ $j = f || $j = f\ * || $j = u || $j = e ]] && break || LOC=$(search `latin $j`)
+						search_color "$j"
+		done
+		if test "$j" = "f"
+				then w=`latin $1`; for l in $LOC; do echo "$w" >>$l; done
+		elif [[ $j = f\ * ]]
+				then target=$(echo $j | sed 's/^f *//'); w=`latin $1`; LOC="$(echo $LOC | sed s#szotar/[^/]*#szotar/${target}*#g)";
+				w=`latin $1`; for l in $LOC; do echo "$w" >>$l; done
+		elif test "$j" = "e"
+				then for l in $LOC; do echo "$1" >>"$l"; vim "$l"; done
+		else echo "új tő?"; read k; echo "új tő: $k"; w=`latin $k`; for l in $LOC; do echo "$w" >>$l; done
+		fi
+	echo -e "Felvéve ide:\n$LOC"; }
+
+##### program #######
+
+while read i
+do case $i in "ö") echo "`latin $prev`" >>$(dirname $(echo $ploc | head -1 | awk '{print $1}'))/fonev_osszetett.1; echo "összetettként felvéve: $prev";;
+[0-9]) echo szám; open_this_file=$(search "$prev" | sed -n "$i"p); vim -c "/^$prev" $open_this_file; echo $message; continue;;
+"+") echo "Hová vegyük fel?";
+select item in $(find $(dirname $(echo $ploc | head -1 | awk '{print $1}')) | sort); do echo ">>>$prev felvéve itt: " $item; echo "$prev" >>$item;  i=$prev; break; done;;
+"-") echo "Honnan töröljük?";
+select item in $(search $prev); do echo ">>>$prev törölve itt: " $item; sed -i "/^$prev$/d" $item; list $prev; i=$prev; break; done;;
+esac
+ploc=$(search `latin $i`); search_color "$i"; test -z "$ploc" && put $i; echo $message; prev=$i; done

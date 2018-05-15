@@ -1,0 +1,3 @@
+#/bin/sh
+# quick uniq
+LC_ALL=C awk '!a[$0]{print}{a[$0]=1}'

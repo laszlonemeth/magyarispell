@@ -1,0 +1,590 @@
+# 	
+#	magyar.aff/magyar.dict: Hungarian Ispell affix table and dictionary 
+#
+#	Copyright (C) 1998-2003 László Németh
+#
+#	This program is free software; you can redistribute it and/or modify
+#	it under the terms of the GNU General Public License as published by
+#	the Free Software Foundation; either version 2 of the License, or
+#	(at your option) any later version.
+#
+#	This program is distributed in the hope that it will be useful,
+#	but WITHOUT ANY WARRANTY; without even the implied warranty of
+#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#	GNU General Public License for more details.
+#
+#	You should have received a copy of the GNU General Public License
+#	along with this program; if not, write to the Free Software
+#	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+############################################################
+# igeképzõk
+############################################################
+
+define(pfx_verb,X)
+define(pfx_leg,D)
+define(pfx_verb_leg,Dr)
+define(non_compound,%)
+define(compound_,Y@)
+define(compound_last,x)
+define(rule119,!)
+define(upper2lower,")
+define(i_kepzo, Ÿ)
+
+######## hangrend-váltó ##########
+
+define(`BACK',
+`define'(``Noun_'', AUKic)
+`define'(``Noun2_'', UKi)
+`define'(``noun_nonmorph_'', AU$ic)
+`define'(``noun_adj'', Ui)
+`define'(``noun_con'', mô)
+`define'(``noun_con2'', mô)
+`define'(``noun_vow'', Ï)
+`define'(``noun_On'', ÒÖ)
+`define'(``noun_OnA'', Ò)
+`define'(``noun_On2'', ÒÖ)
+`define'(``noun2_'', UKic)
+`define'(``poss'', A)
+`define'(``verb_'', O)
+`define'(``verb_sub_'', o)
+`define'(``noun_A'', S)
+`define'(``noun_jA'', Q)
+`define'(``noun_Ai'', s)
+`define'(``Adj_'', F)
+`define'(``round_hoz'',)
+)
+
+define(`NONROUND',
+`define'(``Noun_'', BVLjc)
+`define'(``Noun2_'', VLj)
+`define'(``noun_nonmorph_'', BVLjc)
+`define'(``noun_adj'', Vj)
+`define'(``noun_con'', nò)
+`define'(``noun_con2'', nò)
+`define'(``noun_vow'', Ð)
+`define'(``noun_On'', Ó×)
+`define'(``noun_OnA'', Ó×)
+`define'(``noun_On2'', Ó×)
+`define'(``noun2_'', VLjc)
+`define'(``poss'', B)
+`define'(``verb_'', E)
+`define'(``verb_sub_'', e)
+`define'(``noun_A'', T)
+`define'(``noun_jA'', R)
+`define'(``noun_Ai'', t)
+`define'(``Adj_'', G)
+`define'(``round_hoz'',)
+)
+
+define(`ROUND',
+`define'(``Noun_'', CWMjc)
+`define'(``Noun2_'', WMj)
+`define'(``noun_nonmorph_'', BVLjc)
+`define'(``noun_adj'', Wj)
+`define'(``noun_con'', Ýò)
+`define'(``noun_con2'', nò)
+`define'(``noun_vow'', Þ)
+`define'(``noun_On'', ÔØ)
+`define'(``noun_OnA'', ÔØ)
+`define'(``noun_On2'', Ó×)
+`define'(``noun2_'', VLjc)
+`define'(``poss'', B)
+`define'(``verb_'', P)
+`define'(``verb_sub_'', p)
+`define'(``noun_A'', T)
+`define'(``noun_jA'', R)
+`define'(``noun_Ai'', t)
+`define'(``Adj_'', H)
+`define'(``round_hoz'', N)
+)
+
+define(`UNDEF',
+`undefine'(``Noun_'')
+`undefine'(``Noun2_'')
+`undefine'(``noun_nonmorph_'')
+`undefine'(``noun_adj'')
+`undefine'(``noun_con'')
+`undefine'(``noun_con2'')
+`undefine'(``noun_vow'')
+`undefine'(``noun_On'')
+`undefine'(``noun_OnA'')
+`undefine'(``noun_On2'')
+`undefine'(``noun2_'')
+`undefine'(``poss_'')
+`undefine'(``verb_'')
+`undefine'(``verb_sub_'')
+`undefine'(``noun_A'')
+`undefine'(``noun_jA'')
+`undefine'(``noun_Ai'')
+`undefine'(``Adj_'')
+`undefine'(``round_hoz'')
+)
+
+ROUND
+
+define(noun_On_round, noun_On)
+
+UNDEF
+
+######## kódok rövidítése #########
+
+define(tAt,``[tAt_FACTITIVE_vrb_tr]{+[PRES_INDIC_INDEF_SG_3]}'')
+define(gAt,``[gAt_FREQ_vrb]{+[PRES_INDIC_INDEF_SG_3]}'')
+define(_hAt_,``[hAt_MODAL_vrb]{+[PRES_INDIC_INDEF_SG_3]}'')
+define(hAtO,``[hAtÓ_ABLE_(adj,present_part)]{+[NOM]}'')
+define(hAtAtlAn,``[hAtAtlAn_UNABLE_adj]{+[NOM]}'')
+
+define(O2dik,``[Ódik_PASSIVE_vrb_it]{+[PRES_INDIC_INDEF_SG_3]}'')
+
+define(AtlAn,``[tAlAn_LESS_adj]{+[NOM]}'')
+
+define(sAg,``[sÁg_ABSTRACT_noun]{+[NOM]}'')
+define(As,``[Ás_PROCESS/RESULT_noun]{+[NOM]}'')
+define(AcskA,``[cskA_DIMINUTIVE_(noun,adj)]{+[NOM]}'')
+
+define(_i_,``[i_PLACE/TIME_adj]{+[NOM]}'')
+define(lAg,``[lAg_MODE_adv]'')
+define(Os,``[s_ATTRIBUTE_adj]{+[NOM]}'')
+define(Os2,``[s_OCCUPATION_noun]{+[NOM]}'')
+define(_nyi_,``[nyi_MEASURE_adj]{+[NOM]}'')
+define(JU,``[jÚ_PROPERTY_adj]{+[NOM]}'')
+
+define(Abb,``[bb_COMPARATIVE_adj]{+[NOM]}'')
+define(Abbik,``[bbik_DESIGNATE_adj]'')
+define(_ik_,``[Der-adj-ik]{+[NOM]}'')
+
+define(_O_,``[Ó_PRESPART_adj]{+[NOM]}'')
+define(Ott,``[tt_PASTPART_adj]{+[NOM]}'')
+define(AndO,``[AndÓ_FUTPART_adj]{+[NOM]}'')
+
+######## -tat, -tet ###############
+
+define(`k_',
+ik > ``-ik,$1'' $2 $3$4$5$6$7$8$9$10
+[^k] > $1 $2 $3$4$5$6$7$8$9$10
+)
+
+UNDEF
+
+define(`k_verb',
+`k_'(t$1t, +tAt, verb_, verb_sub_) # <csináltatja>
+`k_'(t$1t$3tt, +tAt+Ott, noun_con, noun_OnA, noun_nonmorph_, Adj_, noun_jA, noun_Ai) # <csináltatottamat>
+`k_'(t$1t$3tt, +tAt+[PAST_INDIC_INDEF_SG_3]) # <megcsináltatott>
+`k_'(t$1th$1t, +tAt+_hAt_, verb_, verb_sub_) # <csináltathassa>
+    `k_'(t$1th$1t$3tt, +tAt+_hAt_+[PAST_INDIC_INDEF_SG_3]) # <csináltathatott>
+        `k_'(t$1th$1t$4s$2g, +tAt+hAtO+sAg, noun_con, noun_On, Noun_, noun_A, noun_Ai, compound_, i_kepzo) # ??? <csináltathatóság>
+
+# -képzõs alakok (-i)
+`k_'(t$1th$1t$4s$2gi, +tAt+hAtO+sAg+_i_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <csináltathatósági>
+
+# -képzõs alakok (-nyi)
+`k_'(t$1th$1t$4s$2gnyi, +tAt+hAtO+sAg+_nyi_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <csináltathatóságnyi>
+
+    `k_'(t$1th$1t$1tl$1n, +tAt+hAtAtlAn, noun_con, noun_On, Noun_, Adj_, noun_jA, noun_Ai) # ??? <csináltathatatlan>
+        `k_'(t$1th$1t$1tl$1n$1bb, +tAt+hAtAtlAn+Abb, noun_con, noun_OnA, noun_adj, Adj_, noun_jA, pfx_verb_leg) # ??? <legmegcsináltathatatlanabb>
+        `k_'(t$1th$1t$1tl$1n$1bb$1n, +tAt+hAtAtlAn+Abb+[An_MODE_adv]) # ??? <legmegcsináltathatatlanabban>
+        `k_'(t$1th$1t$1tl$1n$1bbik, +tAt+hAtAtlAn+Abbik, noun_con, noun_OnA, noun_adj, Adj_, noun_A, noun_Ai, pfx_verb_leg) # ??? <legmegcsináltathatatlanabbik>
+    
+        `k_'(t$1th$1t$1tl$1ns$2g, +tAt+hAtAtlAn+sAg, noun_con, noun_On, Noun_, noun_A, noun_Ai, compound_) # ??? <csináltathatatlanság>
+
+# -képzõs alakok (-i)
+`k_'(t$1th$1t$1tl$1ns$2gi, +tAt+hAtAtlAn+sAg+_i_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <csináltathatatlansági>
+
+# -képzõs alakok (-nyi)
+`k_'(t$1th$1t$1tl$1ns$2gnyi, +tAt+hAtAtlAn+sAg+_nyi_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <csináltathatatlanságnyi>
+        
+`k_'(t$1t$2s, +tAt+As, noun_con, noun_On, Noun_, noun_A, noun_Ai, compound_, i_kepzo) # <csináltatással>
+
+# -képzõs alakok (-i)
+`k_'(t$1t$2si, +tAt+As+_i_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <csináltatási>
+
+# -képzõs alakok (-os, -es)
+`k_'(t$1t$2s$3s, +tAt+As+Os, noun_con, noun_On, Noun_, Adj_, noun_A, noun_Ai, compound_last, rule119) # <csináltatásos>
+
+# -képzõs alakok (-nyi)
+`k_'(t$1t$2snyi, +tAt+As+_nyi_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <csináltatásnyi>
+
+        `k_'(t$1th$1t$4bb, +tAt+hAtO+Abb, noun_con, noun_On, noun_adj, Adj_, noun_jA, pfx_verb_leg, round_hoz) # ??? <legmegcsináltathatóbb>
+        `k_'(t$1th$1t$4bb$1n, +tAt+hAtO+Abb+[An_MODE_adv]) # ??? <legmegcsináltathatóbban>
+        `k_'(t$1th$1t$4bbik, +tAt+hAtO+Abbik, noun_con, noun_On, noun_adj, Adj_, noun_A, noun_Ai, pfx_verb_leg) # ??? <legmegcsináltathatóbbik>
+
+# -képzõs alakok (-i)
+`k_'(t$1th$1t$4i, +tAt+hAtO+_i_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <csináltathatói>
+
+# -képzõs alakok (-nyi)
+`k_'(t$1th$1t$4nyi, +tAt+hAtO+_nyi_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <csináltathatónyi>
+
+##`k_'(t$1t$4, ???, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_, i_kepzo) # <csináltatóikról>
+        `k_'(t$1t$4bb, +tAt+_O_+Abb, noun_con, noun_OnA, noun_adj, Adj_, noun_jA, pfx_verb_leg) # ??? <legelgondolkodtatóbb>
+        `k_'(t$1t$4bb$1n, +tAt+_O_+Abb+[An_MODE_adv]) # ??? <legelgondolkodtatóbban>
+        `k_'(t$1t$4bbik, +tAt+_O_+Abbik, noun_con, noun_OnA, noun_adj, Adj_, noun_A, noun_Ai, pfx_verb_leg) # ??? <legelgondolkodtatóbbik>
+
+# -képzõs alakok (-i)
+`k_'(t$1t$4i, +tAt+_O_+_i_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <csináltatói>
+
+# -képzõs alakok (-nyi)
+`k_'(t$1t$4nyi, +tAt+_O_+_nyi_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <csináltatónyi>
+)
+
+flag *¡: BACK k_verb(a,á,o,ó,ú)
+
+flag *¢: NONROUND k_verb(e,é,e,õ,û) UNDEF 
+
+define(`k_verb',
+
+# -képzõs alakok (-jú, -jû)
+`k_'(t$1th$1t$4s$2g$5, +tAt+hAtO+sAg+JU, noun_vow, noun_On, noun_adj, Adj_, noun_jA, compound_last, rule119) # <csináltathatóságú>
+
+# -képzõs alakok (-jú, -jû)
+`k_'(t$1th$1t$1tl$1ns$2g$5, +tAt+hAtAtlAn+sAg+JU, noun_vow, noun_On, noun_adj, Adj_, noun_jA, compound_last, rule119) # <csináltathatatlanságú>
+
+# -képzõs alakok (-jú, -jû)
+`k_'(t$1t$2s$5, +tAt+As+JU, noun_vow, noun_On, noun_adj, Adj_, noun_jA, compound_last, rule119) # <csináltatású>
+
+`k_'(t$1th$1t$4, +tAt+hAtO, noun_vow, noun_On, Noun_, Adj_, noun_jA, i_kepzo) # <csináltathatóakat>
+
+# -képzõs alakok (-jú, -jû)
+`k_'(t$1th$1t$4j$5, +tAt+hAtO+JU, noun_vow, noun_On, noun_adj, Adj_, noun_jA, compound_last, rule119) # <csináltathatójú>
+
+# -képzõs alakok (-os, -es)
+`k_'(t$1th$1t$4s, +tAt+hAtO+Os, noun_con, noun_On, Noun_, Adj_, noun_A, noun_Ai, compound_last, rule119) # <csináltathatós>
+
+`k_'(t$1t$4, +tAt+_O_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_, i_kepzo) # <csináltatóikról>
+
+# -képzõs alakok (-jú, -jû)
+`k_'(t$1t$4j$5, +tAt+_O_+JU, noun_vow, noun_On, noun_adj, Adj_, noun_jA, compound_last, rule119) # <csináltatójú>
+
+# -képzõs alakok (-os, -es)
+`k_'(t$1t$4s, +tAt+_O_+JU, noun_con, noun_On, noun_adj, Adj_, noun_A, noun_Ai, compound_last, rule119) # <csináltatós>
+)
+
+flag *¡: BACK k_verb(a,á,o,ó,ú)
+
+flag *¢: ROUND k_verb(e,é,ö,õ,û) UNDEF 
+
+######### -_hAt_, -het alanyi ###############
+
+define(`k_verb',
+`k_'(h$1t, +_hAt_, verb_, verb_sub_) # <csinálhassál>
+
+`k_'(h$1tnék$3m, +_hAt_+[nék_WISH_noun_poss]+[POSS_SG_1]{+[NOM]}, +noun_con, noun_OnA, noun_adj) # <csinálhatnékommal>
+`k_'(h$1tnék$3d, +_hAt_+[nék_WISH_noun_poss]+[POSS_SG_2]{+[NOM]}, +noun_con, noun_OnA, noun_adj) # <csinálhatnékommal>
+`k_'(h$1tnék$1, +_hAt_+[nék_WISH_noun_poss]+[POSS_SG_3]{+[NOM]}, +noun_vow, noun_On, noun_adj) # <csinálhatnékommal>
+`k_'(h$1tnékj$1, +_hAt_+[nék_WISH_noun_poss]+[POSS_SG_3]{+[NOM]}, +noun_vow, noun_On, noun_adj) # <csinálhatnékommal>
+`k_'(h$1tnék$6nk, +_hAt_+[nék_WISH_noun_poss]+[POSS_PL_1]{+[NOM]}, +noun_con, noun_On_round, noun_adj) # <csinálhatnékommal>
+`k_'(h$1tnék$3t$3k, +_hAt_+[nék_WISH_noun_poss]+[POSS_PL_2]{+[NOM]}, +noun_con, noun_OnA, noun_adj) # <csinálhatnékommal>
+`k_'(h$1tnékj$6k, +_hAt_+[nék_WISH_noun_poss]+[POSS_PL_3]{+[NOM]}, +noun_con, noun_OnA, noun_adj) # <csinálhatnékommal>
+`k_'(h$1tnék$6k, +_hAt_+[nék_WISH_noun_poss]+[POSS_PL_3]{+[NOM]}, +noun_con, noun_OnA, noun_adj) # <csinálhatnékommal>
+
+`k_'(h$1tnék$3m, +_hAt_+[nék_WISH_noun_poss]+[POSS_SG_1]{+[ACC]})
+`k_'(h$1tnék$3d, +_hAt_+[nék_WISH_noun_poss]+[POSS_SG_2]{+[ACC]})
+`k_'(h$1tnék$6nk, +_hAt_+[nék_WISH_noun_poss]+[POSS_PL_1]{+[ACC]})
+`k_'(h$1tnék$3t$3k, +_hAt_+[nék_WISH_noun_poss]+[POSS_PL_2]{+[ACC]})
+`k_'(h$1tnékj$6k, +_hAt_+[nék_WISH_noun_poss]+[POSS_PL_3]{+[ACC]})
+`k_'(h$1tnék$6k, +_hAt_+[nék_WISH_noun_poss]+[POSS_PL_3]{+[ACC]})
+
+`k_'(h$1t$3tt, +_hAt_+[PAST_INDIC_INDEF_SG_3]) # <csinálhatott>
+
+`k_'(h$1t$1tl$1n, +hAtAtlAn, noun_con, noun_On, Noun_, Adj_, noun_jA, noun_Ai) # <csinálhatatlanról>
+    `k_'(h$1t$1tl$1n$1bb, +hAtAtlAn+Abb, noun_con, noun_OnA, noun_adj, Adj_, noun_jA, pfx_verb_leg) # <legvisszacsinálhatatlanabb>
+    `k_'(h$1t$1tl$1n$1bb$1n, +hAtAtlAn+Abb+[An_MODE_adv]) # <legvisszacsinálhatatlanabban>
+        `k_'(h$1t$1tl$1n$1bbik, +hAtAtlAn+Abbik, noun_con, noun_OnA, noun_adj, Adj_, noun_jA, pfx_verb_leg) # <legvisszacsinálhatatlanabb>
+    `k_'(h$1t$1tl$1ns$2g, +hAtAtlAn+sAg, noun_con, noun_On, Noun_, noun_A, noun_Ai, compound_, i_kepzo) # <csinálhatatlanság>
+
+# -képzõs alakok (-i)
+`k_'(h$1t$1tl$1ns$2gi, +hAtAtlAn+sAg+_i_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <megcsinálhatatlansági>
+
+# -képzõs alakok (-nyi)
+`k_'(h$1t$1tl$1ns$2gnyi, +hAtAtlAn+sAg+_nyi_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <csinálhatatlanságnyi>
+)
+
+flag *£: BACK k_verb(a,á,o,ó,ú,u)
+
+flag *¤: NONROUND k_verb(e,é,e,õ,û,ü) UNDEF 
+
+define(`k_verb',
+# -képzõs alakok (-jú, -jû)
+`k_'(h$1t$1tl$1ns$2g$5, +hAtAtlAn+sAg+JU, noun_vow, noun_On, noun_adj, Adj_, noun_jA, compound_last, rule119) # <csinálhatatlanságú>
+)
+
+flag *£: BACK k_verb(a,á,o,ó,ú)
+
+flag *¤: ROUND k_verb(e,é,e,õ,û) UNDEF 
+
+######### -_hAt_, -het tárgyas, -andó, -endõ, -atlan, -atlanság, -ódik, õdik ###############
+
+# -hatóság, -hetõség
+define(`k_verb',
+`k_'(h$1t$4s$2g, +hAtO+sAg, noun_con, noun_On, Noun_, noun_A, noun_Ai, compound_, i_kepzo) # <megcsinálhatóság>
+
+# -képzõs alakok (-i)
+`k_'(h$1t$4s$2gi, +hAtO+sAg+_i_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <megcsinálhatósági>
+
+# -képzõs alakok (-nyi)
+`k_'(h$1t$4s$2gnyi, +hAtO+sAg+_nyi_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <csinálhatóságnyi>
+
+# -hatás, -hetés?
+#`k_'(h$1t$2s, ???, noun_con, noun_On, Noun_, noun_A, noun_Ai, compound_) # ??? csinálhatás
+
+# -atlan, -etlen
+
+`k_'($1tl$1n, +AtlAn, noun_con, noun_On, Noun_, Adj_, noun_jA, noun_Ai) # <megcsinálatlan>
+        `k_'($1tl$1n$1bb, +AtlAn+Abb, noun_con, noun_OnA, noun_adj, Adj_, noun_jA, pfx_verb_leg) # ??? <legmegcsinálatlanabb>
+        `k_'($1tl$1n$1bb$1n, +AtlAn+Abb+[An_MODE_adv]) # ??? <legmegcsinálatlanabban
+        `k_'($1tl$1n$1bbik, +AtlAn+Abbik, noun_con, noun_OnA, noun_adj, Adj_, noun_A, noun_Ai, pfx_verb_leg) # ??? <legmegcsinálatlanabbik>
+
+`k_'($1tl$1ns$2g, +AtlAn+sAg, noun_con, noun_On, Noun_, noun_A, noun_Ai, compound_, i_kepzo) # <megcsinálatlanság>
+
+# -képzõs alakok (-i)
+`k_'($1tl$1ns$2gi, +AtlAn+sAg+_i_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <megcsinálatlansági>
+
+# -képzõs alakok (-nyi)
+`k_'($1tl$1ns$2gnyi, +AtlAn+sAg+_nyi_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <megcsinálatlanságnyi>
+
+# -ódás, -õdés
+
+`k_'($4d$2s, +O2dik+As, noun_con, noun_On, Noun_, noun_A, noun_Ai, compound_, i_kepzo) # <csóválódás>
+
+# -képzõs alakok (-i)
+`k_'($4d$2si, +O2dik+As+_i_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <megcsóválódási>
+
+# -képzõs alakok (-os, -es)
+`k_'($4d$2s$3s, +O2dik+As+Os, noun_con, noun_On, Noun_, Adj_, noun_A, noun_Ai, compound_last, rule119) # <csóválódásos>
+
+# -képzõs alakok (-nyi)
+`k_'($4d$2snyi, +O2dik+As+_nyi_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <csóválódásnyi>
+
+# -ód_hAt_, -õdhet
+
+`k_'($4dh$1t, +O2dik+_hAt_, verb_) # <csóválódhat>
+`k_'($4dh$1t$3tt, +O2dik+_hAt_+[PAST_INDIC_INDEF_SG_3]) # <csóválódhatott>
+)
+
+flag *¥: BACK k_verb(a,á,o,ó,ú)
+
+flag *¦: NONROUND k_verb(e,é,e,õ,û) UNDEF 
+
+define(`k_verb',
+# -képzõs alakok (-jú, -jû)
+`k_'(h$1t$4s$2g$5, +hAtO+sAg+JU, noun_vow, noun_On, noun_adj, Adj_, noun_jA, compound_last, rule119) # <csinálhatóságú>
+
+# -képzõs alakok (-jú, -jû)
+`k_'($1tl$1ns$2g$5, +AtlAn+sAg+JU, noun_vow, noun_On, noun_adj, Adj_, noun_jA, compound_last, rule119) # <megcsinálatlanságú>
+
+# -képzõs alakok (-jú, -jû)
+`k_'($4d$2s$5, +O2dik+As+JU, noun_vow, noun_On, noun_adj, Adj_, noun_jA, compound_last, rule119) # <csóválódású>
+
+`k_'(h$1t$4, +hAtO, noun_vow, noun_On, Noun_, Adj_, noun_jA, i_kepzo) # <csinálható>
+`k_'(h$1t$4bb, +hAtO+Abb, noun_con, noun_OnA, noun_adj, Adj_, noun_jA, pfx_verb_leg) # <legvisszacsinálhatóbb>
+	`k_'(h$1t$4bb$1n, +hAtO+Abb+[An_MODE_adv]) # <legvisszacsinálhatóbban>
+    `k_'(h$1t$4bbik, +hAtO+Abbik, noun_con, noun_OnA, noun_adj, Adj_, noun_jA, pfx_verb_leg) # <legvisszacsinálhatóbb>
+    
+# -képzõs alakok (-os, -es)
+`k_'(h$1t$4s, +hAtO+Os, noun_con, noun_On, Noun_, Adj_, noun_A, noun_Ai, compound_last, rule119) # <eldobhatós>
+
+# -andó, -endõ
+`k_'($1nd$4, +AndO, noun_vow, noun_On, Noun_, Adj_, noun_jA) # <csinálandó>
+`k_'($1nd$4s$2g, +AndO+sAg, noun_con, noun_On, Noun_, noun_A, noun_Ai, compound_, i_kepzo) # <frissítend¿ség>
+
+# -ódik, -õdik
+`k_'($4dik, +O2dik, verb_) # <csóválódik>, <átlépõdik>
+`k_'($4d$3tt, +O2dik+[PAST_INDIC_INDEF_SG_3], noun_nonmorph_, Adj_, noun_jA, noun_Ai, round_hoz) # <csóválódott>, <átlépõdötteket>
+`k_'($4d$4, +O2dik+_O_, noun_vow, noun_On, Noun_, Adj_, noun_jA) # <megcsóválódó>, <átlépõdõ>
+
+# -képzõs alakok (-os, -es)
+`k_'($4d$4s, +O2dik+_O_+Os, noun_con, noun_On, Noun_, Adj_, noun_A, noun_Ai, compound_last, rule119) # <megcsóválódós>
+
+`k_'($4d$4s$1bb, +O2dik+_O_+Os+Abb, noun_con, noun_OnA, noun_adj, Adj_, noun_jA, pfx_verb_leg) # <legfrusztrálódósabbjainkat>
+	`k_'($4d$4s$1bb$1n, +O2dik+_O_+Os+Abb+[An_MODE_adv]) # <legfrusztrálódósabbjainkat>
+    `k_'($4d$4s$1bbik, +O2dik+_O_+Os+Abbik, noun_con, noun_OnA, noun_adj, Adj_, noun_jA, pfx_verb_leg)
+)
+
+flag *¥: BACK k_verb(a,á,o,ó,ú)
+
+flag *¦: ROUND k_verb(e,é,ö,õ,û) UNDEF 
+
+######### -gat, -get ###############
+
+define(`k_verb',
+`k_'(g$1t, +gAt, verb_, verb_sub_) # csinálgat
+`k_'(g$1t$3tt, +gAt+[PAST_INDIC_INDEF_SG_3]) # csinálgatott
+`k_'(g$1t$2s, +gAt+As, noun_con, noun_On, Noun_, noun_A, noun_Ai, compound_, i_kepzo) # gAt+csinálgatás
+
+# -képzõs alakok (-i)
+`k_'(g$1t$2si, +gAt+As+_i_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <csinálgatási>
+
+# -képzõs alakok (-os, -es)
+`k_'(g$1t$2s$3s, +gAt+As+Os, noun_con, noun_On, Noun_, Adj_, noun_A, noun_Ai, compound_last, rule119) # <csinálgatásos>
+
+# -képzõs alakok (-nyi)
+`k_'(g$1t$2snyi, +gAt+As+_nyi_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <csinálgatásnyi>
+
+`k_'(g$1th$1t, +gAt+_hAt_, verb_, verb_sub_) # csinálgathat
+    #`k_'(g$1th$1t$4s$2g, +gAt+, noun_con, noun_On, Adj_, noun_A, noun_Ai, compound_) # csinálgathatóság???
+    `k_'(g$1th$1t$3tt, +gAt+_hAt_+[PAST_INDIC_INDEF_SG_3]) # csinálgathatott
+)
+
+flag *§: BACK k_verb(a,á,o,ó,ú)
+
+flag *¨: NONROUND k_verb(e,é,e,õ,û) UNDEF 
+
+define(`k_verb',
+# -képzõs alakok (-jú, -jû)
+`k_'(g$1t$2s$5, +gAt+As+JU, noun_vow, noun_On, noun_adj, Adj_, noun_jA, compound_last, rule119) # <csinálgatású>
+
+`k_'(g$1t$4, +gAt+_O_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_) # csinálgató
+    `k_'(g$1th$1t$4, +gAt+_hAt_+_O_, noun_vow, noun_On, Noun_, Adj_, noun_jA) # csinálgatható
+)
+
+flag *§: BACK k_verb(a,á,o,ó,ú)
+
+flag *¨: ROUND k_verb(e,é,ö,õ,û) UNDEF 
+
+######### -ó, -õ és -ás, -és ###############
+
+define(`k_verb',
+`k_'($4, +_O_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_, i_kepzo) # <csináló>
+`k_'($4bb, +_O_+Abb, noun_con, noun_OnA, noun_adj, Adj_, noun_jA, pfx_verb_leg) # <legvisszacsinálóbb>
+
+# -képzõs alakok (-jú, -jû)
+`k_'($4j$5, +_O_+JU, noun_vow, noun_On, noun_adj, Adj_, noun_jA, compound_last, rule119) # <öttapsikolójú><macskatapsikolójú>
+
+# -képzõs alakok (-os, -es)
+`k_'($4s, +_O_+Os, noun_con, noun_On, Noun_, Adj_, noun_A, noun_Ai, compound_last, rule119) # <öttapsikolós><macskatapsikolós>
+
+# -képzõs alakok (-jú, -jû)
+`k_'($2s$5, +As+JU, noun_vow, noun_On, noun_adj, Adj_, noun_jA, compound_last, rule119) # <öttapsikolású><macskatapsikolású>
+)
+
+flag *©: BACK k_verb(a,á,o,ó,ú)
+
+flag *ª: ROUND k_verb(e,é,ö,õ,û) UNDEF 
+
+define(`k_verb',
+
+    `k_'($4bb$1n, +_O_+Abb+[An_MODE_adv]) # <legvisszacsinálóbban>
+    `k_'($4bbik, +_O_+Abbik, noun_con, noun_OnA, noun_adj, Adj_, noun_jA, pfx_verb_leg) # <legvisszacsinálóbbik>
+    `k_'($4csk$1, +_O_+AcskA, noun_vow, noun_On, Noun_, noun_jA) # <fõzõcskérõl>
+
+# -képzõs alakok (-i)
+`k_'($4i, +_O_+_i_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <öttapsikolói><macskatapsikolói>
+
+# -képzõs alakok (-nyi)
+`k_'($4nyi, +_O_+_nyi_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <öttapsikolónyi><macskatapsikolónyi>
+
+`k_'($2s, +As, noun_con, noun_On, Noun_, noun_A, noun_Ai, compound_, i_kepzo) # csinálás
+
+# -képzõs alakok (-i)
+`k_'($2si, +As+_i_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <öttapsikolási><macskatapsikolási>
+    `k_'($2sil$1g, +As+_i_+lAg) # <érintésileg>
+
+# -képzõs alakok (-os, -es)
+`k_'($2s$3s, +As+Os, noun_con, noun_On, Noun_, Adj_, noun_A, noun_Ai, compound_last, rule119) # <öttapsikolásos><macskatapsikolásos>
+
+# -képzõs alakok (-nyi)
+`k_'($2snyi, +As+_nyi_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <öttapsikolásnyi><macskatapsikolásnyi>
+)
+
+flag *©: BACK k_verb(a,á,o,ó,ú)
+
+flag *ª: NONROUND k_verb(e,é,e,õ,û) UNDEF 
+
+############ -ott, -ett, -ött, -t ####################
+
+# nem ikes k-ra végzõdõek külön kezelve
+# kell külön kezelve (nem kellt, hanem kellett)
+
+define(`k_',
+# -ott
+
+[bdfgmpstvz] > ott$1 $2 $3$4$5$6$7$8$9$10
+gy > ott$1 $2 $3$4$5$6$7$8$9$10
+[nl]l > ott$1 $2 $3$4$5$6$7$8$9$10
+
+[bdfgkmpstvz]ik > ``-ik,ott$1'' $2 $3$4$5$6$7$8$9$10
+gyik > ``-ik,ott$1'' $2 $3$4$5$6$7$8$9$10
+llik > ``-ik,ott$1'' $2 $3$4$5$6$7$8$9$10
+[^aáeéiíoóöõuúüû][^bgkmpstvzyd]ik > ``-ik,ott$1'' $2 $3$4$5$6$7$8$9$10
+[bdgjklmrtzy][ldgrz]ik > ``-ik,ott$1'' $2 $3$4$5$6$7$8$9$10
+
+# -t
+
+[^bgkmpstvzyd] > t$1 $2 $3$4$5$6$7$8$9$10
+ny > t$1 $2 $3$4$5$6$7$8$9$10
+[aáeéiíoóöõuúüû][^bgkmpstvzyd]ik > ``-ik,t$1'' $2 $3$4$5$6$7$8$9$10
+lyik > ``-ik,t$1'' $2 $3$4$5$6$7$8$9$10
+)
+
+define(`k_verb',
+`k_'(, +Ott, noun_con, noun_OnA, noun_nonmorph_, Adj_, noun_jA, noun_Ai, round_hoz) # <kicsinált> <megpöckölthöz>
+`k_'(, +[PAST_INDIC_INDEF_SG_3]) # <kicsinált> <megpöckölthöz>
+`k_'($1bb, +Ott+Abb, noun_con, noun_OnA, noun_adj, Adj_, noun_jA, pfx_verb_leg) # <legkicsináltabb>
+	`k_'($1bb$1n, +Ott+Abb+[An_MODE_adv]) # <legkicsináltabban>
+    `k_'($1bbik, +Ott+Abbik, noun_con, noun_OnA, noun_adj, Adj_, noun_jA, pfx_verb_leg) # <legkicsináltabb>
+`k_'(s$2g, +Ott+sAg, noun_con, noun_On, Noun_, noun_A, noun_Ai, compound_, i_kepzo) # <kicsináltság>
+
+# -képzõs alakok (-i)
+`k_'(s$2gi, +Ott+sAg+_i_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <ötcsináltsági><macskakicsináltsági>
+
+# -képzõs alakok (-jú, -jû)
+`k_'(s$2g$5, +Ott+sAg+JU, noun_vow, noun_On, noun_adj, Adj_, noun_jA, compound_last, rule119, round_hoz) # <kicsináltságú><macskakicsináltságú>
+
+# -képzõs alakok (-os, -es)
+`k_'(s$2g$3s, +Ott+sAg+Os, noun_con, noun_On, Noun_, Adj_, noun_A, noun_Ai, compound_last, rule119) # <kicsináltságos><macskacsináltságos>
+
+# -képzõs alakok (-nyi)
+`k_'(s$2gnyi, +Ott+sAg+_nyi_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, rule119) # <kicsináltságnyi><macskacsináltságnyi>
+)
+
+flag *«: BACK k_verb(a,á,o,ó,ú)
+
+# -ETT
+
+define(`k_',
+# -ett
+
+[bdfgmpstvz] > ett$1 $2 $3$4$5$6$7$8$9$10
+gy > ett$1 $2 $3$4$5$6$7$8$9$10
+[nl]l > ett$1 $2 $3$4$5$6$7$8$9$10
+                
+[bdfgkmpstvz]ik > ``-ik,ett$1'' $2 $3$4$5$6$7$8$9$10
+gyik > ``-ik,ett$1'' $2 $3$4$5$6$7$8$9$10
+llik > ``-ik,ett$1'' $2 $3$4$5$6$7$8$9$10
+[^aáeéiíoóöõuúüû][^bgkmpstvzyd]ik > ``-ik,ett$1'' $2 $3$4$5$6$7$8$9$10
+[bdgjklmrtzy][ldgrz]ik > ``-ik,ett$1'' $2 $3$4$5$6$7$8$9$10
+
+# -t
+
+[^bgkmpstvzyd] > t$1 $2 $3$4$5$6$7$8$9$10
+ny > t$1 $2 $3$4$5$6$7$8$9$10
+[aáeéiíoóöõuúüû][^bgkmpstvzyd]ik > ``-ik,t$1'' $2 $3$4$5$6$7$8$9$10
+lyik > ``-ik,t$1'' $2 $3$4$5$6$7$8$9$10
+)
+
+flag *¬: NONROUND k_verb(e,é,e,õ,û)
+
+# -ÖTT
+
+define(`k_',
+# -ött
+
+[bdfgmpstvz] > ött$1 $2 $3$4$5$6$7$8$9$10
+gy > ött$1 $2 $3$4$5$6$7$8$9$10
+[nl]l > ött$1 $2 $3$4$5$6$7$8$9$10
+                
+[bdfgkmpstvz]ik > ``-ik,ött$1'' $2 $3$4$5$6$7$8$9$10
+gyik > ``-ik,ött$1'' $2 $3$4$5$6$7$8$9$10
+llik > ``-ik,ött$1'' $2 $3$4$5$6$7$8$9$10
+[^aáeéiíoóöõuúüû][^bgkmpstvzyd]ik > ``-ik,ött$1'' $2 $3$4$5$6$7$8$9$10
+[bdgjklmrtzy][ldgrz]ik > ``-ik,ött$1'' $2 $3$4$5$6$7$8$9$10
+
+# -t
+
+[^bgkmpstvzyd] > t$1 $2 $3$4$5$6$7$8$9$10
+ny > t$1 $2 $3$4$5$6$7$8$9$10
+[aáeéiíoóöõuúüû][^bgkmpstvzyd]ik > ``-ik,t$1'' $2 $3$4$5$6$7$8$9$10
+lyik > ``-ik,t$1'' $2 $3$4$5$6$7$8$9$10
+)
+
+flag *­: ROUND k_verb(e,é,ö,õ,û) UNDEF 

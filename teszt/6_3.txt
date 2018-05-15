@@ -1,0 +1,30 @@
+AMHSz 138.
+
+6-3-as szabály:
+
+<kecskemacska><kecskemacskáról>
+<kecskebalalajka><kecskebalalajkákat>
+<trombitabalalajka><trombitabalalajkákat>
+<kecskemegnyúzás><kecskemegnyúzásokról>
+<trombitamegnyúzás><trombitamegnyúzásokról>
+<kecskemegbetegedés><kecskemegbetegedéseket>
+<*kecskevisszatekerés><*kecskevisszatekeréseket>
+<*kecskevisszabetegedés><*kecskevisszabetegedéseket>
+<kecskemacskafogás><kecskemacskafogásokat>
+<*kecskemacskaugatás><*kecskemacskaugatásokat>
+<*kecskemacskafogású><*kecskemacskafogásúakat>
+<*kecskemacskafogásos><*kecskemacskafogásosakat>
+<kecskemacskafogási><kecskemacskafogásiakról>
+<*oroszlánmacskafogási><*oroszlánmacskafogásiakról>
+<kecskefogvillanás><kecskefogvillanásokat>
+<*kecskefogvillanású><*kecskefogvillanásúakat>
+<*kecskefogvillanásos><*kecskefogvillanásosakat>
+<kecskefogvillanási><kecskefogvillanásiakat>
+<*oroszlánfogvillanási><*oroszlánfogvillanásiakat>
+<*kecskefogvillanásnyi><*kecskefogvillanásnyiakat>
+<balalajkaszerelmek><balalajkaszerelmekről>
+<*macskakutyaszerelmek><*macskakutyaszerelmekről>
+<képbalalajkaházak><képbalalajkaházakról>
+<*macskabalalajkaházak><*macskabalalajkaházakról>
+<képbalalajkaházat>
+<*macskabalalajkaházat>

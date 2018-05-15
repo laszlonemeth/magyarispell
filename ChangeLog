@@ -1,0 +1,1871 @@
+2018-05-10  Németh László <nemeth@numbertext.org>:
+	* AkH. 12. kiadásnak megfelelő szabályok és bővítés
+	* kiejtési adatok és új magyar átírások
+	* összetételi határok egyértelműsítése betűrendezéshez
+	* zsort rendező program magyar szavakhoz és címekhez
+
+2015-10-27  Németh László <nemeth@numbertext.org>:
+	* AkH. 12. kiadásnak megfelelő szabályok és bővítés
+
+2010-03-29  Németh László <nemeth@openoffice.org>:
+	* szotar/alap: valósi (Gyuris Gellért), elemi (főnév, pl. 
+	  most elfogadva: hat elemis). Hibajavítások: *serifjelvény
+	  (seriffjelvény); Gdańsk (Gdansk helyett); számjegyekkel leírt
+	  ezresek (>2000) és milliárdok toldalékolása (11000-rel, 3000-es);
+	- egyéb új szavak: Kass (Kass-sal, Kass-sá), citosztatikum,
+	  citosztatikus, citotoxikus, hazaárulózik, hominida, mitokondriális,
+	  nanoanyag, nanofizika, nanokémia, nanorészecske, neokonzervatív,
+	  neokonzervativizmus, rokkantnyugdíjazás, újkonzervatív,
+	  újkonzervativizmus.
+
+	* aff/fonev.aff: hiányzó vagy hibás toldalékolás:
+	- -ja toldaléknál a rövid o-ra végződő szavak nyúlás nélkül
+	  is elfogadásra kerültek (pl. *paparazzoja, nemcsak a jó paparazzója);
+	- nem mély hangrendű, nem alapfokú melléknevek
+	  I/3. birtokos személyragos alakjai: idősebbje, keserűbbje;
+	- felsőfokú melléknevek birtokos személyjeles alakjai: legokosabbé.
+
+	* HUNSPELL_heading: uticél -> úti cél javaslat hozzáadása
+	  (Gyuris Gellért gyűjtése)
+	- megjegyzésként OCONV deklaráció az Unicode ligatúrás javaslatokhoz
+	  (a kettőskeresztek törlésével bekapcsolható)
+
+2010-02-04  Németh László <nemeth@openoffice.org>:
+	* bin/u2myspell: hiányzó morfológiai leírás pótlása az unicode-os
+	  szótárak affixumkapcsolókkal nem rendelkező töveinél.
+
+	* szotar/*: új szavak:
+	  abbéli, addicionalitás, addiktív, addiktológia, addiktológus,
+	  agrokemikália, akaratgyenge, akciódús, akkád, aktuárius,
+	  alállomás, algoritmizál, alhavasi, alkesz, alkuratórium,
+	  alszámla, altajisztika, alufelni, alulértékel, alulfinanszíroz,
+	  alulfizet, alulinformált, alulképzett, alulreprezentál,
+	  alulteljesít, alultőkésített, anafilaxia, Ancsa, androgén,
+	  andrológia, andrológus, aneszteziológia, anglisztika, antagonista,
+	  antiallergén, anticiklikus, antikol, antiliberális, antirasszista,
+	  antivirális, apríték, aratnivaló, architekturális, aszcendens,
+	  asszerció, asszertív, asszimiláns, atyaság, autodafé,
+	  automatizáció, autoritárius, balraát, balsafa, bazi, belügyér,
+	  benseje, botox, böhöm, bölcsi, b.-pengő, bunkóság, cafeteria,
+	  cigányügy, citológia, csakiscsak, csakra, családcentrikus,
+	  csocsó, csontsovány, dekoncentrál, destabilizál,
+	  destabilizálódik, destruktivitás, differenciál (ige), ebbéli,
+	  egalitárius, egalitarizmus, égegyadta, egyházias, egyszínnyomás,
+	  éjfekete, ejnye-bejnye, elektroencefalográf, elektronizál,
+	  életigenlő, érmész, érmészet, értékorientált, érzelemdús,
+	  érzelemgazdag, ésszerűsödik, etatista, ethosz, exbajnok,
+	  exbarát, exbarátnő, exelnök, exfeleség, exférj, exfradista,
+	  exkommunista, exkormányfő, exminiszter, exminiszterelnök,
+	  exnej, expasi, expolitikus, extragalaktikus, extragalaxis,
+	  exújpesti, exvilágbajnok, falusiasodik, fárszi, fasisztázik,
+	  fasisztoid, félautomatikus, félidei, fémzárolt, filózik,
+	  fogyatékosügy, folklorisztikus, fradista, futsal, génkezelt, gratula,
+	  guargumi, gyilkolászik, gyorskölcsön, gyorsnyomda (Gyuris Gellért),
+	  gyorsteszt, gyúelegy, H1N1, hadügyér, hegemón, hívebb, husi,
+	  indexál, indusztriális, inherens, inspiratív, integrátor,
+	  interdiszciplinaritás, interregionális, intifáda, invazív,
+	  irracionalitás, izmolt, jobbraát, Jocó, Juci, kabotázs (Gyödi
+	  István), kábszer, kádárista, kádárizmus, kalligram, kamuflázs,
+	  kapacitív, kasztni (kaszni mellé), kétballábas, kiskapitális,
+	  kiskupola, kiskutacs, kisvárosias, klímazonális, kommunistázik,
+	  konszenzuális, körülre, kriminalitás, kromatográf, külügyér,
+	  limnológia, limnológus, lokalitás, lopásbiztos, madarászat,
+	  madzsong, maflás, magyarigazolvány, majdnemhogy, makulatúra,
+	  Máriabesnyő (gkaroly openscope), maszáj, matúra, mazochisztikus,
+	  mediális, méltánylandó, mélyinterjú, merítkezik, metabolit,
+	  migráns, mikroméretű, mikrovállalkozás, militáns, militáris,
+	  milliárdocska, milliárdszám, millimól (mmol is), milliócska,
+	  milliószám, milliószámra, milliószoroz, milliwatt (mW is),
+	  milpengő, mínuszos, monasztikus, monopolisztikus, monopoljog,
+	  monopolszolgáltató (Barna József), monotonitás, moszkovita,
+	  muzeológia, nácizik, nagyáruház, nagykupola, nagykutacs,
+	  nagypálya, nagyrégió, nagyvitorla, nanocső, nanoelektronika,
+	  nanogramm, nanohuzal, nanoméretű, nanorobot, nanoszerkezet,
+	  nanotechnika, narcisztikus, nehézásvány, nehézbúvár,
+	  nehézeke, nehézfegyverzet, nehézgépjármű, neogót, nyájmeleg,
+	  nyálcsorgatva, nyelvvizsgázik, nyissz, nyuszkó, nyüszög,
+	  ólomnehéz, olykori, oxigéndús, ökumené, önironikus,
+	  őrlet (ige), összegyetemi, összgazdasági, összhalálozás,
+	  összkereslet, össznépesség, össznévérték, összvonalas,
+	  pajszer, pandémia, pandemikus, paramilitáris, parodisztikus,
+	  pengevékony, pénzügyér, pikogramm, pikométer, pikoszekundum,
+	  plazmon, pluszos, posztindusztriális, pótlandó, pótmagánvád,
+	  preferenciális, prológ, pszichedelikus, pszichoaktív,
+	  pszichoszexuális, puszika, reflektív, regionalizáció,
+	  rendőrködik, rokonul, sms-ezik, sovén, spektrometria,
+	  stilizáció, szárazáru, szegényügy, szegregál, szevasztok,
+	  szőkésbarna, szöszmösz, sztárság, szubsztanciális,
+	  szuperbruttó, szuperbruttósítás, távfűtött, taxatív,
+	  telegráf, telegrafikus, térbeni, toborzódik, tockos, toszkán,
+	  túláram, túlkereslet, túlmenőleg, újrahasználat, újrapapír,
+	  umbulda, uramisten, uszkve, utángyártott, utógondozó (tothasze
+	  openscope), utókezel, utómunka, utóromantika, utószél,
+	  vadkapitalista, várakozásteljes, vasalat, vébé, véderdő,
+	  védernyő, védintézkedés, védmű, védőgázas, védzáradék,
+	  végigvitel, vidékiesedik (zsolt.varga openscope), videoszerkesztő
+	  (Bíró Árpád), virtualitás, visszább, visszlízing, víziváros,
+	  vízoldékony, zakkan, zanza, zanzásít, zeolit, zöldesbarna,
+	  zutty, zsíroldékony stb.;
+	- biológiai, biokémiai, orvosi szakszókincs:
+	  adenoma, álallergia, alkil, barrakuda, benzpirén, denaturáció,
+	  disszociál, dugong, előtor, enterotoxin, ftalát, heterociklikus,
+	  hőlabilis, hőstabil, immunszuppresszió, immunszuppresszív, inkubál,
+	  karboxilsav, limbikus, melanin, melanoma, melatonin, menses, menzesz,
+	  mikroflóra, mutagén, mutagenitás, nitrozamin, patogenetikai,
+	  patogenitás, poliaromás, polihalogénezett, prion, starterkultúra,
+	  szalmonellózis, szerotípus, szubletális, teratogén, transzgenikus,
+	  utószennyezés, utószennyeződés, utótor, vazoaktív, zoonózis stb.;
+	- földrajzi: Arktisz, főte, Gondwana, Pangea, szubmediterrán;
+	- informatikai: aldokumentum, flashmemória (Barna József), GHz,
+	  pebibyte, petabyte, PiB, tebibyte, TiB, terabyte (Hóka Ádám),
+	- Tuna András gyűjtéséből: anyagiaskodik, kölni (kölnim, kölnid stb.
+	  alakok hiánya), molyol, pánikol; tárgyas ragozás is: dumál, tankol;
+	- közel ezer egyszerű összetett szó felvétele a nyelvi ellenőrzéshez
+	  (l. Lightproof "Összetett szóként elfogadott elütések keresése"
+	  opciót): adóév, adóív, agyér, árrés, ársáv, bájnő, bőröv stb.;
+	- unicode-os szavak: µl (mikroliter), µg (mikrogramm), µV (mikrovolt);
+	- súlyos tévesztések tiltása: *egyivású, *eképpen; *legelőszőr,
+	  *mellékhelység, *múlandó, *múlandóság, szervízkönyv stb.;
+	- hibás egybeírások tiltása: *nemár, *nembiztos, *neméri;
+	- javítások: dobermann (*doberman törlése); pláza, Plaza (plaza
+	  helyett); hadititkok *hadititokok helyett (Barna József hibajelzése);
+	  ingadozó szavak (-ja/-je, -a/-e): szupermarket, hipermarket, szenzor,
+	  tréner, fogdmeg, vén stb.; Lichtenstein személynév kivétele az
+	  alapszókincsből a Liechtenstein országnév javításához; speciesszel
+	  (*speciessel helyett); szófaji pontosítások: bosszantó, ezer stb.;
+	  számos összetett szó összetettségének jelölése: áremelkedés, forrpont,
+	  visszvitel stb.
+	- egyéb összetett szóként elfogadott szavak felvétele: lángész
+	  (lángészek, lángeszek), naplopó stb.;
+	- korábban csak összetett szóként kerültek felismerésre: auditív, éltű,
+	  elvétel, halasi, keltű, léptű, lovagló, projektív, receptív, szakács,
+	  szigorló, tortúra, varég, zarándokló; Baktó, Béltő, Kőbán stb.
+	- hibás összetételek tiltása: *asszem, *éjjen, *fővő; *érék, *hátér.
+	- -val, -vel, -hoz, -hez alakok pótlása nagy számneveknél;
+	- -t pótlása ezreseknél (ötezrest stb.);
+	- -adikak toldalék számneveknél (pl. másodikak);
+	- milliárd, trilliárd, százan stb. kivétele összetételekből;
+	- video-, makro-, mikro- előtagok elfogadása.
+
+	* aff/eleje.aff: ezerszáz, ezerszázegy stb. elfogadása a 1100-1199
+	  közé eső számnevekben (nem csak ezeregyszáz)
+
+	* HUNSPELL_heading:
+	- REP paraméter: ö/ő csere a *bűzős, *bőrős, *előnyős, *kővetkező,
+	  *gőgős, *gőzős, *közős, *szőrnyű, *főlényes, *főnők, *tőrvény stb.
+	  hibás összetételek tiltásához.; lly/lyj csere a *follyon -> folyjon
+	  javaslathoz; *asszem -> azt hiszem.
+
+	* HUNSPELL_heading: Unicode f-ligatúrák kezelése ICONV
+	  bemeneti átkódolással. Az ff, fi, fl, ffi, ffl karaktersorozatokat
+	  tartalmazó szavak mostantól ligatúrákkal is felismerésre kerülnek.
+
+2009-09-18  Németh László <nemeth@openoffice.org>:
+	* szotar/*/ige_morfo, {fonev,melleknev}-igemorfo.1: hangkivetős,
+	  helyenként ingadozó igék melléknévi és főnévképzős alakjainak
+	  kivétele a toldalékolásból, illetve a Magyar Webkorpuszon mért
+	  előfordulás alapján nem minden esetben melléknévként és főnévként
+	  való felvétele. (Nincs több *csorogó, *csorogás, illetve ha előfordul,
+	  mint a dohányozó, helyeselés, akkor sem állítja elő a Hunspell
+	  generate() függvénye.)
+
+	* szotar/kivetelek/igekotos/iges_ige_morfo2: hangkivetős ikes igék
+	  toldalékolásának pótlása a Hunspell generate függvény számára:
+	  pl. generate(bomlik, futhassatok) = bomolhassatok.
+
+	* szotar/kivetelek/igekotos/szik.2.m4: -szik végű igei allomorfok
+	  toldalékolásának pótlása a Hunspell generate függvény számára:
+	  pl. generate(veszekszik, festenek) = veszekednek, veszekszenek.
+
+	* aff/ige_morfo.aff: rendhagyó igék befejezett melléknévi igeneveinél
+	  képző helyett szófajként szerepelt a kód, így pl. a
+	  generate(kesereg, mászót) előállította a kesergőt mellett a
+	  kesergettet alakot is. Megoldás: k2_ makródefinícióban "Ott" helyett
+	  "+Ott".
+
+	* aff/ige_kepzo.aff: múlt idejű, egyes szám 3. személyű igék
+	  képzésének helyreállítása a [PAST_INDIC_INDEF_SG_3] elötti
+	  pluszjel pótlásával. A hibát Goldman Eleonóra jelezte.
+
+	* aff/ige_alanyi.aff: ritka feltételes egyes szám 1. személyű
+	  ikes ragozás kivétele a toldalékoló javaslatai közül. Pl.
+	  generate(dolgozik, mennék) csak "dolgoznék" javaslatot ad, a
+	  "dolgoznám" ideiglenesen hiányzik. A chmorph program által
+	  hibásan egyedüliként javasolt ikes ragozást Goldman
+	  Eleonóra jelezte.
+
+	* szotar/kivetelek/igekotos/*: több szó régies, ritka vagy hibás
+	  alakjának kivétele a javaslatok közül.
+
+	* szotar/*/*: új szavak vagy javított toldalékolás:
+	- Barna József hibajelzései: *miniszterasszony (javítva még sok
+	  tucat egyéb hibásan egybeírt megszólítás, pl. *polgármesterasszony,
+	  *tanárúr stb.); notebooküzletág; *kilóméteróra; disztribútora;
+	- Cserna Zsombor: nyelvtan-házifeladat (több hasonló szóval felvéve);
+	- Goldman Eleonóra gyűjtéséből: ijedte, növekedte, végezte
+	  (alakjaikkal), Alpokat (Alpokot mellett), szender;
+	- Gyuris Gellért: kívülem;
+	- Kelemen Gábor: plakátol;
+	- őry máté: *kiB helyett KiB (kibibyte); inverter, aloldal (javítva
+	  sok egyéb alakkal: albekezdés, alnem, allevél, fellevél, alnemzetség,
+	  alrés, alszövetség atb.);
+	- Reizinger Zoltán <zreizinger hdsnet hu>: alűrlap;
+	- Sasvári József: blog, blogol;
+	- Szalai Kálmán és fodber openscope pont hu: dekupázs;
+	- Varga Zsolt (zsolt.varga79 openscope): többedik (javítva és még
+	  hozzáadva a hiányzó többük, többedjére, többedszer(re) alakokat
+	  toldalékaikkal);
+	- nevettemben, nevettedben... (a "nevettükben" Németh László példája:
+	  „Sok olyan tömörítő szerkezete van a magyar nyelvnek, amelyet nem
+          használunk ki eléggé. »Nevettükben«; milyen grammatikai remeklés van
+          egy ilyen alakban. Ha valaki tanulmányt írna nyelvek sűrítő
+          vívmányairól: bele kéne venni. Mi azonban ahelyett, hogy »majd
+          megpukkadtak nevettükben«, már-már szívesebben mondjuk: »annyira
+          nevettek, hogy majd megpukkadtak belé«.” A kísérletező ember,
+          1973. 566-567. idézi Cs. Varga István). A nevettükben alak előfordult
+	  Goldman Eleonóra gyűjtésében is.
+	- hangkivetős igék hiányos jelölésének bővítése (ige_morfo.1):
+	  kuncorog, bódorog, csámborog, kóborog, kóvályog, kujtorog, nyomorog,
+	  csicsereg, hempereg, ténfereg, sanyarog stb.;
+	- afrodiziákum, agarászat, agysérült, allergológia, árvaellátás,
+	  cigányellenesség, edényzet, ellenirányú, episztémé, feta,
+	  fröccsöntött, íjászkodik, immunanyag, immungyenge, immunhematológia,
+	  impaktfaktor, infokommunikáció, középszürke, lovári, mediáció,
+	  melegfelvonulás, melegfesztivál, melegházasság,
+	  mélyréteg, mélystruktúra, mélyszerkezet, mém, narratíva, netbook,
+	  offshore, ökogazdálkodás, pita, romológia, sárgatest,
+	  szervátültetett, szexel, szupercella, szuperfolyékony,
+	  szuperhatékony, szuperkupa, szupermaraton, szupermodell,
+	  szupermodern, szupernehéz, szupernormális, szuperliga, szuperóriás,
+	  szuperszimmetria, szuperszimmetrikus, szitár, szonár, szopizik,
+	  szórványmagyar, sztenderdizál, sztenderdizáció, szútra,
+	  talajvesztett, tangram, társasozik, távfelügyelt, tenyésztojás,
+	  termálkút, tofu, trombocita, vegykezelt stb.; Buick, Dodge, Kia,
+	  Maruti, Saab, SEAT; Aldi, Auchan, CBA, Cora, Lidl, Praktiker, Spar;
+	  ABBA, Bëlga, LGT, Quimby; Bächer, Bereményi, Faludy, Kányádi, Kassák,
+	  Obama, Renée, Szécsi, Szendrey, Tamkó, Tarr, Terebess, Voga, Wass,
+	  Zilahy stb; HM, MR2, ORFK, ORTT, OVSZ, PSZÁF; Szindbád, Ilka;
+	- toldalékolás: látszatja, miegymás stb.; megvalósultával,
+	  lezárultát stb.; *vegyjelje, vegyjele; *Novellel, Novell-lel;
+	- közel 500 összetett szó jelölése; hibás jelölés kivétele: ligatúra;
+	- hibás alakok törlése vagy korlátozása: *fotocikk, *fotoszaküzlet,
+	  *fotocikkszaküzlet, *homogeneitás, *inhomogeneitás, *leasing,
+	  *későromán (összetételként) stb.
+
+	* bin/makealias: szóközöket tartalmazó szótári bejegyzések kezelése
+	  (emiatt számos korábbi javítás, mint pl. az *igénybevevő, *évközben,
+	  *évvégi, *főműve, nem került letiltásra a tömörített szótárban).
+
+2008-11-20  Németh László <nemeth@openoffice.org>:
+        * szokincs/{alap,godo,godo2,szoszablya,huhyphn}/fonev_osszetett:
+        - összetett szavak jelölése: 3000 szótári szó kapta meg a hiányzó
+          összetett jelzést, így a hat szótagos szabály ellenőrzése pontosabbá
+          vált (a szótár becsült 16-17 ezer összetett szavából így 11 ezer már
+          összetett szóként van jelölve). Példák a most összettnek jelölt
+          szavakra: alagút, áruház, ékszer, élelmiszer, étcsokoládé, poszméh,
+          provitamin, szótár.
+        * szokincs/{alap,godo,godo2,szoszablya,huhyphn}/fonev_mely:
+        - mély hangrendű toldalékolás javítása (~70 szó). Példák:
+          napidíj, Kuvait, Rothschild, keménypapír, kistányér, halottaskocsi.
+	* szokincs/*: hibás egybeírás tiltása több tucatnyi alaknál:
+          *gombamódra, *jurakori, *évvégi, *köralakú, *figyelembevevő stb.
+
+	* szókincs:
+	- új szavak: agyament, android, antiglobalista, árpádsáv, bodyzik,
+          elitista, globalista, hatszemközti, humanoid, ilang-ilang, kiborg,
+          legsokatígérőbb, piackonform, pritamin, progeszteron, rap, rappel,
+          szektorsemleges, taoista, tiritarka, uncsi, vacsi stb.
+	- Görgey Etelka gyűjtése alapján:
+	  - tárgyas ragozás számos hangadással járó igénél: kuncogta, nyávogta,
+	    szuszogta, turbékolta, zihálta, vihogta, nyökögte, dübörögte;
+	  - kutyás szavak: bassethound, dalmata, collie, akita, si-cu, yorkshire
+            terrier, labrador, lhasa apso, bobtail, diszplázia;
+	  - egyéb szavak: mantra, biccent, füttyent, vöröseslila, western,
+	    szülőanyja (egyéb alakok is: mostohaanyja, zászlóanyja,örömanyja),
+	    jobbomon, lelőlek, Óz, bátyus, csüccsen stb.;
+	  - egyéb javítások: *hányadékja, *döntnökje.
+	- barkács- összetételek Kelemen Gábor javaslatára.
+	- video- szavak gyűjtése Kelemen Gábortól:
+	  http://code.google.com/p/openscope/issues/detail?id=118
+	- nüansz (Osiris Idegen szavak), Gyuris Gellért javaslata a kiejtésben
+          ritkább nüánsz mellett:
+	  http://code.google.com/p/openscope/issues/detail?id=92
+	- szcenika (Gyuris Gellért)
+ 	- dicsérget, kis- összetételek (kislemez, kislabda stb.), Őry Máté
+	  javaslatára: http://code.google.com/p/openscope/issues/detail?id=77
+	- A Magyar helyesírási szótár és az Osiris Helyesírás eltérései alapján:
+	  - *fokuszál törlése (helyesen fókuszál);
+	  - *Sztravinszkij helyett Stravinsky;
+	  - *paraolimpia törlése (csak a paralimpia helyes);
+	  - *Poznan helyett Poznań;
+	  - jade (jade-dal) mellett jáde (jádéval) alak elfogadása;
+	  - *pszichotróp helyett pszichotrop (*allotróp is törölve)
+          (l. még a Wikipédia "A Magyar helyesírási szótár és az Osiris-féle
+          Helyesírás eltéréseinek listája" c. szócikkét).
+	- Rátonyi Gábor Tamás és Ungár Péter (Origo) hibalistájának javítása:
+	  (http://www.origo.hu/techbazis/szamitogep/20080923-megvizsgaltuk-a-helyesirasellenorzoket-microsoft-office-vs-openoffice.html)
+	  - *bármilye javítása (a köznevek között is szerepelt hibásan a bármily,
+            a már korábban javított mily (*milye) szóhoz hasonlóan;
+	  - *kerthelység és hasonlóan hibás összetételek tiltása;
+	  - *gargalizál törlése;
+	  - *papírzsebkendő tiltása (Hunspell 1.2.8-cal);
+	  - *jelentősség tiltása;
+	  - *kézpénz (*ködbér szintén, a készpénz és kötbér javításához).
+	- egyéb javítások:
+	  - *szaúd-Arábiai (szaúd-arábiai);
+	  - McDonald’s tő pótlása;
+	  - *többbilliós számnév javítása (helyesen több-billiós).
+
+	* aff/eleje.aff: több- nem járulhat b-vel kezdődő szóhoz:
+ 	  pl. *többbázisú alak tiltása (helyesen több-bázisú).
+
+	* HUNSPELL_heading:
+	- BREAK paraméter: nagykötőjel is töréspont az összetett szavak
+          elemzése során. A hibát az OpenOffice.org-ban többek között
+          Őry Máté jelezte:
+          http://code.google.com/p/openscope/issues/detail?id=81
+	- COMPOUNDRULE: számfelismerés szabállyal (módosítás a szótárban is)
+
+	* kivetelek/ragozatlan/nevmasi_hatarozoszok.2.m4:
+	- az "én" allomorfjainak csökkentése
+
+2008-03-15  Németh László <nemeth@openoffice.org>:
+        * szokincs/{alap,godo,godo2,szoszablya,huhyphn}/{fonev*,ige_*,melleknev*}:
+        Az alapszókincs, mintegy 45 ezer köznév, ige és melléknév hitelesítése
+        szakirodalmi adatok alapján, Godó Ferenc segítségével.
+        - Közel 1000 szó törlése (nagyrészt helyesen toldalékolt alakok,
+          amelyek előállnak egyszerűbb tőből is), más szófaji besorolása vagy
+          egyéb javítása.
+        - Példák: adressz (*adresz), *álható, bobby (*bobi), *egyvegyértékű,
+          etyele-petyele (*etyele, *petele), enthuziazmus (*entuziazmus), 
+          HB (*hábé), *interieur (enteriőr, eredetileg intérieur), locsi-fecsi
+          (*locsi, *fecsi), liebling (*libling), lycra (*likra),
+          mannschaft (*mancsaft), *megkülönbözhetetlen (megkülönböztethetetlen),
+          psalterium (*pszalterium), *szankszkrit (szanszkrit), szanszeviéria
+          (*szanszevéria), szkunk (*szkunksz), *termo, vicik-vacak
+          (*vicikvacak), *zéhá (zh), ziherejsztű (*ziherhájsztű) stb.
+
+        * szokincs: új szavak:
+        - agroökológia, agroturizmus, aukciósház, biocid, bioekvivalens, Dacia,
+          dezinfláció, élménydús, endorfin, énközpontú, fajgazdag, farba,
+          génpiszka, gyártósemleges, idared, inszekticid, Intel, jujuba, jüan,
+          kapitalizáció, keresztanyja, kontraktus, kungfu, LCD, logisztikus, 
+          makroadat, mikrohitel, Moszkvics, nominálérték, ökoiskola,
+          összfelület, össztérfogat, összkerület, melegkedvelő, nonprofit,
+          nonstop (ez és az előző köznévi összetételként állt elő eddig),
+          peszticid, platformsemleges, portugieser, puzzle-ozik, reiki,
+          remediáció, rostdús, sneci, thm, tiszavirágzás, üzletorientált,
+          volatilitás, zakuszka, Zastava, zöldhasú, zöldhitel, zöldmozgalom,
+          zöldsaláta, zöldtárca stb.
+	- Gyuris Gellért gyűjtése: aktualizáció, dramatizáció, oktatgat,
+	  organogram, passzivál, röhögcsél, megtanácskozzák (tárgyas ragozás is).
+	- Tuna András gyűjtése: adatgazdag, alkérdés, éntudat, hazugozik,
+	  HIV-pozitív, kisöccse, közöttre, küldöttek, melegkedvelő, röhögi,
+	  szócikként, túlvégére stb.
+        - bio- előtag felvétele (csak összetétel elején szereplő szóként)
+
+        * aff/fonev.aff: -cz végű szavak tárgyeseténél hiányzó kötőhang pótlása:
+        - Móriczot, Bereczet, Böröczöt (és nem Móriczt, Bereczt, Böröczt).
+        
+        * aff/fonev_kepzo.aff: - maradék ajakkerekítéses hibák javítása:
+        - *fű+zek, *keselyű+zed esetében már csak az ajakkerekítéses alakok
+          (fű+zök, keselyű+zök) jók;
+        - a névszókhoz kapcsolódó -södő, -zhető, -zgető, -zgethető, -ztető,
+          -ztetendő toldalékok most már ajakkerekítéses toldalékokat vonzanak
+           (-höz és nem -hez).
+
+        * Unicode-javítások:
+	- román ékezetes betűk javítása: Chișinău, Ceaușescu (vesszős ékezet
+	  a hibás cedillás *Chişinău és *Ceauşescu helyett);
+	- unicode-os aposztróf (U+2019: ’) felvétele (&apos a fejlécben is);
+	- a szavakra bontás javítása az unicode-os fok- és paragrafusjelek
+	  használatával a WORDCHARS paraméterben (&sect és &deg néven);
+	- ezrelékjel felvétele (&permil), toldalékolt alakjaival.
+
+        * egyéb javítások:
+        - kivetelek/ragozatlan/melleknevek.1: *nagyk, *szépön alakok tiltása
+          (hibás toldalékolási osztályba is sorolt rendhagyó melléknevek)
+        - a bizalmas kábé (körülbelül, kb.), satöbbi (s a többi) kivétele
+          a szótárból, a helyesírási szótáraknak megfelelően.
+        - bonszai, thai és az új Hyundai helyes toldalékolása:
+          pl. bonszaijal, bonszaiom (és nem *bonszaival, *bonszaim).
+
+	* bin/makealias: javítás a hu_HU_u8 szótárakhoz
+
+	* szotar/kivetelek/igekotos/*: morfológiai leírás pontosítása:
+	- lőnek, lőjetek, bocsátok, edzenétek, pedzenétek, fürödnétek,
+	  fürdenétek, illetek, illjetek, teltek, tellettek, tönkretegyétek,
+	  véghezvigyétek, észrevegyétek, játszottalak, játszottatok,
+	  játszottak, rakjatok, rakjátok (lök, bök, csuk, pök esetében is).
+
+        * HUNSPELL_heading:
+        - állomány átnevezése MYSPELL_headingről
+        - "satöbbi" -> "s a többi" cserejavaslat hozzáadása (REP)
+
+2007-10-26  Németh László <nemeth@openoffice.org>:
+        * bin/{felvesz,fonevek}: szabványos megadás az (itt FreeBSD)
+          kompatibilitásért. Zahemszky Gábor és Mohácsi János hibajelzése.
+        - héjprogram: function x() -> [function] x ()
+        - Iconv: iconv -t utf8 -> iconv -t utf-8
+
+        * hu_HU_u8_gen.*, Makefile, bin/{aff2gen,dic2gen,field}, bin/fonevek,
+          bin/delete* (törölve), awk/convert* (törölve):
+          új szótárformátum a tövező és toldalékoló Hunspell
+          függvényekhez (Hunspell 1.2). A szótár automatikusan áll
+          elő a hu_HU_u8_morph állományokból. A formátum leírása a
+          a Hunspell 1.2 dokumentációjában van.
+
+        * bin/u8myspell: morfológiai adatok helyenként kétszeres UTF-8
+          kódolásának (pl. névmási határozószóknál) javítása.
+          A hibát többen jelezték.
+
+        * bin/makealias: a program új változata az új morfológiai kódoláshoz.
+
+        * szotar/*/*:
+        - edinburgh-i (nem edinburghi), illinois-i (kisbetűvel is),
+          body[ph:badi] stb. átalakítása, *csikósa törlése (nem tő);
+        - néhány hibás jelölés (felesleges pluszjelek) törlése a morfológiai
+          leírásokból;
+        - hisz, megy, tesz, vesz, visz szavak több T/2 alakja hibás T/3-as
+          jelölésének javítása;
+        - új szavak: ötletel, effekt (Kéménczy Kálmán hibajelzése
+	  alapján); animátor, sutyorgok sutyorogok helyett (Gyuris Gellért hibajelzései
+	  alapján);
+	- új unicode-os szavak: Babeș (Unicode-ra vagy az ISO 8859-16-ra van
+	  szükség, mert az ISO 8859-2 csak a hibás Babeş leírását teszi
+	  lehetővé, mivel nem tartalmazza a román ș és ț betűket);
+	* kivetelek/ragozatlan/nevmasok.1: megfelelő tövek a _pron_
+	  helyett a helyes toldalékoláshoz: pl. én + PL_1 + ACC -> minket.
+
+        * aff/*:
+        - andóság, -endőség toldalék felvétele. A hiányzó
+          frissítendőség szót Kéménczy Kálmán jelezte.
+        - -cskás toldalék felvétele Gyuris Gellért hibajelzésére (halacskás).
+        - -zik végű mély hangrendű igék hibás -junk toldalékának tiltása
+          (pl. *fázjunk is jó volt a fázzunk mellett).
+	- makrók javítása: hAt -> _hAt_ makró, lAg definíció pótlása
+	  az aff/ige_kepzo-ben.
+	* fonev.aff: pluszjel pótlása az [INSTR], [TRANS], [ék_FAMILIAR_noun]
+	  címkék előtt.
+
+2007-09-18  Németh László <nemeth@openoffice.org>:
+	* szotar/autizmus: Autizmussal kapcsolatos szavak: Asperger-szindróma,
+	  autista, autisztikus, autizmus, fizioball, bodyroll, imaginatív,
+	  motorika, pervazív, protetikus, pszichopedagógus, repetitív,
+	  sztereotipikus, vizuomotoros. A szókincset Kapitány Zoltán (Szív és
+	  Kéz Sajátos Nevelési Igényű Gyermekekért Alapítvány, Kaposvár)
+	  gyűjtötte.
+
+	* MYSPELL_HEADING: KEY billentyűzetkiosztás megadása:
+	  KEY öüó|qwertzuiopőú|asdfghjkl|íyxcvbnm
+	  A javaslatoknál a tipikus hibák és a cserebetűk (REP és a TRY)
+	  közé ékelődnek be a KEY javaslatok (a KEY paraméterében szomszédos
+	  betűk cseréjével áll elő a javaslat a hibás szóból). A Hunspell
+	  legújabb, 1.1.12-es változatával működik.
+	
+	* szotar/*/*, bin/fonevek, bin/mezok, Makefile: alternatív írásmód,
+	  gyakorlatilag a kiejtés megadása pár száz idegen szónál, amit a
+	  Hunspell 1.1.12 figyelembe vesz a javaslattevésnél.
+	  Pl.: Apollinaire[apoliner], Baudelaire[bodler], chihuahua[csivava],
+	  Descartes[dékárt], dzadzíki[caciki], ecstasy[eksztazi],
+	  Foucault[fukó], Greenwich[grinics], Huygens[höjhensz], Hubble[habl],
+	  Illinois[ilinoj], Jersey[dzsörzi], ketchup[kecsap, kecsöp],
+	  Louvre[lúvr], Marseillaise[marszejez], El Niño[el ninnyó],
+	  œuvre[ővr], Poisson[poaszon], puzzle[pazl], Québec[kebek],
+	  Rimbaud[rembó], Seychelle[szejsel], taekwondo[tekvondó],
+	  Tennessee[teneszi], Unicode[junikód], Verlaine[verlen],
+	  Worcester[vuszter], Yahoo![jahu], Zeiss[ceisz]
+
+	* magyar_helysegnevek_2007: Magyar helységnevek pontosítása és
+	  leszűkítése (16 ezer szóról 3600-ra) KSH adatok alapján (A Magyar
+	  Köztársaság helységnévkönyve, 2007. január, http://www.ksh.hu)
+	- Szóalakok javítása: Bucsuszentlászló -> Búcsúszentlászló,
+	  Csíkvánd -> Csikvánd, Hídvégardó -> Hidvégardó,
+	  Hímesháza -> Himesháza, Kővágótőttős -> Kővágótöttös,
+	  Osfiasszonyfa -> Ostffyasszonyfa, Sajóhidvég -> Sajóhídvég,
+	  Zsújta -> Zsujta
+	- Új helységnevek: Chernelházadamonya, Daruszentmiklós, Károlyháza,
+	  Pálosvörösmart, Rákóczibánya    
+	- Toldalékolás javítása:
+	  fonev_mely: 130 mély hangrendű helységnév megadása
+	- tulajdonnev_geo-ellenorizendo.2: A magyar_helységnevek modulban
+	  korábban szereplő, de a KSH névjegyzékből hiányzó szavak közül a
+	  leggyakoribb 500 felvétele (később ellenőrizendő).
+
+	* ifjusagi/: számos további vulgáris szó nem szerepelhet javaslatokban.
+
+	* alap/, javito/: a szótár és a Magyar webkorpusz alapján kigyűjtésre
+	  kerültek a leggyakrabban előforduló tipikus tévesztések, amelyek
+	  a helyesírási szótárat is érintik. A szavak képzésének bővítésével
+	  ugyanis sok olyan képzett szó került elfogadásra, ami nincs
+	  vagy nincs nagyon használatban, és egyben egy tipikus hiba
+	  elfogadásával járnak. Letiltott szavak ez alapján:
+	  befojt, bizik, bízottság (de elbízottság, megbízottság), bíztat,
+	  csínos, disz, diszes, díszit, fesz, fojtatott, fordit, hires, hídd,
+	  hírtelen, hísz, hítt, hívatásos, ívóvíz, kisértett, kisértés,
+	  kisértő, nyílván, nyítok, píros, pírul, szakit, tiz (ti szolmizációs
+	  hang plusz -z igeképző).
+	  A „bíztat” elfogadására Szabó Péter hívta fel a figyelmet.
+
+	* Egyéb új szavak és hibajavítások:
+	- Dömötör Ákos korábban kimaradt szavainak felvétele: balliszta,
+	  bombarda, kerceréce, kónya zsálya. (A hiányt Tímár András jelezte.)
+        - Kéménczy Kálmán szavai: alarchívum, alcsomag, aleszköz,
+	  keresztkorreláció, körülötti, összetevős, ötletel, pidzsin stb.
+	- Szabó Péter javasolta szavak: alexandrit, variszkuszi.
+	- Tímár András hibabejelentései az OpenOffice.org Wikiben
+	  található Magyar Ispell hibabejelentő lapon: al-Káida, államokbeli,
+	  dörzselektromos, dörzskerék, elfelé, felezőmerőleges, hatlapfej,
+	  himba, izometrikus, lágyforrasztás, mangold, modellkedik,
+	  összegzendő, rakonca, szárnyashús, szervovezérlés, tardion stb.
+	- egyéb javítások: brontoszaurusz -> Brontosaurus, tirannoszaurusz ->
+	  Tyrannosaurus, Osaka -> Oszaka, sok helyen a besorolás javítása.
+	- új földrajzi nevek: fővárosok: Abu-Dzabi, Abuja, Accra,
+	  Addisz-Abeba, Algír, Ammán, Antananarivo, Aşgabat, Asunción stb.;
+	  orosz tagköztársaságok: Adigeföld, Baskíria, Burjátföld, Csuvasföld,
+	  Dagesztán, Észak-Oszétia stb.
+	- további új szavak: ainu, akvapark, Alzheimer, ambubaba, amhara,
+	  ammonita, Athéné, ATM, automatice, Avogadro, axiálvektor, axolotl,
+	  axonometria, capoeira, fengsuj, kecsua, OpenDocument , Saint-Exupéry,
+	  Schwarzenegger, stb.
+	- szótári hibák törlése: A Che hibás előfordulását Tímár András
+	  jelezte, ahogy helyenként a hibás karakterkódolást is.
+        - unicode-os szavak: œuvre (oeuvre-ről javítva), Nukuʻalofa (aposztróf
+	  helyett a tongai kibővített latin ábécé fakauʻa betűje szerepel a
+	  szóban, a helyesírásuk szerint U+20BB Unicode karakterkóddal megadva, l.
+	  http://en.wikipedia.org/wiki/Okina és
+	  http://en.wikipedia.org/wiki/Nukuʻalofa)
+
+	* COPYING.GPL3: a GPL3, mint választható licenc feltüntetése.
+	  A szótár az LGPL, GPL 2.1, LGPL mellett a GPL3-as licenc alapján
+	  is felhasználható, amint ezt a GPL 2.1 is lehetővé teszi.
+
+	* licencek/: Az FSF.hu Alapítvány és a Novell Magyarország által
+	  készített szabad szoftveres licencek fordításainak első változatai.
+	- a fordításokkal kapcsolatos észrevételeket a http://hup.hu/node/44428
+	  oldalon várják a fordítók. A végleges változat a http://www.gnu.org
+	  oldalon lesz elérhető.
+
+	* bin/makealias, Makefile: tömörítő program a kiejtést is tartalmazó
+	  Hunspell szótárakhoz. Unicode-os tömörített szótárat állít elő
+	  hu_HU_u8_alias.dic és aff néven alapértelmezett fordításnál.
+	  A magyar OpenOffice.org ezt a szótárat tartalmazza.
+
+2007-05-11  Németh László <nemeth@openoffice.org>:
+	* Makefile, bin/*, ChangeLog: átalakítás Unicode környezetbe,
+	  és a GNU segédprogramok újabb változataihoz, lehetővé
+	  téve az újabb Linux terjesztéseken való fordítást.
+	  A hibát Tímár András jelezte.
+
+        * aff/{fonev.aff,fonev_kepzo}:
+        - -ae, -ee végű szavak helyes toldalékolása: curriculum
+          vitaével helyett curriculum vitaevel, Leével helyett Leevel
+        - számnevek kezelésének javítása (-szor, -szoros, -szorta toldalékok)
+
+	* aff/ige_targyas.aff: magas hangrendű nem alanyi
+	  ikes ragozás többes szám második személyének pótlása
+	  (gyakorlatilag egy szóalak elfogadását teszi lehetővé).
+	  A hiányzó „késitek” alakot Görgey Etelka jelezte.
+
+	* aff/fonev.aff:  „o” kötőhangzó helyett csak „a”-t kapó
+	  névszók (alkalmazottam, sokak) -hoz, -on, esetragjainak javítása.
+	  A „sokakhoz” hiányát Gyuris Gellért jelezte (a szótár a hibás
+	  *alkalmazottamhaz, *sokakhaz stb. alakokat fogadta csak el).
+
+	* szotar/kivetelek/ragozatlan/che.2: egy szótagú Che kivételként:
+	  Chet, Chevel stb. (és nem Chét, Chével, hasonlóan a tájnyelvi
+	  le -> lenek toldalékoláshoz). A különleges toldalékolást
+	  Trón Viktor jelezte.
+
+	* bin/felvesz: új szavak felvételét segítő héjprogram.
+	  (Leírás a programban.)
+
+	* szotar/*/*:
+	- kb. 4000 bejegyzés módosítása, köztük több mint 2000 új szó
+	  (példák a bejegyzés végén), sok hibajavítás (mély hangrend
+	  beállítása, összetétel jelölése stb.)
+	  
+	- A Wikipédia több mint 50 ezer magyar szócikkének címéből a
+	  a leggyakoribb hiányzók felvétele (a Magyar webkorpusz
+	  gyakorisági adatai alapján). A lista:
+	  
+	  aflatoxin, agapé, aikidó, allél, amfetamin, anorexia, antihős,
+	  apartheid, apoptózis, asztrobiológia, autoimmun, Ágost, Ámon,
+	  biodízel, bioetanol, bioinformatika, biopszia, biostatisztika,
+	  bozonok, cache, cianobaktériumok, civilszervezet, country,
+	  curry, dekonstrukció, dekriminalizáció, denzitás, disztális,
+	  dodó, domén, dopamin, előgerinchúrosok, előváladék,
+	  episztemológia, eszperente, exobolygó, ezotéria, faktorálás,
+	  filiszteusok, filogenetikus, finnugrisztika, firmware,
+	  fotoeffektus, földönkívüli, földönkívüliek, freeware,
+	  gasztroenterológia, genomika, gírosz, glikolízis, Greenpeace,
+	  gyógyszálloda, hangoskönyv, haszidizmus, henna, hiperaktivitás,
+	  hiperinfláció, hipermédia, hiperszöveg, hipotalamusz,
+	  historizálás, hiszterézis, hrivnya, inkontinencia, kabasólyom,
+	  kalkopirit, karitász, klezmer, konfucianizmus, konzumidióta,
+	  krampampuli, kromatika, latex, likopin, lingvicizmus, logosz,
+	  maltodextrin, mandala, maoizmus, Megasztár, meiózis, mezolitikum,
+	  mikrokontroller, mikroökonómia, mitózis, mudi, nagylábujj,
+	  nanotechnológia, neopozitivizmus, netikett, neuropszichológia,
+	  nooszféra, objektumorientált, onkogén, oxiológia, oxitocin,
+	  paintball, paracetamol, pektin, pellet, perdület, piercing, pszi,
+	  pszilocibin, retrovírus, Ré, sajtburger, shareware, streetball,
+	  szerkők, sziklaszoros, szociobiológia, szuburbanizáció,
+	  szuperorganizmus, szupravezető, szünbiológia, tajkonauta, taurin,
+	  taxonómia, tequila, terminátor, Tesco, tiroxin, tradicionalizmus,
+	  transzszexuális, tritikálé, uniformizmus, utánégető,
+	  vesztibuláris, vöröseltolódás, vulkanizmus, vulkanológia,
+	  werkfilm, xenofóbia, zsurnalizmus
+
+	- hibajelzések javítása, szókincs bővítése Dömötör Ákos (biológiai,
+	  műszaki és egyéb szólisták), Huszár Mariann, Görgey Etelka
+	  (teológia, típushibák), Gyuris Gellért, Kéménczy Kálmán (Novell,
+	  informatikai szakkifejezések), Koblinger Egmont (gajra), Rácz Tünde,
+	  Szabó Péter, Szalai Kálmán (borászati szakkifejezések),
+	  Tímár András (fizikai és egyéb szakkifejezések) hibajelzései alapján.
+
+	- biológiai szakszókincs: védett gerincesek, kiemelten védett
+	  egyéb hazai állat- és növényfajok nevének felvétele
+
+	- kémiai szakszókincs: ötszáz új szó Dömötör Ákos hibajelzései
+	  és Zsadon Béla szógyűjteménye alapján
+
+	- unicode-os szavak: Sao Paulo -> São Paulo, déjà vu, voilà,
+	  görög ábécé (matematikai szakszókincs): α-ról, ε-nal, μ-höz;
+	  összetételekben is, pl. β-sugárzás.
+
+	- személynevek: Felicián (Németh Felicián hibajelzése), Nelli,
+	  Tilda, Veronka, Dzsenifer, Dzsesszika, Edömér, Enéh (Enéhvel), stb.
+
+	- példa a javításokra: *gó -> go, „irásos” tiltása (Irás családnévből
+	  képezte a szótár, a hibát Tímár András jelezte), bonszaj -> bonszai
+	  (Magyar helyesírási szótár hibás átírásának javítása Osiris alapján),
+	  reverzibilis, irreverzibilis, *testreszabott (Osiris alapján),
+	  winchester -> vincseszter (Osiris), avítten -> avíttan, huhog ->
+	  huhogja (tárgyas), apple-ös, google-ös, oracle-ös -> apple-es,
+	  google-os, oracle-os (javasolt kiejtés alapján: „epl”, „gugl” és
+	  „orákl”), H2O.
+
+	- egyéb példák az új szavakra az alap, idegen modulokból:
+	
+	  Antoinette, apparatcsik, apróhirdető, Arabella, Armand,
+	  Astoria, autokratikus, autoriter, avionika, Ájurvéda,
+	  álolasz, álvéletlen, árérzékeny, Babett, bagett, Balambér,
+	  baranta, baritföld, barlangászik, bazsevál, Beatrice, Bill,
+	  biogeográfia, biom, Brendon, chardonnay, csapadékdús, csánk,
+	  Csellőke, Cseperke, cserkészkedik, Csöpi, Csöre, Dagobert,
+	  dám, elektrokauterez, előgerinchúros, emotív, endospóra,
+	  Eörs, EP, Eszmeralda, Eta, Etel, Evetke, Evita, Ezékiel,
+	  Édua, énközel, ételérzékeny, Ézsaiás, faktorál,
+	  fantasy, fatikus, Fatima, Fáncsi, fehérjedús, Fehérlófia,
+	  feladatcentrikus, Felicián, félillegális, félretétel,
+	  félrészeg, figyelmeztetőleg, filiszteus, finomhangol, florárium,
+	  fotoszintetizál, fraktál, Fürtike, Füvellő, gajra, Galga,
+	  gargalizál, glett, glettel, Guevara, gyógyszerérzékeny,
+	  Györk, halálközel, határszoros, hatodol, Henriett, hetedel,
+	  hévizek, himnikus, hiperfinom, hiperkocka, hiperkorrekció,
+	  hiperrealista, hipertér, hiperurbanisztikus, hiperurbanizmus,
+	  hipó, horrorisztikus, Hóbiárt, Hórusz, hrivnya, Hubertusz,
+	  humánerőforrás, hungaricum, hungarikum, Hungaroring, Ibéria,
+	  Ibrahim, Igor, Ilián, inkongruencia, inkongruens, interferál,
+	  interferométer, internalizáció, internalizál, irányérzékeny,
+	  iskolaelső, iszlamista, Izaura, Izmael, izochor, jakuzzi, jász
+	  (hal), jodoform, Joli, kabátlyuk, Kalmopyrin, kanonizáció,
+	  karaoke, kendó, kézibeszélő, kilencedel, kisajak, kisállat,
+	  kislámpa, kisőrlő, kiúttalan, kjokusin, Knee, kommunikátor,
+	  konatív, konfliktusközel, konformitás, konfrontatív,
+	  konvencionalizmus, koprocesszor, korporatív, kölkedzik,
+	  kölykedzik, környezetérzékeny, Krisztofer, krisztológia,
+	  kultiváció, külkereskedő, Larissza, Levédia, Léna,
+	  lényegít, limerick, lisztérzékeny, Líviusz, Lola, Lomnic,
+	  Lora, Lotti, lőtábla, Magdaléna, Makkosháza, makromolekuláris,
+	  makroszint, malajálam, Malakiás, Manfréd, Marica, Máriusz,
+	  másolásvédett, mediterráneum, megkínzás, megközelítőleges,
+	  megtárgyalnivaló, Melissza, metál, metálfekete, metállila,
+	  metálpiros, metálsárga, metálszürke, metálzöld, mezoszint,
+	  mikroszint, mindenfelett, mindenfölött, mindháromféle,
+	  Megasztár, modellizál, módfölött, mósusz, mull, nagyajak,
+	  nagyőrlő, nehézatléta, Nemecsek, nemeuklideszi, nemkapitalista,
+	  nempoláris, nemsemleges, neurolingvisztika, nonkonform,
+	  nonverbális, nyolcadol, nyomásérzékeny, ólomérzékeny,
+	  öreglebbencs, öregujj, Örzse, összakadémiai, összközműves,
+	  összmagyar, össz-szám, összteljesítmény, össztőke,
+	  ősöreg, Palatinus, palindroma, Pandóra, papája (gyümölcs),
+	  parajelenség, parvovírus, párszi, pelletál, penicillinérzékeny,
+	  pentagramma, Pergamon, pityer, pollenérzékeny, Pompadour,
+	  porérzékeny, posztbiblikus, pótelőadás, póttartály,
+	  prediktív, prediszpozíció, prezidencializmus, prezidenciális,
+	  rabbinikus, Rafaella, redoxifolyamat, redoxikatalizátor,
+	  redoxireakció, referenciális, Rémusz, RNS, Roberta, rogyaszt,
+	  Ronald, röpképes, Rusztem, serpa, slisszan, sőre, Spielberg,
+	  szabadáras, szabadedzés, szabadpolc, szabadprogram, szabadsor,
+	  szabadszórendűség, Szabrina, Szamanta, Szandi, Szandra, Szecső,
+	  Szerénke, szerfelett, szerfölött, szélsőbaloldal, Szilvána,
+	  szindikál, Szinva, szociálpszichológus, szoclib, szocpol,
+	  szolmizáció, Szörényvár, Szugló, szuperpozíció, szusi,
+	  szünfenobiológia, szürkebegy, tachográd, tachográf, taekwondo,
+	  Tánya, tehéntejérzékeny, teleszkopikus, telítetlenít,
+	  tenyészkörzet, teokratikus, Terka, tévtanító, Thomas,
+	  Tilla, titkosszolga, Tolkien, Tom, Töhötöm, törökdúlás,
+	  törökfürdő, traktátus, Traviata, trepanáció, trinitarizmus,
+	  trinitárius, tuareg, Tyereskova, ukulele, Ulla, unitarizmus,
+	  utótörténet, újfok, újrafeldolgoz, újrafelhasznál, Vanessza,
+	  Ványa, városodik, Vega, verbalitás, Véda, Viagra, vicsor,
+	  virágporérzékeny, víziantilop, vízijácint, vízitúra,
+	  vízizene, Vulgata, Wekerle, wiki, Wikipédia, xenofób, zagy,
+	  Zoé, zoom, zoomol, Zsazsa, Zselyke, zsírdús, Zsuzska
+
+	- új szavak a biológiai szakszókincsben:
+
+	acsa, aflatoxin, aldrovanda, alka, allél, aneuploid, aneuploidia,
+	apoptózis, árnika, baing, balin, barkóscinege, barnahasú,
+	barnamoha, batla, benge, bibircsvirág, billegetőcankó, bióta,
+	Bonelli-füzike, borsikafű, borzamag, bördös, bucó, bukó, cankógoda,
+	cankópartfutó, celler, cianobaktérium, cigánycsuk, cigányréce,
+	cincor, csabak, cselling, csér, csicserilednek, csicsörke,
+	csilpcsalpfüzike, csíkosfejű, csombord, csomorika, csonkafülű,
+	csuk, csuklyásbagoly, csupasztorkú, csülleng, csüllő,
+	derescsenkesz, diploid, diploidia, disztális, dodó, dopamin,
+	dunavirág, durvavitorlájú, endotoxin, ernyőskörtike, euploidia,
+	fakusz, fehérfarkú, fehérhátú, fehérkarmú, fehérmályva,
+	fehérszélű, fehértorkú, feketenyakú, feketeszájú,
+	feketeszárnyú, Feldegg-sólyom, filogenetikus, fitiszfüzike,
+	fogasír, fotolitotróf, földirigó, fú, fülemülesitke,
+	füleskuvik, fülespacsirta, füstike, gatyáskuvik, gatyásméh,
+	geze, géb, glikolízis, goda, gömböskosbor, görögszéna,
+	guvat, gyöngyvirágkörtike, gyűrűscsőrű, halványfoltú,
+	haplodiploid, haplodiploidia, haploid, haploidizáció, havasipinty,
+	hegyesorrú, hegyiaraszoló, hegyiszitakötő, heterotróf,
+	hexaploid, horgasszőrű, hosszúfülű-denevér, hosszúszárnyú,
+	íva, jamszgyökér, jegesréce, kabasólyom, kacagócsér,
+	kalandrapacsirta, karmazsinpirók, katalepszia, kataleptikus,
+	kemolitotróf, kemoreceptor, kemotaxis, kenti, kereknyergű,
+	kékcsőrű, késeidenevér, kisvirágú, koraidenevér, kormosfejű,
+	kornistárnics, kotuliliom, kölönte, körtike, kövicsík,
+	laposcsőrű, laposkorpafű, lápibagoly, látonya, leánykoncér,
+	levéltelen, légivadász, likopin, litotróf, lócsér, magiszák,
+	maréna, meiózis, menopauza, Metelka-medvelepke, meztelencsiga,
+	mikotoxin, mikrokolónia, Miller-vízicickány, mitokondrium,
+	mitózis, monoklonális, monoploid, nagyfoltú, nagyfülű,
+	nagyhering, nagyvirágú, Naumann-rigó, nádiposzáta, nehézszagú,
+	nyomottfejű-hangya, onkogén, oxitocin, ökle, ökoszféra,
+	örménygyökér, őszapó, ősziaraszoló, őszi-fésűsbagoly,
+	őszitegzes, paduc, pajzsoscankó, patkósdenevér, pártásdaru,
+	pektin, pettyeslile, pér, piacsenzai, pikkelyescsiga, pirosfejű,
+	piroslábú, piszedenevér, plazmid, ploidia, poliploid, poliploidia,
+	proximális, pusztaityúk, razbóra, rekenyő, reznek, réticsík,
+	rozsdástorkú, rövidcsőrű, rövidkarmú, sárgafejű,
+	sárgahasú, sárgalábú, sárma, seprence, sisegő, sőregtok,
+	Stys-tarsza, szemeslepke, szenderfürkész, szerkő, székicsér,
+	szélesfarkú, széleslevelű, szélesorrú, szélesszájú,
+	szikibagoly, szikipacsirta, szíveslevelű, szkolopendra,
+	szőröskarú, szümcső, takarmánybaltacím, tarajosgőte, tarsza,
+	taurin, tavaszi-fésűsbagoly, tavibéka, tavikagyló, taxonómia,
+	Temminck-partfutó, terekcankó, tetraploid, télibagoly, tilápia,
+	tiroxin, torzsikaboglárka, triploid, tritikálé, Tuzson-cickafark,
+	tüzesfejű, ujjaskosbor, unka, vesztibuláris, vékonycsőrű,
+	vénicfa, vitézkosbor, vitézvirág, vízicickány, vízifátyolka,
+	víziskorpió, víziszárnyas, vörösfejű, vöröshasú,
+	vörösnyakú, ziliz, zsezse
+
+	- új szavak a fizikai és kémiai szakszókincsben:
+
+	Airy, annihiláció, antikoincidencia, antikorreláció, bozon,
+	Coriolis, demodulátor, demultiplexer, dikroizmus, emitter,
+	feketetest, fermion, fototranzisztor, Foucault, foucault-s,
+	geoid, graviton, gray, hárompólus, henry, Hooke, hooke-os,
+	Hubble, hubble-os, kaon, kétpólus, magmagneton, modulátor,
+	multiplexer, müon, optocsatolás, optocsatoló, parton,
+	permeabilitás, permittivitás, pion, renormálás, sievert,
+	sokpólus, Stevin, Stokes, szintézer, szolipszista, tachion,
+	tesla, tisztalátás, unduláció, varisztor, weber, acetaldol,
+	acetamid, acetanilid, acetecetészter, acetecetsav, acetofenon,
+	acil, adamantán, adenozin, adipinsav, akrolein, aktedron, aktin,
+	alanil, alanin, aldimin, aldol, aldotrióz, aldóz, alizarinsárga,
+	alkanal, alkén, aluminát, amfetamin, aminoplaszt, anhidrit,
+	anhidron, antimonát, arabinóz, aragonit, arginin, arzenát,
+	arzénessav, arzénsav, aszparagin, aszparaginsav, aurát, auxin,
+	azid, azoibolya, azorubin, barbitursav, baritvíz, barnapát,
+	benzamid, benzedrin, benzil, benzoesav, bijodát, biotin,
+	biszulfit, borán, bromát, brómfenolkék, brómtimolkék,
+	butanal, butanol, butanon, butándiol, butándisav, butánsav,
+	butil, cekász, cellobióz, ciánhidrin, cibetin, ciklamát,
+	ciklobutadién, ciklobután, ciklobutén, cikloheptatrién,
+	ciklohexanol, ciklohexán, ciklohexántrion, ciklopentanol,
+	ciklopentán, ciklopentén, ciklopropán, ciklopropenilium,
+	cisztin, cisztron, citidin, citokinin, citozin, citrál,
+	dehidrobenzol, dezoxiadenozin, dezoxicitidin, dezoxiguanozin,
+	dezoxiribonukleinsav, diazirin, dibenzol, dietil, dietilamid, dién,
+	dikalcium, dikarbonsav, diklorid, dikromát, dimetil, dodekán,
+	dodekánsav, eritróz, etanal, etándiol, etándisav, etenol,
+	etoxidion, fenil, fenin-alanin, fenolplaszt, ferrát, ferricianid,
+	ferrit, ferrocianid, flavonoid, floroglucin, formamid, formamidin,
+	foszfin, ftálimid, ftálsav, fulmiát, fumársav, furfurol,
+	galaktóz, galluszsav, gliceril, glicil, glikolaldehid, glutamát,
+	glutation, glutársav, glükonsav, guanidin, gülóz, hemin,
+	heparin, heptoxid, hexadién, hexakarbonsav, hexaklorid, hexametil,
+	hexatrién, hexándisav, hexoxid, hexuronsav, hidrid, hidrolit,
+	hidroszulfát, hidroxiprolin, hipermanganát, hipofoszforossav,
+	hipojódossav, hipoklorit, hipoklórossav, hipoxantin, hisztidin,
+	idóz, illósav, imidazol, indol, inotit, inozin, inozinsav, invar,
+	izobután, izobutilén, izoleucin, izopropil, jodid, kadaverin,
+	kalkopirit, kannabinol, kaprinsav, karbaldehid, karbaminát,
+	karbonil, karbonsav, kálisalétrom, kárminsav, kefalin,
+	kelát, ketolakton, kéksav, kénessav, kinolin, kinolinsárga,
+	kiralitás, királis, klorál, kloro-aurát, klórossav, kobalamin,
+	koronén, kubán, lakton, leucin, linolénsav, linolsav, lixóz,
+	lizergsav, lizin, lizozim, magnézia, maleinsav, malonészter,
+	malonsav, maltodextrin, manganin, mannóz, mellitsav, meszkalin,
+	metabiszulfit, metafoszforossav, metafoszforsav, metanal, metándiol,
+	metilát, metin, metionin, mikanit, miozin, molibdát, monokalcium,
+	muszkon, niacin, nitratin, nitrid, nukleinsav, nukleotid, nukleozid,
+	oktadecénsav, oktadecinsav, oktadekánsav, oktanol, ortofoszfát,
+	ortofoszforossav, ortofoszforsav, ortohidroxid, ortoperjódsav,
+	oxalát, oxálsav, oxán, oxilizin, oxónium, palmitoil,
+	pantoténsav, paracetamol, pentabromid, pentafluorid, pentakarbonil,
+	pentanon, pentaszulfid, pentándion, pentén, pentin, pentoxid,
+	pentóz, perklórossav, permangánsav, piperidin, piperidinium,
+	piperidon, pirén, piridon, piridoxin, pirimidin, piroborát,
+	pirofoszforossav, pirofoszforsav, pirogallol, pirokatechin,
+	pirokromát, piroszőlősav, piroszulfit, pirrol, pirrolidin,
+	pirrolidon, poliaddíció, poli(akril-nitril), poli(akril-nitril)-es,
+	polialkén, polién, poliéter, polifenol, poliglicin, poliizoprén,
+	polikarbamid, polikarbonát, polikondenzáció, polimer, poliuretán,
+	poli(vinil-alkohol), poli(vinil-alkohol)-os, poli(vinil-dehid),
+	poli(vinil-dehid)-es, poli(vinil-észter), poli(vinil-észter)-es,
+	poli(vinil-éter), poli(vinil-éter)-es, poli(vinil-ketál),
+	poli(vinil-ketál)-os, poli(vinil-keton), poli(vinil-keton)-os,
+	poli(vinil-klorid), poli(vinil-klorid)-os, porfin, prolin, propanal,
+	propanol, propanon, propántriol, propenal, propenol, propionsav,
+	pszilocibin, redoxiátalakulás, redoxipotenciál, rézbányit,
+	riboflavin, ribonsav, ribonukleinsav, ribozid, ribóz, riolit,
+	rodanid, rodánkáli, salétromossav, szalicilát, szénkéneg,
+	szorbát, szorbin, szorbinsav, szorbitol, szorbóz, szterán,
+	szulfocianát, szulfonsav, szuperoxid, tartarát, tartrazin,
+	tetraborát, tetrahidrofurán, tetrakloro-aurát, tetrakozán,
+	tetralin, tetralon, tetroxid, tércentrált, térhálósít, tiamin,
+	timin, timolftalein, timolkék, tiocianát, tioszulfát, tirozin,
+	titanát, tolualdehid, treonin, treóz, tribromid, tridekánsav,
+	trifluorid, trigonális, trijodid, trikarbonsav, trilaurin, trimetil,
+	trinitrát, triolein, triptofán, uracil, uretán, uridin, valin,
+	volframát, xilóz
+
+2006-10-03  Németh László <nemeth@openoffice.org>:
+        * alap: sztupa -> sztúpa, idegen: curação -> curaçao
+        1.1.2 néven az OOo-ba
+
+2006-07-27  Németh László <nemeth@openoffice.org>:
+        * COPYING{,.MPL,.GPL,.LGPL}: GPL/LGPL/MPL hármas licenc,
+          a szótár így része lehet pl. a Mozilla Firefox böngészőnek.
+          (A Mozilla Public License (MPL) az LGPL-hez hasonló ,,copyleft''
+          licenc, de nem programkönyvtárakra, hanem állományokra vonatkozik.)
+          
+        * aff/*: morfológiai leírás javítása. A hibák feltárását a BME MOKK
+          Kutatóközpont segítette a MorphDB.hu magyar nyelvi adatbázis
+          fejlesztésével:
+        - késd, vásd: hiányzó rövid alak a -sik végű ikes igéknél
+        - *gömbölyűhez, metszőhez: hibás -hez allomorf a -höz helyett a
+          mellékneveknél és melléknévi igeneveknél
+        - *tönkjükéhöz: hibás -höz allomorf a -hez helyett az ajakkerekítéses
+          magas hangrendű és birtokjeles személyragot követően
+        - *motorös, *sósnek: hibás -ös, -snek allomorfok elfogadása
+          mély hangrendű szavakhoz (a jók mellett)
+        - *oldalat: morfológia javítása (korábban szótári tiltással, de ebből
+          kimaradt több összetett szót)
+        - -kénti pótlása: pl. tanúkénti meghallgatása
+        - -szörözték, -szörte: tizenötszörözték, tizenötszörte stb.
+
+        * szotar/*: szókincsbővítés:
+        - zrt., nyrt.: új rövidítések (zártkörűen és nyilvánosan működő
+          részvénytársaság)
+        - idegen szavak: barbecue, Barbie, cabernet, cellulitis,
+          csevapcsicsa, dzadzíki, ecstasy, graffiti, hiphop, husky,
+          merlot, mozzarella, nuncsaku, reggae, tálib, tamagoccsi stb.
+        - Unicode-os szavak: curação, crô-magnoni,
+          Nexø, El Niño, Camões, € (10 €-val stb.)
+        - szókincsjavítás és -bővítés hibajelzések alapján:
+          Goldman Eleonóra: sztereotip, megérdeklődtük, cserget, csipeszel stb.,
+          *puffog, *működtetető törlése
+          Görgey Etelka: elismerőleg, agrárminiszter, Kab-hely, Nikoletta,
+          kültagja stb.
+          Gyuris Gellért: halld
+          Huszár Mariann (Nagy Bence közvetítésével): jegyesoktatás,
+          videorészlet, szerettüket, *tiszavirágéletű, *evilági stb.
+          Koblinger Egmont: eseményvezérelt
+          Mártonfi Attila: Proust stb.
+          Németh Krisztián: védikus stb.
+          Szabó Péter: Panka, odalentről, magánfelhasználóktól stb.
+          Szép Attila: nagyhetét stb.
+          Tímár András: *asszimetrikus törlése
+        - állatnevek (bonobó, cankó, tegzes)
+        - McDonald'sszal, dartsszal, Torvaldsszal
+        - Bushsal (kötőjel nélkül)
+        - *Łódz, *Łódzzal: Łódź, Łódźdzsal
+        - *kecsöp, *juppi: helyette ketchup és yuppie
+        - tulajdonnevek: ArchiCAD, Graphisoft, MorphoLogic, Recognita, Egis, Raiffeisen,
+          Firefox, Thunderbird, Google, Calc, Impress, Base, Writer, PostgreSQL, MySQL stb.
+        - openoffice.org-os, unicode-os (nem *OpenOffice.org-os, *Unicode-os) stb.
+        - show-műsor, merlot-rendelés, guillotine-állítás (nem *showműsor, *merlotrendelés) stb.
+        - egyéb (Molière-t, Montaigne-t, elébem, kecmergés, feküdhet, aludhat, feküdd
+          éljenzik, mosakszok, szigorlat, elvan, ellesz, elvolna
+        - sértetti, károsulti stb. szavakhoz sértett, károsult stb. szavak összegyűjtése
+          (Mártonfi Attila jelezte a hiányt.)
+        - hibás alakváltozatok törlése: *paraffin, *klozettpapír, *kvinteszencia, *kontrolál,
+          *csekélyel, *apprehendál, *vanilin, *Tadzsikisztán (Tádzsikisztán),
+          *úvézik (uv-zik), *kecsöp (ketchup) stb.
+        - mély hangrendű toldalékolás pótlása: audit, duci, Mártély, Palics
+          muszlim, nagyi, panír, kápé, kordély, kasmír, kandzsi, turcsi
+          ingadozó: kadet, joystick
+
+        * szotar/alap/fonev_magas2.1: ajakkerekítéses magas hangrendet jelölő
+          állomány: Weöreshöz, Wordön a *Weöreshez, *Worden helyett.
+          
+        * Makefile: A @# hibás megjegyzés javítása. A hibát Szalai Ferenc jelezte.
+        
+        * MYSPELL_heading:
+        - MAP definíció az ékezetek pótlására a javaslattevésnél, pl.
+          arvizturo -> árvíztúró, árvíztűrő. 
+          Az ékesítés hiányát Khiraly jelezte. (OpenOffice.org Issue 65533)
+        - ONLYINCOMPOUND: ,,csak összetett szóban szerepelhet'' kapcsoló
+          (pl. a magán- előtag csak összetett szavak elején szerepelhet,
+          lásd szotar/kivetelek/ragozatlan/magan.2)
+
+2005-12-19  Németh László <nemeth@openoffice.org>:
+        - MYSPELL_HEADING: nagybetűk tiltása szóhatárnál
+          (A Hunspell 1.1.2 CHECKCOMPOUNDCASE lehetőségével)
+          A -jú képzős tulajdonnevek egy része szerepelhetett
+          korábban hibásan összetett szavak végén (pl. *folyóDunájú).
+
+        - hibás nagybetűs alakok tiltása (pénznem, mértékegység: *FT, *KG, *KM)
+          (A Hunspell 1.1.2 KEEPCASE lehetőségével)
+
+        - ifjúsági/ragozatlan: trágár szavak javaslatának tiltása.
+          (A Hunspell 1.1.2 NOSUGGEST lehetőségével)
+
+        - szókincs javítása: Morzsalék, szalakóta; e-re végződő, mély hangrendű
+          toldalékot vonzó szavak ,,elromlott'' toldalékolásának javítása (mangrove);
+          metaadat, migrál, teljeskörűség, tematizál stb. (Németh Krisztián gyűjtése);
+          *milyem, *milyük(!) stb. tiltása (Papp Gábor jelezte a hibát).
+
+        - aff/fonev.aff: esetragokat leíró szabályok javítása a fordított
+          vesszős á-val végződő szavak toldalékolásához (pietàt, pietàról,
+          stb., egyéb toldalékolás már működött korábban is).
+
+        - aff/ige_kepzo.aff: morfológiai kód javítása egy helyen (-hetnékünk).
+          A hibát Goldman Eleonóra jelezte.
+
+2005-10-24  Németh László <nemeth@openoffice.org>:
+        - Makefile, bin/u8myspell, bin/l1_u8.sed: Unicode karakterkódolású
+          szótár előállítása
+
+        - aff/fonev.*, awk/fonev_gen.awk: ISO-8859-1-es karakter megadása
+          a ragozási szabályokban. ,,Működő'' példa: pietà, pietàról stb.
+          Egyéb példák: Molière-ről, Ångströmről stb.
+
+        - szotar.konf: konfigurációs állomány a szótárakhoz
+        
+        - szotar/*: névváltoztatás (könyvtárnevek nem aláhúzásjellek kezdődnek)
+
+        - aff/*, awk/*, bin/*: javítás a megváltozott Hunspell paraméterekhez:
+          - igekötők és képzők összetett szavakon belüli engedélyezése a
+            a COMPOUNDPERMITFLAG kapcsolóval
+          - szotar/*/*: ONLYROOT és FORBIDDENWORD kombináció helyett 
+            PSEUDOROOT bevezetése
+          - LEMMA_PRESENT kapcsoló a tő kiírásának megakadályozására a
+            morfológiai elemzésben (Trón Viktor javasolta a kapcsolót)
+
+        - aff/*: 
+          - toldalékolás javítása az oo, sh, sch, tsch végű névszóknál
+            (Laczkó - Mártonfi: Helyesírás, Osiris Kiadó, 2004 alapján):
+            Waterloonál (*Waterloónál), Macintoshsal (*Macintosh-sal),
+            az sch és a tsch most szabály alapján: Frischsel, Deutschcsal.
+          - aff/*: *kártyátlaníthatatalan javítása. Sári Márton jelezte a hibát.
+          - izmus, -ista kikapcsolása. A túlképzést Mártonfi Attila jelezte.
+          - képzés bővítése: holló -> hollósodási(lag), hollósítási(lag),
+            hollózási,  hollótlansági, stb.
+
+        - aff/*: morfológiai kód javítása: 
+          - pluszjelek hozzáadása
+          - jai nem SG_2 elemzésének javítása. Nagy Viktor jelezte a hibát.
+          - hiányos kód pótlása a névszóképzőknél
+
+        - szókincs bővítése: kevlár, kumarin, kutacs, Gyurcsány, Lékó, stb.
+
+        - szókincs javítása: ilyed (Koblinger Egmont), fókuszál, múlat
+          *legPicassósabb, *bontgat, igekötős igék törlése,
+          Molière-tről, hangrend (Pittsburgh, Illinois)
+          *addigiek és legvirtuózabb (Goldman Eleonóra)
+          *evangelikus, eufemikus (Mártonfi Attila)
+          határozószavak pótlása (Vajda Péter segítségével)
+          egyéb hibák (Gyepesi György)
+
+        - MYSPELL_HEADING: új Hunspell paraméterek a bedrótozás helyett:
+            CHECKCOMPOUNDDUP: szóismétlődés tiltása az összetett szavakban
+            CHECKCOMPOUNDTRIPLE: tripla mássalhangzók tiltása (*sakkkör)
+            CHECKCOMPOUNDREP: tipikus hibával egyszerű szóból is előálló
+            összetételek tiltása: *színtű (szintű i->í cserével)
+            CHECKCOMPOUNDPATTERN: megadott minták tiltása (*dzsesszszak)
+
+2004-10-07  Németh László <nemeth@openoffice.org>:
+	* kr/*: K&R kódolás prototípusát előállító cseretáblázat és Makefile
+	Az újabb morfológiai kódokat tartalmazó szótár a tmp/hu_HU_morph2.aff
+	és tmp/hu_HU_morph2.dic állományból áll. L. http://www.szoszablya.hu.
+	* aff/*: 
+	- [s_OCCUPATION_noun] bevezetése, a két s képzőnek megfelelően
+	  (kosarasok, kosarasak elemzése most különböző)
+	- [forma_FORMAL_adj] (macskaforma)
+	- EAL -> ELA kódcsere, lőj[vrb] I/3. személyű (Vajda Péter jelezte a hibát)
+	- *redőzett, *redőzem javítása (Goldman Eleonóra jelezte a hibát)
+	- *kéttucatnyi, ötfogkefényi javítása (kéttucatnyi, *ötfogkefényi)
+	- szegedik, *szegedieké, *okosabbé típushibák javítása (most *szegedik,
+	  szegedieké, okosabbé)
+	- -i képzős tulajdonnevek szóösszetételben már nem szerepelhetnek
+	- Nem ikes, mély hangrendű igék nem tárgyas, T/3. felszólító
+	  módú alakjainak elemzése hibásan T/2. volt. (A hibát jelezte: Vajda Péter)
+	- Ajakkerekítéses magas hangrendű ikes igék tárgyas, E/3. múlt
+	  idejű alakjának hibásan E/1. elemzése volt.
+	- Egyéb hiányos vagy hibás morfológiai elemzések. (Gyepesi György,
+	  Vajda Péter, Busa Fekete Róbert, Kardkovács Zsolt, Varga Dániel)
+	  L. http://devel.mokk.bme.hu/bugzilla.
+	- igekötő pótlása több főnévből képzett igénél
+	- hibás szabály javítása az ige_morf.aff állományban
+	* szotar/_alap:
+	- népnevek főnevek, továbbá bizonyos összetételekben is szerepelhetnek
+	  (pl. elkalmükösödtek, kalmükellenes)
+	- ma, holnap, tegnap; utolja; majd; első, második, stb. morf.
+	  elemzés javítása (Kardkovács Zsolt jelezte hiba)
+	- fonev_morfo állományok hiányzó elemzésének pótlása
+	- ma->másít, ok->okosít elemzések törlése
+	- hall, illem homonimák elemzésének javítása
+	- sólymász, vállás és további hibák javítása Goldman Eleonóra nyomán
+	* szotar/kivetelek/ragozatlan/*:
+	- szamok.1 törlése, morfológiai elemzés pótlása
+	- négyen, egymillióan stb. An_MODE_adv toldalékos számnevek elemzése
+	- 20-i alakok elemzésének pótlása (Kardkovács Zsolt jelezte a hibát).
+	* újabb szavak: Daczi László, Tímár András, ,,Dagobert bácsi'', Németh
+	  Krisztián jelzései alapján
+	* szotar/_eleonora: Goldman Eleonóra munkája.
+	  Megjegyzés: Nem alapértelmezett modul, mivel sok, a helyesírási
+          szabályzat szerint nem helyes szót is tartalmaz.  Automatikus
+          szövegfeldolgozáshoz hasznos lehet, így a make menu paranccsal indított
+          felülettel gyorsan bekapcsolható ez a modul is.
+	* szotar/_hunmorph: Gyakori, de hibás szavak a morfológiai elemző számára.
+	  Nem alapértelmezett modul.
+	* szotar/*: hiányzó elemzések pótlása
+
+2004-06-30  Tímár András <timar@fsf.hu>:
+	* szotar/_orvosi: javítás
+
+2004-06-29  Németh László <nemeth@openoffice.org>:
+	- alanyi és tárgyas igeragozás morfológiai elemzésének javítása
+	  (produktív E/1. múlt idő, ikes ragozás, improduktív: játszottam stb.)
+	- hibás morfológiai kódok javítása
+	- birtokjelhez kapcsolódó birtoktöbbesítő jel morfológiai elemzésének
+	  egyértelműsítése a sorrend megváltoztatásával: bokoréi != bokroké
+	- Magyar Értelmező kéziszótár szerint helyes szavak felvétele
+	  (enélkül, ezidáig, satöbbi, emögött, muszlim, kollega)
+	- -nkénti folytatási osztályokkal (házankéntiakat)
+	- -ot tárgyrag mellékneveknél (csúfot)
+	- több tucat új rövidítés és szó (köztük írásjelek) felvétele
+
+	* szotar/Godo2: 1500 hibás, vagy hiányos besorolás javítása, morf.
+	  kóddal ellátása a helyesírási szótár alapján.
+	
+	* hibajelzések javítása:
+	- fonev_morfo* mély hangrendű többesszámú tövekhez, illetve minden
+	  mássalhangzóra végződő mély hangrendű tőhöz járuló -hez és -vel
+	  törlése. A hibát Goldman Eleonóra (eleonora46@gmx.net) jelezte.
+	- -hetnék képző hibás toldalékolásának javítása (*üzengethetnékűnk,
+	  stb.) A hibát Goldman Eleonóra (eleonora46@gmx.net) jelezte.
+
+2004-06-18  Goldman Eleonóra <eleonora46@gmx.net>:
+	* _magyar_szemelynevek:
+	- 6000 magyar személynév
+
+2004-06-09  Tímár András <timar@fsf.hu>:
+	* _orvosi:
+	- Orvosi (nagyrészt laborkémiai, kis részben egyéb orvosi) szakszókincs
+	  besorolva, ellenőrizve, kb. 700 szó
+
+2004-06-09  Németh László <nemeth@openoffice.org>:
+	* hibajavítások:
+	- Régi, rossz, nyelvfüggő megoldások kiváltása
+	  (leg-, y végű szavak, kötőhangző kezelése a kötőjeles szavaknál,
+	  -on, -en, -ön, -hoz, -hez, -höz rossz és hibás kezelése)
+	  új ragozási osztályok bevezetésével
+	- kötőjelet tartalmazó szavak morfológiai elemzése
+	- tesztelés és javítás a Szószablya gyakorisági szótár felhasználásával
+	- morfológiai elemzés javítása: a 100 leggyakoribb, eddig
+	  toldalékolt szóként elemzett határozó, stb. önálló tőként való felvétele
+	- idő és mód összevonása a morfológiai kódokban
+
+	* hibajelzések javítása:
+	- lovotokként, görög (ige). Goldman Eleonóra (eleonora46@gmx.net)
+	- trikolor, hármótoknak. Németh Krisztián (nemeth@neumann-haz.hu)
+	- üljenek, verjenek stb. hibás elemzése: Sass Bálint (joker@nytud.hu)
+
+	* szotar/_nyelveszet: új modulkezdemémy. A szóanyagot
+	Görgey Etelka (egorgey@yahoo.co.uk) gyűjtötte.
+
+2004-04-09  Németh László <nemeth@openoffice.org>:
+	 * bin/*:
+	 - morfológiai kódok kezelése
+	 - igenévszavak kezelése
+	 
+	 * aff/*: morfológiai kódok megadása (még kérdőjelekkel)
+		A kódok Rebrus Péter (rebrus@nytud.hu, képzők, tövek) és
+		Rung András (rung@mokk.bme.hu, ragok, tövek) munkája.
+
+	 * aff/*: szabályokban szereplő betűk kisbetűssé alakítása
+	 
+	 * aff/fonev_kepzo.aff: főnévképzők
+		- a leggyakoribb produktív főnévképzők megadása folytatási
+		  osztályokkal
+
+	 * aff/ige_kepzo.aff: igeképzők
+		- a leggyakoribb produktív igeképzők megadása folytatási
+		  osztályokkal
+	 
+	 * aff/fonev.aff:
+	 - leg- szabállyal kezelve
+	 - melléknévkézők törlése
+
+	 * szókincsbővítés: úvézik, férfinek (magas esetragokkal), rövidítések
+
+	 * szotar/_alap/fonev_a: ,,a'' kötőhangzós főnevek (halottak)
+
+2004-02-15  Németh László <nemeth@openoffice.org>
+	 - hattalak helyett hatottalak
+	 - dolgozniok, keresniök
+	 - ihatnékomnak, ehetnékemet (mehetnék) szabályosan
+	 - besoroltával, megláttakor, de üttével
+
+2003-09-15  Németh László <nemeth@openoffice.org>
+	* Magyar Ispell 0.99.4.2:
+	- nyival/-nyivel
+
+2003-09-15  Németh László <nemeth@openoffice.org>
+	* Magyar Ispell 0.99.4.2:
+	- Dokumentáció bővítése a Magyar Myspell programozási
+	felületének leírásával
+
+	* szókincsbővítés:
+	- Szószablya korpusz, helyesírási szótár és az értelmező
+	kéziszótár segítségével. A szólisták feldolgozásában Rung
+	András <rung@itm.bme.hu> vett részt.
+	- Tiltószótár bővítése.
+	
+	* tövezési információk ellenőrzése és javítása:
+	- A szotar/kivetelek/*/* tövezését Rung András <rung@itm.bme.hu>
+	ellenőrizte.
+	- több lehetséges tő megadása, például: (0.99.4 és korábban)
+	  - vesztek->vesz|veszt|veszik|veszte
+	  - eszed->eszik|ész
+	  - megeszed->megeszik
+	  - eszedről->ész
+	- számos egyéb tövezési hiba megkeresése és javítása
+
+	* bin/i2myspell: Ispell kiváltása a hu_HU.aff
+	 affixum állomány előállításában.
+	* Makefile: Alapértelmezett cél a myspell, a myspell+ispell
+	helyett.
+	
+	* MYSPELL_heading: változat számának megadása a VERSION sorral
+
+2003-07-11  Németh László <nemeth@openoffice.org>
+	* Magyar Ispell 0.99.3:
+	* _alap/, _szoszablya/: szókincsellenőrzés és -bővítés
+	a magyar web szövegtartalma, és a helyesírási szótár
+	alapján: több ezer szó javítása, illetve felvétele
+	* _godo2/ragozatlan: a szólista negyedének feldolgozása
+	* egyéb: %-nyi, miss-szel, mistress-szel, stewardess-szel
+	mademoiselle-lel, madame-mal, Bonn-nal, Québec (Quebec
+	helyett), 2-es, jáde (jade, jade-dá), kadencia (kádencia)
+	* aff: -osok (motoros, vámos) képző
+	- dzik->dznak, dztak (begubództak, csókolódznak)
+	* ragozatlan/szamnev*: -s, -nyi képzők
+	* bin/fonevek: -féle képzők  (c kapcsoló) a kötőjelezett
+	szavakhoz: 30-féle, USA-beliek
+	* aff/fonev.aff, awk/gen_fonev.1: q kapcsoló a
+	tulajdonnevekhez: -féle, Einstein-féle (MHSZ 141.)
+
+2003-06-30  Németh László <nemeth@openoffice.org>
+	* Magyar Ispell 0.99.2:
+	* _alap/kotojel.*, tulajdonnev-geo.2: kettős földrajzi nevek
+	toldalékolása a MHSZ 217. b. pontja szerint. (Korábban
+	minden toldalék kötőjeles volt, pedig csak a -i, -s
+	melléknévképzőkre vonatkozik a kezeltek közül)
+	Például nem New York-kal, hanem New Yorkkal, de New York-i.
+	* _szoszablya/: az első használható gyakorisági lista alapján
+	pár száz új szót tartalmazó modul. A felismert leggyakoribb
+	hiányzó szavak az _alap/ vagy a kivetelek modulba kerültek
+	(pl. össze, majdnem).
+	* fonev.aff, bin/igesgen: s, t kapcsolók bevezetése
+	az -ai/-ei elkülönítésére. A tt-re végződő melléknévi
+	igeneveknél ezek megadása: halottja, halottjai,
+	halottai, de nincs halotta. Barát, felebarát is így
+	módosítva a korábbi bonyolultabb megadás helyett.
+	* _alap/fonev_magas.1: állomány azon szavak megadására,
+	amelyek mély hangrendű szótagra végződnek, mégis
+	magas hangrendű a toldalékolásuk: pl. gentleman.	
+	* _javito: mesterséges korlátozások elkülönítése a
+	,,javító'' modulba. (Például egyenlőre tiltása stb.)
+	A ,,hibát'' sokan jelezték!
+	* _regies: régies vagy nyelvjárási szavak megadására
+	szolgáló modul.
+	* kivetelek/szamnev*: A számnevek kezelésének
+	kisebb javítása (ötezreseket, hibás mély hangrend javítása)
+	* _alap/fonev_morfo2.2: az -i melléknévképzős alakok
+	toldalékolásának kiegészítése (pl. háziakat stb.)
+	* aff/ige_morfo.aff: -öz végződés kezelésének  kiegészítése
+	(ösztönzött, sürgönyzött, körzött most helyes)
+	* további nem rögzített alakok kiszűrése:
+	- sz/z: tranzverzális (helyesen transzverzális), moszlim
+	(mozlim), rezorpció (reszorpció), rasz (rassz)
+	- sz/s: skarabeusz (szkarabeusz), metropolisz (metropolis),
+	limesz (limes)
+	- o/u: kalocsni (kalucsni), ökomenikus (ökumenikus),
+	kubikus (kubikos), kuffer (koffer), páskum (páskom?), 
+	- l/n: kamásni (kamásli)
+	* MYSPELL_HEADING:
+	- kettőzött mássalhangzóra végződő tulajdonnevek -val/-vel
+	esetragos alakjaira helyes javaslattevés:
+	Barossal->Baross-sal, Gausszal->Gauss-szal, Mannal->Mann-nal
+	A hibát Bíró Árpád <biro_arpad@yahoogroups.com> jelezte:
+	http://groups.yahoo.com/group/magyarispell/message/403
+	- o->ő, u->ű javaslattevés felvétele, hogy a javaslatok
+	között ezek szerepeljenek elöl, illetve hogy számos hibás
+	összetett szót kizárjunk a keresztbe ellenőrzésnél.	
+	* egyéb: WC-t, csíkiak, Mann-nal, adóbevételek stb.
+
+2003-06-11  Németh László <nemeth@openoffice.org>
+	* Magyar Ispell 0.99.1:
+	* awk/tovez4.awk: tulajdonnevek tövezéséhez
+	* kivetelek/ragozatlan: hely- és idohatarozok és melleknevek
+	állományokban tövek megadása
+	* _godo/ragozatlan: feldolgozás
+	* szotar/*/ragozatlan.1->ragozatlan.2
+	* egyéb: pl. lett->vanlesz javaslat javítása
+	* _alap/tulajdonnev-szemelynev: középiskolai irodalom
+	anyagában szereplő személyek (még előző változatban
+	kerültek be). Kiegészítés: Corneille-jel, Montaigne-t
+	(kotojeles.magas).
+
+2003-06-05  Németh László <nemeth@openoffice.org>
+	* magyarispell-0.99:
+	* aff/*, szotar/*: állományátnevezések, kiterjesztésekkel
+	való bővítés Kornai András <junk@kornai.com> javaslata alapján.
+	* kivetelek/*/*: tőszavak megadása a .2 kiterjesztésű
+	állományok második mezőjeként. A szótőelőállítás a Hunspell
+	-r kapcsolójával kérhető.
+	* bin/tovek*, Makefile: keretrendszer átalakítása a tőszavak
+	felvételéhez. A ,,g'' kapcsoló jelöli, hogy a szóból még további
+	tövek képezhetők. A ,,g'' után megadott 0<szám<=9 jelenti, hogy
+	hány szó végi betű levágásával képezhető a következő tő. Ha
+	nem adunk meg számot, a ,,__szó'' kapcsolóiként adható meg
+	a tő. Az ilyen alakok a kivetelek könyvtárban található .2
+	kiterjesztésű állományokból automatikusan vannak előállítva.
+	Speciális kapcsoló a 0, ami azt jelenti, hogy a szó nem
+	valódi tő, ezért nem kell felsorolnia a tövezőnek.
+	(Ilyenek azok a többes számú alakok, amelyekből az improduktív
+	névszóragozások vannak levezetve (például füvek, madarak,
+	szerelmek), valamint a kötőjeles toldalékolású szavak (MÁV-, tv-).
+	* aff/fonev_morfo.aff: d és t végű szavak esetében a I/3.,
+	birtoktöbbesítő jel nélküli alakoknál a toldalékolás letiltása.
+	Olyan szavak, mint vada, váda, uta, stb. most már toldalékolt
+	formában sem kerülnek elfogadásra.
+	* _alap/fonev_morfo2.2: d és t végű szavakhoz I/3. toldalékolás
+	megadása (-ja, kivéve had, és hát, ahol -a).
+	* _alap/melleknev.1: ellenőrzés
+	* aff/fonev.aff: elméjűt; elméjűen, és nem elméjűön (múltkori
+	hiba javításával keletkezett hiba), elméjűn.
+	* _alap/fonev*: sok szer, és gép szóra végződő összetett szó
+	tiltása, pl. rovarirtószer, kávéfőzőgép stb.
+	* egyéb: szabadott, mérettet, stb.
+	
+
+2003-04-30  Németh László <nemeth@openoffice.org>
+	* magyarispell-0.98:
+	* doc/megfeleles.tex: A Magyar Ispell magyar helyesírásnak való
+	megfelelését leíró fejezet, illetve összevetés a Microsoft Office
+	XP-ben található magyar helyesírás-ellenőrzővel.
+	* y végű szavak helyes kezelése:	
+	Az y végű szavak (pl. Sydneyvel, Uruguayjal, Kölcseyn, sprayen)
+	ragozása vissza lett vezetve az -i, és -j végű szavakéra. 
+	
+	Az ,,f'' kapcsoló segítségével a következőképp kódolhatóak az
+	y végű szavak (majd a dokumentációba kerül):
+
+	- a tövet nem ragozzuk, csak ,,f'' kapcsolót kap (közneveknél
+	még Y-t, hogy összetett szavakban szerepelhessen)
+	- felveszünk egy olyan tövet, amiben kiejtés szerint
+	az y vagy i-re, vagy j-re van átírva (Sydnei, Uruguaj, Kölcsei,
+	spraj), és ez szerepel a megfelelő állományokban, de letiltva!
+
+	  - köznevek (angol eredetű idegen szavak):
+--------------------------- részlet az _alap/fonev állományból -------
+boj #MYSPELL TILTOTT (boy)
+brandi #MYSPELL TILTOTT (brandy)
+cowboj #MYSPELL TILTOTT (cowboy)
+displaj #MYSPELL TILTOTT (display)
+ladi #MYSPELL TILTOTT (lady)
+gázspraj #MYSPELL TILTOTT (gázspray)
+orrspraj #MYSPELL TILTOTT (orrspray)
+spraj #MYSPELL TILTOTT (spray)
+penni #MYSPELL TILTOTT (penny)
+whiski #MYSPELL TILTOTT (whisky)
+złoti #MYSPELL TILTOTT (złoty)
+----------------------------------------------------------------------	
+
+-------------------- részlet a kivetelek/ragozatlan/y állományból ----
+boy/fY
+brandy/fY
+cowboy/fY
+display/fY
+lady/f
+gázspray/fY
+orrspray/fY
+spray/fY
+penny/fY
+whisky/fY
+złoty/fY
+----------------------------------------------------------------------	
+	
+	  - tulajdonnevek:
+	  
+	    (régies írásmódú keresztnevek, illetve földrajzi nevek):
+
+--------------------------- részlet a tulajdonnév állományból --------	
+	Vörösmarty/f # szótő nem ragozva, ,,f'' kapcsolóval van felvéve
+Vörösmarti #MYSPELL TILTOTT felveszünk egy letiltott tövet, ahol az y átírva
+Vörösmarti	vörösmartys # a letiltott tővel megadhatók az eredeti
+Vörösmarti	vörösmartyas # forma melléknévképzős alakjai
+----------------------------------------------------------------------	
+
+	problémát okozhat az idegen szavak esetében a mély hangrendűnek
+	látszó, de magas hangrendű alak: pl. spray, display. Ez most
+	még csak egyedileg van kezelve, de valószínű a fonev_magas
+	állomány bevezetése a kezelés egyszerűsítése miatt.
+
+	Jelenleg a következő bejegyzések segítenek:
+
+-------------------- részlet a kivetelek/ragozatlan/y állományból ----	
+	displaj/-A-U-K-k-i-SBVLlj # mély hangrendű kapcsolókat kivonjuk
+	spraj/-A-U-K-k-i-SBVLlj # magasakat hozzáadjuk
+----------------------------------------------------------------------	
+	* aff/aff.fonev:
+	-jűhöz helyett -jűhez volt a magas magánhangzóra végződő
+	főneveknél (medvéjűhez -> medvéjűhöz)
+	- a -nyi képzőnél csak részleges hasonulás volt hiányos
+	kódolás miatt (pagonnyiról jó volt, pagonnyi, pagonnyit nem)
+	* MISPELL_heading:
+	CHR tábla az ISO 8859-1 HTML karakterentitások ISO 8859-2
+	karakterrekké történő átalakításához. A táblázat csak az
+	érvényes karakterátalakításokat tartalmazza. A hibásan
+	Õ, &Ucirc, õ &urcirc; entitásként kódolt
+	Ő, Ű, ő, ű karakterek javításához a REP táblába kerültek
+	be a következő bejegyzések:
+	
+	REP Õ Ő # hullámvonalas O az Ő helyett
+	REP õ ő # hullámvonalas o az ő helyett
+	REP Û Ű # kalapos U az Ű helyett
+	REP û ű # kalapos u az ű helyett
+
+2003-04-19  Goldman Elenonóra <eleonora46@gmx.net>
+	* _godo/*, _godo2/*: a részben feldolgozott szókincs ellenőrzése,
+	hibák kijavítása, és besorolások, különösen a -ja/-je
+	toldalékolást illetően.
+
+2003-03-24  Németh László <nemeth@openoffice.org>
+	* kivetelek/*: kifejtve a D kapcsoló, ahol további toldalék nélkül járul
+	a leg-, legesleg- a tőhöz (pl. alsó/D -> alsó, legalsó, legeslegalsó).
+	Ez a leg+bb confixum helyes kezelése miatt vált szükségessé, mivel
+	korábban elfogadásra kerültek ilyen alakok is, mint legpiros, legkutya...
+	* kivetelek/ragozatlan/mangrove: mangrove helyesen kezelve (ehhez az ,,u''
+	kapcsoló bevezetésére is szükség volt. Az ,,u'' módosítja a ,,w''
+	tiltó kapcsoló hatását: csak a tő lesz letiltva, a toldalékolt alakok
+	nem. Így lett bevezetve a mangrové/wu tiltott tő, aminek csak a
+	toldalékolt alakjai helyesek, a ,,mangrové'' nem. Bármely más
+	,,e''-re végződő, mély hangrendű szó ragozása így oldható meg.)
+	* bin/fonevek: Z kapcsoló hozzáadása a kötőjel + kötőhangzós esetek
+	helyes kezeléséhez: MÁV-nk->MÁV-unk, URH-unk->URH-nk
+
+	A modulokban a kotojeles_hangzo állományban kell feltüntetni
+	azokat a töveket, amelyeknél nincs kötőhangzó a toldalékban
+	(pl. MÁV-unk, de URH-nk). Egyes kötőhangzós szavaknál
+	a tárgyesetet kötőhangzó nélkül írjuk. Ez külön van
+	megadva a kotojeles_magas, stb. állományokban (következő sor végén):
+	
+Baudelaire	Baudelaire-rel	Baudelaire-ré	baudelaire-es	baudelaire-i	Baudelaire-t	Baudelaire-et/w
+
+	vagyis a kötőhangzó nélküli tárgyesetet felvesszük, a kötőhangzósat letiltjuk.
+
+	* szotar/*/kotojeles_m*: a kötőhangzó lekezelése miatt a tárgyragos
+	alak külön felvételére, és a kötőhangzós letiltására van szükség:
+	pl.  Melbourne-ünk kötőhangzós, de Melbourne-t, Melbourne-öt/w.
+	* aff/aff.fonev:
+	- ,,m'' kapcsoló: -i melléknévképző ajakréses hangrendű, nem
+	ajakkerekítéses: tömbihöz helyett tömbihez a helyes.
+	- ,,melleknevkepzo'' makró: -s melléknévképzőhöz kötőhang nélkül is
+	járulhat a tárgyrag: garasost, nem csak garasosat.
+	* */*: ISO 8859-2-es karaktereket tartalmazó szavak megjelenése:
+	Dvořák, Händel, Łódz, Škoda, škodás, złoty. L. man iso-8859-2.
+	(Az itt megtekinthető decimális kódokkal Linux konzolon kényelmesen
+	begépelhetők az ISO 8859-2 karakterek: pl. az ä leírásához a bal
+	oldali Alt billentyű nyomva tartása mellett gépeljük be a numerikus
+	billentyűzeten a 228 számot, vagyis az ä decimális kódját. Az
+	Alt felengedése után jelenik meg az ä.)
+	* kivetelek/ragozatlan/egyenlore: tiltó kapcsolóval való megoldás
+	* MISPELL_heading:
+	- egyenlőre->egyelőre (,,egyenlőre'' felvehető a saját szótárba)
+	- REP táblával részleges ISO 8859-2-es ékezetesítés:
+	  REP a ä # Handel->Händel
+	  REP S Š # Skoda->Škoda
+	  REP s š # skodás->škodás
+	  REP r ř # Dvorák->Dvořák
+	  REP ra řá # Dvorak->Dvořák
+	  REP l ł # zloty->złoty
+	  REP L Ł # Lódz ->Łódz
+	  REP Lo Łó # Lodz ->Łódz	
+	* ragozatlan/kivetelek/helyhatarozok: további, utóbbi, messzebb, előbbi,
+	későbbi, korábbi, régebbi, távoli, közel, beljebb, feljebb, följebb,
+	lejjebb, kijjebb, alább (korábban egyszerűen melléknevekként voltak
+	felvéve, hibás toldalékolást, pl. továbbibb, eredményezve,
+	valamint további -bb toldalék nélkül járul hozzájuk a leg- prefixum)
+	* ragozatlan/kivetelek/nevmasok:
+	első, utolsó, felső, fenső, fölső, alsó, belső, végső, külső, elülső,
+	hátulsó, hátsó, szélső, mellső, oldalsó, középső, innenső, túlsó:
+	javarészt további -bb toldalék nélkül járul hozzájuk a leg- prefixum.
+	* _alap/fonev.bankjegyek: bankjegyek megadása, pl. kétszázeurós stb.
+	* ragozatlan/kivetelek/y: y végű főnevek toldalékolásának javítása:
+	- hibás és hiányos volt a spray, és egyéb szavak toldalékolása
+	- zloty javítva lett złotyra
+	- Adyk, Adyak
+	- a javítás nem előremutató, ezért más megoldásra van szükség!
+	* aff.alanyi:
+	- vásik->vássz, késik->késsz javítása (nemdupiks makró)
+	- fest->fesssek, fesssenek stb. javítása: kivetelek/igekotos/fest
+	* egyéb: csöpp, csönd hibás alakváltozatos összetett szavainak tiltása:
+	csöppkő, csöppfertőzés, csöndőr, csöndháborítás stb.
+	* szűrés:
+	- kizárva bédekker, siserehad (helyesen siserahad), ekhó
+	- hasonlósági szűrések alapján kizárva: polémikus, trikolor, lichthof,
+	abcug, omega, puzon, aszkétikus, sztereofónikus, sztereoszkópikus,
+	szférikus, atlétikus, látens, sztereo, euro, foto, leánder, nagybelű,
+	regős, csűdfű, analfabétizmus, ádvent, Bhutan, fantáziál, szekundér,
+	szaharin.
+	A szinkrón főnévből melléknévre, a szinkron melléknévből főnévre javítva.
+
+2003-02-20  Németh László <nemeth@openoffice.org>
+	* magyarispell-0.97:
+	* aff.fej: ,,együtt'' most már nem szerepel igekötőként
+	* loni_szoni.m4: lőtök, rítok (korábban lőttök, ríttok), ríttatok
+	(korábban hibásan ríttatak)
+	* aff.fonev: -beli/-beliek toldalékolása most már nem
+	mély hangrendű. A hibát Goldman Elenonóra <eleonora46@gmx.net> jelezte.
+	- ajakréses hangrendű -e végű melléknevek -bbik toldalékának
+	pótlása (hülyébbiket)
+	* igee3.awk: K, L, M kapcsolók pótlása a befejezett melléknévi
+	igenevek birtokos személyjeles ragozásának pótlására (elveszítettemet)
+	* melleknev_oe, melleknev_e: melleknev_e-be azok, amelyek csak
+	ajakréses magas hangrendű toldalékkal járnak (javítva zöldök, szűzök,
+	bölcsök, sültök, és a befejezett melléknévi igenevek+ök). A melleknev_e-be
+	tartozók a -höz, -ön toldalékokat az N kapcsolóval kapják meg,
+	a -hez alakok pedig le vannak tiltva külön tőszófelvétellel (zöldhez).
+	- lőttök, főttök tiltása ezzel ténylegesen megvalósult
+	* fonev_eleje, fonev_vege, fonev_tiltott: állományok törlése
+	* kivetelek/ragozatlan/osszetett: spec. összetételre vonatkozó kivételek,
+	pl. itt van megadva, hogy az ,,ön'' csak szó elején fordulhat elő.
+	Ezzel a példával letiltva pl. a motorön, kézön, értejön (ér-tej-ön).
+	* bin/tiltott: lehetővé teszi tetszőleges szófajú szavak tiltását.
+	A szavakhoz, amit le szeretnénk tiltani, a ,,#MYSPELL TILTOTT''
+	megjegyzést kell mellékelni.
+	* bin/i2myspell: a szótárelőállításnál új szintaxist is kezel:
+	a ,,-'' jellel bevezetett kapcsolókat kivonja, ha előzőleg meg voltak
+	adva az adott szónál. Például a macska/abcd-b-d az átalakítás után
+	macska/ac lesz. Az i2myspell a dupla kapcsolókat is egyre cseréli.
+	Az awk részprogram első változatát Goldman Elenonóra
+	<eleonora46@gmx.net> írta.
+	* szotar: hibásan összetett szóként felvett szókapcsolatok törlése.
+	A szavak keresésében pótolhatatlan segítséget nyújtott Godó Ferenc
+	<godo@trillian.hu>:
+	abszolútérték, alacsonylelkű, alacsonyvérnyomás, állatifehérje,
+	ásványianyag, baszksapka, bűnbeesett, cigánygyerek, csiszoltkő,
+	csontnélküli, darálthús, drappszínű, egetverő, egyenlőoldalú, együttél,
+	együttérző, egyvegyértékű, efölé, ehelyütt, eköré, eközött, élenjár,
+	élénkszínű, eleveneszű, ellenállóképesség, elsőkerék, élvezeticikk,
+	evilági, exlibris, ezidáig, ezüsthárs, fedettpálya, fehérfagyöngy,
+	feketeszínű, felsővégtag, finomműszer, fizetésimérleg, folyékonyműtrágya,
+	forgalmiadó, forgalmilámpa, forgalmizavar, frisshús, füstöltszalonna,
+	gépikód, halvaszületett, hamispénz, használtautó, használtruha,
+	hátsókerék, házilégy, hímszarvas, hosszantartó, hullámtörőgát,
+	humánerőforrás, húsbavágó, idegenszó, iparitanuló, jócselekedet,
+	jövőbelátás, kékszínű, kerekfejű, keserűmandula, kettősalagút,
+	kétvegyértékű, kilósruha, kisebbrendű, kísérőhajó, kissorozat,
+	kováspuska, krumplistészta, kunkötés, légiforgalom, lőttvad,
+	magasvérnyomás, magasszintű, máshitű, messzeható, metélttészta,
+	nagyember, nagyhírű, nagylátószögű, nagyritkán, nagysorozat,
+	nagyteljesítményű, nagyúr, nehézgéppuska, nemespenész, nemibeteg,
+	nőiruha, nyersszínű, otthonmaradás, otthonülő, ottmarad, ottragad,
+	ökrösszekér, örökéletű, örökéletűség, örökérvényű, pergőrokka,
+	repedtfazék, rezgőnyár, rezgőnyárfa, rövidéletű, rugósbicska,
+	sárgaszínű, savanyúcukor, sötétbőrű, sötétszínű, sülthús,
+	szabadvezeték, szagosmüge, szarvaskerep, századeleji, szervesanyag,
+	szervetlenkémia, szeszesital, tatárjuhar, teljesülés, törpemandula,
+	törvénybeütköző, vagdalthús, végeselem, vegyeszöldség, vegyicikk,
+	véletlenszám, vígözvegy.
+	* _alap/fonev_osszetett: ellenőrzés, az automatikus módszer miatt
+	sok tévesen felvett szó törlése (kárász, zarándoklat, műtét stb).
+	* spellhtml: törlés, mivel az ,,újabb'' ispell változatok is
+	rendelkeznek a HTML szövegek ellenőrzésének képességével.
+	L. ispell(1) -H kapcsoló.
+	* MYSPELL_heading:
+	- REP -cel -szel # AIDS-cel->AIDS-szel
+	- REP -cé -szé # AIDS-cé->AIDS-szé
+	- REP őrö ölrő # előröl->elölről
+	- REP őr ölr # előről->elölről
+	- REP ölr őr # elölre->előre
+	Az elöl/elől különbséget Koblinger Egmont <egmont@cs.bme.hu> jelezte.
+	* doc/: Frissített Magyar Ispell dokumentáció csatolása.
+	
+2003-02-06  Németh László <nemeth@openoffice.org>
+	* magyarispell-0.96:
+	* bin/fonevek: könnyek, csöppek újra helyesek
+	* aff/aff.fonev:
+	- mellékneveknél -bbul/-bbül toldalékolás pótlása
+	  (pl. búsabbul, fesztelenebbül)
+	- [ÁÉIÍOÓŐUÚÜŰ-] karakterre végződő, mély hangrendű szavaknál -cske
+	toldalékos alakok helyes ragozása (valamicskevel helyett valamicskével)
+	- [ÁÉIÍOÓŐUÚÜŰ-] karakterre végződő szavaknál -ul/-ül toldalék
+	ismételt bekapcsolása (menüül)
+	* bin/igek: hangkivetős igékből képzett befejezett igenevek
+	toldalékolásának pótlása (pl. előjegyzetteket)
+	* fejlesztes/toldalekok: a toldalékolás ismert hiányosságai,
+	amit a Magyar MySpell bővítésével érdemes kezelni.
+	* _alap/: sok kisebb-nagyobb javítás Gogol Holt lelkek c. műve alapján
+	
+2003-02-05  Németh László <nemeth@openoffice.org>
+	* magyarispell-0.95:
+	* kivetelek/ikes_ige_morfo, jatszik_metszik stb.: kivételes ikes
+	igéknél felszólító -ék rag hiányzott (pl. dohányozzék, játsszék)
+	a hibát Koblinger Egmont <egmont@cs.bme.hu> jelezte.
+	* kivetelek/ragozatlan/ttel: majomszeretettel stb. nem volt helyes.
+	A szeretettel másik feloldása miatt (szeretett) hiányzott a
+	szóösszetételben való szereplést engedélyező kapcsoló.
+	* kivetelek/ragozatlan/szamnevek, aff/aff.fej:
+	- z kapcsoló a másodmagammal, századmagával stb. alakokhoz.
+	- kettő birtokos személyjeles alakjai jók (kettőnk, kettőnkről)
+	* bin/fonevek: fonev_oe: -en/-hez tiltása (könyven, könyvhez)
+	* aff/aff.ige_kiv: -öz végű igék (ösztönzi, sürgönyzöl)
+	* aff/aff.ige_alanyi: teremt: teremtenek, teremtenék
+	* alap/fonev_morfo2: -i képzős alakok szóösszetételben
+	való megjelenésének engedélyezése (sajtgyári).
+	* aff/: A hibákat Trón Viktor jelezte:
+	- Nyughat, ríhat
+	- frissség, fessség, nyerssség, bölcsség
+	- /v/x folyamatos igeneveknél vissza /Y kapcsolóra,
+	- pisil ingadozó hangrendű.
+	* MYSPELL_heading: REP ivess->íves (szivessen->szívesen)
+	* _informatika/kotojeles*: mozaikszavak
+	* egyéb: csöppet, ugrálod, sebész stb.
+	* bin/i2myspell: ismét alkalmas önálló futtatásra
+	* szotar/_tamogatok: fejlesztők, közreműködők, támogatók névsora.
+
+2002-12-13  Németh László <nemeth@openoffice.org>
+	* magyarispell-0.94:
+	* bin/i2myspell: paste -d "\0" (BSD esetében "" nem elég)
+	A problémát Fazekas Mihály jelezte <boga@mac.com>
+	(Mac OS X port: http://myspellx.sf.com)
+	* GYIK: változás
+	* szavak: látlak, múlik
+	* _alap/kotojeles*: számok, birtokos személyjeles alakok
+	jelek: %, §, °, - (pl. ,,Fizikusok''-ról)
+	* bin/igesgen: -gat/-get
+
+2002-12-10  Bíró Árpád <biro_arpad@yahoo.com>
+	* magyarispell-0.93peccs3.1
+	* magyarispell-0.93peccs3.2
+	* magyarispell-0.93peccs3.3
+	* magyarispell-0.93peccs3.4
+	* Makefile, egyéb: tisztítás, javítás
+
+2002-11-30  Trón Viktor <tron@coli.uni-sb.de>
+	* magyarispell-0.93peccs
+	* magyarispell-0.93peccs2
+	* magyarispell-0.93peccs3
+	* Makefile, egyéb: tisztítás, javítás
+
+2002-11-25  Fransoa Holop <fred@francis.unitra.sk>
+	* magyarispell-0.93b
+	* Makefile: tisztítás, kompatibilitás (BSD)
+	* *.aff: fordítási üzenetek
+	* *: könyvtárszerkezet átalakítása
+
+2002-11-28  Németh László <nemeth@openoffice.org>
+	* aff.alanyi: -nöm, -nöd, -nötök: szöknem, szökned helyett
+	* kivetelek/ragozatlan/d: háromnegyed, hatodízben, ötödsorban
+
+2002-11-26  Németh László <nemeth@openoffice.org>
+	* kivetelek/igekotos/whisky: sprayje->spraye
+	* _alap/kotojeles*: rövidítések (hónapok, rt., mértékegységek)
+
+2002-11-25  Németh László <nemeth@openoffice.org>
+	* kivetelek/igekotos/rak: raknatok, raknom, raknod
+	* Makefile: összemásolás (jelezte Fransoa Holop)
+	* szavak: labdarugó, sodra, balkéz
+	* _godo2: ige_alanyi (Khiraly <khiraly@gmx.net>: videóznak is)
+
+2002-11-19  Németh László <nemeth@openoffice.org>
+	* Makefile: javítás
+	* _alap/melleknev.szam: kivetelek/ragozatlan könyvtárba
+	* _alap/fonev_morfo1: hangkivetők, -on/-en tiltása
+	* szavak: Benedek Csaba <csaba.benedek@infor.hu>: levelezik,
+	videokészülék stb.; Khiraly <khiraly@gmx.net>: léptetődik stb.;
+	Hilzinger Marcel <hili@suselinux.hu>: felhőzet, nyugtom stb.
+	Sári Gábor <saga@lme.linux.hu>: bizonylatolás, skálázható stb.
+	Bíró Árpád <biro_arpad@yahoo.com>: gyakrabb, magánember stb.
+
+2002-11-14  Németh László <nemeth@openoffice.org>
+	* _alap/melleknev.szam: pár számnévvel együtt előforduló szó
+	* Makefile: összefésülésnél tördelés tabulátoroknál, make insts
+	* OLVASSEL, README: frissítés, irodalomjegyzék (Mayer Gyula)
+
+2002-11-02  Németh László <nemeth@openoffice.org>
+	* aff.alanyi, aff.targy: nemdbzik makró, vérzz, izzzál
+	* kivetelek/ragozatlan/izzik: izzál, stb.
+	* kivetelek/ragozatlan/i: i/í tévesztés teljes ellenőrzése
+	 (ülepit, összeirt, öregit, stb.)
+
+2002-10-20  Németh László <nemeth@openoffice.org>
+	* ige_koto: ért, ölt, fejt igekötős alakjai
+	* _alap/fonev: teljes ellenőrzés, sok súlyos összetétel kiszórásával
+	* Makefile: fonev.csoport állománynév kezelése, pl. ->
+	* _alap/fonev.tiltott: tiltott összetett szavak megadására
+	* fejlesztes/tesztek/kis: kis- kezdetű szavak tesztje, és javítás
+	* aff.fonev: -szerű után -féle, -fajta, -beli képzőszerű toldalékok
+	* aff.fonev: -oék helyett -ék toldalék
+	* _alap/fonev_vege: amelyek csak a szóösszetétel végén szerepelhetnek,
+	pl. rovarirtó: rovarirtó szer, de rovarirtókészítés!?
+
+2002-09-20  Németh László <nemeth@openoffice.org>
+	* bin/i2myspell: [a-f] tartomány [abcdef] konvertálása (romlanának)
+	* aff.fonev: 
+	    -nyi ,,i'' és ,,j'' kapcsolók
+	    -helyinül, helyibel stb. helyinél, helyiből helyett
+	* ragozatlan/időhatározók: -nként, -nte toldalékos alakok számnevekkel
+
+2002-07-29  Németh László <nemeth@openoffice.org>
+	* aff.fonev, aff.morfo: -nkénti, -nkéntit, -űen ragok 
+	(Bíró Árpád jelezte a hiányosságokat) -űen még kérdéses
+	* kivetelek/ragozatlan/számok: számjegyek ragozott alakjai (ld.
+	    fejlesztes/szamforras)
+	* kivetelek/ragozatlan/levet: almalevet, stb. elfogadása. L. ott.
+	* kettős fordítás: 
+	ha a szóállományok valamely sorában #MYSPELL szerepel, akkor
+	az a sor csak a make all, ha #ISPELL, akkor a make ispell parancs
+	esetén fordul csak be a megfelelő sorba
+	* egyéb: higgyél, bájt->byte-
+	* ,,w'' tiltó kapcsoló: szabályok finomítására sok helyen
+	    pl.: Madáchhal/w, Rubenssel/w, uta/w, stb.
+	* kivetelek/ragozatlan/h: h végű főnevek -val/-vel kivételei, ellenőrzött
+	* ,,n'' kapcsoló: morfo szóösszetételek szótagszámának megállapításához
+	(a hangkivető köznevek melléknévképzős toldalékait tartalmazza), ld.
+	aff.fonev.morfo, aff.fej
+	* aff.fonev: ch->cs
+	* bin/modul: modulok kiválasztására szolgáló menü
+		
+2002-07-17  Németh László <nemeth@openoffice.org>
+	* kivetelek/ragozatlan/elejeveleje: idejű, szabadidejű
+	* kivetelek/ragozatlan/rak: rakták, csukták, bökték, lökték, pökték
+	* aff.fonev: briddzsel
+	* MYSPELL_heading: REP: gg->g heggeszt->hegeszt (heggeszt helyes
+	szóösszetétel), Bíró Árpád <biro_arpad@yahoo.com>
+	file->fájl, floppy->flopi, bájt->byte
+
+2002-06-26  Németh László <nemeth@openoffice.org>
+	* kivetelek/ragozatlan/elejeveleje: idejű, szabadidejű, idejűek
+	* kivetelek/ragozatlan/rak: rakták, csukták, bökték, lökték, pökték
+	* aff.fonev: briddzsel (és nem bridzzsel), a hibát Bíró Árpád jelezte
+	* egyéb: bájt (helyesen byte), ezren, feküdt
+	* MYSPELL_heading: REP: boxxal->boksszal, boxal->boksszal,
+	boxszal->boksszal, naccsága->nagysága, tejles->teljes
+	(rossz szóösszetétel kiszűréséhez, ld. Magyar Myspell 0.4)
+	* _huhyph: Mayer Gyula <gam@cs.elte.hu> huwords.hyph szólistájának
+	szavait Bíró Árpád <biro_arpad@yahoo.com> dolgozta fel, a huwords.hyph
+	az ftp://clphx.btk.ppke.hu/pub/tex/huhy401.zip állományban található
+	* _huhyph2: feldolgozatlan szavak az előző állományból
+	* _godo2: Godó Ferenc 10000 feldolgozatlan szót tartalmazó listája,
+	ideiglenesen ragozatlanként felvéve (az állomány korábban a
+	levelek/Feri könyvtárban foglalt helyet)
+
+2002-06-14  Trón Viktor <tron@coli.uni-sb.de>
+	* Makefile, ige_gen.awk, igee3_gen.awk, igekoto_filter.awk, igesgen:
+	képzett igék E/3. alanyi múltidejű alakjainak kezelése az igekötők
+	figyelembevétével, pl. hátráltathatott
+	* levelek/OLVASSEL_CHANGES_TV: leírás
+
+2002-06-14  Bíró Árpád <biro_arpad@yahoo.com>
+	* bin/checkmyspell: nyelvi modulokat ellenőrző program
+
+2002-06-14  Khiraly <khiraly123@gmx.net> és mások
+	* bin/dic2txt: Átalakító program. Az OpenOffice.org saját szótárakból
+	nyeri ki a szavakat további feldolgozás céljából.
+
+2002-06-14  Németh László <nemeth@openoffice.org>
+	* MYSPELL_heading: REP: licensz->licenc, licensszel->licenccel,
+	licenszt->licencet
+	* kivetelek/igekotos/hall, illik: csak kötőhangzóval (nincs illne, hallna)
+	* kivetelek/ragozatlan/kell: csak kötőhangzóval (nincs kellne)
+	,,elkellne egy kis pénz'' helyesen ,,elkelne egy kis pénz''
+	* aff.alanyi, aff.targyas: rövid magánhangzó + -t végű igéknél van
+	csak kötőhangzó nélküli többes számú rag feltételes módban
+	pl. irtna, fűtniük nem jó, (javítás a NeloTJT3 makró átírásával)
+	a hibát Bíró Árpád <biro_arpad@yahoo.com> jelezte
+	* kivetelek/igekotos/dt, kivetelek/ragozatlan/dt: -dt végűek ragozva,
+	a hibát Khiraly <khiraly123@gmx.net> jelezte
+	* aff.fonev: -szerűen
+	* egyéb: ynagyszerű, Jamaica, jamaicai, kissé, aludt, a hibákat többen
+	jelezték: Bíró Árpád, Koblinger Egmont <egmont@cs.bme.hu>, 
+	Horváth Árpád <ahorvath@szgti.bmf.hu>, Khiraly <khiraly123@gmx.net>, ...
+
+2002-06-03  Németh László <nemeth@openoffice.org>
+	* Licenc: GPL
+	* MySpell-HU: integráció (6-3 szabály)
+	- y összetett szó jelölő kapcsoló
+	* MYSPELL_heading: REP: dijját->díját, Beatriksz->Beatrix,
+	daxli->dakszli, kódexxel->kódexszel, Linuxal->Linuxszal
+	- ü/ű csere is REP-be, hogy első javaslat legyen
+	* aff.alanyi, aff.targy: vakaróz+j ikes felszólító
+	* aff.fonev:
+	- ászszor->ásszor
+	- sakkképp, sakkképpen, sakkként, sakkkor helyett a helyes alakok
+	- -nyi, -atlan, -> melléknevekhez nem járulnak többé (UVW->klm kapcs.)
+	* _alap/fonev_osszetett: -i-ig ellenőrizve
+	* _alap/fonev_kulon:  les (tejles, stb.), ma (síma): Koblinger Egmont
+	<egmont@cs.bme.hu> jelezte,  éj (ünnepéj, szívéjes, stb.)
+	* _godo/fonev_mely, ige_mely: bővítés, létrehozás
+	* _alap/ige_tat_kiv: szt végűek mellett egyéb mássalhangzó+t végűek
+	felvétele. A hibát Naszódi Mátyás <naszodi@morphologic.hu> jelezte.
+	* egyéb: anyu, apu
+	* tesztek: tesztek
+	* TODO: tervezett feladatok
+	* Magyar_helysegnevek/OLVASSEL: dokumentáció pótlása
+	
+2002-05-20  Németh László <nemeth@openoffice.org>
+	* _alap/fonev_osszetett: csak olyan összetett szavak lettek
+	leválogatva, amelyek főnevekből, vagy melléknevekből állnak,
+	illetve a kétszótagú igekötővel rendelkező főnevek (pl. összetevés).
+	Plusz bel-, kül- kezdetű szavak.
+	A ,,félidő'' szóig ellenőrizve, _alap/fonev_morfo* is hiányzik.
+	* MYSPELL_heading: REP: ájj->állj, kargyuk->kardjuk, eccer->egyszer,
+	kölcség->költség, boloncság->bolondság, csug->csukd, erössen->erősen,
+	szöllő->szőlő, hüttő->hűtő
+	- i/í után o/ó, u/ú is előre, hogy első javaslat legyen
+	- COMPOUNDWORD, COMPOUNDSYLLABLE a OOo/MySpell-HU-hoz
+	* aff.fonev: dzsessz-szer, dzsessz-szerű, észszerű, /c kapcsoló
+	A problémát Koblinger Egmont <egmont@cs.bme.hu> jelezte.
+	Az ispell hibája miatt a vas+ár+ú, ész+szer+ű ammak ellenére elfogadott,
+	hogy az ár, és a szer nem szerepelhet összetett szavakban. MySpell-ben jó.
+	* fonev_gen.awk: Hárombetűs, két mássalhangzóra végződő tulajdonnevek
+	(Ant, Apc, Ond stb.) hiányoztak, a hibát Trón Viktor jelezte.
+	* _biologia: modulkezdemény pár száz növénynévvel
+	* _foldrajz: földrajz modul, Bíró Árpád <biro_arpad@yahoo.com> munkája.
+	* spellhtml: nem szövegtartalmú elemek (SCRIPT, STYLE, CODE, PRE) lekezelése.
+	A hibát Zsadányi Nagy Csaba <zsadanyi@tarki.hu> jelezte.
+	* egyéb: ünnepek kisbetűvel (húsvét, szilveszter)
+
+2002-05-16  Trón Viktor <tron@coli.uni-sb.de>
+	* kivetelek/igekotos/dt: feledt, köpködt, lépkedt, lopkodt, nyomkodt,
+	okádt, tapodt, tépkedt törölve
+
+2002-05-14  Németh László <nemeth@openoffice.org>
+	* aff.targyas: feddd, mászikd
+	* kivetelek/ragozatlan/nevmasi_hatarozoszok.m4: elétek, tielétek
+	* Makefile: install: /usr/lib/ispell ellenőrzése. A Debian alatt
+	jelentkező hibát Horváth Árpád <ahorvath@szgti.bmf.hu> jelezte
+
+2002-05-10  Trón Viktor <tron@coli.uni-sb.de>
+	* _magyar_helysegnevek: több, mint 16000 élő, és történelmi
+	helységnév, melléknévképzős alakjaikkal egyetemben
+
+2002-05-10  Németh László <nemeth@openoffice.org>
+	* kémia modul: Bíró Árpád, és az általa fellelt szavak alapján:
+	* _alap/ige_koto: igenévszók (ég, él, öl, ír, hal) pl. elöle=el+öle
+	* _alap/melleknev: - kis -> kísért, kicsiért, Kisért helyes, kisért nem
+	* _alap/ige_ikes_kiv: + -zik végű hagkivetők (vérzhet, hiányztat)
+	* _alap/ige_targy: + -zik végű hangkivető E/3 felszólító (virágozzék)
+	* _alap/fonev_kulon: magyar+ország, török+ország!
+	* egyéb: külön él/különélés, heteseikkel, múlasz, stb.
+	* kivetelek/igekotos/ugrik: ugrotok, ugranak, stb. (Trón Viktor)
+	* _alap/melleknev: később, megfelelőbb (Godó Ferenc)
+	* levelek/chkmispell: Bíró Árpád, részben javítva
+	* _alap/fonev, informatika/fonev: neszkávé, kapucsínó, flopi, bájt
+	* ige_o: vissza a melléknévrag! (Túl sok hibát okozott a hiánya)
+
+2002-04-29  Németh László <nemeth@openoffice.org>
+	* aff.alanyi: befejezett melléknévi igenév külön (igee3_gen.awk), pl. elvetélteket már jó
+	* típushibák: fordulós, Istvánné, kellt
+	szervíz/elitélt/mennyasszony/sálok (ld. _alap/fonev_kulon), 
+	párat, milliós, csiklandanak, sálok, észzel, virslitlen, virsliszer, stb.
+	a hibákat Bíró Árpád, Trón Viktor, Godó Ferenc jelezte
+	* _matematika/, _alap/: mintegy 1000 új szó Bíró Árpádtól
+
+2002-04-17  Németh László <nemeth@openoffice.org>
+	* bin/i2myspell: fix a character conversion bug
+
+2002-04-17  Németh László <nemeth@openoffice.org>
+	* alanyi.aff, targyas.aff, fonev.aff: ikes/iktelen ragozás szétválasztása, ikes hangkivetős
+	esetek lekezelése (tárgyas magas hangrendű még hiányzik), T/2. alanyi jelen jav.,
+	a nyitótöves szótövek tárgyragja (fűt, toronyt, stb.) a hibákat Trón Viktor 
+	<tron@coli.uni-sb.de>, és Bíró Árpád <biro_arpad@yahoo.com>) jelezte
+	* egyéb: edz, baráta, csöndet, örömöt, mézet, másikok, gyomorok, bögölyök, térem, akaszttat, stb.
+	a javított hibák nagy részét Trón Viktor (tron@coli.uni-sb.de) jelezte
+	* _godo/ige_targy: javítás elkezdődött Bíró Árpád <biro_arpad@yahoo.com> hibalistái alapján
+	* GYIK: kisebb módosítások
+
+2002-03-27  László Németh <nemeth@openoffice.org>
+	* kivetelek/igekotos/edzpedz: revised words
+
+2002-03-08  László Németh <nemeth@openoffice.org>
+	* bin/i2myspell: fix a counting bug, add COMPOUNDMIN, COMPOUNDFLAG
+
+2002-02-21  László Németh <nemeth@openoffice.org>
+	* ige_gen.awk: remove ispell warning (reported by Alex Paterson <alex@tolon.co.uk>)
+
+2002-02-20  László Németh <nemeth@openoffice.org>
+	* affix source: bug fixes, many of them reported by Árpád Bíró
+	* _uj: some new words
+	* _alap: add words (eg. ~600 words from Árpád Bíró <biro_arpad@yahoo.com>)
+	* _matematika: mathematical terminology, ~400 words from Árpád Bíró 
+	* _godo: ~9000 words from Ferenc Godó <godo@trillian.hu> (1500 verbs!)
+
+2002-02-12  László Németh <nemeth@openoffice.org>
+	* bin/i2myspell: add compound_control_flag argument
+
+2002-02-11  László Németh <nemeth@openoffice.org>
+	* bin/i2myspell: Fix MySpell dictionary problem (reported 
+	  by Ferenc Godó <godo@trillian.hu>)
+	* Makefile: modified by György Pásztor <pasztor@linux.gyakg.u-szeged.hu>
+
+2002-01-11  László Németh <nemeth@openoffice.org>
+	* bin/i2myspell: Fix incompatible MySpell affix table problem (reported by Ferenc Godó)
+	* Makefile: Add $(DESTDIR) and $(dir)
+
+2002-01-11  László Németh <nemeth@openoffice.org>
+	* Makefile: fix problem with proper noun
+
+2001-09-20 - 2002-01-10  László Németh <nemeth@openoffice.org>
+	* affix source: lots of bug fixes, reported by Tamás Szántó <tszanto@mol.hu>
+	* dictionary: bug fixes, reported by Árpád Bíró <biro_arpad@yahoo.com>
+	* add words: vocabularies based on Jenő Rejtő's books (Elveszett 
+	    cirkáló, Szőke ciklon) and newspapers, sent by Tamás Szántó
+	* add words: vocabulary based on SuSE Linux terminology, sent by Marcel Hilzinger
+	* add words: vocabulary based on SuSE Linux books, sent by Egmont Koblinger
+
+1998-1999  Németh László <nemeth@openoffice.org>
+	* 0.1-es változat, a rendszer megalapozása:
+	- alanyi igeragozás
+	- zárt névszói tőosztályok kezelése
+	- keretrendszer
+	- alapszókincs
+	- egyéb affix forrásállományok, kivéve tárgyas igeragozást

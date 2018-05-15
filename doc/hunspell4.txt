@@ -1,0 +1,294 @@
+hunspell(4)                                           hunspell(4)
+
+
+
+NÉV
+       hunspell - a hunspell állományainak formátuma
+
+LEÍRÁS
+       A  Hunspell(1)  két  állományt  igényel  egy adott nyelven
+       történõ helyesírás-ellenõrzéshez.  Az  elsõ  állomány  egy
+       szótárállomány,  ami  az  adott  nyelv  szavait,  és  ezek
+       kapcsolóit (attribútumait) tartalmazza. A második állomány
+       egy  ragozási  (affixum)  állomány,  ami  meghatározza  az
+       említett kapcsolók jelentését. A hunspell, ellentétben  az
+       ispell-lel,    közvetlenül   használja   fel   ezeket   az
+       állományokat, tehát nem képez belõlük ún.  hash  állományt
+       (l.  ispell(4)).
+
+SZÓTÁRÁLLOMÁNY
+       Egy  hunspell szótárállomány elsõ sora a szótárállományban
+       lévõ szavak számát tartalmazza. A többi sor soronként  egy
+       szót tartalmaz. Minden szó után nem kötelezõen egy perjel,
+       és  egy,  vagy  több  kapcsoló  következhet.  A  kapcsolók
+       egybetûsek,  és  meghatározzák,  hogy  milyen toldalékokat
+       kaphat a tõszó. Például a
+
+              1
+              hunspellezik/EeX
+
+       szótár  egy  szót  tartalmaz  (hunspell),  ami  a   magyar
+       ragozási állomány alapján alanyi és tárgyas igeragozást is
+       vonz (E és e kapcsolók), valamint igekötõ prefixumokat  is
+       kaphat.  A  példa  szótárállomány  és  a  magyar  ragozási
+       állomány  alapján  a  meghunspelleztétek  helyes   szóként
+       kerülne felismerésre.
+
+
+RAGOZÁSI ÁLLOMÁNY
+       A   ragozási   állomány   rendszerint  kisebb  méretû,  és
+       különféle definíciók mellett a ragozási  szabályokat  adja
+       meg.
+
+              SET ISO8859-2
+              TRY íóúÍÓÚtaeslzánorhgkiédmyõpvöbucfjüûxwqTAESLZÁNO
+RHGKIÉDMYÕPVÖBUCFJÜÛXWQ-.
+              COMPOUNDMIN 2
+              COMPOUNDFLAG Y
+              COMPOUNDWORD 2 y
+              COMPOUNDSYLLABLE 6 aáeéiíoóöõuúüû
+              SYLLABLENUM klmc
+              COMPOUNDFIRST v
+              COMPOUNDLAST x
+              FORBIDDENWORD w
+              ONLYROOT u
+              ACCENT áéíóöõúüû aeiooouuu
+              CHECKNUM
+              WORDCHARS -.§%°0123456789
+
+              REP 2
+              REP j ly
+              REP ly j
+
+              PFX X Y 3
+              PFX X   0    meg          .
+              PFX X   0    rá           .
+              PFX X   0    össze        .
+
+              SFX e Y 3
+              SFX e   ik   tük          e[dz]ik
+              SFX e   ik   tétek        e[dz]ik
+              SFX e   ik   ték          e[dz]ik
+
+       A kulcsszavak jelentése:
+
+       SET    A karakterkészlet beállítása (ISO-8859-X).
+
+       TRY    A javaslattevésnél az 1 karakteres próbálkozásoknál
+              az  itt  felsorolt  karakterekre  cserél,   illetve
+              bõvít.
+
+       COMPOUNDMIN
+              A  legkisebb  méretû  szó, ami még összetett szóban
+              szerepelhet.  Szerepe csak a COMPOUNDFLAG  megadása
+              esetén van.
+
+       COMPOUNDFLAG
+              Itt  adható  meg a szóösszetételben való szereplést
+              engedélyezõ kapcsoló. Ha hiányzik ez a definíció  a
+              ragozási állományból, vagy nincsen használva az itt
+              megadott  kapcsoló  a  szótárállományban,   nincsen
+              összetettszó-kezelés az adott nyelvben.
+
+       COMPOUNDWORD
+              Egy,  vagy  két  paramétert  vár. Az elsõ paraméter
+              meghatározza, hogy hány tagszó  esetében  nem  kell
+              még    alkalmazni    a    szótagszámra    vonatkozó
+              korlátozásokat  az  összetett  szavaknál.   A   nem
+              kötelezõ   második  paraméterrel  azt  a  kapcsolót
+              adhatjuk meg, ami a  szótárba  közvetlenül  felvett
+              összetett szavakat jelöli majd. (Magyar MySpell)
+
+       COMPOUNDSYLLABLE
+              Két  paramétert  vár.  Az elsõ megadja az összetett
+              szavak tövének maximális  szótagszámát.  A  második
+              felsorolja  a  magánhangzókat,  amely  a szótagszám
+              megállapításához  szükséges.   Ha  hiányzik  ez   a
+              definíció,  akkor  nincsen  korlátozás az összetett
+              szavak tövének szótagszámára  vonatkozóan.  (Magyar
+              MySpell)
+
+       SYLLABLENUM
+              Egy paramétert vár. A paraméterben megadhatóak azok
+              a ragozási osztályok, amelyek ragozás esetén eggyel
+              növelik  az  összetett  szavak  tövénél kiszámított
+              szótagszámot. A magyarban ezek  a  melléknévképzõk:
+              kerékpárjavításainkról,    de    kerékpár-javítási.
+              (Magyar MySpell)
+
+       COMPOUNDFIRST
+              Az a kapcsoló,  amely  jelöli  azokat  a  szavakat,
+              amelyek  az  összetett  szavak  elején fordulhatnak
+              elõ. (Magyar MySpell)
+
+       COMPOUNDLAST
+              Az a kapcsoló,  amely  jelöli  azokat  a  szavakat,
+              amelyek az összetett szavak végén fordulhatnak elõ.
+              Használható az elõzõvel együtt is. (Magyar MySpell)
+
+       FORBIDDENWORD
+              A  tiltott  szavakat  jelölõ  kapcsoló.  A  tiltott
+              szótövek   toldalékolt   alakjai   is    letiltásra
+              kerülnek. (Magyar MySpell)
+
+       ONLYROOT
+              Az  elõzõ  kapcsoló mûködését befolyásoló kapcsoló.
+              Ha  egy  szó  a  FORBIDDENWORD   és   az   ONLYROOT
+              kapcsolóval  is  rendelkezik,  akkor  csak a tõalak
+              lesz  letiltva,  a  tõ  toldalékolt  alakjai   nem.
+              (Magyar MySpell)
+
+       ACCENT Az    ékezetesítéshez    szükséges    betûket   két
+              paraméterrel adhatjuk meg itt. Az elsõ paraméter az
+              ékezetes   karaktereket,   a   második  az  azoknak
+              megfelelõ ékezet nélküli párokat adja meg.  (Magyar
+              MySpell)
+
+       CHECKNUM
+              A   számokat   tartalmazó   szavak   ellenõrzésének
+              bekapcsolása. (Magyar MySpell)
+
+       WORDCHARS
+              Paramétere azok a karakterek, amelyek a  beállított
+              kódolás  (pl.   a  magyar  esetében  az ISO-8859-2)
+              betûi  mellett   még   szavakban   elõfordulhatnak.
+              (Magyar MySpell)
+
+       REP    A   javítási   cseretáblázat   megadására  szolgáló
+              definíciók.  Az elsõ REP után adjuk meg a többi REP
+              sor  számát.   Ezek  a  sorok  már  két  paramétert
+              várnak:  elõször  megadjuk  a  felismerendõ  mintát
+              (szövegrészletet),     utána     pedig     azt    a
+              karaktersorozatot,   amire   a   felismert   mintát
+              cserélni   szeretnénk.   A  helyesírás-ellenõrzõ  a
+              cseretáblázat révén  tud  helyes  javaslatot  tenni
+              többkarakteres eltérés (pl. j/ly) esetén.  A Magyar
+              Ispellben  meglévõ  keresztellenõrzés   miatt   egy
+              karakteres   cserék  (i/í)  is  szerepelnek  a  REP
+              táblázatban. Ennek köszönhetõ, hogy az amúgy helyes
+              nem    szótári    szóösszetételek    nem   kerülnek
+              elfogadásra, ha a  cseretáblázat  egyik  cseréjével
+              elõállíthatók   egy   szótári  szóból  (például:  a
+              ,,színtû'' szó hibás összetett szó  lesz,  mert  az
+              i->í cserével elõállítható a szintû szóból).
+
+       PFX    Prefixum   megadására   szolgáló   definíciók.    A
+              prefixumok egykarakteres névvel jelölt  osztályokba
+              vannak sorolva. A példában az X osztály definíciója
+              látható. Az egyes osztályokra vonatkozó PFX  fejléc
+              tartalmazza a következõket:
+
+              (1) az osztály betûjelét (a példában X)
+
+              (2)  a  keresztbe  való  kombinálás  engedélyezése,
+              illetve tiltása (Y/N). Engedélyezés esetén az adott
+              prefixum   akkor   is   alkalmazható,  ha  a  tõszó
+              toldalékolt  alakban  fordul  elõ.   Ehhez  az   is
+              szükséges,   hogy  a  toldalék  (affixum)  ragozási
+              osztályában is legyen engedélyezve a kombinálás.
+
+              (3) az osztályba tartozó bejegyzések számát
+
+              A PFX fejlécet követõ sorokban  a  PFX  paraméterek
+              jelentése a következõ:
+
+              (1) az osztály betûjele
+
+              (2)  a  ragozásnál  a  szó  elejérõl  leválasztandó
+              karaktersorozat.  Ha nem kell  leválasztani,  akkor
+              0.
+
+              (3)  a  prefixum  (például  igekötõ,  vagy  a leg-,
+              legesleg- a mellékneveknél).
+
+              (4) a minta, ami  ha  illeszkedik,  alkalmazható  a
+              szabály.   Például  ha  itt kutya szerepelne, akkor
+              csak a kutya kezdetû szavak elé  lehetne  tenni  az
+              ebben   a   sorban  megadott  prefixumot.  A  minta
+              megadásánál a pont (.)  speciális jelentéssel  bír:
+              minden  karakterre  illeszkedik.   Megadhatunk csak
+              bizonyos   karakterekre   illeszkedõ   mintát    is
+              szögletes zárójelek segítségével. Például az [abcd]
+              illeszkedik az a, b, c, illetve d karakterekre  is.
+              Vigyázat!  Ellentétben  az  Ispell-lel,  a  kötõjel
+              szerepe a szögletes zárójelek között nem speciális,
+              vagyis kötõjelet jelent, és nem karaktertartományt.
+              Ha  a  nyitó  szögletes  zárójel  után  kalap   (^)
+              karakter     található,     a     karaktertartomány
+              komplementerére illeszkedik a  minta,  hasonlóan  a
+              reguláris kifejezésekhez (l.  regex(7)).
+
+       SFX    A  PFX-szel megegyezõ paramétereket kap, csak nem a
+              szó eleji, hanem a szó  végi  toldalékok  leírására
+              szolgál.  A példában szereplõ definíciók jelentése:
+              az -edik, vagy -ezik végû szavakra  alkalmazható  a
+              három  szabály. A rag illesztésénél levesszük a szó
+              végi -ik karaktersorozatot, és  szabálytól  függõen
+              illesztjük   a  -tük,  -tétek,  -ték  toldalékokat,
+              végeredményben -edtük,  -edtétek,  -edték,  illetve
+              -eztük, -eztétek, -ezték végû szavakat kapva.
+
+       A  ragozási  állomány  ezeken  kívül még megjegyzéseket is
+       tartalmazhat, ezért az adott szótár változatát, szerzõjét,
+       felhasználási engedélyeit itt keressük.
+
+SAJÁT SZÓTÁR
+       A saját szótár formátuma közel megegyezik a szótárállomány
+       formátumával. A különbségek a következõek:
+
+       (1) Nem kell megadni az elsõ sorban  az  állományban  lévõ
+       szavak méretét. (Ne is adjuk meg!)
+
+       (2) A sorban a kapcsolók helyett megadhatunk két perjellel
+       elválasztva egy mintaszót is, aminek a kapcsolóit örökli a
+       késõbbiekben  a  saját  szótárba  felvett  szó.  Például a
+       Patyomkin//Ádám sor jelentése, hogy a  Patyomkin  szót  az
+       Ádáméval megegyezõ ragozással is el kell fogadni.
+
+       (3)  Az  állomány  kézzel  módosítható,  és  ezt  idõnként
+       javasolt is  megtenni,  ha  esetleg  hibásan  vettünk  fel
+       szavakat.
+
+LÁSD MÉG
+       hunspell  (1),  ispell  (1),  ispell  (4),  Magyar  Ispell
+       dokumentáció.
+
+TÖRTÉNET
+       A   MySpell   szótár-,   illetve   ragozási   állományának
+       formátumát  Kevin  Hendricks készítette olyan céllal, hogy
+       lehetõvé  tegye  ezen  állományok   gyors,   futás   idejû
+       feldolgozását.
+
+       A  COMPOUNDFLAG  és  a  Magyar  MySpell  formátumbõvítést,
+       valamint  a  REP  többkarakteres  cseretáblázatot   Németh
+       László   készítette   elsõsorban   a  jobb  magyar  nyelvû
+       helyesírás-ellenõrzés      céljából.      A      minimális
+       összetettszó-kezelést     lehetõvé    tevõ    COMPOUNDMIN,
+       COMPOUNDFLAG, és a REP többkarakteres cseretáblázat  része
+       a hivatalos MySpell függvénykönyvtárnak is.
+
+       A Magyar MySpell szótárállományának formátuma megegyezik a
+       MySpell függvénykönyvtáréval, a ragozási táblázat pedig  a
+       fentiekben  felsorolt bõvítéseket tartalmazza.  A bõvített
+       formátumú affixum állomány gond  nélkül  együttmûködik  az
+       eredeti MySpell függvénykönyvtárral is, de a bõvítések nem
+       fognak  mûködni.  Sõt,  mivel  a  hivatalos  MySpell   egy
+       megengedõbb  összetettszó-kezelést  valósít  meg,  mint  a
+       magyar változat, az összetett szavakon belüli  toldalékolt
+       alakok  is  elfogadásra  kerülnek  (ez különösen sok hibás
+       összetétel  elfogadását   eredményezi   a   magyar   nyelv
+       esetében).
+
+       Ebbõl   fakad,  hogy  a  hivatalos  Magyar  OpenOffice.org
+       (http://office.fsf.hu)   -   mivel   a   Magyar    MySpell
+       függvénykönyvtárat tartalmazza - jobban támogatja a magyar
+       nyelvet, mint más változatok.  Egyszerûen  meggyõzõdhetünk
+       arról, hogy melyik változattal van dolgunk: írjuk be, hogy
+       helyesírásellenõrzõ  az  OOo   szövegszerkesztõjébe.    Ha
+       hibásnak jelzi, és helyesírás-ellenõrzõt javasol helyette,
+       a Magyar MySpell-lel van dolgunk. Ha helyesnek fogadja el,
+       akkor pedig az eredeti MySpell-lel.
+
+
+
+                        2003. március 25.             hunspell(4)

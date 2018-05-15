@@ -1,0 +1,40 @@
+# valtozok
+#
+# a $ROOT a scriptek bemeno parametere
+
+LC_ALL=C
+
+# GNU vagy BSD awk!
+AWK="/usr/bin/awk"
+
+# ne valtoztasd.  csak ha tudod mit csinalsz...
+AWKDIR="$ROOT/awk"
+WRKDIR="$ROOT/tmp"
+BINDIR="$ROOT/bin"
+SZOTAR="$ROOT/szotar"
+DICT="$WRKDIR/dictionary"
+
+# a kovetkezok a soremeles nelkuli echo miatt szuksegesek
+
+if [ "`echo -n`" = "" ]; then
+  EN="-n"; EC=""
+else
+  EN=""; EC="\c"
+fi
+
+echo_n()
+{
+  echo $EN "$1$EC"
+}
+
+# mez¿k törlése
+rmfld () {
+  sed 's/^\([^ 	]*\)[[].*]/\1/'
+}
+
+# mez¿k kigy¿jtése: cowboy[ph:kovboj] -> cowboy	[ph:kovboj]
+field () {
+  awk '/^[^	]+[[]/{print $1 >>"mezok.txt";}{print$0}' |
+  rmfld
+}
+

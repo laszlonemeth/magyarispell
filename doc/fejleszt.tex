@@ -1,0 +1,1327 @@
+
+\chapter{Fejlesztõi dokumentáció}
+
+\section{Helyesírás-ellenõrzõk ismertetése}
+
+Számos helyesírás-ellenõrzésre szolgáló program,
+illetve függvénykönyvtár áll a szabadszoftver-fejlesztõk
+rendelkezésére.
+
+\subsection{Aspell}
+
+Angol nyelvterületen a legkedveltebb helyesírás-ellenõrzõ
+szabad szoftver az \emph{Aspell}, Kevin Atkinson munkája. Az Aspell
+az angol nyelv fonetikai információinak
+ismeretében egy speciális algoritmussal képes nagymértékû
+alaki eltérések esetén is helyes javaslatot tenni.
+
+Sajnos a programból hiányzik a nagy mennyiségû ragozási
+szabály hatékonyan kezelésének képessége,
+ezért nem megfelelõ a magyar
+és sok egyéb nyelv számára sem.
+
+\subsection{Ispell}
+
+Az Ispell egyenes ági leszármazottja  R. E. Gorin 1971-ben,
+PDP-10-re assemblyben írt \emph{Spell} programjának.
+A Spellt Pace Williamson írta át C nyelvre 1983-ban.
+Geoff Kuenning 1987 és 1988 között nagyobb változtatásokat
+eszközölt a kódon, amelynek számunkra legjelentõsebb
+lépése az affixum tömörítési technika bevezetése volt,
+az affixum tömörítéssel ugyanis lehetõvé vált
+nagyszámú ragozási szabály futásidejû hatékony
+kezelése is. Gyakorlatilag ennek köszönhetõ,
+hogy az Ispellhez több tucat nyelv helyesírási szótármodulja
+készülhetett el, köztük olyan agglutináló nyelveké, mint a finn
+és a magyar.
+
+A magyar nyelv vonatkozásában az is
+kiemelhetõ, hogy az Ispell szabályozott szóösszetétel-képzési lehetõséggel
+rendelkezik, vagyis a szóösszetétel-képzést korlátozhatjuk
+a szavak egy bizonyos részhalmazára.
+
+Az Ispell egyéb kiemelhetõ tulajdonságai:
+
+\begin{itemize}
+\item De facto szabvány a szabad szoftverek világában. 
+A Free Software Foundation GNU fejlesztésének alapértelmezett
+helyesírás-ellenõrzõje, és a legtöbb Linux
+terjesztésben is megtalálható.
+
+\item A csõben használható felületének köszönhetõen számos
+programba ,,beágyazható'' (pl. Emacs, Kword, LyX).
+\end{itemize}
+
+\subsection{Pspell}
+
+A Pspell függvénykönyvtár Kevin Atkinson kezdeményezése, ami
+az Aspell és az Ispell elõnyeit hivatott a forráskód
+egybefogásával biztosítani.
+
+\subsection{Myspell}
+
+A Myspell az OpenOffice.org irodai programcsomaghoz
+készült BSD licencû helyesírás-ellenõrzõ függvénykönyvtár.
+
+2001-ben kezdte fejleszteni Kevin Hendricks azzal a
+szándékkal, hogy a GPL licenc alatt is elérhetõvé tett,
+de a licencelt szoftverkomponensektõl (mint a nyelvi
+modulok) is megszabadított StarOffice -- új
+nevén OpenOffice.org -- helyesírás-ellenõrzõvel
+rendelkezhessék.
+
+A Myspell egy kicsi, C++-ban megvalósított program, amely
+az Ispell tömörítési algoritmusán
+alapszik és kis változtatással képes
+az Ispell szótármodulok használatára is.
+
+A Myspellnek az Ispell-lel szemben több határozott elõnye van:
+
+\begin{itemize}
+\item Kicsi és áttekinthetõ: mivel csak a lényeget
+tartalmazza, kiváló kiindulási alapot jelent egy
+professzionális magyar helyesírás-ellenõrzõ
+program elkészítéséhez.
+
+\item A C++ nyelv megkönnyíti a keresztplatformos
+C++-alapú fejlesztésekhez való integrációját.
+
+\item Nagy mértékben hordozható, mivel
+eleve Unix/Linuxra és Windowsra fejlesztik
+egyidejûleg.
+
+\item Szintén a hordozhatósággal kapcsolatos,
+hogy a Myspell futásidõben állítja elõ két egyszerû
+szöveges állományból --
+a ragozási szabálygyûjteménybõl (affixum állomány),
+és a szótárállományból -- a mûködése során használt
+speciális adatszerkezeteket. Ezzel szemben az Ispell
+bináris adatállományokat használ, 
+sõt az Ispell program fordítási idejû beállításaitól
+függ, hogy futásidõben képes-e feldolgozni ezt
+a bináris adatállományt, vagy sem.
+
+\item Egy Unix/Linux, és Windows operációs
+rendszerek alá készült professzionális irodai
+programcsomag, az OpenOffice.org része, amely
+szabad szoftverként minden felhasználó számára
+elérhetõ ingyenesen, jogtisztán és korlátozások
+nélkül.
+
+\item Az említett vonzó tulajdonságok miatt
+több közremûködõ is folyamatosan fejleszti
+a Myspellt. Így került bele a Myspell kódjába
+egy jelentõs sebességoptimalizáció, egy a javaslattevés
+minõségét nagy mértékben növelõ megoldás (javítási
+cseretáblázat), valamint a hiányzó szóösszetétel-képzési lehetõség
+és több kisebb hiba javítása.
+
+\item Az említett szóösszetétel-képzési kiegészítés
+javítja az Ispell egy bosszantó (bár kevésbé feltûnõ) hibáját:
+az Ispell egy szó ragozott alakját akkor is elfogadja
+egy szóösszetételben, ha amúgy a tõszót nem
+(pl. kutyaokos hibás, de kutyaokosnak elfogadott szóösszetétel).
+\end{itemize}
+
+\subsection{Mozilla Spell Checker}
+
+A Myspell forráskódján alapuló ellenõrzõ.
+David Einstein munkája. A Mozilla Spell Checker
+jelentõs sebességoptimalizációja visszakerült
+a Myspellbe, és a tervek szerint a két
+ellenõrzõ egyesülni fog a közeljövõben.
+
+\subsection{Magyar Myspell}
+
+A Myspell forráskódján alapuló GPL licencû ellenõrzõ,
+amit 2002-ben kezdtem fejleszteni.
+
+Elõször kisebb hibajelentések illetve foltok
+készültek a Myspellhez, de késõbb rákényszerültem
+az idõ és a támogatni kívánt nyelvek sajátosságai
+ismeretének hiányában egy külön ág létrehozására.
+
+A Magyar Myspell fejlesztés eredményeként került az eredeti
+Myspell ágba, és az így az OpenOffice.org-ba is
+a szóösszetétel-képzési lehetõség,
+valamint a javaslattevés minõségét jelentõs
+mértékben emelõ javítási cseretáblázat-kezelés.
+
+A külön Magyar Myspell ág a következõ fontosabb
+tulajdonságokkal rendelkezik:
+
+\begin{itemize}
+\item A magyar helyesírás szabályai 138. számú
+kötõjellel írási szabályához (3-6-os szabály) igazított
+szóösszetétel-ellenõrzés.
+
+\item Javaslattevés a szótárban nem szereplõ
+szóösszetételek esetén is.
+
+\item A szókincs futásidejû bõvítésének lehetõsége.
+
+\item Az újonnan felvett szavak továbbragozása egy
+mintaként megadott tõszó alapján.
+
+\item Javított javaslattevés nagybetût tartalmazó szavakra.
+
+\item A mássalhangzó-triplázások letiltása (sakkkör).
+
+\item Csõ felület a beágyazáshoz.
+
+\item Ékezet nélküli szavak esetén helyes javaslattevés.
+
+\item Hibásan írt szavak helyes szóösszetételként
+való elfogadásának megakadályozása. Az egyes tõszavak
+szóösszetételben való megjelenésének (és ezzel teljes
+szóbokrok) letiltása helyett a javítási cseretáblázat
+(esetleg a teljes javaslattevõ modul)
+felhasználásával megvizsgálható, hogy nem tipikus
+hibáról van-e szó ritka szóösszetétel helyett.
+(Ilyen hibás összetételek, amelyek korábban csak az egyik
+tõszó teljes letiltásával vagy sehogy nem voltak
+lekezelve: szervíz, vizitorma, birság, elitélt, vasárú,
+tejles, szívéjes, karvaj, stb.)
+
+\end{itemize}
+
+Számos egyéb tulajdonság megjelenése a közeljövõben
+várható:
+
+\begin{itemize}
+
+\item Kötõjeles és nagykötõjeles alakok ellenõrzése
+a kötõjellel kapcsolt toldalékok, ikerszók, a
+mozgószabály alapján egybeírt szóösszetételek,
+földrajzi nevek, számnevek és nagykötõjelet tartalmazó
+összetételek esetében.
+
+\item Szóismétlések kiszûrése (esetleg opcionálisan).
+
+\item Kötelezõ egybeírásra való figyelmeztetés (pl.
+legalábbis, véghezvisz).
+\end{itemize}
+
+\subsection{OpenOffice.org}
+
+Nem kifejezett helyesírás-ellenõrzõ, de a Magyar Myspell
+fejlesztésének egyik kiemelt célpontja.
+
+Az OpenOffice.org alapját képezõ StarOffice
+a német StarDivision cég kereskedelmi terméke volt a
+90-es években. A Sun Microsystems a céget és termékét felvásárolta
+üzleti megfontolásokból. A cég 2000-ben GPL licenc mellett 
+szabad szoftverré tette a StarOffice
+nagy (a StarDivision által fejlesztett) részét.
+A licencelt nyelvi eszközöktõl, és adatbázis-technológiától megfosztott
+program az OpenOffice.org nevet kapta (az OpenOffice védett név volt,
+ezért a furcsa, a nyitott fejlesztés honlapjának címét hordozó
+elnevezés). A Sun jelenleg kereskedelmi támogatással vállalati
+ügyfelek számára az OpenOffice.org-on alapuló StarOffice-t
+is biztosítja.
+
+Az OpenOffice.org jellemzõi:
+
+\begin{itemize}
+\item Professzionális irodai programcsomag
+\item Kiváló Microsoft Office export, import szûrõk
+\item Nagy méretû, sok képet tartalmazó dokumentumok gyors kezelése.
+\item GPL-es: ingyenes, módosítható, terjeszthetõ (illetve kettõs licencelésû).
+\item XML alapú saját fájlformátum (Java jar formátumú állományokban).
+\item UNICODE támogatás, még ázsiai nyelvekhez is (mindkettõ Sun fejlesztés)
+\item A GPL licenc alá nem helyezhetõ licencelt részek fokozatos kiváltása
+(\emph{lingucomponent} kísérleti fejlesztés: Myspell helyesírás-ellenõrzõ,
+ALTLinux elválasztó modul, szinonimaszótár, nyelvhelyességi ellenõrzés).
+\item Honosított: magyar helyesírás-ellenõrzés a Magyar Myspell
+helyesírás-ellenõrzõ, és -javító programmal, és a Magyar Ispell
+szótármodullal. Magyar elválasztás Mayer Gyula és Miklós Dezsõ
+\texttt{huhyph.tex} \TeX\ elválasztási moduljával. Mintegy 20\,000 programfelirat
+és -üzenet magyar fordítása.
+\end{itemize}
+
+A számos új funkció miatt is az OpenOffice.org sokáig
+fejlesztõi stádiumban volt. Mivel azonban a program meglepõen
+üzembiztos és jól használható, 2002-ben (marketing okokból is)
+kibocsátásra került az 1.0-s elnevezésû változat.
+
+A fejlesztõi változat jelenleg
+még az eredeti számozást használja (641D), de ez a számozás
+várhatóan a közeljövõben megszûnik.
+
+A Magyar OpenOffice.org változatai a \url{http://office.fsf.hu}
+oldalon jelennek meg, a fejlesztõi változatok a
+\url{http://office.fsf.hu/work} könyvtárban találhatók. A Magyar
+OpenOffice.org windowsos és linuxos változatai a OOo változatszám
+mellett egy csomagszámot is kapnak (egymástól függetlenül).
+Tehát pl. a legfrissebb linuxos Magyar OpenOffice.org
+teljes ,,neve'': Magyar OpenOffice.org 1.0, 
+43-as számú linuxos csomag.
+
+\section{Az Ispell felépítése és mûködése}
+
+Az Ispell adatállományai \texttt{.hash} kiterjesztéssel rendelkeznek, és
+Unix/Linux alatt a \texttt{/usr/lib/ispell/} vagy \texttt{/usr/local/lib/ispell/}
+könyvtárban kerülnek elhelyezésre.
+
+Egy ilyen hash állomány (pl.\ a \texttt{magyar.hash}) két
+fõ részbõl áll: tartalmazza a (ragozási) osztályokba sorolt
+ragozási szabályokat, és tartalmazza a tényleges hasítótáblát
+is. A~hasítótábla tárolja a tõszavakat és minden egyes tõszónál
+még az azon alkalmazni kívánt ragozási osztály vagy osztályok
+kapcsolóit.
+
+Egy Ispell hash-állomány a \texttt{buildhash} paranccsal állítható
+elõ, amely két állományt vár bemenetként: egy
+ragozási szabályokat (és egyéb beállításokat) tartalmazó
+affixum állományt és egy szótárállományt, amely a tõszavakat
+és kapcsolóikat tartalmazza.
+
+\subsection{Ragozási szabályok}
+
+Az Ispell affixum állomány formátumát egy kézikönyvoldal (man 4
+ispell) ismerteti részletesen. Itt most csak a ragozási szabályokat,
+és az affixum tömörítés módszerét vizsgáljuk meg közelebbrõl.
+
+Egy ragozási szabály nem más, mint egy feltételes
+kifejezés, amely leírja, hogy milyen feltételek között
+milyen módon helyezhetünk toldalékot egy alapszóhoz.
+
+Az Ispell ragozási szabályainak leírása emlékeztet
+a szabványos regex reguláris kifejezésekre, és
+a következõ fõ jellemvonásokkal rendelkezik:
+
+\begin{itemize}
+\item A feltétel a tõszó utolsó (prefixum esetén elsõ) legföljebb nyolc
+karakterére vonatkozik.
+
+\item A feltételben erre a legföljebb nyolc karakterre
+vonatkozóan szerepelhetnek karaktertartományok is.
+
+\item A toldalékolásnál a toldalék hozzáillesztése elõtt
+lehetõség van a tõszó végének leválasztására.
+Itt viszont már nem használhatunk karaktertartományokat
+(pontosan ismerni kell a leválasztandó karaktert vagy
+karaktersorozatot).
+\end{itemize}
+
+Példák, amelyek bemutatják a ragozási szabályok szintaxisát.
+(A kettõs kereszt után sor végéig tartó megjegyzés
+következik, amely már nem része a ragozási szabálynak.)
+
+\begin{verbatim}
+Z         >  Z        # ráz -> rázz
+Z         >  ZÁL      # ráz -> rázzál
+E D Z     >  ENEK     # edz -> edzenek, pedz -> pedzenek
+[ÓUÚ]     >  VAL      # ló -> lóval, apu -> apuval, bú -> búval
+[^AE]     >  NAK      # okos -> okosnak
+.         >  KÉNT     # kutya -> kutyaként, okos -> okosként
+A         >  -A,ÁNAK  # macska -> macskának
+[^SD] Z I K >  -IK,Z  # barátkozik -> barátkozz
+\end{verbatim}
+
+Az elsõ két példa jelentése, hogy Z betûre végzõdõ tõszó
+Z, és ZÁL toldalékkal rendelkezõ alakja is helyes (ez 
+a kisbetûs alakokra is vonatkozik).
+
+A harmadik példa szerint az EDZ betûsorozatra végzõdõ
+szavak ENEK toldalékot is kaphatnak.
+
+A negyedik példában karaktertartományt adunk meg az utolsó
+karakterre vonatkozóan: minden Ó, U, és Ú-ra végzõdõ szó
+VAL toldalékot kaphat.
+
+Az ötödik példa komplementer karaktertartományt ad meg:
+ha a szó nem A vagy E betûre végzõdik, megkaphatja a
+NAK toldalékot.
+
+A hatodik példa a tetszõleges karakter jelét, a pontot
+mutatja be: bármely szó megkaphatja a KÉNT ragot.
+
+A hetedik példa a tõszó végének levágását mutatja be:
+az A-ra végzõdõ szavak ÁNAK toldalékot kaphatnak a
+szóvégi A levágásával.
+
+Az utolsó egy kombinált példa: A nem SZIK, vagy DZIK végû,
+de ZIK-re végzõdõ szavak Z toldalékot kaphatnak
+a szó végi IK levágásával. Így pl. a barátkozik$\rightarrow$barátkozz
+helyes átalakítás, de a vakaródzik$\rightarrow$vakaródzz, illetve
+mászik$\rightarrow$mászz már nem.
+
+\subsection{Ragozási osztályok}
+
+Az elõzõ példák meglehetõsen keverve tartalmaztak
+különbözõ szófajú szavakra vonatkozó (és részben hibás)
+szabályokat. Az Ispell ragozási osztályok kialakításának
+lehetõségével biztosítja, hogy a tõszavakat a kategóriájuknak
+megfelelõ ragokkal láthassuk el. A ragozási osztályok
+egy betûs (vagy egy karakteres) névvel rendelkeznek, amit
+a továbbiakban kapcsolóknak nevezünk.
+
+Példa két ragozási osztály definiálására:
+
+\begin{verbatim}
+flag A:
+
+[^L] L  >  LAL  # pedál -> pedállal
+[^L] L  >  LÁ   # pedál -> pedállá
+L L     >  AL   # szakáll -> szakállal
+L L     >  Á    # szakáll -> szakállá
+
+flag B:
+
+L       >  NAK  # szaval -> szavalnak
+L L     >  ANAK # javall -> javallanak
+\end{verbatim}
+
+Az elsõ osztály a mély hangrendû fõnevek ragozásának
+egy részletét mutatja, az L betûre végzõdõ szavak -val
+toldalékolását, míg a másik osztály a mély hangrendû
+alanyi igeragozás egy részletét.
+
+\subsection{Szótárállomány}
+
+Az Ispell szótárállományban (.dict fájl)
+egyszerûen felsoroljuk a tõszavakat, a megfelelõ kapcsolókkal
+ellátva:
+
+\begin{verbatim}
+macska/A/E/G
+pedál/A/F
+akar/B/C
+szaval/B
+legalábbis
+\end{verbatim}
+
+Látható, hogy egy tõszó tetszõleges számú
+ragozási osztályba sorolható, de akár
+ragozási osztályt sem kötelezõ megadni.
+
+\subsection{Affixum tömörítés}
+
+Minden ragozási szabályhoz egy 256 byte-ból álló
+tömb kerül a hash állományba. A tömb szerepe, hogy
+gyorsan eldönthetõ legyen egy ragozott szóról, hogy
+az adott ragozási szabály alkalmazásával állt-e elõ,
+vagy sem. A tömb az ASCII karaktertábla elemeivel
+indexelhetõ, és visszaad egy byte-ot, ami a már említett
+8 karakterpozícióra vonatkozó elõfordulási információkat
+tartalmazza: pl. ha a tömb['A'] elem értéke binárisan
+11111010, akkor a tõszóra nem alkalmazható
+a ragozási szabály, ha a tõszó ,,A'' betûre végzõdik,
+vagy a kettõvel elõtti pozíción is ,,A'' betû található.
+
+A Myspell forráskódja részletesen dokumentálva tartalmazza
+az affixum tömörítési algoritmust. Amiért itt említésre került,
+az az, hogy az affixum tömörítés elnevezés nem
+az affixum állomány kisebb méretre való tömörítésére utal,
+hanem arra, hogy a lehetséges gyors adatszerkezetek
+közül talán a legtömörebbet sikerült Geoff Kuenningnek
+megtalálnia, gyakorlatilag a ragozási szabályokban szereplõ
+karaktertartományok hatékony tárolásával és kezelésével.
+
+\section{Magyar Ispell}
+
+A Magyar Ispell egy keretrendszer, amely magyar
+affixum és szótárállományt állít elõ az Ispell számára.
+Az \texttt{i2myspell} program segítségével ezekbõl
+az állományokból hozható létre a megfelelõ Myspell affixum
+és szótárállomány is.
+
+\subsection{Történet}
+
+A Magyar Ispell kialakítását 1998-ban kezdtem. 1999-re
+a tárgyas igeragozás, néhány képzõs toldalékolás, sok
+határozószó és névutó kivételével a helyesírási-modul
+hibákkal ugyan, de alapjaiban elkészült. A félkész
+helyesírás-ellenõrzõvel 1999-ben a Közmûvelõdésügyi
+Minisztérium és a Matáv által közösen
+meghirdetett ,,A Magyarországi digitális kultúráért''
+pályázaton is részt vettem, de sikertelenül.
+
+1999 õszén a helyesírás-ellenõrzõvel való munkát befejeztem,
+az eredmények 2000 nyaráig, azonosítóm megszûntéig elérhetõek
+voltak a \url{http://sol.cc.u-szeged.hu/~nemethl/} címen.
+
+2001 õszén Szántó Tamás, a KDE grafikus felület magyar
+honosítója felajánlotta a segítségét az ellenõrzõ
+fejlesztésének folytatásához. Tamás folyamatosan tesztelte
+az ellenõrzõt, számos (ragozási) típushibát megtalálva.
+A tesztelések eredménye volt a szókincs jelentõs bõvítése is.
+
+Tamás munkáját Bíró Árpád folytatta, elsõsorban további
+típus- és egészen különleges rejtett hibák feltárásával,
+a matematikai és egyéb nyelvi modulok összeállításával
+és a forrásállományok ellenõrzésével. 
+
+Godó Ferenc hatalmas szólistáival az ellenõrzõ alkalmassá vált
+a mindennapos munkára.
+
+A Magyar Ispell fejlesztése 2002 januárjáig ,,titokban''
+folyt, ekkor jelent meg az elsõ nyilvános változat.
+
+A nyilvánosságra hozatalt követõen csatlakozott
+hozzánk Trón Viktor, aki további
+hibák, illetve hiányosságok feltárása mellett internetes
+forrásokból összegyûjtötte, és a Magyar Ispell számára feldolgozta
+a mai és történelmi magyar helységneveket, illetve --
+aminek külön örülök -- elsõként vállalkozott
+az alul dokumentált Magyar Ispell keretrendszer
+mûködésének megismerésére, és ennek eredményeképp
+a szótõgenerálás egyes részeinek javítására.
+
+A Magyar Ispellbõl Koblinger Egmont -- aki
+számos hasznos észrevétellel, és szólistával
+is hozzájárult a Magyar Ispellhez -- készített folyamatosan
+(SuSE) RPM csomagokat, illetve Pásztor György Debian 
+karbantartó DEB csomagokat.
+
+Talán a Magyar Ispell hatására a megalakulófélben
+lévõ FSF.hu Alapítvány az OpenOffice.org
+honosítása mellett döntött, és szervezésükben
+egy hétvége alatt a programcsomag tízezres nagyságrendû
+feliratai, és üzenetei kerültek lefordításra.
+Jelenleg a magyar OpenOffice.org linuxos változatának
+Noll János, windowsos változatának Bencsáth Boldizsár a karbantartója
+(\url{http://office.fsf.hu/}).
+
+\subsection{Alapvetõ problémák}
+
+Az agglutináló nyelvekhez nem magától értetõdõ az
+Ispell szótármodulok elkészítése. A legjelentõsebb megoldandó
+problémák a következõek voltak a
+Magyar Ispell kidolgozása során:
+
+\begin{enumerate}
+\item Az Ispellben nincs többszörös toldalékolási
+lehetõség. Míg a magyar nyelv gazdag a képzõkben, jelekben,
+és ragokban, addig az Ispell csak a tágabb értelemben
+vett ragok kezelésére képes. A lehetséges szó végi hasonulások,
+képzõk, jelek és ragok
+kombinációi miatt igen nagy számú ragozási szabály megadása szükséges,
+amit ,,kézzel'' helyesen és belátható idõ alatt megadni lehetetlen.
+
+\item A szótárállományra ugyanez vonatkozik: közvetlen
+elkészítése nagy nehézségekbe ütközik, és az eredmény nehezen
+módosítható a késõbbiekben.
+
+\item Az
+egyes képzõk olyan számú képzõ+jel+rag kombinációt állítanak elõ,
+és ennek megfelelõ számú ragozási szabályt igényelnek,
+amelyet már nem lehet elfogadható méretû állományban tárolni.
+
+A magyar Ispell hash állomány jelentõs részét (több, mint 60\%),
+a jelenlegi 10000 ragozási szabályt tároló affixum tömörítést
+használó adatszerkezet (tehát nem a tényleges szótári hasítótábla)
+teszi ki, mintegy 5-7 MB-on. Ha az összes lehetséges képzõ kombinációt
+ragozási szabályokkal próbálnánk tárolni, nagy valószínûséggel
+nagyságrendi növekedésre lehetne számolni a fájlméretben
+és a helyesírás-ellenõrzés idõigényében is.
+
+\item Az Ispellben nincs lehetõség nem szótári tövek
+felvételére. A morfofonológiai alternációk egy része, mint a szó végi
+,,a'', ,,e'' változása (macska$\rightarrow$macskát) jól kezelhetõ a
+ragozási szabályokkal, de a hangkivetõs fõnevek
+(eper$\rightarrow$epret)\label{hangkiveto}, a nyitótövek
+(kéz$\rightarrow$kezek), a hangugratós igék
+(bérel$\rightarrow$bérlem)\footnote{Lásd pl.\
+\cite[832 skk.]{smny3}.} már nem,
+ráadásul ezek igen változatos formát mutatnak a magyar nyelvben.
+
+\item Nemcsak a ragozási szabályok
+számát sem növelhetjük az égig, hanem a ragozási osztályok száma
+sem haladhatta meg pusztán gyakorlati megfontolásból a 26-ot
+(a legtöbb Linux terjesztés ugyanis pár éve ilyen
+korlátozásokkal fordított bináris Ispellt tartalmazott).
+\end{enumerate}
+
+Megoldás szerencsére mindegyik pontra akadt:
+
+\begin{enumerate}
+\item Az affixum állomány, és a szótárállomány is automatikusan
+van elõállítva a Magyar Ispell keretrendszerben.
+Az affixum állományokban az \texttt{m4} makrófeldolgozó segítségével
+gyakorlatilag többszörös toldalékolással vannak leírva
+a ragozási szabályok. A~\texttt{magyar.aff} névre hallgató
+Ispell affixum állomány a végleges
+ragozási szabályokkal fordítási idõben jön létre.
+
+\item A szótárállomány forrása jelenleg az alapmodulból és külön kezelhetõ
+szaknyelvi modulokból áll.  A szavak osztályozása egyszerû
+szólistákkal (,,egymezõs'' adattáblákkal) történik, ami rendkívül
+leegyszerûsíti a szókincs bõvítését a Magyar Ispellben. A
+szólistákból héj- és awk programok segítségével áll elõ az Ispell
+buildhash programja számára szükséges magyar.dict szótárállomány.
+
+\item A Magyar Ispell kombinált módszert használ a képzett
+szóalakok kezelésére: a ragozási szabályok mellett
+a fõnevekhez képest viszonylag kis elemszámú szófajok -- mint a
+melléknevek és az igék -- esetében automatikusan állítja elõ
+a képzett alakokat, és ezek külön kerülnek a szótárba
+más szófajú szavakként. Ezzel a módszerrel a szükséges
+ragozási szabályok számát jelentõs mértékben csökkenteni
+lehetett, a szótárállomány növekedésének rovására.
+A szótárba külön felvett szóalakok számának
+növekedése mintegy kétszeres, de a hash állomány speciális
+felépítésébõl fakadóan a végleges Ispell adatállomány
+mérete kevesebb, mint ötven százalékkal nõ csak. 
+(A ragozási szabályok számának nagyságrendi növelése ennél
+sokkal nagyobb problémát jelentene).
+
+\item A nem szótári tövek kezelésére kényszerûségbõl
+szokatlan megoldást sikerült találni: a nem szótári tõhöz kapcsolódó
+alakok levezetése nem valódi tõbõl, hanem az egyik ragozott alakból
+történik. A módszer rendkívül eredményesnek
+bizonyult: alkalmas volt a magánhangzó-harmónia
+szerint elkülönülõ kisebb, zárt fõnévcsoportok ragozásának
+kezelésére is, valamint ezt és a különbözõ hangrendû alakok kezelését
+is egy ragozási osztályon belül el lehetett intézni (mivel a tõnek
+választott többes számú alak kötõhangzójából egyértelmûen
+meghatározható a szó hangrendje)!
+
+\item A ragozási osztályok számának csökkentése érdekében
+több látszólag nem optimális, de mint késõbb
+kiderült, a fejlesztés szempontjából szerencsés választásra
+került sor: a ragozási osztályok egy része
+össze lett vonva, pl.\ az ikes és iktelen igék ragozása,
+a fõnevek és melléknevek ragozása részben ilyen volt.
+A hangrend esetében sem a ragozási szabályok számával takarékoskodó
+négy osztályos megoldás mellett döntöttem (mély hangrend,
+közös magas hangrend, csak ajakkerekítéses, csak ajakréses magas
+hangrend), hanem a szabályokat jelentõs részben duplázó,
+de eggyel kevesebb ragozási osztályt kívánó megoldás mellett
+(mély hangrend, és a két magas hangrend).
+
+Azóta szerencsére a 26 osztályos határt is sikerült átlépni,
+mindenféle probléma nélkül, mivel a
+Linux terjesztések is átálltak a több ragozási osztállyal
+fordított Ispell binárisokra.
+\end{enumerate}
+
+\subsection{Affixum keretrendszer}
+
+Az affixum állományok az áttekinthetõség miatt
+több részre vannak feldarabolva. A legfontosabb, amely
+a ragozási osztályok rövid összefoglalását is
+tartalmazza, az \texttt{aff.fej} névre hallgató állomány.
+
+Az \texttt{aff.alanyi} és az \texttt{aff.targyas} állományok az alanyi illetve
+a tárgyas igeragozást tartalmazzák. Ezek az állományok
+hangrendi összevonást nem tartalmaznak, az m4 makrók,
+amelyek itt szerepelnek, csak a ragozási szabályokban
+szereplõ mintákat általánosítják. Pl. az aff.alanyi
+állomány elsõ (valóban is használt) makrójának definíciója
+a következõ:
+
+\begin{verbatim}
+define(dupik,[BDGJKLMNRTZY] [LDGRZ] I K)
+\end{verbatim}
+
+Egy példa a makró használatára, ugyanebbõl az állományból:
+
+\begin{verbatim}
+dupik     >   -IK,ASZ
+\end{verbatim}
+
+Ez a sor az \url{aff.alanyi} állomány m4 makrófeldolgozón való
+átszûrésének eredményeképp a következõre alakul:
+
+\begin{verbatim}
+[BDGJKLMNRTZY] [LDGRZ] I K     >   -IK,ASZ
+\end{verbatim}
+
+A makrók használata itt csökkenti a tévedéseket, egyszerûsíti
+a minták módosítását a késõbbiekben.
+
+Az \texttt{aff.fonev} állomány tartalmazza a fõnevekre, és
+-- az állomány megtévesztõ neve ellenére -- a melléknevekre
+vonatkozó ragozási szabályokat illetve ezek m4 forrását.
+
+Az m4 makrózás használata ebben az állományban lényegesen megkönnyíti a 
+számtalan rag elõállítását. Az m4
+makrók paraméteresek lehetnek, egymásba ágyazhatók,
+egyszerû feltételvizsgálatokat végezhetünk. Segítségével a mély és a
+két magas hangrend, valamint a tekintélyes számú képzõ+jel(ek)+rag
+kombináció rövid makrókkal legeneráltatható. A \emph{pelda} állomány
+tartalma a bal oldalon, az m4-gyel feldolgozott állomány kimenete
+a jobb oldalon látható:
+
+\begin{multicols}{2}
+
+\texttt{define(rag,}
+
+\texttt{\$1BA}
+
+\texttt{\$1BAN}
+
+\texttt{\$1RA)}
+
+\texttt{~}
+
+\texttt{define(jel,}
+
+\texttt{rag(\$1M)}
+
+\texttt{rag(\$1D)}
+
+\texttt{rag(\$1JÁ))}
+
+\texttt{~}
+
+\texttt{jel(kocsi)}
+
+\texttt{~}
+
+Futtatás:
+
+\texttt{\$~m4~pelda}
+
+\texttt{kocsiMBA}
+
+\texttt{kocsiMBAN}
+
+\texttt{kocsiMRA}
+
+\texttt{kocsiDBA}
+
+\texttt{kocsiDBAN}
+
+\texttt{kocsiDRA}
+
+\texttt{kocsiJÁBA}
+
+\texttt{kocsiJÁBAN}
+
+\texttt{kocsiJÁRA}
+
+\end{multicols}
+
+A \emph{define(makró\_név, makró\_törzs)} szintaxis az m4 központi
+utasítása, a paraméterek \$\emph{szám} azonosítóval érhetõk
+el. Részletes leírása: \texttt{info m4}.
+
+További affixum állományok: \texttt{aff.fonev.morfo}, amely a hangkivetõs
+és a nyitótövek ragozását tartalmazza (a többes számú alakból
+levezetve) két ragozási osztályt meghatározva.
+Az \texttt{aff.ige\_kiv} a hangugratós igék ragozási osztályát
+definiálja.
+
+A következõ táblázat összefoglalja a Magyar Ispell
+jelenlegi ragozási osztályait. A táblázat oszlopai:
+a ragozási osztályok betûjelei (a kapcsolók);
+a szófaj, amit érint a ragozási osztály; a hangrend
+(o = mély, e = ajakréses magas, ö = ajakkerekítéses
+magas); és végül a ragozási osztály leírása példákkal.
+
+\begin{longtable}[l]{cclp{12cm}}
+\hline Jel & Szófaj & H. & Leírás
+\\ \hline \endhead
+\hline \endfoot
+\\ \hline  A &  névszó & o & A magánhangzóra végzõdõ névszók mély
+hangrendû birtokos személyjeles toldalékolása (ollónkról,
+macskáitokéinak), többes számú toldalékai (harcsákat),
+-ék képzõs alakjai (kutyáékról), -cska képzõs alakjai (birtokos
+személyjelek nélkül), és -nként, -stul ragok. A két utolsó
+ragot a mássalhangzóra végzõdõ fõnevek is felvehetik (nadrágostul).
+A tárgyragot kezelõ ragozási szabályok nem itt szerepelnek, hanem a K (illetve a hangrendtõl
+függõen az L, M) osztályokban.
+\\ \hline  B &  névszó & e & Mint az elõzõ, csak a hangrend más.
+\\ \hline  C &  névszó & ö & Mint az elõzõ, csak a hangrend más.
+\\ \hline  D &  melléknév & -- & A leg-, legesleg- prefixum. Nem confixumként
+kezelve még (legkutya).
+\\ \hline  E &  ige & e & ajakréses magas hangrendû \emph{alanyi igeragozás}: ikes és iktelen jelen és múlt
+idõ, feltételes és felszólító mód; határozói igenév (-ve/-vén),
+fõnévi igenév (-ni) és személyragozása (-nem, -ned, -nie, ...).
+\\ \hline  F &  melléknév & o & Fokjeles alakok (-bb) és ragozásuk,
+,,a'' kötõhangzós toldalékolás (-at, -an, -ak, és -ak ragozása).
+\\ \hline  G &  melléknév & e & Mint az elõzõ, csak a hangrend más.
+Itt van egy kis redundancia az L osztállyal is.
+\\ \hline  H &  melléknév & ö &  Gyakorlatilag megegyezik az elõzõvel,
+ezért sor kerül majd a két osztály összevonására.
+\\ \hline  I &  névszó & oeö & Nem szótári tõvel rendelkezõ, valamint a zárt
+-a kötõhangzót kapó névszavak többes számú alakjaiból levezetett toldalékolás.
+Nyelvtanilag több típus is tartozik ide, példákkal: bokor/bokrot, varjú/varjak,
+út/utak, fû/füvek, mû/mûvek, jó/javak, falu/falvak, valamint az -a kötõhangzós
+zárt osztály tagjai: vas/vasak. A nem szótári tövek a többes számú,
+a birtokos személyjeles, és tárgyragos toldalékokat kapják meg az I
+osztályban. Lásd \texttt{fonev\_morfo.2} és \texttt{fonev\_morfo2.2} állományokat.
+\\ \hline  J &  névszó & oeö & Az elõzõ osztályt kiegészítõ -i melléknévképzõ.
+Ezt csak a mássalhangzó végû hangkivetõs nem szótári tövek kapják meg mind a mai magyar
+helyesírás szerint (hatalmi, de úti, tûzi!). Ez különbözteti meg
+a morfo1 és morfo2 csoportokat (bár a kategorizáláson ez nem látszik,
+mivel az -a kötõhangzós alakoknak ez alapján a \texttt{fonev\_morfo.2}
+állományban is helyet kellene kapni). Valószínû, hogy szerencsésebb
+volna a -i képzõs alakokat külön szóként felvenni a szótárba, mivel nem fedi 
+le a teljes ragozási sort (paradigmát) ez az osztály (hiányoznak a birtokos
+személyjeles toldalékok, például hatalminkról).
+Az osztályba bekerült a -hat, -het végzõdésû igék E/3. múlt idejû
+alakját képezõ két szabály is. A késõbbi fejlesztések miatt
+ez várhatóan kikerül innen.
+\\ \hline  K &  névszó & o & Tárgyrag, és a mássalhangzó végû
+névszavak toldalékolása az A osztályhoz hasonlóan.
+Az A osztálytól való szétválasztására
+az I osztályba tartozó kivételek miatt volt szükség (nincs
+például szerelemünket).
+\\ \hline  L &  névszó & e & Mint az elõzõ, csak más hangrendû.
+\\ \hline  M &  névszó & ö & Mint az elõzõ, csak más hangrendû.
+\\ \hline  N &  névszó & ö & -höz, -ön ragok. A névszók egy ajakkerekítéses
+magas hangrendû tõosztálya ajakréses hangrendû toldalékokat vonz (könyvet, zöldet),
+de a -höz, és az -ön esetében nem (könyvhöz, zöldhöz). A -hez, és -en toldalékú
+hibás alakok kivételként vannak letiltva a ,,w'' kapcsolóval 
+a fõnevek esetében (könyvhez), míg mellékneveknél csak a -hez (zöldhez, bölcshez),
+mivel itt az -en határozói rag miatt helyesek a zölden, bölcsen. stb. alakok.
+\\ \hline  O &  ige & o & Mint az E kapcsoló, csak ez a mély hangrendû \emph{alanyi igeragozás}: 
+A -k végû nem ikes igék ragozása külön van lekezelve (lásd \texttt{kivetelek/igekotos/rak}.
+\\ \hline  P &  ige & ö & Mint az elõzõ, csak ajakkerekítéses magas hangrendû.
+\\ \hline  Q &  névszó & o & -ja (mély hangrendû I/3 személyû birtokos személyjel és ragozott
+változatai).
+\\ \hline  R &  névszó & eö & -je (magas hangrendû I/3 személyû birtokos személyjel és ragozott
+változatai.)
+\\ \hline  S &  névszó & o & -a (mély hangrendû I/3 személyû birtokos személyjel és ragozott
+változatai).
+\\ \hline  T &  névszó & eö & -e (magas hangrendû I/3 személyû birtokos személyjel és ragozott
+változatai).
+\\ \hline  U &  névszó & o & Esetragok birtokos személyjel nélkül. A birtokjeles (-é),
+és birtoktöbbesítõ jeles (-i) alakok is megtalálhatók itt (macskáéit), de önmagában a
+tárgyrag nem.
+\\ \hline  V &  névszó & e & Mint az elõzõ, csak más hangrendû.
+\\ \hline  W &  névszó & ö & Mint az elõzõ, csak más hangrendû.
+\\ \hline  X &  ige & -- & Igekötõk: abba-, agyon-, alá-, ..., végbe-, végig-, vissza-.
+Egyszerûsítés, hogy a legtöbb ige minden igekötõt felvehet. Ha egy igénél
+nem szeretnénk igekötõs alakokat, akkor helyezzük el az igét az \texttt{ige\_koto.1} állományban
+is. Általában két esetben van erre szükség: ha az ige már tartalmaz valamilyen
+nem tipikus igekötõt (\emph{kétségbeesik}); vagy
+igenévszóról van szó, és nem akarjuk, hogy a névszóragok megjelenjenek
+az igekötõvel együtt (\emph{megingeiket}). Ez utóbbi esetben külön
+vannak felvéve az igekötõs alakok. Lásd \texttt{ige\_koto.1}.
+\\ \hline  Y &  névszó & -- & Szóösszetételben való szereplést engedélyezõ
+kapcsoló (COMPOUNDFLAG). Lásd a Hunspell(4) kézikönyv oldalt! A legtöbb köznév
+megkapja. Kivételek a \texttt{fonev\_kulon.1} állományban.
+\\ \hline  Z &  névszó & -- & Idegen kiejtésû, vagy mozaikszavak toldalékai esetében
+a kötõhangzó hiányát jelzi. A \texttt{kotojeles\_hangzo.1} állományban vannak megadva
+azok a szavak, amelyek felveszik a Z kapcsolót.
+\\ \hline  a &  számnév & -- & A tízesek prefixumként: tizen-, huszon-, ... kilencven-.
+\\ \hline  b &  számnév & -- & A százasok prefixumként: száz-, kétszáz-, ... kilencszáz-.
+\\ \hline  c &  névszó & -- & -szerû, -féle, -fajta, -beli, -nemû képzõszerû utótagok.
+A 6-3-as szabály helyes kezeléséhez szükséges osztály. (Ezek az utótagok nem
+számítanak bele a szótagszámba, hasonlóan az igazi toldalékokhoz.)
+\\ \hline  d &  ige & -- & morf. alt. ragozás
+\\ \hline  e &  ige & e & Ajakréses magas hangrendû \emph{tárgyas igeragozás}: ikes és iktelen jelen és múlt
+idõ, feltételes és felszólító mód.
+\\ \hline  f & névszó & -- & Idegen toldalékolású, y-ra végzõdõ fõnevek jele.
+\\ \hline  g & -- & -- &  Toldalékolt alakok jele. A Hunstem tövezõ számára szükséges információt
+adja meg. A g kapcsolót közvetlenül követõ 1 és 9 közé esõ szám jelentése, hogy a
+tõ a számnak megfelelõ számú szóvégi karakter levágásával állítható elõ. Ha ilyen
+szám nincs, akkor a háttérben a különleges \_\_szó szótári bejegyzéssel (annak kapcsolóiként)
+van tárolva a szó töve. L.~ragozatlan.2 állomány leírását.
+\\ \hline  h &  számnév & -- & Ezeregyszáz-, ezerkétszáz-, ... ezerkilencszáz- prefixumok a
+kétezer alatti számok egybeírásához.
+\\ \hline  i &  névszó & o & -nyi. A morfofonetikus csoport miatt van szükség a szétválasztásra,
+mivel a többi melléknévképzõvel ellentétben ez nem járul a nem szótári tövekhez
+(bokrnyi, füvnyi).
+\\ \hline  j &  névszó & eö & Mint az elõzõ, csak magas hangrendû.
+\\ \hline  k &  fõnév & o & Melléknévképzõk: -(o)s, -(j)ú, -i, -tlan/-talan,
+nem teljes ragozási sorral.
+\\ \hline  l &  fõnév & e & Mint az elõzõ, csak más hangrenddel.
+\\ \hline  m &  fõnév & ö & Mint az elõzõ, csak más hangrenddel.
+\\ \hline  n &  fõnév & oeö & Mint az elõzõ, csak a morfo csoportra vonatkozóan.
+\\ \hline  o &  ige & o &  Mint az ,,e'' osztály, csak ajakréses magas hangrendû
+\emph{tárgyas igeragozás}.
+\\ \hline  p &  ige & ö &  Mint az elõzõ osztály, csak más hangrendû.
+\\ \hline  q & -- & -- & -féle toldalék a tulajdonnevekhez.
+\\ \hline  r & --
+\\ \hline  s & fõnév & o & -ai (I/3 birtokos személyrag + birtoktöbbesítõ jel). L.~S kapcsoló
+\\ \hline  t & fõnév & eö & -ei (I/3 birtokos személyrag + birtoktöbbesítõ jel). L.~T kapcsoló
+\\ \hline  u & -- & -- & A ,,w'' kapcsoló hatását módosító kapcsoló: ha meg van
+adva a ,,w'' mellett, akkor a tiltás csak a szótõre vonatkozik, a tiltott szótõ
+toldalékolt változataira nem. A mangrove szót így lehetett egyszerûen és
+tártakarékosan lekezelni, mivel a felvitt szabályok nem kezelik a -e végzõdésû fõneveket
+mély hangrendû toldalékokkal. A ,,mangrove'' szó mellett szerepel
+a ,,mangrové'' is a szótárban ,,w'', ,,u'' (és egyéb) kapcsolókkal,
+így a ,,mangrové'' alak helytelen, de a ,,mangrovét'', ,,mangrovéinak''
+stb. alakok helyesek. A ,,mangrove'' említett kapcsolóit a
+\texttt{szotar/kivetelek/ragozatlan/mangrove} állományban találjuk meg.
+\\ \hline  v & -- & -- & szerepelhet összetételekben elsõ szóként (COMPOUNDFIRST).
+Jelenleg ezzel a kapcsolóval van megoldva az egyszerû tõszámnevek, és a melléknévképzõs fõnevek
+egybeírásának engedélyezése (illetve a Magyar Myspell gondoskodik arról, hogy
+tényleg csak a melléknévképzõs alakokat lehessen egybeírni a tõszámnevekkel), pl.
+harmincnapi, de! két hónapos. Lásd A magyar helyesírás szabályai 119. pontját,
+és a Hunspell(4) kézikönyv oldalt!
+\\ \hline  w & -- & -- & Tiltott szóalakok kapcsolója (FORBIDDENWORD).
+A Magyar Ispell/Myspell egyszerûsítõ felépítésének számos hibája küszöbölhetõ
+ki a hibásan képzett szavak tiltásával. A szótárbõvítõ az idegen
+kiejtésû szótagra végzõdõ, de a tõvel egybeírt toldalékú szavak felvitelénél
+találkozik ezzel (pl. Madáchhal/w), valamint a rossz szóösszetételek
+tiltásánál (ifjúpár/w). Adjuk meg a \texttt{\#MYSPELL TILTOTT} megjegyzést
+a szótárállományban, ha ragozott szavak tiltását szeretnénk. (Megtehetnénk
+ezt úgy is, hogy ha a szót ismételten felvesszük a \texttt{ragozatlan.2}
+állományba, a ,,w'' kapcsolóval. A speciális megjegyzés használatának két
+elõnye van: Elõször is, a tiltott szó nem kerül bele az Ispell szótárba,
+másodszor az alapszó, és a tiltás egy helyen található, és így
+könnyebben nyomon követhetõ, és szerkeszthetõ.) Lásd a Hunspell(4) kézikönyv oldalt!
+\\ \hline  x & -- & -- & szerepelhet összetételekben utolsó szóként (COMPOUNDLAST).
+Ezt a külön felvett (I osztály által kezelt) többes számú alakok kapják meg.
+\\ \hline  y & névszó & -- & összetett szó (COMPOUNDWORD). A 6-3 szabály
+helyes alkalmazásához szükség van arra az információra, hogy a tõként felvett
+szó vajon összetett-e, vagy sem. Lásd a Hunspell(4) kézikönyv oldalt!
+\\ \hline  z & számnév & -- & -magammal, -magaddal, -magával, -magunkkal, -magatokkal,
+-magukkal toldalékként, mint a sorszámnevek visszaható névmás ,,ragja''.
+Lásd \texttt{szotar/kivetelek/ragozatlan/szamnev2}.
+\\ \hline 0 & -- & -- & A tövezésnél nem megjelenítendõ alak jele.
+A Magyar Ispell számos olyan ,,tövet'' tartalmaz, amelyek pusztán
+gyakorlati szempontból léteznek. Ilyenek az improduktív névszóragozásnál
+a többes számú alakok (madarak, szerelmek), illetve a kötõjellel toldalékolt szavaknál
+a szó és kötõjel alakok (tv-). Ezeket az alakokat a 0 kapcsolóval
+ellátva a tövezésnél nem jelennek meg.
+
+\\ \hline \end{longtable}
+
+
+\subsection{Szótári keretrendszer}
+
+A szófajilag elkülönített szóállományok lehetõvé teszik a szófajra
+jellemzõ ragozási osztályok kapcsolóinak és az alapszavaknak
+a viszonylag egyszerû párosítását.
+Héj- és awk program gondoskodnak errõl bizonyos kivétellisták
+figyelembevételével.
+
+Például egy szófajon belül három fõ ragozási
+mintacsoport különíthetõ el a hangrend alapján. Az alapszavak
+hangrendje kibõvített reguláris kifejezésekkel (awk programokkal)
+fordítási idõben kerül felismerésre, pl. egy erre
+vonatkozó programrészlet:
+
+\texttt{\#~mély~hangrendû~igék~}
+
+\texttt{/{[}uúoóaá{]}{[}bcdfghjklmnprstvxyz{]}{*}ik\$/~\{~print~\$0~\char`\"{}/X/A\char`\"{}
+\}}
+
+\texttt{/{[}uúoóaá{]}{[}bcdfghjklmnprstvxyz{]}{*}\$/~\&\&~!~/ik\$/~\{~print
+\$0~\char`\"{}/X/A\char`\"{}~\}}
+
+A példa csak az utolsó szótag hangrendjének vizsgálatát végzi el,
+illetve ikes igék esetén az -ik elõtti szótagét, ez sok esetben nem
+ad jó megoldást. A Magyar Ispell keretrendszerben
+kivétellisták segítségével tehetõ pontossá az automatikus
+hangrend-besorolás. Ilyen kivétellisták az \texttt{\_alap} könyvtárban
+található \texttt{fonev\_mely.1}, \texttt{ige\_mely.1}, és
+\texttt{melleknev\_mely.1} állományok,
+amelyeket a feldolgozó awk programok egy-egy asszociatív tárba
+töltenek be (más kivétellistákhoz hasonlóan), ami a feldolgozás
+sebességét jelentõsen gyorsítja.
+
+\section{Új szótármodulok létrehozása}
+
+A Magyar Ispell forrásának telepítése után (ezt a következõ fejezet ismerteti)
+lépjünk be a \texttt{magyarispell-0.86} könyvtárba.
+
+A szótármodulok külön könyvtárakban helyezkednek el. Az alapkönyvtárak
+neve aláhúzásjellel (\_) kezdõdik. A legfontosabb szótármodul az
+\texttt{\_alap}.
+
+Egy új szótármodul létrehozása nagyon egyszerû: hozzunk létre egy
+új alkönyvtárat a \texttt{magyarispell-0.86} könyvtáron belül.
+A könyvtár neve aláhúzásjellel kezdõdjék.
+
+Ha szeretnénk, hogy a szótár fordítása során az új szótári modul is
+bekerüljön a végeredménybe, hozzunk létre egy szimbolikus kötést (symlink)
+a könyvtárra:
+
+\begin{verbatim}
+ln -s _példa Példa
+\end{verbatim}
+
+Látható, hogy a többi alkönyvtárhoz hasonlóan a szimbolikus kötés neve
+aláhúzás nélküli, és nagybetûvel kezdõdik. Ezek a tulajdonságok határozzák
+meg, hogy mely könyvtárak tartalma számít fordításra kijelölt modulnak.
+
+Egy modult egyszerûen a szimbolikus kötés törlésével tudunk kivenni ebbõl a
+csoportból:
+
+\begin{verbatim}
+rm Példa
+\end{verbatim}
+
+\subsection{Szófaji bontás}
+
+A szótármodul szavakat fog tartalmazni, amelyet szófaji alapon el
+kell tudnunk különíteni. A köznevek a \texttt{fonev.1} állományban
+kerülnek felsorolásra (egy szó egy sorba kerül). A melléknevek
+a \texttt{melleknev.1} állományban, illetve az alanyi és tárgyas igék
+az \texttt{ige\_alanyi.1} és az \texttt{ige\_targy.1} állományokban.
+
+A \texttt{tulajdonnev.2} állomány két mezõben tárolja a tulajdonnevekre
+vonatkozó információt, de ha az elsõ mezõ üres, a második speciálisan
+(ragozatlan szóként) kerül értelmezésre.
+
+Ezért ha egy tulajdonnév nem kap toldalékot a magyar nyelvben 
+(rendszerint többelemû tulajdonnevek nem utolsó tagja, vagy
+kapcsolóval ellátott, illetve letiltott toldalékolt alakok), akkor a
+sorban egy tabulátor után (tehát a második mezõbe) írjuk a szavakat, például:
+
+\begin{verbatim}
+        Santa
+	Vörösmarty/f
+	Gaussal #MYSPELL TILTOTT
+	Gaussá #MYSPELL TILTOTT
+	Gauss-szal/g5
+	Gauss-szá/g4	
+\end{verbatim}
+
+Ha ragozzuk, akkor rögtön sor elejére.
+
+\begin{verbatim}
+Einstein
+\end{verbatim}
+
+Ha a ragozott alakok között melléknévképzõs (kisbetûs) is akad, akkor
+az ugyanebbe a sorba, egy tabulátorral elválasztva írjuk:
+
+\begin{verbatim}
+Einstein	einsteini
+\end{verbatim}
+
+Ha sehová nem illik a szó, felvehetjük a \texttt{ragozatlan.2} állományba.
+Ha azért valamilyen mértékben ragozott,
+akkor puskázzunk. A legenerált \texttt{magyar.dict}
+állományt szûrjük meg arra vonatkozóan,
+hogy egy hasonló ragozású, hangrendû, stb. szó milyen ragozási 
+csoportjelzõkkel  került a szótárba:
+
+\begin{verbatim}
+grep  ^milyen/ magyar.dict
+milyen/B/V/L/R
+\end{verbatim}
+
+A szavunkhoz ugyanezt rendelhetjük hozzá a \texttt{ragozatlan.2} állományban:
+
+\begin{verbatim}
+ilyen/B/V/L/R
+\end{verbatim}
+
+\subsection{Kivételek a szófaji kategóriákon belül}
+
+A legtipikusabb kivételek a hangrendi kivételek.
+Ha egy szó utolsó szótagja magas hangrendû, de a szó mégis mély
+hangrendû, akkor a szót vegyük fel a szófajhoz tartozó
+\texttt{\_mely.1} végzõdésû névvel rendelkezõ állományba.
+Az ilyen szavak utolsó szótagjában többnyire ,,é'', vagy ,,i''
+magánhangzó szerepel, és gyakran vegyes hangrendûek.
+
+Konvenció, hogy \texttt{tulajdonnev\_mely.1} állomány nem létezik,
+az ilyen tulajdonneveket a \texttt{fonev\_mely.1} állományba
+helyezzük el.
+
+A fõnevek esetében megtaláljuk még a \texttt{fonev\_magas.1} 
+állományt is, ami elsõsorban idegen tulajdonneveket, illetve
+egy-két át nem írt idegen közszót tartalmaz (pl. gentleman,
+Cadillac), amelyek utolsó szótagja mély hangrendû, mégis
+a kiejtés miatt magas hangrendû toldalékokat kapnak (gentlemannel,
+Cadillackel).
+
+A névszók (elsõsorban a fõnevek) esetében a hangrendi kivételek mellett a
+I./1-es birtokos személyjeleket (-ja/-je/-a/-e) érintõ
+kivételek jelentõsek. Három állománnyal kell
+megismerkednünk velük kapcsolatban: a \texttt{fonev\_ae.1} azokat
+a fõneveket sorolja fel, amelyek \emph{b}, \emph{d}, 
+\emph{f}, \emph{k}, \emph{l}, \emph{n}, \emph{p}, \emph{r} és \emph{t} betûre
+való végzõdés ellenére -a vagy -e birtokos személyjelet kapnak (például váll$\rightarrow$válla).
+A \texttt{fonev\_jaje.1} azokat
+a fõneveket sorolja fel, amelyek \emph{c}, \emph{g}, 
+\emph{h}, \emph{j}, \emph{m}, \emph{s}, \emph{x}, \emph{y}, \emph{v} és \emph{z} betûre
+való végzõdés ellenére -ja vagy -je birtokos személyjelet kapnak (például hang$\rightarrow$hangja).
+Amennyiben mind a j-s, mind a j nélküli változatát megkapja egy szó, akkor a
+\texttt{fonev\_jajeae.1} állományban kell feltüntetni (például beszéd$\rightarrow$beszéde, beszédje).
+
+\subsection{Állományok táblázata}
+
+A következõ táblázat összefoglalja a jelenlegi állományokat:
+
+\begin{longtable}[l]{lp{10cm}}
+\hline Állomány & Leírás
+\\ \hline \endhead
+\hline \endfoot
+\\ \hline fonev.1 & köznevek
+\\ \hline fonev\_ae.1 & b, d, f, k, l, n, p, r és t végû; -a, -e birtokos személyragot kapó fõnevek (váll$\rightarrow$válla)
+\\ \hline fonev\_ing.1 & mély és magas hangrendû ragot kapó fõnevek (fotel$\rightarrow$fotelban, fotelben)
+\\ \hline fonev\_jaje.1 & c, g, h, j, m, s, x, y, v, és z végû, -ja, -je birtokos személyragot kapó fõnevek (hang$\rightarrow$hangja)
+\\ \hline fonev\_jajeae.1 & -a/-e, és -ja/-je birtokos személyraggal is elõforduló fõnevek (beszéd$\rightarrow$beszéde, beszédje)
+\\ \hline fonev\_kulon.1 & fõnevek, amelyek összetett szóban nem szerepelhetnek (január)
+\\ \hline fonev\_magas.1 & fõnevek, amelyek utolsó szótagja mély hangrendû, de magas hangrendû ragot kapnak (gentleman$\rightarrow$gentlemannel)
+\\ \hline fonev\_mely.1 & fõnevek, amelyek utolsó szótagja magas hangrendû, de mély hangrendû ragot kapnak (héj$\rightarrow$héjjal)
+\\ \hline fonev\_morfo1.2 & hangkivetõ fõnevek, többesszámú alakjaikkal (szerelem$\rightarrow$szerelmen, kehely$\rightarrow$kelyhen)
+\\ \hline fonev\_morfo2.2 & nyitótövek, és egyéb kivételek, többesszámú alakjaikkal
+\\ \hline fonev\_oe.1 & -et, -ek, -ön, -höz ragot kapó, ajakkerekítéses magas hangrendû fõnevek (könyvet, könyvön)
+\\ \hline fonev\_osszetett.1 & Összetett szavak (kerékpár).
+\\ \hline ige\_alanyi.1 & nem tárgyas igék (történik, nincs történi, történed, mint a Helyes-e?-ben)
+\\ \hline ige\_ikes\_kiv.1 & dupla mássalhangzó+ikes igék, -ó, -ás képzõkkel, l. iges.awk, igesgen
+\\ \hline ige\_koto.1 & igekötõt nem kapó igék (vagy külön kezelve az igekötõs alakok)
+\\ \hline ige\_mely.1 & igék, amelyek utolsó szótagja magas hangrendû, de mély hangrendû ragot kapnak (sír$\rightarrow$sírok)
+\\ \hline ige\_morfo.1 & hangkivetõs igék (bicsakol$\rightarrow$bicsakló)
+\\ \hline ige\_targy.1 & tárgyas igék (üt$\rightarrow$üti, ütöm)
+\\ \hline ige\_tat\_kiv.1 & -tat, -tet gyakorítóképzõs alakok nincsenek (pl. mond, mondat, de nincs mondtat, mondattat)
+\\ \hline melleknev.1 & melléknevek
+\\ \hline melleknev\_a.1 & -o kötõhangzót (fõnévi ragozást) nem kap, (nincs állottot)
+\\ \hline melleknev\_ae.1 & b, d, f, k, l, n, p, r és t végû; -a, -e birtokos személyragot kapó melléknevek
+\\ \hline melleknev\_ing.1 & mély és magas hangrendû ragot kapó melléknevek
+\\ \hline melleknev\_jaje.1 & c, g, h, j, m, s, x, y, v, és z végû, -ja, -je birtokos személyragot kapó melléknevek
+\\ \hline melleknev\_jajeae.1 & -a/-e, és -ja/-je birtokos személyraggal is elõforduló melléknevek
+\\ \hline melleknev\_mely.1 & melléknevek, amelyek utolsó szótagja magas hangrendû, de mély hangrendû ragot kapnak
+\\ \hline melleknev\_oe.1 & -et, -ek, -ön, -höz ragot kapó, ajakkerekítéses magas hangrendû melléknevek (zöldet, zöldön)
+\\ \hline ragozatlan.2 & Nem ragozott, vagy kivételesen ragozott szavak megadására szolgáló állomány.
+A kivételes ragozási adatokat kapcsolókkal adhatjuk meg a szó után közvetlenül, egy perjellel elválasztva
+a szótól. A szavakat külön sorba kell megadni. Egy sorban a szó töve is megadható a
+tövezõprogram számára, tabulátorjellel elválasztva a szótól.
+\\ \hline tulajdonnev.2 & Tulajdonnevek: ha az elsõ mezõ üres, akkor a szó ragozatlan, ha nem, akkor a második mezõ melléknév.
+\\ \hline tulajdonnev-geo.2 & földrajzi nevek
+\\ \hline tulajdonnev-keresztnev.2 & keresztnevek
+\\ \hline tulajdonnev-szemelynev.2 & személynevek
+\\ \hline kotojeles\_mely.7 & Mély ragozású, idegen ejtésû, vagy mozaikszavak kötõjellel elválasztott toldalékkal (felépítést l. az állományban).
+\\ \hline kotojeles\_magas.7 & Magas ajakréses ragozású, idegen ejtésû, vagy mozaikszavak kötõjellel elválasztott toldalékkal
+\\ \hline kotojeles\_magas2.7 & Magas ajakkerekítéses ragozású, idegen ejtésû, vagy mozaikszavak kötõjellel elválasztott toldalékkal
+\\ \hline kotojeles\_hangzo.1 & Az itt felsorolt szavak kapják meg a Z kapcsolót, ami azt jelzi. hogy az itt megadott szavak esetében
+nincs kötõhangzó a toldalék és a szó között (például URH-nk, és nem URH-unk, mivel az URH kiejtve ,,uerhá'').
+\\ \hline \end{longtable}
+
+A tulajdonnevek hangrendjérõl: a -i végû melléknévképzõs alakoknál a hangrend automatikusan
+mély, ha a tõszó utolsó magánhangzója mély. Ha ingadozó, (i, í, mint Párizs), akkor
+külön felveendõ a \texttt{melleknev\_mely.1} állományba a képzett alak (párizsi).
+
+\subsection{Y-ra végzõdõ szavak}
+
+	Az y végû szavak (pl. Sydneyvel, Uruguayjal, Kölcseyn, sprayen)
+	ragozása vissza lett vezetve az i, és j végû szavakéra. 
+	
+	Az ,,f'' kapcsoló segítségével a következõképp kódolhatóak az
+	y végû szavak:
+
+	A tövet nem ragozzuk, csak ,,f'' kapcsolót kap (közneveknél
+	még Y-t, hogy összetett szavakban szerepelhessen).
+	
+	Felveszünk egy olyan tövet, amiben kiejtés szerint
+	az y vagy i-re, vagy j-re van átírva (Sydnei, Uruguaj, Kölcsei,
+	spraj), és ezt szerepeltetjük a megfelelõ állományokban, de letiltva!
+
+Köznevek (angol eredetû idegen szavak) esetében:
+
+\begin{verbatim}
+--- részlet az _alap/fonev állományból ---
+boj #MYSPELL TILTOTT (boy)
+brandi #MYSPELL TILTOTT (brandy)
+cowboj #MYSPELL TILTOTT (cowboy)
+displaj #MYSPELL TILTOTT (display)
+ladi #MYSPELL TILTOTT (lady)
+gázspraj #MYSPELL TILTOTT (gázspray)
+orrspraj #MYSPELL TILTOTT (orrspray)
+spraj #MYSPELL TILTOTT (spray)
+penni #MYSPELL TILTOTT (penny)
+whiski #MYSPELL TILTOTT (whisky)
+z³oti #MYSPELL TILTOTT (z³oty)
+------------------------------------------
+\end{verbatim}
+
+\begin{verbatim}
+--- részlet a kivetelek/ragozatlan/y állományból ---
+boy/fY
+brandy/fY
+cowboy/fY
+display/fY
+lady/f
+gázspray/fY
+orrspray/fY
+spray/fY
+penny/fY
+whisky/fY
+z³oty/fY
+----------------------------------------------------
+\end{verbatim}
+
+A köznevek esetében a \texttt{kivetelek/ragozatlan/y} állomány szolgál
+az f(és az Y) kapcsolós alakok megadására. A tulajdonnevek
+(régies írásmódú keresztnevek, illetve földrajzi nevek) esetében
+a \texttt{tulajdonnev*} állományok szolgálnak erre a célra.
+Ezekben van a szótõ nem ragozva, ,,f'' kapcsolóval felvéve.
+Felvesszük az átírt, nem valódi
+tövet, megadjuk a melléknévképzõs alakot is, és külön sorban tiltjuk le
+a nem valódi tövet.
+
+\begin{verbatim}
+--- részlet a tulajdonnév állományból ---
+	Vörösmarty/f
+Vörösmarti #MYSPELL TILTOTT
+Vörösmarti	vörösmartys
+Vörösmarti	vörösmartyas
+-----------------------------------------
+\end{verbatim}
+
+Itt gyakran -- ebben a példában is --  a szavak hangrendje is
+más. Ezért a \emph{Vörösmarti} szót felvesszük a \texttt{fonev\_mely.1}
+állományba is, a melléknévképzõs alakokat pedig a
+\texttt{melleknev\_mely.1} állományba.
+
+hasonló problémát okoz az idegen szavak esetében a mély hangrendûnek
+	látszó, de magas hangrendû alak: pl. spray, display.
+Ezen a nem valódi tövek \texttt{fonev\_magas.1} állományban
+való elhelyezése segít.
+
+\subsection{Kivételek könyvtár}
+
+A \texttt{szotar/kivetelek} könyvtár tartalmazza azokat a kivételeket,
+amelyek rendszerint valamilyen zárt toldalékolást mutatnak, de jóval
+szûkebb csoportot alkotnak a Magyar Ispellben morfo1/morfo2 néven jelölt
+névszóosztályoknál. Két alkönyvtárat tartalmaz a könyvtár, az
+\texttt{igekotos} és a \texttt{ragozatlan} könyvtárat.
+A két könyvtár sok állományában tövezési információk is meg vannak
+adva második mezõként, hasonlóan a \texttt{ragozatlan.2} állományhoz.
+Ezeket az állományokat a \texttt{.2} kiterjesztés jelöli.
+
+A \texttt{kivetelek} könyvtár gyökerében található \texttt{ige\_kepzos.11}
+állomány az igei kivételek
+képzõs alakjait adja meg (mivel a két alkönyvtárban lévõ igék
+kimaradnak a képzõs alakok automatikus elõállításából).
+
+Az ige állományban felsorolt képzõs alakok útmutatást adnak
+arra vonatkozóan is, hogy milyen képzõs alakok kerülnek külön
+tõként felvételre a szótárba.
+
+\subsection{További információk}
+
+További információkat a Gyakran ismételt kérdések között
+találunk (\texttt{GYIK} állomány a Magyar Ispell forrásában),
+valamint a Magyar Ispell levelezõlistán (\url{http://www.yahoogroups.com/group/magyarispell}).
+
+A levelezõlistára a \texttt{magyarispell-subscribe@yahoogroups.com}
+e-mail címre írt levéllel jelentkezhetünk. A listára szánt leveleinket
+a \texttt{magyarispell@yahoogroups.com} címre címezzük.
+
+\subsection{Segédprogramok}
+
+A \texttt{bin/} alkönyvtárban található \texttt{break} program
+segít szavakat kigyûjteni szöveges, vagy HTML állományokból.
+
+\section{Magyar Myspell}
+
+A Magyar Myspell legfrissebb változata jelenleg a
+\url{http://magyarispell.sf.net}
+oldalról tölthetõ le. Korábbi változatokat a
+\url{http://www.szofi.hu/gnu/magyarispell} oldalon
+találunk.
+
+A forrásból a \texttt{make} paranccsal fordíthatjuk le
+az \texttt{example} nevû példaprogramot, és a leendõ
+-- Ispellt felváltani képes -- programot, a \texttt{Hunspell}-t.
+
+\section{Javítási cseretáblázat}
+
+A következõ táblázat összefoglalja a
+Magyar Ispell 0.99.3-as változatában megtalálható
+javítási cseretáblázatot.
+
+A táblázat harmadik oszlopa részben példákat mutat
+a cseretáblázat segítségével tett javaslatokra, valamint
+a cseretáblázat segítségével beazonosított hibás
+szóösszetételekre. Ez utóbbi tulajdonság a Magyar Myspell
+0,4-es változatában jelent meg.
+
+A legtipikusabb hibák (i/í, ü/û stb.) elöl találhatók,
+hogy a javaslatoknál is ezek kerüljenek legelõre.
+
+\begin{longtable}[l]{llp{10cm}}
+\hline Mit & Mire & Példák cserére, illetve javított hibákra
+\\ \hline \endhead
+\hline \endfoot
+\\ \hline í & i & szer+víz$\rightarrow$szerviz, sí+ma$\rightarrow$sima
+\\ \hline i & í & kiváncsi$\rightarrow$kíváncsi, elit+élt$\rightarrow$elítélt
+\\ \hline ó & o & szimbólikus$\rightarrow$szimbolikus, mikró+számítógép$\rightarrow$mikroszámítógép
+\\ \hline o & ó & mikro$\rightarrow$mikró
+\\ \hline o & õ & cselekvo$\rightarrow$cselekvõ (lapolvasási, kódolási hibák javításához)
+\\ \hline ú & u & kultúrált$\rightarrow$kulturált, vas+árú$\rightarrow$vasáru
+\\ \hline u & ú & kultura$\rightarrow$kultúra
+\\ \hline u & û & keseru$\rightarrow$keserû (lapolvasási, kódolási hibák javításához)
+\\ \hline û & ü & menû$\rightarrow$menü
+\\ \hline ü & û & betü$\rightarrow$betû, keserü$\rightarrow$keserû
+\\ \hline j & ly & juk$\rightarrow$lyuk, est+éj, kar+vaj, kord+éj, rost+éj,
+szeg+éj, szem+éj, szem+éjes, szem+éji, szent+éj, szesz+éj, szesz+éjes,
+tar+táj, tök+éj, ünnep+éj, ünnep+éjes,
+\\ \hline ly & j & csevely$\rightarrow$csevej, muszály$\rightarrow$muszáj, boly+torján,
+kard+bolyt, tojássár+gálya, váll+bolyt, boly+ár, boly+tár, súly+tó
+\\ \hline a& ä & Handel$\rightarrow$Händel
+\\ \hline S& © & Skoda$\rightarrow$©koda
+\\ \hline s& ¹ & skodás$\rightarrow$¹kodás
+\\ \hline r& ø & Dvorák$\rightarrow$Dvoøák
+\\ \hline ra& øá & Dvorak$\rightarrow$Dvoøák
+\\ \hline l& ³ & zloty$\rightarrow$z³oty
+\\ \hline L& £ & Lódz $\rightarrow$£ódz
+\\ \hline Lo & £ó & Lodz $\rightarrow$£ódz
+\\ \hline oliere & oli\&egrave;re & Moliere$\rightarrow$Moli\`ere
+\\ \hline Angström& \&Aring;ngström & Angström$\rightarrow$\AA ngström
+\\ \hline angström& \&aring;ngström & angström$\rightarrow$\aa ngström
+\\ \hline \&Otilde;& Õ & \~O$\rightarrow$Õ
+\\ \hline \&otilde;& õ & \~o$\rightarrow$õ
+\\ \hline \&Ucirc;& Û & \^U$\rightarrow$Û
+\\ \hline \&ucirc;& û & \^u$\rightarrow$û
+\\ \hline - & \&ndash; & Duna-Tisza köze$\rightarrow$Duna--Tisza köze
+\\ \hline jj & lly & gajj$\rightarrow$gally
+\\ \hline jj & llj & ájj$\rightarrow$állj
+\\ \hline lly & jj & csevellyel$\rightarrow$csevejjel
+\\ \hline ggy & gyj & haggyon$\rightarrow$hagyjon, naggya$\rightarrow$nagyja
+\\ \hline gyj & ggy & higyjen$\rightarrow$higgyen
+\\ \hline ggy & dj & maraggy$\rightarrow$maradj
+\\ \hline gy & dj & horgya$\rightarrow$hordja, kargyuk$\rightarrow$kardjuk
+\\ \hline nny & nyj & annya$\rightarrow$anyja
+\\ \hline nny & nj & fonnyátok$\rightarrow$fonjátok
+\\ \hline tty & tyj & attya$\rightarrow$atyja
+\\ \hline tty & tj & láttyák$\rightarrow$látják, bottya$\rightarrow$botja
+\\ \hline cc & tsz & szerecc$\rightarrow$szeretsz
+\\ \hline cc & dsz & maracc$\rightarrow$maradsz
+\\ \hline cc & gysz & eccer$\rightarrow$egyszer
+\\ \hline cs & ts & kölcség$\rightarrow$költség
+\\ \hline cs & ds & boloncság$\rightarrow$bolondság
+\\ \hline ccs & ts & baráccság$\rightarrow$barátság
+\\ \hline ccs & ds & vaccság$\rightarrow$vadság
+\\ \hline ccs & gys & naccság$\rightarrow$nagyság, õnaccsága$\rightarrow$õnagysága
+\\ \hline g & kd & csug$\rightarrow$csukd, lög$\rightarrow$lökd
+\\ \hline öss & õs & elösször$\rightarrow$elõször, erössen$\rightarrow$erõsen
+\\ \hline öll & õl & szöllõ$\rightarrow$szõlõ
+\\ \hline ütt & ût & hüttõ$\rightarrow$hûtõ, füttõ$\rightarrow$fûtõ
+\\ \hline ijj & íj & dijja$\rightarrow$díja, ijja$\rightarrow$íja
+\\ \hline x & ksz & boxer$\rightarrow$bokszer, vax$\rightarrow$vaksz
+\\ \hline ksz & x & fakszol$\rightarrow$faxol, Beatriksz$\rightarrow$Beatrix
+\\ \hline xx & xsz & kódexxel$\rightarrow$kódexszel
+\\ \hline xx & kssz & vaxxal$\rightarrow$vaksszal
+\\ \hline xsz & kssz & vaxszal$\rightarrow$vaksszal
+\\ \hline x & xsz & kódexel$\rightarrow$kódexszel
+\\ \hline x & kssz & vaxal$\rightarrow$vaksszal
+\\ \hline sz & c & licensz$\rightarrow$licenc
+\\ \hline szt & cet & licenszt$\rightarrow$licencet
+\\ \hline ssz & cc & licensszel$\rightarrow$licenccel
+\\ \hline jl & lj & tejles$\rightarrow$teljes, éjlen$\rightarrow$éljen
+\\ \hline gg & g & heggeszt$\rightarrow$hegeszt
+\\ \hline file & fájl & file$\rightarrow$fájl
+\\ \hline file- & fájl & file-lal$\rightarrow$fájllal
+\\ \hline floppy & flopi & floppy$\rightarrow$flopi
+\\ \hline bájt & byte & bájt$\rightarrow$byte
+\\ \hline bájt & byte- & bájtos$\rightarrow$byte-os
+\\ \hline chh & chcs & Madáchhal$\rightarrow$Madáchcsal
+\\ \hline ll & l & vállfaj$\rightarrow$válfaj
+\\ \hline ny & nny & menyország$\rightarrow$mennyország
+\\ \hline nny & ny & mennyhal$\rightarrow$menyhal
+\\ \hline o & a & házok$\rightarrow$házak
+\\ \hline ivess & íves & szivessen$\rightarrow$szívesen
+\\ \hline -cel & -szel & AIDS$\rightarrow$AIDS-szel
+\\ \hline -cé & -szé & AIDS-cé$\rightarrow$AIDS-szé
+\\ \hline  õrö & ölrõ & elõröl$\rightarrow$elölrõl
+\\ \hline  õr & ölr & elõrõl$\rightarrow$elölrõl
+\\ \hline  ölr & õr & elölre$\rightarrow$elõre
+\\ \hline egyenlõre & egyelõre & egyenlõre$\rightarrow$egyelõre\footnote{Bár
+helyes az \emph{egyenlõre} is, nagyságrendileg ritkább, mint az \emph{egyelõre}.}
+\\ \hline kábé& kb. & kábé$\rightarrow$kb.
+\\ \hline ss& ss-s & Barossal$\rightarrow$Baross-sal
+\\ \hline ss& ss-sz & Gaussal$\rightarrow$Gauss-szal
+\\ \hline ssz& ss-sz & Gausszal$\rightarrow$Gauss-szal
+\\ \hline ll& ll-l & Böllel$\rightarrow$Böll-lel
+\\ \hline nn& nn-n & Mannal$\rightarrow$Mann-nal
+\\ \hline mm& mm-m & Grimmel$\rightarrow$Grimm-mel
+\\ \hline tt& tt-t & Beckettel$\rightarrow$Beckett-tel
+\\ \hline Jellasics& Jelaèiæ & Jellasics$\rightarrow$Jelaèiæ
+\\ \hline
+\end{longtable}

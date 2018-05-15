@@ -1,0 +1,4 @@
+Név: kémia
+Leírás: Kémiai szakszókincs
+Felelős: Németh László
+Szavak száma: ~500

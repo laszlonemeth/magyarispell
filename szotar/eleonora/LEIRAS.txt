@@ -1,0 +1,8 @@
+Név: Eleonóra
+Leírás: Goldman Eleonóra szókincsgyűjteménye
+Felelős: Goldman Eleonóra (eleonora46@gmx.net)
+Szavak száma: ~29000
+Megjegyzés: Nem alapértelmezett modul, mivel sok, a helyesírási
+szabályzat szerint nem helyes szót tartalmaz.  Automatikus
+szövegfeldolgozáshoz hasznos lehet, így a make menu paranccsal indított
+felülettel gyorsan bekapcsolható ez a modul is.

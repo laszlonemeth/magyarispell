@@ -1,0 +1,9 @@
+#!/bin/sh
+awk '
+BEGIN{
+  FS="\t"
+  LEMMA_PRESENT_FLAG=")"
+}
+$1~/\// && $2~/^[^[]/{print $1 LEMMA_PRESENT_FLAG "\t" $2;next}
+(!($1~/\//)) && $2~/^[^[]/{print $1 "/" LEMMA_PRESENT_FLAG "\t" $2;next}
+{print$0}'

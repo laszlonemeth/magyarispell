@@ -1,0 +1,44 @@
+makedb(1)                                               makedb(1)
+
+
+
+NÉV
+       makedb - webhelyek indexállományának létrehozása
+
+ÁTTEKINTÉS
+       makedb [-d könyvtár [-r]] [-o állomány]
+
+LEÍRÁS
+       A  makedb  parancs az aktuális könyvtár és alkönyvtárainak
+       txt, htm vagy html  kiterjesztésû  állományait  a  Hunstem
+       segítségével  indexeli,  és annak kimenetét a Lookdb által
+       kereshetõ formára hozza, majd hunstem.index néven  elmenti
+       az aktuális könyvtárba.
+
+KAPCSOLÓK
+       -d  könyvtár
+              Az   indexelni   kívánt  könyvtárrendszer  gyökere.
+              Alapesetben ez az aktuális könyvtár.
+
+       -o  állomány
+              A program  kimeneti  állománya.  Alapesetben  ez  a
+              ./hunstem.index.
+
+       -r     A  kimenet relatív útvonalakat fog tartalmazni a -d
+              kapcsoló használata esetén is.
+
+PÉLDÁK
+       makedb -d /var/www -o /var/www/hunstem.index -r
+
+       A parancs egyenértékû a következõvel:
+
+       cd /var/www; makedb
+
+LÁSD MÉG
+       lookdb  (1),  hunspell  (1).   A  makedb  rövid   és   jól
+       dokumentált   héjprogram,  ezért  érdemes  a  forrását  is
+       megtekinteni.
+
+
+
+                         2003. június 13.               makedb(1)

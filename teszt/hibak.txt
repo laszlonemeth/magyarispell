@@ -1,0 +1,137 @@
+
+<*lovotokként> <lovatokként>
+<*lakodalmashaz> <lakodalmashoz>
+<telekátalakítás>
+<telekmacska>
+<ötszöri>
+<egyszeri>
+
+<*köralakú>
+<*északkoreai>
+<*északai>
+<levezetőzhessen>
+
+<karakóiakét>
+<karakóiakéit>
+<szegediekét>
+<okosabbaké>
+<okosabbiké>
+<legfiatalabbaké>
+<rokonak>
+<kéttucatnyiról>
+<*ötfogkefényi>
+
+<*közeláll>
+<*közelállás>
+<*közelállok>
+
+<egymillióan>
+
+<*feltűnősködikd>
+<*érzelegek>
+<*mosolyogunk>
+<*teremek>
+<*ilyed>
+<*érzelgi>
+<csicsergi>
+<*költöznánk>
+<proxynak>
+
+<*özönltelek>
+<özönlöttelek>
+<özönlöttük>
+
+<halasztgattak>
+<pukkantgass>
+<kattintgatok>
+<csettintgetnem>
+<*élget>
+<*ázgat>
+<parolázgat>
+
+<*nyalakszgat>
+<*leszándékozik>
+<*meglóvátesz>
+<*lupészerű>
+
+<*KG>
+<*milyük>
+
+<*puffog>
+<*parafin>       paraffin
+<*klozettpapír>  klozetpapír
+<*kvinteszencia> kvintesszencia
+<*kontrolál>     kontrollál
+<*komendál>      kommendál
+<*rekomendál>    rekommendál
+<*csekélyel>     csekélyell
+<*apprehendál>   aprehendál
+<*vanilin>       vanillin
+
+<*oldalat>, <oldalt>, <*híroldalat> <híroldalt>
+<kecmergek>
+<fosd>, <késd>, <vásd>
+<feküdhetek>, <aludhattam>, <feküdd>
+<éljenzem>
+
+<*tökéhöz>, <tökéhez>
+<*tökökéhöz>, <tökökéhez>
+<*tököméhöz>, <tököméhez>
+<*tökünkhez>, <tökünkhöz>
+<*tökünkéhöz>, <tökünkéhez>
+<*tűkéhöz>, <tűkéhez>
+<*vödrötökéhöz>, <vödrötökéhez>
+<*vödrükéhöz>, <vödrükéhez>
+<*vödrükhez>, <vödrükhöz>
+
+<*vetőkéhöz> <vetőkéhez>
+<vetőjűhöz>
+
+<Łódźban>, <Łódźot>, <*Łódźt>,
+<łódźiakat>, <Łódźdzsal>, <Łódźdzsá>
+
+<metszőhöz>, <*metszőhez>
+<*sűrűhez>, <sűrűhöz>
+<*göndörhez> <göndörhöz>
+
+<okosabbját>, <okosabbjainkat>, <legokosabbjáról>, <legokosabbjainkról>
+
+<elismerőleg>, <agrárminiszter>, <magántermelő>, <Nikoletta>, <*kültaga>, <kültagja>
+
+<szigorlatunkról>, <elébük>, <felülmúl>, <tűzszerész>, <építgess>, <járőreiről>,
+<*külügyök>, <külügyek>, <belügyek>
+
+<duciról>, <gagyinak>
+
+<*asszimetrikus>
+
+<ugrasz>
+
+<*vonósnek>, <vonósnak>
+
+<szerettein>
+
+<*sósben>, <sósban>
+<*motorös>, <motoros>
+<*kolbászas> (összetett szó)
+
+<Torvaldsszal>, <McDonald'sszal>
+
+<*emberéröl>, <*házok>
+
+<macskashow>
+<*showműsor>, <*showbiznisz>, <*cabernetgyártás>
+<show-műsor>, <show-biznisz>, <cabernet-gyártás>
+
+<ketchuphoz>, <ketchuphöz>, <*ketchuphez>
+
+<megtizenötszörözték>
+
+<uv-ztam>
+
+<reciprokát>, <*reciprokját>
+
+<*szépön>
+<*nagyk>
+
+<cserzik>

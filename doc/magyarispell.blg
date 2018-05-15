@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99c (Web2C 7.3.1)
+The top-level auxiliary file: magyarispell.aux
+A level-1 auxiliary file: bevezetes.aux
+A level-1 auxiliary file: hasznalat.aux
+A level-1 auxiliary file: fejleszt.aux
+A level-1 auxiliary file: programozas.aux
+A level-1 auxiliary file: fuggelek.aux
+A level-1 auxiliary file: ellenorzes.aux
+A level-1 auxiliary file: megfeleles.aux
+The style file: hplain.bst
+Database file #1: hu.bib
+You've used 9 entries,
+            2303 wiz_defined-function locations,
+            575 strings with 5055 characters,
+and the built_in function-call counts, 2054 in all, are:
+= -- 177
+> -- 79
+< -- 0
++ -- 33
+- -- 22
+* -- 96
+:= -- 365
+add.period$ -- 19
+call.type$ -- 9
+change.case$ -- 29
+chr.to.int$ -- 0
+cite$ -- 9
+duplicate$ -- 110
+empty$ -- 200
+format.name$ -- 22
+if$ -- 438
+int.to.chr$ -- 0
+int.to.str$ -- 9
+missing$ -- 22
+newline$ -- 47
+num.names$ -- 23
+pop$ -- 66
+preamble$ -- 1
+purify$ -- 29
+quote$ -- 0
+skip$ -- 54
+stack$ -- 0
+substring$ -- 47
+swap$ -- 10
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 20
+warning$ -- 0
+while$ -- 18
+width$ -- 10
+write$ -- 90

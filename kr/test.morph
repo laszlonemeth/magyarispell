@@ -1,0 +1,36 @@
+> kutya
+kutya<NOUN>
+> kutyáink
+kutya<NOUN<PLUR><POSS<1><PLUR>>>
+> kutyáéi
+kutya<NOUN<ANP<PLUR>>>
+> kutyáikéit
+kutya<NOUN<PLUR><POSS<PLUR>><ANP<PLUR>><CAS<ACC>>>
+> kutyáznátok
+kutyázik<VERB<COND><PERS<2>><PLUR>>
+kutya<NOUN[z]VERB<COND><PERS<2>><PLUR>>
+kutya<NOUN[z]VERB<COND><PERS<2>><PLUR><DEF>>
+> mászik
+mászik<VERB>
+> mászom
+mászik<VERB<PERS<1>>>
+mászik<VERB<PERS<1>><DEF>>
+> mászhatnának
+mászik<VERB<MODAL><COND><PLUR>>
+> megmászniok
+meg<PREF>mászik<VERB<INF><PERS><PLUR>>
+> embereinket
+ember<NOUN<PLUR><POSS<1><PLUR>><CAS<ACC>>>
+> anyámékéról
+anya<NOUN<POSS<1>><PLUR<FAM>><ANP><CAS<DEL>>>
+> jókat
+jó<ADJ<PLUR><CAS<ACC>>>
+> pirosakat
+piros<ADJ<PLUR><CAS<ACC>>>
+> pirosról
+piros<ADJ<CAS<DEL>>>
+> éve
+eszik<VERB[vA]ADV>
+év<NOUN<POSS>>
+> csináltakat
+csinál<VERB[tt]ADJ<PLUR><CAS<ACC>>>

@@ -1,0 +1,87 @@
+1.7 béta 3
+
+- pontos javaslatok kiejtés alapján, a Hunspell új képességeit használva:
+
+<*giotin:guillotine> <*gijotin:guillotine>
+<*giotint:guillotine-t> <*gijotint:guillotine-t>
+
+<*donkihóte:Don Quijote>
+<*donkihótét:Don Quijotét>
+
+<*Bitlisz:Beatles> <*Bitlisszel:Beatlesszel>
+<*bitlisz:Beatles> <*bitlisszel:Beatlesszel>
+<*Asztória:Astoria> <*Asztóriánál:Astoriánál>
+<*asztória:Astoria> <*asztóriánál:Astoriánál>
+
+- összetételben engedélyezett képzők szótári alapú felülbírálása
+  <*későnyár:késő nyár> <*későősszel:késő ősszel>
+  (COMPOUNDFORBIDFLAG használata a tövön)
+
+- kötőjeles javaslat helyett a tő javaslata: (itt nem „Apollainaire-”)
+  (SUBSTANDARD kapcsoló használata a kötőjeles tövön)
+
+<*apoliner:Apollinaire>
+
+- Tesztrendszer: UTF-8, kibővítve: javaslattevés ellenőrzésével
+
+<*helyiségnévtábla:helységnévtábla>
+<*etilalkohol:etil-alkohol>, <*metilalkohol:metil-alkohol>
+
+<*bokaszallagszakadás:bokaszalag-szakadás>
+<*keresztszallagszakadás:keresztszalag-szakadás>
+<*oldalszallagszakadás:oldalszalag-szakadás>
+<*ínszallagszakadás:ínszalagszakadás>
+
+- ph: ragozatlan állományokban is lehet:
+
+<*agyő:adieu>
+
+- kettős nevek elváló toldalékolása.
+  Minden magyar keresztnév speciális toldalékolást kapott,
+  pár idegen név is:
+
+József <Attilá-s> (hiányzik: <Attilá-sak>)
+Ady <Endré-seket>
+Kiss <Ottó-sról>
+<Sherlock> <Holmes-os>
+
+- többtagú, TÖBBTAGÚ kulcsszóval jelölt szavak:
+
+Alfa <Romeó-s>
+Don <Quijoté-s>
+
+Ezek javítása:
+
+<*Romeós:Romeó-s> <*Romeo-s:Romeó-s> <*Romeos:Romeó-s>
+<*romeós:Romeó-s> <*romeo-s:Romeó-s> <*romeos:Romeó-s>
+<*Quijotés:Quijoté-s> <*quijotés:Quijoté-s>
+
+-szerű toldalék nem egyszerűsödik. 
+
+ész: <*ésszerű:észszerű> <snapszszerű>
+opus: <opusszerű>
+passz: <*passzszerű:passz-szerű>
+
+- szavak, javítások:
+
+<*poláranyag> stb.
+<*cserestölgyes:cseres-tölgyes>
+
+- összetett melléknevek kezelése:
+
+A <valószínű>-ből képzett <valószínűség> összetett szó,
+így további összetételekben számolni kell a szótagokat:
+
+<kárvalószínűség>, de
+
+<*valószínűségvizsgálat:valószínűség-vizsgálat>
+
+(új kivétel: <valószínűségszámítás>)
+
+- nyelvek:
+
+<angolcentrikus>
+<németcentrikusság>
+<franciatanítás>
+<oroszimádat>
+

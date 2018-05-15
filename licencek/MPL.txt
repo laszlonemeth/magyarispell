@@ -1,0 +1,562 @@
+   http://www.mozilla.org/MPL/MPL-1.1.html
+
+                          Mozilla Public License (MPL)
+
+   1.1-es verzió
+
+1. Meghatározások
+
+   1.0.1. „Kereskedelmi használat” alatt a terjesztést, vagy Lefedett
+   kód egyéb módon egy harmadik félhez juttatását értjük.
+
+   1.1. „Közreműködő” minden egyes olyan személy, amelyik
+   létrehozza a Módosításokat vagy hozzájárul a Módosítások
+   létrehozásához.
+
+   1.2. „Közreműködői változat” az Eredeti kód, a korábbi
+   Közreműködő által használt korábbi Módosítások, valamint az
+   adott Közreműködő által elvégzett Módosítások együttese.
+
+   1.3. „Lefedett kód” alatt az Eredeti kódot vagy a Módosításokat,
+   vagy az Eredeti kód és a Módosítások kombinációját, illetve a
+   fenti esetek bármelyikének részét értjük.
+
+   1.4. „Elektronikus terjesztési mechanizmus” egy olyan mechanizmus,
+   amelyet a szoftverfejlesztői közösség általánosságban elfogad az
+   adatok elektronikus átvitelére.
+
+   1.5. „Végrehajtható” alatt a Lefedett kódot értjük a
+   Forráskódtól eltérő bármilyen más formátumban.
+
+   1.6. „Első fejlesztő” az a természetes vagy jogi személy, amelyet
+   az A. melléklet által megkövetelt Forráskód megjegyzés Első
+   fejlesztőként azonosít.
+
+   1.7. „Nagyobb munka” egy olyan munka, amely a Lefedett kódot vagy
+   annak részeit a jelen Licenc által nem szabályozott kóddal egyesíti.
+
+   1.8. „Licenc” a jelen dokumentum.
+
+   1.8.1. „Licencelni jogosult” azt jelenti, hogy joga van megadni a
+   maximális mértékben az itt érintett jogok bármelyikét és
+   mindegyikét, akár a kezdeti megadás idején, akár későbbi
+   megszerzés révén.
+
+   1.9. „Módosítások” alatt az Eredeti kód vagy bármely korábbi
+   Módosítás anyagának vagy szerkezetének bővítését, vagy abból
+   való törlést értünk. Ha a Lefedett kód fájlok formájában kerül
+   kibocsátásra, úgy a Módosítás:
+
+           a. Az Eredeti kódot vagy bármely korábbi Módosítást
+           tartalmazó fájl tartalmának bővítése vagy abból való
+           törlés.
+           b. Minden olyan új fájl, amely az Eredeti kód vagy bármely
+           korábbi Módosítás részét tartalmazza.
+
+   1.10. „Eredeti kód” számítógépes szoftver Forráskódja, amelyet
+   az A. melléklet által megkövetelt Forráskód megjegyzés Eredeti
+   kódként határoz meg, és amely a jelen Licenc alatti kibocsátásakor
+   már nem a jelen Licenc hatálya alá eső Lefedett kód.
+
+   1.10.1. „Szabadalmi igénypont” minden olyan szabadalmi
+   igénypont,birtokolt vagy ezt követően megszerezhető minden olyan
+   bármely szabadolomban lévő szabadalmi igénypont - korlátozás
+   nélkül beleértve a módszerekbe, folyamatokra vagy berendezésekre
+   vonatkozókat -, amelyet a megadó Licencelni jogosult.
+
+   1.11. „Forráskód” a Lefedett kód javasolt formája a
+   módosításokhoz, beleértve az összes tartalmazott modult, valamint
+   minden kapcsolódó felületdefiníciós fájlt, a fordítás és a
+   Végrehajtható fájl telepítésének vezérléséhez használt
+   parancsfájlt, vagy a forráskód különbségi összehasonlítását vagy
+   az Eredeti kóddal, vagy egy másik, a Közreműködő által választott,
+   rendelkezésre álló Lefedett kóddal. A Forráskód lehet tömörített
+   és/vagy archivált formában is, feltéve, hogy a szükséges
+   kicsomagoló vagy archívumkezelő szoftver széles körben, ingyenesen
+   elérhető.
+
+   1.12. „Ön” egy természetes vagy jogi személyt jelent, amely a jelen
+   Licenc – vagy a jelen Licenc a 6.1 szakasznak megfelelően kiadott
+   jövőbeni változatának – feltételei által meghatározott jogait
+   gyakorolja és betartja. Jogi személyek esetén "Ön" minden olyan
+   entitás, amely irányítja Önt, amelyet Ön irányít, vagy amelyet
+   Önnel együtt irányítanak. Az előző meghatározásban az
+   "irányítás" azt jelenti, hogy
+
+   (a) megfelelő jogosultsággal rendelkezik közvetve vagy közvetlenül az
+   ilyen entitás igazgatásához vagy felügyeletéhez, akár szerződés
+   révén, akár máshogy, illetve
+
+   (b) több mint ötven százalékos (50%) tulajdonosa vagy haszonélvezője
+   az ilyen entitásnak.
+
+2. Forráskód licenc
+
+   2.1. Az Első fejlesztő által megadott licenc
+
+   Az Első fejlesztő ezúton megad Önnek egy, az egész világra
+   kiterjedő, jogdíjmentesen gyakorolható, nem kizárólagos az alábbi
+   tevékenységre feljogosító licencet, amelyre vonatkozhatnak a harmadik
+   fél vagy felek szellemi tulajdont érintő igényei:
+
+           (a) az Első fejlesztő által Licencelni jogosult szellemi
+           tulajdonjogok (szabadalom vagy védjegy kivételével) hatálya
+           alá eső, Eredeti kód (vagy annak részeinek), -
+           Módosításokkal vagy azok nélkül, és/vagy egy Nagyobb munka
+           részeként - használatára, reprodukálására,
+           módosítására, megjelenítésére, végrehajtására,
+           továbblicencelésére és terjesztésére; továbbá
+
+           (b) az Eredeti kód előállítása, használata vagy
+           értékesítése által megsértett Szabadalmi igénypont hatálya
+           alá esően az Eredeti kód (vagy annak részeinek)
+           előállítására, használatára, gyakorlására, eladására
+           vagy eladásra történő felkínálásra, és/vagy egyéb módon
+           történő túladásra.
+
+           (c) a jelen 2.1(a) és (b) szakaszban megadott licencek hatályba
+           lépése az a dátum, amikor az Első fejlesztő először
+           terjeszti az Eredeti kódot a jelen Licenc feltételeinek
+           megfelelően.
+
+           (d) a fenti 2.1(b) szakasztól függetlenül, semmilyen szabadalmi
+           licenc nem kerül megadásra:
+
+                        1) az olyan kódra, amelyet Ön törölt az Eredeti
+                        kódból;
+                        2) elválasztott az Eredeti kódtól; vagy
+                        3) jogsértést okozott:
+
+                                     i) az Eredeti kód módosításával
+                                     vagy
+                                     ii) az Eredeti kód más szoftverrel
+                                     vagy eszközökkel kombinálásával.
+
+   2.2. Közreműködő által megadott licenc
+
+   Harmadik felek szellemi tulajdonra vonatkozó igényeit fenntartva, minden
+   egyes Közreműködő ezúton megad Önnek egy, az egész világra
+   kiterjedő, jogdíjmentes, nem kizárólagos licencet:
+
+           (a) a Közreműködő által (szabadalom vagy védjegy
+           kivételével) Licencelni jogosult szellemi tulajdonjogok hatálya
+           alá esően a Közreműködő által készített Módosítások
+           (vagy azok részeinek), további Módosításokkal vagy azok
+           nélkül, Lefedett kódként és/vagy egy Nagyobb munka
+           részeként használatára, reprodukálására, módosítására,
+           megjelenítésére, végrehajtására, továbblicencelésére és
+           terjesztésére; továbbá
+
+           (b) a Közreműködő által egyedül és/vagy a Közreműködői
+           változattal együtt készített Módosítások előállítása,
+           használata vagy értékesítése által megsértett Szabadalmi
+           igénypont hatálya alá esően az alábbiak előállítására,
+           használatára, gyakorlására, eladására vagy eladásra
+           felkínálásra, és/vagy egyéb módon rajtuk túladásra:
+
+   1) a Közreműködő által készített Módosítások (vagy azok
+   részei); és
+
+   2) a Közreműködő által a Közreműködői változattal együtt
+   készített Módosítások (vagy az ilyen kombinációk részei).
+
+           (c) a jelen 2.2(a) és 2.2(b) szakaszban megadott licencek
+           hatályba lépése az a dátum, amikor a Közreműködő először
+           veszi Kereskedelmi használatba a Lefedett kódot.
+
+           (d) a fenti 2.2(b) szakasztól függetlenül, semmilyen szabadalmi
+           licenc nem kerül megadásra: 1) az olyan kódra, amelyet a
+           Közreműködő törölt a Közreműködői változatból; 2)
+           elválasztott a Közreműködői változattól; vagy 3)
+           jogsértést okozott: i) harmadik fél által a Közreműködői
+           változat módosításával, ii) a Közreműködő által
+           készített Módosítások más szoftverrel (kivéve a
+           Közreműködői változatot) vagy eszközökkel
+           kombinálásával; vagy 4) a Lefedett kód által megsértett
+           Szabadalmi igénypont hatálya alá esően, az adott
+           Közreműködő Módosításainak hiányában.
+
+3. Terjesztési kötelezettségek
+
+   3.1. A Licenc alkalmazása
+
+   Az Ön által létrehozott Módosításokra, illetve azokra, amelyek
+   készítésében Ön közreműködött, a jelen Licenc feltételei
+   vonatkoznak, korlátozás nélkül beleértve a 2.2 szakaszt is. A
+   Lefedett kód Forráskód-verziója kizárólag a jelen Licenc– vagy a
+   jelen Licenc a 6.1 szakasznak megfelelően kiadott jövőbeni
+   változatának – feltételei szerint terjeszthető, és Önnek
+   mellékelnie kell a jelen Licenc egy másolatát az Ön által terjesztett
+   Forráskód minden egyes példányához. Ön nem ajánlhat fel és nem
+   kötheti ki semmilyen más feltételt a Forráskód semelyik verziójára,
+   amelyik megváltoztatja vagy korlátozza a jelen Licenc alkalmazható
+   verzióját, illetve az azt megkapók alább ismertetett jogait. Ön
+   azonban mellékelhet egy további dokumentumot, amely a 3.5 szakaszban
+   leírt további jogokat biztosítja.
+
+   3.2. A Forráskód elérhetősége
+
+   Minden, Ön által létrehozott Módosítást, illetve azokat, amelyek
+   készítésében Ön közreműködött, elérhetővé kell tenni
+   Forráskód formájában a jelen Licenc feltételeinek megfelelően vagy
+   ugyanazon az adathordozón, mint amelyen a Végrehajtható verziója
+   található, vagy egy elfogadott Elektronikus terjesztési mechanizmus
+   segítségével mindazok számára, akiknek biztosított egy
+   Végrehajtható verziót; és amennyiben Elektronikus terjesztési
+   mechanizmus útján teszi elérhetővé, úgy annak a kezdeti
+   elérhetővé tétel dátumától számítva legalább tizenkét (12)
+   hónapig elérhetőnek kell lennie, illetve legalább hat (6) hónapig, ha
+   az adott Módosítás egy rákövetkező verziója is elérhetővé lett
+   téve a fogadó felek számára. Az Ön felelőssége garantálni, hogy a
+   Forráskód verzió elérhető maradjon, akkor is, ha az Elektronikus
+   terjesztési mechanizmust egy harmadik fél üzemelteti.
+
+   3.3. A Módosítások leírása
+
+   Önnek minden olyan Lefedett kódban, amelyben közreműködik,
+   szerepeltetnie kell egy fájlt, amely tartalmazza, hogy milyen
+   módosításokat végzett a Lefedett kódon, és e módosítások
+   dátumát. Mellékelnie kell egy szembetűnő figyelmeztetést, hogy a
+   Módosítás közvetlenül vagy közvetve az Első fejlesztő által
+   biztosított Eredeti kódból származik, továbbá jeleznie kell az Első
+   fejlesztő nevét (a) a Forráskódban és (b) minden olyan megjegyzésben
+   a Végrehajtható verziójában vagy a kapcsolódó dokumentációban,
+   amelyben Ön a Lefedett kód eredetéről vagy birtokviszonyáról szól.
+
+   3.4. Szellemi tulajdonnal kapcsolatos megfontolások
+
+           (a) Harmadik felek igényei
+           Amennyiben Közreműködőnek tudomása van arról, hogy egy
+           harmadik fél szellemi tulajdonjogainak körébe eső licencre van
+           szükség az ilyen Közreműködő által a 2.1 vagy 2.2 szakaszok
+           alatt leírt jogok gyakorlásához, úgy Közreműködőnek
+           mellékelnie kell egy "LEGAL" című szöveges fájlt a
+           terjesztett Forráskódhoz, amelyben megfelelő részletességgel
+           leírja az igényt és megjelöli az igényt benyújtó felet
+           ahhoz, hogy a fogadó fél tisztában legyen azzal, kit kell
+           megkeresnie. Ha Közreműködő ezt az ismeretet azután szerzi
+           meg, hogy a Módosítás elérhetővé tette a 3.2 szakaszban
+           leírtak szerint, úgy Közreműködőnek azonnal módosítania
+           kell a LEGAL fájlt minden olyan példányban, amelyet
+           Közreműködő elérhetővé tesz ezután, és egyéb,
+           ésszerűen kiszámított lépéseket is kell tennie (például
+           értesítenie kell a megfelelő levelezési listákat vagy
+           hírcsoportokat), hogy értesítse a Lefedett kódot megkapott
+           személyeket, hogy új ismeretek jutottak tudomásra.
+
+           (b) Közreműködő API-jai
+           Ha Közreműködő Módosításainak része egy
+           alkalmazásprogramozási felület, és Közreműködőnek
+           tudomása van olyan szabadalmi licencekről, amelyek ésszerűen
+           szükségesek az adott API implementálásához, úgy
+           Közreműködőnek ezt az információt is szerepeltetnie kell a
+           LEGAL fájlban.
+
+           (c) Kijelentések
+           Közreműködő kijelenti, hogy – kivéve a fenti 3.4(a)
+           szakaszban leírtakat –, legjobb tudomása szerint
+           Közreműködő Módosításai Közreműködő eredeti alkotásai,
+           és/vagy Közreműködő megfelelő jogokkal rendelkezik, hogy a
+           jelen Licencben foglalt jogokat megadhassa.
+
+   3.5. Szükséges figyelmeztetések
+
+   Önnek bele kell másolnia az A mellékletben szereplő figyelmeztetést a
+   Forráskód minden egyes fájljába. Ha annak vagy azok szerkezete miatt
+   nem lehetséges ilyen figyelmeztetés elhelyezése a Forráskód egy adott
+   fájljában, akkor a figyelmeztetést egy olyan helyen kell szerepeltetnie
+   (például egy megfelelő könyvtárban), ahol a felhasználó várhatóan
+   keresné az ilyen figyelmeztetést. Ha Ön egy vagy több Módosítást
+   végzett, akkor szerepeltetheti a nevét Közreműködőként az A
+   mellékletben leírt figyelmeztetésben. Szintén szerepeltetni kell a
+   jelen Licencet a Forráskód minden olyan dokumentációjában, amelyben a
+   fogadó felek jogait, vagy a Lefedett kóddal kapcsolatos tulajdonjogokat
+   írja le. Ön dönthet úgy, hogy díjat kér és számít fel a Lefedett
+   kód fogadó feleinek jótállásért, támogatásért,
+   kármentesítésért vagy egyéb felelősséggel kapcsolatos
+   kötelezettségekért. Ezt azonban Ön csak a saját nevében teheti, az
+   Első fejlesztő vagy bármely más Közreműködő nevében nem.
+   Tökéletesen világossá kell tennie, hogy minden ilyen jótállást,
+   támogatást, kármentesítést vagy egyéb felelősséggel kapcsolatos
+   kötelezettséget kizárólag Ön kínál, és ezennel beleegyezik abba,
+   hogy kártalanítja az Első fejlesztőt és minden Közreműködőt az
+   Első fejlesztő vagy ilyen Közreműködő által okozott minden
+   felelősségért, amely az Ön által kínált jótállás, támogatás,
+   kármentesítés vagy egyéb felelősséggel kapcsolatos kötelezettség
+   kapcsán lépne fel.
+
+   3.6. A Végrehajtható verziók terjesztése
+
+   Ön kizárólag akkor jogosult terjeszteni a Lefedett kódot
+   Végrehajtható formában, ha teljesíti a 3.1.-3.5. szakaszok
+   előírásait az adott Lefedett kódra vonatkozóan, és ha szerepeltet
+   egy figyelmeztetést, hogy a Lefedett kód Forráskód verziója
+   elérhető a jelen Licenc feltételeinek megfelelően, továbbá egy
+   leírást, hogy hogyan, és hol teljesíti Ön a 3.2. szakaszban leírt
+   kötelezettségeket. A figyelmeztetést szembetűnően szerepeltetni kell
+   minden megjegyzésben a Végrehajtható fájl verziójában, a
+   kapcsolódó dokumentációban és kísérőanyagban, amelyben Ön a
+   fogadó feleknek a Lefedett kódra vonatkozó jogait írja le. A Lefedett
+   kód Végrehajtható verzióját vagy a tulajdonjogokat szabadon
+   választott más licenc keretében is terjesztheti, amelynek előírásai
+   eltérnek a jelen Licencétől, feltéve, hogy betartja jelen Licenc
+   előírásait, és a Végrehajtható verzió licence nem próbálja meg
+   korlátozni vagy megváltoztatni a fogadó félnek a jelen Licencben
+   meghatározott, a Forráskód verzióra vonatkozó jogait. Ha a
+   Végrehajtható verziót egy másik licenc hatálya alatt terjeszti, akkor
+   abszolút világossá kell tennie, hogy minden olyan feltételt, amely
+   eltér a jelen Licenctől, csak Ön egyedül kínál, nem az Első
+   fejlesztőtől vagy bármely Közreműködőtől származik. Ön ezennel
+   beleegyezik abba, hogy kártalanítja az Első fejlesztőt és minden
+   Közreműködőt az Első fejlesztő vagy ilyen Közreműködő által
+   okozott minden felelősségért, amely az Ön által kínált feltételek
+   kapcsán lépne fel.
+
+   3.7. Nagyobb munkák
+
+   Ön létrehozhat egy Nagyobb munkát azáltal, hogy a Lefedett kódot
+   kombinálja más, nem a jelen Licenc által szabályozott kóddal, és a
+   Nagyobb munkát terjesztheti egyetlen termékként. Ebben a esetben
+   gondoskodnia kell arról, hogy a jelen Licenc előírásai teljesüljenek
+   a Lefedett kódra.
+
+4. Megfelelési képtelenség törvényi előírás vagy rendelkezés miatt
+
+   Ha képtelenség megfelelnie a jelen Licenc bármely előírásának a
+   Lefedett kód egy részére vagy egészére vonatkozóan egy törvényi
+   előírás, bírósági ítélet vagy más rendelkezés miatt, akkor Ön
+   köteles: (a) megfelelni a jelen Licenc előírásainak a lehető
+   legnagyobb mértékben; és (b) leírni a korlátozásokat, és hogy azok
+   milyen kódra vonatkoznak. Az ilyen leírást a 3.4. szakaszban leírt
+   LEGAL fájlban kell szerepeltetni, és be kell venni a Forráskód minden
+   terjesztésébe. Kivéve azt az esetet, ha törvény vagy rendelet tiltja,
+   az ilyen leírásnak elegendően részletesnek kell lennie, hogy egy
+   átlagos képességű ember megértse.
+
+5. A jelen Licenc alkalmazása
+
+   A jelen Licenc arra a kódra vonatkozik, amelyhez az Első fejlesztő
+   csatolta az A mellékletben szereplő figyelmeztetést a kapcsolódó
+   Lefedett kódra vonatkozóan.
+
+6. A Licenc verziói
+
+   6.1. Új verziók
+
+   A Netscape Communications Corporation ("Netscape") időről időre
+   kiadhatja a Licenc átdolgozott és/vagy új változatait. Minden egyes
+   verzió eltérő verziószámot kap.
+
+   6.2. Az új verziók hatálya
+
+   Ha már egyszer a Lefedett kód a Licenc egy adott verziójának a
+   hatálya alatt lett közzétéve, hogy mindig választhatja azt, hogy
+   továbbra is ennek a verziónak megfelelően használja tovább.
+   Választhatja azt is, hogy az ilyen Lefedett kódot a Netscape által
+   közzétett újabb Licencverziónak megfelelően használ. A Netscape-en
+   kívül senki más nem jogosult módosítani a jelen Licenc keretében
+   létrehozott Lefedett kódra alkalmazható feltételeket.
+
+   6.3. Származtatott munkák
+
+   Amennyiben Ön létrehozza vagy használja a jelen Licenc egy módosított
+   változatát (amelyet csak olyan kódra vonatkozóan tehet, amely nem a
+   jelen Licenc által szabályozott Lefedett kód ), akkor Önnek (a) át
+   kell neveznie a saját licencét, hogy a „Mozilla”, „MOZILLAPL”,
+   „MOZPL”, „Netscape”, "MPL", „NPL” és egyéb zavaróan
+   hasonló kifejezések ne szerepeljenek az Ön licencében (kivéve azt a
+   megjegyzést, hogy az Ön licence eltér a jelen Licenctől) és (b)
+   egyéb módon is világossá kell tenni, hogy az Ön licencverziója a
+   Mozilla Nyilványos Licenctől és a Netscape Nyilvános Licenctől
+   eltérő feltételeket tartalmaz. (Önmagában az A mellékletben
+   található figyelmeztetésben az Első fejlesztő, az Eredeti kód vagy a
+   Közreműködő nevének a kitöltése nem számít a jelen Licenc
+   módosításának.)
+
+7. GARANCIÁK ELUTASÍTÁSA
+
+   A JELEN LICENC ÁLTAL LEFEDETT KÓD „A JELEN FORMÁJÁBAN” KERÜL
+   BIZTOSÍTÁSRA, MINDENFÉLE GARANCIA NÉLKÜL, LEGYEN AZ KIFEJEZETT VAGY
+   VÉLELMEZETT, BELEÉRTVE, DE NEM KIZÁRÓLAG AZ ARRA VONATKOZÓ
+   GARANCIÁT, HOGY A KÓD HIBÁKTÓL MENTES, ÉRTÉKESÍTHETŐ, ALKALMAS EGY
+   ADOTT CÉLRA, VAGY NEM SÉRT MÁS JOGOKAT. A LEFEDETT KÓD MINŐSÉGÉVEL
+   ÉS TELJESÍTMÉNYÉVEL KAPCSOLATOS TELJES KOCKÁZAT AZ ÖNÉ. AMENNYIBEN
+   A LEFEDETT KÓD HIBÁSNAK BIZONYULNA BÁRMILYEN MÓDON, ÚGY ÖN (ÉS NEM
+   AZ ELSŐ FEJLESZTŐ VAGY BÁRMELY MÁS KÖZREMŰKÖDŐ) VISELI A
+   SZÜKSÉGES SZERVIZELÉS, JAVÍTÁS VAGY MÓDOSÍTÁS DÍJÁT. A JELEN
+   GARANCIAELUTASÍTÁS A JELEN LICENC LÉNYEGI RÉSZE. A LEFEDETT KÓD
+   HASZNÁLATA CSAK A JELEN ELUTASÍTÁSSAL EGYÜTT ENGEDÉLYEZETT.
+
+8. MEGSZŰNÉS
+
+   8.1. A jelen Licenc és a benne megadott jogok automatikusan megszűnnek,
+   ha Ön nem tartja be az itt leírt feltételeket és nem orvosolja az
+   ilyen jogsértést az annak tudomására jutása után 30 napon belül. A
+   Lefedett kód minden olyan részlicence, amely megfelelően lett megadva,
+   érvényben marad a jelen Licenc megszűnése után is. Az olyan
+   kikötések, amelyeknek természetüknél fogva kötelező érvényben
+   maradniuk a jelen Licenc megszűnése után is, természetesen érvényben
+   maradnak.
+
+   8.2. Amennyiben Ön jogi eljárást kezdeményez szabadalomsértésre
+   hivatkozva (kivéve a magyarázó bírósági cselekményeket) az Első
+   fejlesztő vagy egy Közreműködő ellen (az alábbiakban az Első
+   fejlesztőt vagy Közreműködőt, aki ellen pert indított,
+   "Résztvevőnek" fogjuk nevezni), azt állítva, hogy:
+
+           (a) az ilyen Résztvevő Közreműködői változata közvetlenül
+           vagy közvetve szabadalmat sért, úgy minden, az ilyen
+           Résztvevő által, a jelen Licenc 2.1 és/vagy 2.2 szakaszának
+           megfelelően Önnek megadott jog, a Résztvevő 60 nappal előre
+           értesítése után megszűnik, kivéve, ha az értesítés
+           kézhezvétele utáni 60 napon belül Ön vagy:
+
+                        (i) írásban beleegyezik, hogy Résztvevőnek
+                        megfizet egy kölcsönösen elfogadható mértékű
+                        jogdíjat azért, hogy Ön a múltban és a jövőben
+                        használja a Résztvevő által készített
+                        Módosításokat, vagy
+                        (ii) visszavonja a keresetet a Résztvevő
+                        Közreműködői változatával kapcsolatban. Ha a
+                        feleknek az értesítés után 60 napon belül nem
+                        sikerül kölcsönösen megállapodni egy ésszerű
+                        jogdíjjal és fizetési feltételekkel kapcsolatban,
+                        vagy nem kerül a kereset visszavonásra, akkor a
+                        Résztvevő által, a jelen Licenc 2.1 és/vagy 2.2
+                        szakaszának megfelelően Önnek megadott jogok
+                        automatikusan megszűnnek a fent meghatározott 60
+                        napos értesítési időszak végén.
+
+           (b) bármely szoftver, hardver, vagy eszköz, ami nem a
+           Résztvevő Közreműködői változata, közvetlenül vagy
+           közvetve sért bármilyen szabadalmat, akkor a Résztvevő
+           által, a jelen Licenc 2.1(b) és 2.2(b) szakaszának megfelelően
+           Önnek megadott jogok visszavonásra kerülnek attól a dátumtól
+           hatályosan, amikor Ön először készítette, használta vagy
+           értékesítette a Résztvevő által készített
+           Módosításokat.
+
+   8.3. Amennyiben szabadalomsértési pert indít Résztvevő ellen, azt
+   állítva, hogy Résztvevő Közreműködői változata közvetlenül vagy
+   közvetve szabadalmat sért, és a kereset rendezésre kerül (akár
+   licenc, akár megegyezés formájában) még a szabadalomsértési per
+   elindulása előtt, úgy a Résztvevő által, a 2.1 vagy 2.2 szakasznak
+   megfelelően megadott licencek értékét számításba kell venni a
+   fizetések vagy licencek mennyiségének vagy értékének
+   kiszámításakor.
+
+   8.4. A fenti 8.1 vagy 8.2 szakaszok alapján történő megszűnés
+   esetén minden végfelhasználói licencmegállapodás (kivéve a
+   disztribútorokat és viszonteladókat), amelyeket Ön vagy bármely
+   disztribútora megadott a megszűnés előtt, érvényben marad a
+   megszűnés után is.
+
+9. FELELŐSSÉG KORLÁTOZÁSA
+
+   SEMMILYEN KÖRÜLMÉNYEK KÖZÖTT ÉS SEMMILYEN JOGI MEGFONTOLÁSBÓL,
+   LEGYEN AZ MAGÁNJOGI VÉTKES CSELEKMÉNY (BELEÉRTVE A HANYAGSÁGOT),
+   SZERZŐDÉS VAGY BÁRMELY MÁS DOLOG, NEM FELELŐS ÖN, A LEFEDETT KÓD
+   ELSŐ FEJLESZTŐJE ÉS TÖBBI KÖZREMŰKÖDŐJE VAGY EZEK BÁRMELY
+   SZÁLLÍTÓJA SEMMILYEN MÁS SZEMÉLY FELÉ SEMMILYEN FAJTA KÖZVETLEN,
+   SPECIÁLIS, VÉLETLEN VAGY KÖVETKEZMÉNYES KÁRÉRT, BELEÉRTVE DE NEM
+   KIZÁRÓLAG A HÍRNÉV ELVESZTÉSÉBŐL, MUNKA LEÁLLÁSÁBÓL,
+   SZÁMÍTÓGÉP MEGHIBÁSODÁSÁBÓL VAGY HELYTELEN MŰKÖDÉSÉBŐL
+   SZÁRMAZÓ, VAGY BÁRMELY EGYÉB KERESKEDELMI KÁROKAT ÉS VESZTESÉGEKET,
+   MÉG AKKOR IS, HA AZ ILYEN FÉL INFORMÁLVA LETT AZ ILYEN KÁROK
+   ELŐFORDULÁSÁNAK LEHETŐSÉGÉRŐL. A FELELŐSSÉG EZEN KORLÁTOZÁSA
+   NEM ALKALMAZHATÓ ABBAN AZ ESETBEN, HA HALÁL VAGY SZEMÉLYI SÉRÜLÉS
+   TÖRTÉNT A FÉL HANYAGSÁGÁBÓL KIFOLYÓLAG, OLYAN MÉRTÉKBEN,
+   AMENNYIRE AZ ALKALMAZHATÓ TÖRVÉNYEK MEGTILTJÁK AZ ILYEN
+   KORLÁTOZÁSOKAT. EGYES TÖRVÉNYHOZÁSI TERÜLETEK NEM ENGEDIK A
+   VÉLETLEN VAGY KÖVETKEZMÉNYES KÁROK KORLÁTOZÁSÁT, ÍGY LEHETSÉGES,
+   HOGY EZ A KORLÁTOZÁS ÖNRE NEM VONATKOZIK.
+
+10. USA KORMÁNYZATI VÉGFELHASZNÁLÓK
+
+   A Lefedett kód egy „kereskedelmi tétel” a 48 C.F.R. 2.101 (1995.
+   okt.) meghatározása értelmében, amely „kereskedelmi számítógépes
+   szoftverből” és „kereskedelmi számítógépes
+   szoftverdokumentációból” áll, a 48 C.F.R. 12.212 (1995. szept.)
+   meghatározása értelmében. A 48 C.F.R. 12.212 és 48 C.F.R. 227.7202-1
+   – 227.7202-4 (1995. jún.) értelmében minden USA kormányzati
+   végfelhasználó csak az itt megszabott jogokkal szerezheti meg a
+   Lefedett kódot.
+
+11. VEGYES RENDELKEZÉSEK
+
+   A jelen Licenc a teljes megállapodást jelenti az adott tárgyra
+   vonatkozóan. Ha a jelen Licenc bármely rendelkezése betarthatatlannak
+   bizonyulna, úgy az adott rendelkezés csak olyan mértékben lesz
+   módosítva, hogy betartható legyen. A jelen Licencre Kalifornia
+   törvényei vonatkoznak (kivéve, ha az alkalmazható törvények
+   másképp rendelkeznek), kivéve a törvénnyel ütközési
+   rendelkezéseket. Az olyan vitákat illetően, amely esetekben legalább
+   az egyik fél az Amerikai Egyesült Államok polgára, vagy egy ott
+   bejegyzett entitás, a jelen Licenccel kapcsolatos minden jogi eljárás
+   Kalifornia Északi Körzetének Szövetségi Bíróságának
+   fennhatósága alatt kell, hogy történjen, az illetékes bíróság
+   pedig a kaliforniai Santa Clara megye bírósága. A vesztes fél viseli
+   korlátozás nélkül az összes költséget, beleértve de nem
+   kizárólag a bírósági költségeket, valamint ésszerű mértékben az
+   ügyvédek díjait és költségeit. Az Egyesült Nemzetek az Áruk
+   nemzetközi értékesítésével kapcsolatos szerződésekre vonatkozó
+   konvenciójának alkalmazását kifejezetten kizárjuk. Az olyan
+   törvények vagy előírások, amelyek szerint egy szerződés
+   nyelvezetének értelmezése az azt megfogalmazó kárára történik, nem
+   vonatkoznak a jelen Licencre.
+
+12. FELELŐSSÉG KERESLETEKKEL KAPCSOLATBAN
+
+   Az Első fejlesztő és a Közreműködők között minden egyes fél
+   felelős a jelen Licenc jogainak alkalmazásával kapcsolatban akár
+   közvetlenül, akár közvetve felmerült keresetekért és károkért,
+   Ön beleegyezik, hogy együttműködik az Első fejlesztővel és
+   Közreműködővel, hogy az ilyen felelősségeket méltányosan osszák
+   el. Az itt foglaltak közül semminek nem célja, vagy szolgálhat
+   bármilyen felelősség elismertetéséül.
+
+13. TÖBBSZÖRÖSEN LICENCELT KÓD
+
+   Az Első fejlesztő megjelölheti a Lefedett kód egy részét, mint
+   „Többszörösen licencelt”. A „Többszörösen licencelt” azt
+   jelenti, hogy az Első fejlesztő engedélyt ad arra, hogy a Lefedett kód
+   részeit felhasználja az Ön által választott NPL vagy más,
+   alternatív licencek keretében, amennyiben Első fejlesztő ezeket
+   megjelöli az "A" mellékletben leírt fájlban.
+
+„A” MELLÉKLET – Mozilla Public License
+
+   „A jelen fájl tartalmára a Mozilla Public License 1.1-es verziója (a
+   "Licenc") vonatkozik; a fájlt kizárólag a Licencnek megfelelően
+   használhatja. A Licenc egy példánya az alábbi oldalon érhető el:
+   [3]http://www.mozilla.org/MPL/
+
+   A Licenc keretében terjesztett szoftver „a jelen formájában” kerül
+   terjesztésre, MINDENFÉLE GARANCIA NÉLKÜL, legyen az kifejezett vagy
+   vélelmezett. A Licenc keretében megadott jogokkal és korlátozásokkal
+   kapcsolatban tekintse meg a Licencet.
+
+   Az Eredeti kód:______________________________________.
+
+   Az Eredeti kód Első fejlesztője:________________________. A
+   ______________________ részekre vonatkozó szerzői jog (C): ______
+   _______________________. Minden jog fenntartva.
+
+   Közreműködő(k): ______________________________________.
+
+   Alternatívaként, a fájl tartalma használható a _____ licenc (a
+   „[___] Licenc”) előírásainak megfelelően is, mely esetben a
+   [______] Licenc rendelkezései érvényesek a fentiek helyett. Ha a
+   fájlnak az Ön által birtokolt példányára csak a [____] Licenc
+   feltételeit kívánja engedélyezni, és nem akarja, hogy mások az Ön
+   fájlváltozatát az MPL keretében használják, jelezze ezt azzal, hogy
+   törli a fenti rendelkezéseket, és helyettesíti a [___] Licenc
+   figyelmeztetésével és előírásaival. Ha nem törli a fenti
+   rendelkezéseket, akkor a fogadó felek jogosultak arra, hogy a fájlnak
+   az Ön által készített verzióját akár az MPL, akár a [___] Licenc
+   előírásainak megfelelően használják."
+
+   [Megjegyzés: A jelen „A” melléklet szövege kismértékben eltérhet
+   az Eredeti kód Forráskód fájljaiban található figyelmeztetéstől.
+   Az Ön Módosításaihoz használja lehetőleg a jelen „A” melléklet
+   szövegét, ne pedig a Forráskód Eredeti kódjában talált szöveget.]

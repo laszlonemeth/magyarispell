@@ -1,0 +1,4 @@
+Név: Godó
+Leírás: Godó Ferenc részben feldolgozott szógyűjtése
+Felelős: Németh László <nemethl@gyorsposta.hu>
+Szavak száma: ~7000

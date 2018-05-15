@@ -1,0 +1,7 @@
+#!/bin/sh
+export LC_ALL=C
+# K&R kódolás prototípusa
+DIR=echo `dirname $0`
+hunspell -m -d ../tmp/hu_HU /dev/stdin | $DIR/filter.sed
+#cat ../aff/* | grep -o '<[^ 	*]*>' | ../../hunspell-0.9.8b/hunspell -d ../tmp/hu_HU 
+#cat ../aff/* | grep -o '<\*[^ 	]*>' | ../../hunspell-0.9.8b/hunspell -d ../tmp/hu_HU 

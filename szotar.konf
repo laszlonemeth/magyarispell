@@ -1,0 +1,45 @@
+# Szótármodulok beállítása
+
+# Helyesírás-ellenőrzéshez hasznos korlátozások (l. szotar/javito/*):
+szotar/javito
+
+# Hibatűrő morfológiai elemzéshez állítsuk be a következő,
+# a gyakran hibásan írt szavakat is tartalmazó modult:
+#szotar/hunmorph
+
+# A következő modulok nincsenek alapértelmezetten beállítva, részben
+# a feldolgozás és ellenőrzés hiánya, részben a helyesírási
+# alapszótárral helyenként ellentétes szaknyelvi helyesírás miatt:
+#szotar/magyar_helysegnevek
+#szotar/eleonora
+#szotar/huhyph2
+#szotar/nyelveszet
+#szotar/orvosi
+#szotar/teologia
+#szotar/hirek
+
+# Alapértelmezett alapszótárak:
+szotar/alap
+szotar/godo
+szotar/godo2
+szotar/huhyph
+szotar/szoszablya
+
+# Alapértelmezett szaknyelvi modulok:
+szotar/autizmus
+szotar/biologia
+szotar/fizika
+szotar/foldrajz
+szotar/informatika
+szotar/kemia
+szotar/magyar_helysegnevek_2007
+szotar/magyar_szemelynevek
+szotar/matematika
+szotar/sport
+szotar/tamogatok
+szotar/zene
+szotar/idegen
+
+# Egyéb
+szotar/ifjusagi
+szotar/regies

@@ -1,0 +1,2026 @@
+# 	
+#	magyar.aff/magyar.dict: Hungarian Ispell affix table and dictionary
+#
+#	Copyright (C) 1998-2003 László Németh
+#
+#	This program is free software; you can redistribute it and/or modify
+#	it under the terms of the GNU General Public License as published by
+#	the Free Software Foundation; either version 2 of the License, or
+#	(at your option) any later version.
+#
+#	This program is distributed in the hope that it will be useful,
+#	but WITHOUT ANY WARRANTY; without even the implied warranty of
+#	[MERCHANTABILITY] or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#	[GNU] General Public License for more details.
+#
+#	You should have received a copy of the GNU General Public License
+#	along with this program; if not, write to the Free Software
+#	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+############################################################
+# alanyi igeragozás
+############################################################
+
+############################################################
+# a k végû nem ikes igék (bök, csuk, lök, pök, rak)
+# ragozása külön van megoldva az ikes és
+# és iktelen ragozás szétválasztása miatt
+# ld. kivetelek/igekötõs/rak
+############################################################
+
+############################################################
+# m4 makró definíciók
+############################################################
+
+# döngt->dönget
+define(dup,[djlgnsrz] [dgtz])
+# mosdtok->mosdatok
+define(dupik,[bdgjklmnrtzy] [ldgrz] i k) # bomlana, függne/függene
+define(sdupik,[s] [ld] i k) # feslene
+define(majdnemdupik,[^bdgjkmrtzys] [ldrz] i k) # válna
+define(majdnemzdupik,[^bdgjkmrtzys] [ldr] i k) # válna
+define(majdnemsdupik,s z i k) # mászna
+define(nemdupik,[^ldrz] i k) # bánna
+define(nemdupiks,[^ldrsz] i k) # vássz!
+define(nemdupikfelsz,[^ldgrszt] i k) # bomlj
+# nincs dohányzz, de rajzz igen
+define(nemdbzik,[^dsbkmnyzr] z i k)
+# márt -> márts mhsz 77-80
+define(ts,[^szüöieuoa]t)
+# fest -> fess (sz külön kezelve)
+define(nemts,[üöieuoa]t)
+
+# elokepzos mult ideju t vegu igek
+
+
+# láts=/=látasz
+define(teloj,[áéíó]t)
+
+# csak elõképzõs múlt idejû igeragok
+define(telom,[áéíóöuü]t)
+
+
+############################################################
+# mély hangrendû alanyi igeragozás
+############################################################
+
+flag *O:
+
+[^k]	>	va	+[vA_PART_adv]
+[^k]	>	ván	+[vÁn_PART_adv]
+
+# E/1.
+[^k]	>	ok	+[PRES_INDIC_INDEF_SG_1] # fúr > fúrok
+
+define(NeloTO,[^tóúõûk])
+
+
+# E/2.
+
+#
+# speciális elõképzõs esetek
+#
+
+# vél > vélsz
+define(eloJE2,[^stzk])
+# hisz > hiszel
+define(eloSZE2,[sz])
+# vél > véltek
+define(NeloT,[^tk])
+
+# GG függ(e)sz		etek/tök	(e)nek		(öt)tél
+# NG kong(a)sz		(a)tok		(a)nak		(ot)tál
+# LL vall(a)sz		(a)tok		(a)nak		(ot)tál
+# NL ajánl(a)sz		(a)tok		(a)nak		(ot)tál
+# RR varr(a)sz		(a)tok		(a)nak		((ot))tál
+define(eloG,[gn]g)
+define(eloL,[ln]l)
+define(eloRR,r r)
+
+
+# LD old(a)sz		old(a)tok	(a)nak		(ot)tál küldettél
+# ND mond(a)sz		mond(a)tok	(a)nak		(ot)tál
+# RD hord(a)sz		(a)tok		(a)nak		((ot))tál
+# ZD küzd(e)sz 		etek/tök	(e)nek		(öt)tél
+# ----------------------- [LNZ]D > asz ------------------------
+# ----------------------- D > sz ------------------------------
+define(eloD,[lnrz]d)
+define(NeloD,[^lnrz]d)
+define(NeloTD,[^tkd])
+
+# SZ hiszel
+# DZ edzesz		(e)tek		(e)nek		(et)tél	ett
+# NZ vonzasz		(a)tok		(a)nak  	(ot)tál	ott
+# [DN]Z > asz		----------------[dn]z----------------
+# (Z > ol)
+# [^Z]> sz		------------------z------------------
+# ajz, nemz, vonz,
+define(eloZ,[jdmn]z)
+
+# eloJ
+
+# JT sóhajt(a)sz?	atok		anak		ottam
+# LT ölt(e)sz?		ötök		enek		öttem
+# NT önt(e)sz?		ötök		enek		öttem
+# RT tart(a)sz?		etek		anak		ottam
+# ST festesz		etek		enek		ettem
+# ZT eresztesz		etek		enek		ettem
+# AT ugatsz		tok		nak		tam   kiv: hat
+#HAT hatsz		tok		nak		ottam
+# ÁT bocsát(a)sz	(a)tok		anak		ottam kiv.: lát
+#LÁT látsz		tok		nak		tam
+# ET sietsz		tek		nek		tem kiv.: vet
+#VET vetsz		tek		nek 		ettem (vesz, vetet miatt kilõve)
+# ÉT vét(e)sz		etek		enek		ettem
+# ÍT alapít(a)sz?	(a)tok		anak		ottam
+# OT alkotsz		tok		nak		tam
+# ÓT lótsz		tok		nak		ottam
+# ÖT kötsz		tök		nek		öttem
+# UT futsz		tok		nak		ottam
+# ÜT ütsz		tök		nek		öttem
+# ÛT hût(e)sz		etek		enek		öttem
+# [JLNRZÁÉÍÛ]T > esz 	[jlnrszáéíû]t	[jlnrszáéíû]t	[jlnrszaáéióöuüû]t # nem letezõ formák:
+# [^SZ]T > sz		[^jlnrszéû]t	t		[^jlnrszéíóöuüû]t  # hallgatottam, látottam
+define(eloTJE2,[jlmnrzáéíû]t)
+define(NeloTJE2,[^sz]t)
+define(eloTJT2,[jlmnrszáéíû]t)
+define(NeloTJT2,[^jlmnrszéû]t)
+define(eloTJT3,[jlmnrszáéíû]t)
+define(NeloTJT3,[aeioöuü]t)
+#define(eloTM,[JLNRSZAÁÉIÓÖUÜÛ]T) define(NeloTM,[^JLNRSZÉÍÓÖUÜÛ]T)
+define(eloTM,[jlmnrszáéiíóöuüû]t)
+define(NeloTM,[^jlmnrszáéiíóöuüû]t)
+
+
+eloJE2	>	sz	+[PRES_INDIC_INDEF_SG_2]
+eloSZE2	>	ol	+[PRES_INDIC_INDEF_SG_2]
+eloG	>	asz	+[PRES_INDIC_INDEF_SG_2]
+eloL	>	asz	+[PRES_INDIC_INDEF_SG_2]	(
+eloRR	>	asz	+[PRES_INDIC_INDEF_SG_2]	&
+eloD	>	asz	+[PRES_INDIC_INDEF_SG_2]
+eloTJT2	>	asz	+[PRES_INDIC_INDEF_SG_2]
+eloZ	>	asz	+[PRES_INDIC_INDEF_SG_2]
+NeloTJE2	>	sz	+[PRES_INDIC_INDEF_SG_2]
+
+# T/1.
+[^k]	>	unk	+[PRES_INDIC_INDEF_PL_1]
+
+# T/2.
+
+NeloTO	>	tok	+[PRES_INDIC_INDEF_PL_2]
+eloG	>	otok	+[PRES_INDIC_INDEF_PL_2]
+eloL	>	otok	+[PRES_INDIC_INDEF_PL_2]	(
+eloRR	>	otok	+[PRES_INDIC_INDEF_PL_2]	&
+eloD	>	otok	+[PRES_INDIC_INDEF_PL_2]
+eloTJT2	>	otok	+[PRES_INDIC_INDEF_PL_2]
+eloZ	>	otok	+[PRES_INDIC_INDEF_PL_2]
+NeloTJT2	>	tok	+[PRES_INDIC_INDEF_PL_2]
+
+# T/3.
+
+NeloT	>	nak	+[PRES_INDIC_INDEF_PL_3]
+eloG	>	anak	+[PRES_INDIC_INDEF_PL_3]
+eloL	>	anak	+[PRES_INDIC_INDEF_PL_3]	(
+eloRR	>	anak	+[PRES_INDIC_INDEF_PL_3]	&
+eloD	>	anak	+[PRES_INDIC_INDEF_PL_3]
+eloTJT3	>	anak	+[PRES_INDIC_INDEF_PL_3]
+eloZ	>	anak	+[PRES_INDIC_INDEF_PL_3]
+NeloTJT3	>	nak	+[PRES_INDIC_INDEF_PL_3]
+
+# múlt idõ
+
+# E/1.
+NeloTO	>	tam	+[PAST_INDIC_INDEF_SG_1]
+eloG	>	ottam	+[PAST_INDIC_INDEF_SG_1]
+eloL	>	ottam	+[PAST_INDIC_INDEF_SG_1]	(
+eloRR	>	ottam	+[PAST_INDIC_INDEF_SG_1]	&
+eloD	>	ottam	+[PAST_INDIC_INDEF_SG_1]
+eloTM	>	ottam	+[PAST_INDIC_INDEF_SG_1]
+eloZ	>	ottam	+[PAST_INDIC_INDEF_SG_1]
+NeloTM	>	tam	+[PAST_INDIC_INDEF_SG_1]
+
+# E/2.
+NeloTO	>	tál	+[PAST_INDIC_INDEF_SG_2]
+eloG	>	ottál	+[PAST_INDIC_INDEF_SG_2]
+eloL	>	ottál	+[PAST_INDIC_INDEF_SG_2]	(
+eloRR	>	ottál	+[PAST_INDIC_INDEF_SG_2]	&
+eloD	>	ottál	+[PAST_INDIC_INDEF_SG_2]
+eloTM	>	ottál	+[PAST_INDIC_INDEF_SG_2]
+eloZ	>	ottál	+[PAST_INDIC_INDEF_SG_2]
+NeloTM	>	tál	+[PAST_INDIC_INDEF_SG_2]
+
+# T/1.
+
+NeloTO	>	tunk	+[PAST_INDIC_INDEF_PL_1]
+eloG	>	ottunk	+[PAST_INDIC_INDEF_PL_1]
+eloL	>	ottunk	+[PAST_INDIC_INDEF_PL_1]	(
+eloRR	>	ottunk	+[PAST_INDIC_INDEF_PL_1]	&
+eloD	>	ottunk	+[PAST_INDIC_INDEF_PL_1]
+eloTM	>	ottunk	+[PAST_INDIC_INDEF_PL_1]
+eloZ	>	ottunk	+[PAST_INDIC_INDEF_PL_1]
+NeloTM	>	tunk	+[PAST_INDIC_INDEF_PL_1]
+
+# T/2.
+
+NeloTO	>	tatok	+[PAST_INDIC_INDEF_PL_2]
+eloG	>	ottatok	+[PAST_INDIC_INDEF_PL_2]
+eloL	>	ottatok	+[PAST_INDIC_INDEF_PL_2]	(
+eloRR	>	ottatok	+[PAST_INDIC_INDEF_PL_2]	&
+eloD	>	ottatok	+[PAST_INDIC_INDEF_PL_2]
+eloTM	>	ottatok	+[PAST_INDIC_INDEF_PL_2]
+eloZ	>	ottatok	+[PAST_INDIC_INDEF_PL_2]
+NeloTM	>	tatok	+[PAST_INDIC_INDEF_PL_2]
+
+# T/3.
+
+NeloTO	>	tak	+[PAST_INDIC_INDEF_PL_3]
+eloG	>	ottak	+[PAST_INDIC_INDEF_PL_3]
+eloL	>	ottak	+[PAST_INDIC_INDEF_PL_3]	(
+eloRR	>	ottak	+[PAST_INDIC_INDEF_PL_3]	&
+eloD	>	ottak	+[PAST_INDIC_INDEF_PL_3]
+eloTM	>	ottak	+[PAST_INDIC_INDEF_PL_3]
+eloZ	>	ottak	+[PAST_INDIC_INDEF_PL_3]
+NeloTM	>	tak	+[PAST_INDIC_INDEF_PL_3]
+
+# fõnévi igenév és személyragozása
+
+NeloT	>	ni	+[ni_INFINITIVE_inf]
+eloG	>	ani	+[ni_INFINITIVE_inf]
+eloL	>	ani	+[ni_INFINITIVE_inf]	(
+eloRR	>	ani	+[ni_INFINITIVE_inf]	&
+eloD	>	ani	+[ni_INFINITIVE_inf]
+eloTJT3	>	ani	+[ni_INFINITIVE_inf]
+eloZ	>	ani	+[ni_INFINITIVE_inf]
+NeloTJT3	>	ni	+[ni_INFINITIVE_inf]
+
+# E/1
+
+NeloT	>	nom	+[INF_SG_1]
+eloG	>	anom	+[INF_SG_1]
+eloL	>	anom	+[INF_SG_1]	(
+eloRR	>	anom	+[INF_SG_1]	&
+eloD	>	anom	+[INF_SG_1]
+eloTJT3	>	anom	+[INF_SG_1]
+eloZ	>	anom	+[INF_SG_1]
+NeloTJT3	>	nom	+[INF_SG_1]
+
+# E/2
+
+NeloT	>	nod	+[INF_SG_2]
+eloG	>	anod	+[INF_SG_2]
+eloL	>	anod	+[INF_SG_2]	(
+eloRR	>	anod	+[INF_SG_2]	&
+eloD	>	anod	+[INF_SG_2]
+eloTJT3	>	anod	+[INF_SG_2]
+eloZ	>	anod	+[INF_SG_2]
+NeloTJT3	>	nod	+[INF_SG_2]
+
+# E/3
+
+NeloT	>	nia	+[INF_SG_3]
+eloG	>	ania	+[INF_SG_3]
+eloL	>	ania	+[INF_SG_3]	(
+eloRR	>	ania	+[INF_SG_3]	&
+eloD	>	ania	+[INF_SG_3]
+eloTJT3	>	ania	+[INF_SG_3]
+eloZ	>	ania	+[INF_SG_3]
+NeloTJT3	>	nia	+[INF_SG_3]
+
+# T/1
+
+NeloT	>	nunk	+[INF_PL_1]
+eloG	>	anunk	+[INF_PL_1]
+eloL	>	anunk	+[INF_PL_1]
+eloRR	>	anunk	+[INF_PL_1]
+eloD	>	anunk	+[INF_PL_1]
+eloTJT3	>	anunk	+[INF_PL_1]
+eloZ	>	anunk	+[INF_PL_1]
+NeloTJT3	>	nunk	+[INF_PL_1]
+
+# T/2
+
+NeloT	>	notok	+[INF_PL_2]
+eloG	>	anotok	+[INF_PL_2]
+eloL	>	anotok	+[INF_PL_2]
+eloRR	>	anotok	+[INF_PL_2]
+eloD	>	anotok	+[INF_PL_2]
+eloTJT3	>	anotok	+[INF_PL_2]
+eloZ	>	anotok	+[INF_PL_2]
+NeloTJT3	>	notok	+[INF_PL_2]
+
+# T/3
+
+NeloT	>	niuk	+[INF_PL_3]
+eloG	>	aniuk	+[INF_PL_3]
+eloL	>	aniuk	+[INF_PL_3]
+eloRR	>	aniuk	+[INF_PL_3]
+eloD	>	aniuk	+[INF_PL_3]
+eloTJT3	>	aniuk	+[INF_PL_3]
+eloZ	>	aniuk	+[INF_PL_3]
+NeloTJT3	>	niuk	+[INF_PL_3]
+
+# ritkább alak
+
+NeloT	>	niok	+[INF_PL_3]	&
+eloG	>	aniok	+[INF_PL_3]	&
+eloL	>	aniok	+[INF_PL_3]	&
+eloRR	>	aniok	+[INF_PL_3]	&
+eloD	>	aniok	+[INF_PL_3]	&
+eloTJT3	>	aniok	+[INF_PL_3]	&
+eloZ	>	aniok	+[INF_PL_3]	&
+NeloTJT3	>	niok	+[INF_PL_3]	&
+
+# feltételes mód
+
+NeloT	>	nék	+[PRES_COND_INDEF_SG_1]
+eloG	>	anék	+[PRES_COND_INDEF_SG_1]
+eloL	>	anék	+[PRES_COND_INDEF_SG_1]
+eloRR	>	anék	+[PRES_COND_INDEF_SG_1]
+eloD	>	anék	+[PRES_COND_INDEF_SG_1]
+eloTJT3	>	anék	+[PRES_COND_INDEF_SG_1]
+eloZ	>	anék	+[PRES_COND_INDEF_SG_1]
+NeloTJT3	>	nék	+[PRES_COND_INDEF_SG_1]
+
+. h a t > nékom   +[nék_WISH_noun_poss]+[POSS_SG_1]{+[NOM]} UÙmÒ
+. h a t > nékod   +[nék_WISH_noun_poss]+[POSS_SG_2]{+[NOM]} UÙmÒ
+. h a t > nékja   +[nék_WISH_noun_poss]+[POSS_SG_3]{+[NOM]} UÒÕÏ
+. h a t > néka    +[nék_WISH_noun_poss]+[POSS_SG_3]{+[NOM]} UÒÕÏ
+. h a t > nékunk  +[nék_WISH_noun_poss]+[POSS_PL_1]{+[NOM]} UÙmÒ
+. h a t > nékotok +[nék_WISH_noun_poss]+[POSS_PL_1]{+[NOM]} UÙmÒ
+. h a t > néktok +[nék_WISH_noun_poss]+[POSS_PL_1]{+[NOM]} UÙmÒ
+. h a t > nékuk   +[nék_WISH_noun_poss]+[POSS_PL_1]{+[NOM]} UÙmÒ
+
+. h a t > nékom   +[nék_WISH_noun_poss]+[POSS_SG_1]+[ACC]	&
+. h a t > nékod   +[nék_WISH_noun_poss]+[POSS_SG_2]+[ACC]	&
+. h a t > nékunk  +[nék_WISH_noun_poss]+[POSS_PL_1]+[ACC]	&
+. h a t > nékotok +[nék_WISH_noun_poss]+[POSS_PL_2]+[ACC]	&
+. h a t > néktok +[nék_WISH_noun_poss]+[POSS_PL_2]+[ACC]	&
+. h a t > nékuk   +[nék_WISH_noun_poss]+[POSS_PL_3]+[ACC]	&
+
+NeloT	>	nál	+[PRES_COND_INDEF_SG_2]
+eloG	>	anál	+[PRES_COND_INDEF_SG_2]
+eloL	>	anál	+[PRES_COND_INDEF_SG_2]
+eloRR	>	anál	+[PRES_COND_INDEF_SG_2]
+eloD	>	anál	+[PRES_COND_INDEF_SG_2]
+eloTJT3	>	anál	+[PRES_COND_INDEF_SG_2]
+eloZ	>	anál	+[PRES_COND_INDEF_SG_2]
+NeloTJT3	>	nál	+[PRES_COND_INDEF_SG_2]
+
+NeloT	>	na 	+[PRES_COND_INDEF_SG_3]
+eloG	>	ana 	+[PRES_COND_INDEF_SG_3]
+eloL	>	ana 	+[PRES_COND_INDEF_SG_3]
+eloRR	>	ana 	+[PRES_COND_INDEF_SG_3]
+eloD	>	ana 	+[PRES_COND_INDEF_SG_3]
+eloTJT3	>	ana 	+[PRES_COND_INDEF_SG_3]
+eloZ	>	ana	+[PRES_COND_INDEF_SG_3]
+NeloTJT3	>	na 	+[PRES_COND_INDEF_SG_3]
+
+
+NeloT	>	nánk	+[PRES_COND_INDEF_PL_1]
+eloG	>	anánk	+[PRES_COND_INDEF_PL_1]
+eloL	>	anánk	+[PRES_COND_INDEF_PL_1]
+eloRR	>	anánk	+[PRES_COND_INDEF_PL_1]
+eloD	>	anánk	+[PRES_COND_INDEF_PL_1]
+eloTJT3	>	anánk	+[PRES_COND_INDEF_PL_1]
+eloZ	>	anánk	+[PRES_COND_INDEF_PL_1]
+NeloTJT3	>	nánk	+[PRES_COND_INDEF_PL_1]
+
+NeloT	>	nátok	+[PRES_COND_INDEF_PL_2]
+eloG	>	anátok	+[PRES_COND_INDEF_PL_2]
+eloL	>	anátok	+[PRES_COND_INDEF_PL_2]
+eloRR	>	anátok	+[PRES_COND_INDEF_PL_2]
+eloD	>	anátok	+[PRES_COND_INDEF_PL_2]
+eloTJT3	>	anátok	+[PRES_COND_INDEF_PL_2]
+eloZ	>	anátok	+[PRES_COND_INDEF_PL_2]
+NeloTJT3	>	nátok	+[PRES_COND_INDEF_PL_2]
+
+NeloT	>	nának	+[PRES_COND_INDEF_PL_3]
+eloG	>	anának	+[PRES_COND_INDEF_PL_3]
+eloL	>	anának	+[PRES_COND_INDEF_PL_3]
+eloRR	>	anának	+[PRES_COND_INDEF_PL_3]
+eloD	>	anának	+[PRES_COND_INDEF_PL_3]
+eloTJT3	>	anának	+[PRES_COND_INDEF_PL_3]
+eloZ	>	anának	+[PRES_COND_INDEF_PL_3]
+NeloTJT3	>	nának	+[PRES_COND_INDEF_PL_3]
+
+# felszólító mód
+[^sztk]	>	jak	+[SUBJ/IMPER_INDEF_SG_1]
+s	>	sak	+[SUBJ/IMPER_INDEF_SG_1]
+[^s] z	>	zak	+[SUBJ/IMPER_INDEF_SG_1]
+s z	>	-z,szak	+[SUBJ/IMPER_INDEF_SG_1]
+ts 	>	sak	+[SUBJ/IMPER_INDEF_SG_1]
+nemts	>	-t,ssak	+[SUBJ/IMPER_INDEF_SG_1]
+s z t	>	-zt,szak	+[SUBJ/IMPER_INDEF_SG_1]
+
+[^sztk]	>	j	+[SUBJ/IMPER_INDEF_SG_2]
+[^sztk]	>	jál	+[SUBJ/IMPER_INDEF_SG_2]
+s	>	s	+[SUBJ/IMPER_INDEF_SG_2]
+s	>	sál	+[SUBJ/IMPER_INDEF_SG_2]
+[^s] z	>	z	+[SUBJ/IMPER_INDEF_SG_2]
+s z	>	-z,sz	+[SUBJ/IMPER_INDEF_SG_2]
+[^s] z	>	zál	+[SUBJ/IMPER_INDEF_SG_2]
+s z	>	-z,zál	+[SUBJ/IMPER_INDEF_SG_2]
+ts 	>	s	+[SUBJ/IMPER_INDEF_SG_2]
+ts 	>	sál	+[SUBJ/IMPER_INDEF_SG_2]
+nemts	>	-t,ss	+[SUBJ/IMPER_INDEF_SG_2]
+nemts	>	-t,ssál	+[SUBJ/IMPER_INDEF_SG_2]
+s z t	>	-zt,sz	+[SUBJ/IMPER_INDEF_SG_2]
+s z t	>	-zt,szál	+[SUBJ/IMPER_INDEF_SG_2]
+
+[^sztk]	>	jon	+[SUBJ/IMPER_INDEF_SG_3]
+s	>	son	+[SUBJ/IMPER_INDEF_SG_3]
+[^s] z	>	zon	+[SUBJ/IMPER_INDEF_SG_3]
+s z	>	-z,szon	+[SUBJ/IMPER_INDEF_SG_3]
+ts 	>	son	+[SUBJ/IMPER_INDEF_SG_3]
+nemts	>	-t,sson	+[SUBJ/IMPER_INDEF_SG_3]
+s z t	>	-zt,szon	+[SUBJ/IMPER_INDEF_SG_3]
+
+[^sztk]	>	junk	+[SUBJ/IMPER_INDEF_PL_1]
+s	>	sunk	+[SUBJ/IMPER_INDEF_PL_1]
+[^s] z	>	zunk	+[SUBJ/IMPER_INDEF_PL_1]
+s z	>	-z,szunk	+[SUBJ/IMPER_INDEF_PL_1]
+ts 	>	sunk	+[SUBJ/IMPER_INDEF_PL_1]
+nemts	>	-t,ssunk	+[SUBJ/IMPER_INDEF_PL_1]
+s z t	>	-zt,szunk	+[SUBJ/IMPER_INDEF_PL_1]
+
+[^sztk]	>	jatok	+[SUBJ/IMPER_INDEF_PL_2]
+s	>	satok	+[SUBJ/IMPER_INDEF_PL_2]
+[^s] z	>	zatok	+[SUBJ/IMPER_INDEF_PL_2]
+s z	>	-z,szatok	+[SUBJ/IMPER_INDEF_PL_2]
+ts 	>	satok	+[SUBJ/IMPER_INDEF_PL_2]
+nemts	>	-t,ssatok	+[SUBJ/IMPER_INDEF_PL_2]
+s z t	>	-zt,szatok	+[SUBJ/IMPER_INDEF_PL_2]
+
+[^sztk]	>	janak	+[SUBJ/IMPER_INDEF_PL_3]
+s	>	sanak	+[SUBJ/IMPER_INDEF_PL_3]
+[^ds] z	>	zanak	+[SUBJ/IMPER_INDEF_PL_3]
+s z	>	-z,szanak	+[SUBJ/IMPER_INDEF_PL_3]
+ts 	>	sanak	+[SUBJ/IMPER_INDEF_PL_3]
+nemts	>	-t,ssanak	+[SUBJ/IMPER_INDEF_PL_3]
+s z t	>	-zt,szanak	+[SUBJ/IMPER_INDEF_PL_3]
+
+# ikes
+
+majdnemdupik	>	-ik,va	+[vA_PART_adv]
+majdnemsdupik	>	-ik,va	+[vA_PART_adv]
+nemdupik	>	-ik,va	+[vA_PART_adv]
+d z i k	>	-ik,va	+[vA_PART_adv]
+
+majdnemdupik	>	-ik,ván	+[vÁn_PART_adv]
+majdnemsdupik	>	-ik,ván	+[vÁn_PART_adv]
+nemdupik	>	-ik,ván	+[vÁn_PART_adv]
+d z i k	>	-ik,ván	+[vÁn_PART_adv]
+
+# jelen idõ
+
+# E/1.
+
+i k	>	-ik,om	+[PRES_INDIC_INDEF_SG_1] # bújik > bújom
+i k	>	-ik,ok	+[PRES_INDIC_INDEF_SG_1] # bújik > bújok köznyelvi
+
+# E/2.
+
+[^l] i k	>	-ik,ol	+[PRES_INDIC_INDEF_SG_2]
+
+dupik	>	-ik,asz	+[PRES_INDIC_INDEF_SG_2]
+sdupik	>	-ik,asz	+[PRES_INDIC_INDEF_SG_2]
+majdnemzdupik	>	-ik,sz	+[PRES_INDIC_INDEF_SG_2] # nincs ázsz
+#majdnemsdupik	>	-ik,sz # nincs mászasz
+nemdupiks	>	-ik,sz	+[PRES_INDIC_INDEF_SG_2] # nincs vássz (vásik)
+
+# T/1.
+
+i k	>	-ik,unk	+[PRES_INDIC_INDEF_PL_1] # bújik > bújok
+
+# T/2.
+
+dupik	>	-ik,otok	+[PRES_INDIC_INDEF_PL_2]
+sdupik	>	-ik,otok	+[PRES_INDIC_INDEF_PL_2]
+majdnemdupik	>	-ik,tok	+[PRES_INDIC_INDEF_PL_2]
+majdnemsdupik	>	-ik,tok	+[PRES_INDIC_INDEF_PL_2]
+nemdupik	>	-ik,tok	+[PRES_INDIC_INDEF_PL_2]
+
+# T/3.
+
+dupik	>	-ik,anak	+[PRES_INDIC_INDEF_PL_3]
+sdupik	>	-ik,anak	+[PRES_INDIC_INDEF_PL_3]
+majdnemdupik	>	-ik,nak	+[PRES_INDIC_INDEF_PL_3]
+majdnemsdupik	>	-ik,nak	+[PRES_INDIC_INDEF_PL_3]
+nemdupik	>	-ik,nak	+[PRES_INDIC_INDEF_PL_3]
+d z i k	>	-ik,nak	+[PRES_INDIC_INDEF_PL_3]
+
+# ikes múlt
+
+# E/1.
+
+dupik	>	-ik,ottam	+[PAST_INDIC_INDEF_SG_1]
+sdupik	>	-ik,ottam	+[PAST_INDIC_INDEF_SG_1]
+majdnemdupik	>	-ik,tam	+[PAST_INDIC_INDEF_SG_1]
+majdnemsdupik	>	-ik,tam	+[PAST_INDIC_INDEF_SG_1]
+nemdupik	>	-ik,tam	+[PAST_INDIC_INDEF_SG_1]
+d z i k	>	-ik,tam	+[PAST_INDIC_INDEF_SG_1]
+
+# E/2.
+dupik	>	-ik,ottál	+[PAST_INDIC_INDEF_SG_2]
+sdupik	>	-ik,ottál	+[PAST_INDIC_INDEF_SG_2]
+majdnemdupik	>	-ik,tál	+[PAST_INDIC_INDEF_SG_2]
+majdnemsdupik	>	-ik,tál	+[PAST_INDIC_INDEF_SG_2]
+nemdupik	>	-ik,tál	+[PAST_INDIC_INDEF_SG_2]
+d z i k	>	-ik,tál	+[PAST_INDIC_INDEF_SG_2]
+
+# E/3.
+
+# külön (ige_kepzo.aff)
+
+
+# T/1.
+
+dupik	>	-ik,ottunk	+[PAST_INDIC_INDEF_PL_1]
+sdupik	>	-ik,ottunk	+[PAST_INDIC_INDEF_PL_1]
+majdnemdupik	>	-ik,tunk	+[PAST_INDIC_INDEF_PL_1]
+majdnemsdupik	>	-ik,tunk	+[PAST_INDIC_INDEF_PL_1]
+nemdupik	>	-ik,tunk	+[PAST_INDIC_INDEF_PL_1]
+d z i k	>	-ik,tunk	+[PAST_INDIC_INDEF_PL_1]
+
+
+# T/2.
+
+dupik	>	-ik,ottatok	+[PAST_INDIC_INDEF_PL_2]
+sdupik	>	-ik,ottatok	+[PAST_INDIC_INDEF_PL_2]
+majdnemdupik	>	-ik,tatok	+[PAST_INDIC_INDEF_PL_2]
+majdnemsdupik	>	-ik,tatok	+[PAST_INDIC_INDEF_PL_2]
+nemdupik	>	-ik,tatok	+[PAST_INDIC_INDEF_PL_2]
+d z i k	>	-ik,tatok	+[PAST_INDIC_INDEF_PL_2]
+
+# T/3.
+
+dupik	>	-ik,ottak	+[PAST_INDIC_INDEF_PL_3]
+sdupik	>	-ik,ottak	+[PAST_INDIC_INDEF_PL_3]
+majdnemdupik	>	-ik,tak	+[PAST_INDIC_INDEF_PL_3]
+majdnemsdupik	>	-ik,tak	+[PAST_INDIC_INDEF_PL_3]
+nemdupik	>	-ik,tak	+[PAST_INDIC_INDEF_PL_3]
+d z i k	>	-ik,tak	+[PAST_INDIC_INDEF_PL_3]
+
+# fõnévi igenév és személyragozása
+
+dupik	>	-ik,ani	+[ni_INFINITIVE_inf]
+sdupik	>	-ik,ani	+[ni_INFINITIVE_inf]
+majdnemdupik	>	-ik,ni	+[ni_INFINITIVE_inf]
+majdnemsdupik	>	-ik,ni	+[ni_INFINITIVE_inf]
+nemdupik	>	-ik,ni	+[ni_INFINITIVE_inf]
+d z i k	>	-ik,ni	+[ni_INFINITIVE_inf]
+
+# E/1.
+
+dupik	>	-ik,anom	+[INF_SG_1]
+sdupik	>	-ik,anom	+[INF_SG_1]
+majdnemdupik	>	-ik,nom	+[INF_SG_1]
+majdnemsdupik	>	-ik,nom	+[INF_SG_1]
+nemdupik	>	-ik,nom	+[INF_SG_1]
+d z i k	>	-ik,nom	+[INF_SG_1]
+
+# E/2.
+
+dupik	>	-ik,anod	+[INF_SG_2]
+sdupik	>	-ik,anod	+[INF_SG_2]
+majdnemdupik	>	-ik,nod	+[INF_SG_2]
+majdnemsdupik	>	-ik,nod	+[INF_SG_2]
+nemdupik	>	-ik,nod	+[INF_SG_2]
+d z i k	>	-ik,nod	+[INF_SG_2]
+
+# E/3.
+
+dupik	>	-ik,ania	+[INF_SG_3]
+sdupik	>	-ik,ania	+[INF_SG_3]
+majdnemdupik	>	-ik,nia	+[INF_SG_3]
+majdnemsdupik	>	-ik,nia	+[INF_SG_3]
+nemdupik	>	-ik,nia	+[INF_SG_3]
+d z i k	>	-ik,nia	+[INF_SG_3]
+
+# T/1.
+
+dupik	>	-ik,anunk	+[INF_PL_1]
+sdupik	>	-ik,anunk	+[INF_PL_1]
+majdnemdupik	>	-ik,nunk	+[INF_PL_1]
+majdnemsdupik	>	-ik,nunk	+[INF_PL_1]
+nemdupik	>	-ik,nunk	+[INF_PL_1]
+d z i k	>	-ik,nunk	+[INF_PL_1]
+
+# T/2.
+
+dupik	>	-ik,anotok	+[INF_PL_2]
+sdupik	>	-ik,anotok	+[INF_PL_2]
+majdnemdupik	>	-ik,notok	+[INF_PL_2]
+majdnemsdupik	>	-ik,notok	+[INF_PL_2]
+nemdupik	>	-ik,notok	+[INF_PL_2]
+d z i k	>	-ik,notok	+[INF_PL_2]
+
+# T/3.
+
+dupik	>	-ik,aniuk	+[INF_PL_3]
+sdupik	>	-ik,aniuk	+[INF_PL_3]
+majdnemdupik	>	-ik,niuk	+[INF_PL_3]
+majdnemsdupik	>	-ik,niuk	+[INF_PL_3]
+nemdupik	>	-ik,niuk	+[INF_PL_3]
+d z i k	>	-ik,niuk	+[INF_PL_3]
+
+dupik	>	-ik,aniok	+[INF_PL_3]	&
+sdupik	>	-ik,aniok	+[INF_PL_3]	&
+majdnemdupik	>	-ik,niok	+[INF_PL_3]	&
+majdnemsdupik	>	-ik,niok	+[INF_PL_3]	&
+nemdupik	>	-ik,niok	+[INF_PL_3]	&
+d z i k	>	-ik,niok	+[INF_PL_3]	&
+
+# feltételes mód
+
+# E/1.
+
+dupik	>	-ik,anám	+[PRES_COND_INDEF_SG_1]	&
+sdupik	>	-ik,anám	+[PRES_COND_INDEF_SG_1]	&
+majdnemdupik	>	-ik,nám	+[PRES_COND_INDEF_SG_1]	&
+majdnemsdupik	>	-ik,nám	+[PRES_COND_INDEF_SG_1]	&
+nemdupik	>	-ik,nám	+[PRES_COND_INDEF_SG_1]	&
+d z i k	>	-ik,nám	+[PRES_COND_INDEF_SG_1]	&
+
+dupik	>	-ik,anék	+[PRES_COND_INDEF_SG_1]
+sdupik	>	-ik,anék	+[PRES_COND_INDEF_SG_1]
+majdnemdupik	>	-ik,nék	+[PRES_COND_INDEF_SG_1]
+majdnemsdupik	>	-ik,nék	+[PRES_COND_INDEF_SG_1]
+nemdupik	>	-ik,nék	+[PRES_COND_INDEF_SG_1]
+d z i k	>	-ik,nék	+[PRES_COND_INDEF_SG_1]
+
+# E/2.
+
+dupik	>	-ik,anál	+[PRES_COND_INDEF_SG_2]
+sdupik	>	-ik,anál	+[PRES_COND_INDEF_SG_2]
+majdnemdupik	>	-ik,nál	+[PRES_COND_INDEF_SG_2]
+majdnemsdupik	>	-ik,nál	+[PRES_COND_INDEF_SG_2]
+nemdupik	>	-ik,nál	+[PRES_COND_INDEF_SG_2]
+d z i k	>	-ik,nál	+[PRES_COND_INDEF_SG_2]
+
+# E/3.
+
+dupik	>	-ik,ana	+[PRES_COND_INDEF_SG_3]
+sdupik	>	-ik,ana	+[PRES_COND_INDEF_SG_3]
+majdnemdupik	>	-ik,na	+[PRES_COND_INDEF_SG_3]
+majdnemsdupik	>	-ik,na	+[PRES_COND_INDEF_SG_3]
+nemdupik	>	-ik,na	+[PRES_COND_INDEF_SG_3]
+d z i k	>	-ik,na	+[PRES_COND_INDEF_SG_3]
+
+# -ék nem nagyon használt? Õ másznék?
+
+# T/1.
+
+dupik	>	-ik,anánk	+[PRES_COND_INDEF_PL_1]
+sdupik	>	-ik,anánk	+[PRES_COND_INDEF_PL_1]
+majdnemdupik	>	-ik,nánk	+[PRES_COND_INDEF_PL_1]
+majdnemsdupik	>	-ik,nánk	+[PRES_COND_INDEF_PL_1]
+nemdupik	>	-ik,nánk	+[PRES_COND_INDEF_PL_1]
+d z i k	>	-ik,nánk	+[PRES_COND_INDEF_PL_1]
+
+# T/2.
+
+dupik	>	-ik,anátok	+[PRES_COND_INDEF_PL_2]
+sdupik	>	-ik,anátok	+[PRES_COND_INDEF_PL_2]
+majdnemdupik	>	-ik,nátok	+[PRES_COND_INDEF_PL_2]
+majdnemsdupik	>	-ik,nátok	+[PRES_COND_INDEF_PL_2]
+nemdupik	>	-ik,nátok	+[PRES_COND_INDEF_PL_2]
+d z i k	>	-ik,nátok	+[PRES_COND_INDEF_PL_2]
+
+# T/3.
+
+dupik	>	-ik,anának	+[PRES_COND_INDEF_PL_3]
+sdupik	>	-ik,anának	+[PRES_COND_INDEF_PL_3]
+majdnemdupik	>	-ik,nának	+[PRES_COND_INDEF_PL_3]
+majdnemsdupik	>	-ik,nának	+[PRES_COND_INDEF_PL_3]
+nemdupik	>	-ik,nának	+[PRES_COND_INDEF_PL_3]
+d z i k	>	-ik,nának	+[PRES_COND_INDEF_PL_3]
+
+# felszólító mód
+
+nemdupikfelsz	>	-ik,jak	+[SUBJ/IMPER_INDEF_SG_1]
+majdnemzdupik	>	-ik,jak	+[SUBJ/IMPER_INDEF_SG_1]
+nemdupikfelsz	>	-ik,jam	+[SUBJ/IMPER_INDEF_SG_1]
+majdnemzdupik	>	-ik,jam	+[SUBJ/IMPER_INDEF_SG_1]
+s i k	>	-ik,sak	+[SUBJ/IMPER_INDEF_SG_1]
+s i k	>	-ik,sam	+[SUBJ/IMPER_INDEF_SG_1]
+nemdbzik	>	-ik,zak	+[SUBJ/IMPER_INDEF_SG_1]
+nemdbzik	>	-ik,zam	+[SUBJ/IMPER_INDEF_SG_1]
+d z i k	>	-zik,dzak	+[SUBJ/IMPER_INDEF_SG_1]
+d z i k	>	-zik,dzam	+[SUBJ/IMPER_INDEF_SG_1]
+s z i k	>	-zik,szak	+[SUBJ/IMPER_INDEF_SG_1]
+s z i k	>	-zik,szam	+[SUBJ/IMPER_INDEF_SG_1]
+ts i k 	>	-ik,sak	+[SUBJ/IMPER_INDEF_SG_1]
+ts i k 	>	-ik,sam	+[SUBJ/IMPER_INDEF_SG_1]
+nemts i k	>	-tik,ssak	+[SUBJ/IMPER_INDEF_SG_1]
+nemts i k	>	-tik,ssam	+[SUBJ/IMPER_INDEF_SG_1]
+s z t i k	>	-ztik,szak	+[SUBJ/IMPER_INDEF_SG_1]
+s z t i k	>	-ztik,szam	+[SUBJ/IMPER_INDEF_SG_1]
+
+nemdupikfelsz	>	-ik,j	+[SUBJ/IMPER_INDEF_SG_2]
+majdnemzdupik	>	-ik,j	+[SUBJ/IMPER_INDEF_SG_2]
+nemdupikfelsz	>	-ik,jál	+[SUBJ/IMPER_INDEF_SG_2]
+majdnemzdupik	>	-ik,jál	+[SUBJ/IMPER_INDEF_SG_2]
+s i k	>	-ik,s	+[SUBJ/IMPER_INDEF_SG_2]
+s i k	>	-ik,sál	+[SUBJ/IMPER_INDEF_SG_2]
+nemdbzik	>	-ik,z	+[SUBJ/IMPER_INDEF_SG_2]
+nemdbzik	>	-ik,zál	+[SUBJ/IMPER_INDEF_SG_2]
+d z i k	>	-zik,dz	+[SUBJ/IMPER_INDEF_SG_2]
+d z i k	>	-zik,dzál	+[SUBJ/IMPER_INDEF_SG_2]
+s z i k	>	-zik,sz	+[SUBJ/IMPER_INDEF_SG_2]
+s z i k	>	-zik,szál	+[SUBJ/IMPER_INDEF_SG_2]
+ts i k	>	-ik,s	+[SUBJ/IMPER_INDEF_SG_2]
+ts i k 	>	-ik,sál	+[SUBJ/IMPER_INDEF_SG_2]
+nemts i k	>	-tik,ss	+[SUBJ/IMPER_INDEF_SG_2]
+nemts i k	>	-tik,ssál	+[SUBJ/IMPER_INDEF_SG_2]
+s z t i k	>	-ztik,sz	+[SUBJ/IMPER_INDEF_SG_2]
+s z t i k	>	-ztik,szál	+[SUBJ/IMPER_INDEF_SG_2]
+
+nemdupikfelsz	>	-ik,jon	+[SUBJ/IMPER_INDEF_SG_3]
+majdnemzdupik	>	-ik,jon	+[SUBJ/IMPER_INDEF_SG_3]
+nemdupikfelsz	>	-ik,jék	+[SUBJ/IMPER_INDEF_SG_3]
+majdnemzdupik	>	-ik,jék	+[SUBJ/IMPER_INDEF_SG_3]
+s i k	>	-ik,son	+[SUBJ/IMPER_INDEF_SG_3]
+s i k	>	-ik,sék	+[SUBJ/IMPER_INDEF_SG_3]
+nemdbzik	>	-ik,zon	+[SUBJ/IMPER_INDEF_SG_3]
+nemdbzik	>	-ik,zék	+[SUBJ/IMPER_INDEF_SG_3]
+d z i k	>	-zik,dzon	+[SUBJ/IMPER_INDEF_SG_3]
+d z i k	>	-zik,dzék	+[SUBJ/IMPER_INDEF_SG_3]
+s z i k	>	-zik,szon	+[SUBJ/IMPER_INDEF_SG_3]
+s z i k	>	-zik,szék	+[SUBJ/IMPER_INDEF_SG_3]
+ts i k 	>	-ik,son	+[SUBJ/IMPER_INDEF_SG_3]
+ts i k 	>	-ik,sék	+[SUBJ/IMPER_INDEF_SG_3]
+nemts i k	>	-tik,sson	+[SUBJ/IMPER_INDEF_SG_3]
+nemts i k	>	-tik,ssék	+[SUBJ/IMPER_INDEF_SG_3]
+s z t i k	>	-ztik,szon	+[SUBJ/IMPER_INDEF_SG_3]
+s z t i k	>	-ztik,szék	+[SUBJ/IMPER_INDEF_SG_3]
+
+nemdupikfelsz	>	-ik,junk	+[SUBJ/IMPER_INDEF_PL_1]
+majdnemzdupik	>	-ik,junk	+[SUBJ/IMPER_INDEF_PL_1]
+s i k	>	-ik,sunk	+[SUBJ/IMPER_INDEF_PL_1]
+nemdbzik	>	-ik,zunk	+[SUBJ/IMPER_INDEF_PL_1]
+d z i k	>	-zik,dzunk	+[SUBJ/IMPER_INDEF_PL_1]
+s z i k	>	-zik,szunk	+[SUBJ/IMPER_INDEF_PL_1]
+ts i k 	>	-ik,sunk	+[SUBJ/IMPER_INDEF_PL_1]
+nemts i k	>	-tik,ssunk	+[SUBJ/IMPER_INDEF_PL_1]
+s z t i k	>	-ztik,szunk	+[SUBJ/IMPER_INDEF_PL_1]
+
+nemdupikfelsz	>	-ik,jatok	+[SUBJ/IMPER_INDEF_PL_2]
+majdnemzdupik	>	-ik,jatok	+[SUBJ/IMPER_INDEF_PL_2]
+s i k	>	-ik,satok	+[SUBJ/IMPER_INDEF_PL_2]
+nemdbzik	>	-ik,zatok	+[SUBJ/IMPER_INDEF_PL_2]
+d z i k	>	-zik,dzatok	+[SUBJ/IMPER_INDEF_PL_2]
+s z i k	>	-zik,szatok	+[SUBJ/IMPER_INDEF_PL_2]
+ts i k 	>	-ik,satok	+[SUBJ/IMPER_INDEF_PL_2]
+nemts i k	>	-tik,ssatok	+[SUBJ/IMPER_INDEF_PL_2]
+s z t i k	>	-ztik,szatok	+[SUBJ/IMPER_INDEF_PL_2]
+
+nemdupikfelsz	>	-ik,janak	+[SUBJ/IMPER_INDEF_PL_3]
+majdnemzdupik	>	-ik,janak	+[SUBJ/IMPER_INDEF_PL_3]
+s i k	>	-ik,sanak	+[SUBJ/IMPER_INDEF_PL_3]
+nemdbzik	>	-ik,zanak	+[SUBJ/IMPER_INDEF_PL_3]
+d z i k	>	-zik,dzanak	+[SUBJ/IMPER_INDEF_PL_3]
+s z i k	>	-zik,szanak	+[SUBJ/IMPER_INDEF_PL_3]
+ts i k 	>	-ik,sanak	+[SUBJ/IMPER_INDEF_PL_3]
+nemts i k	>	-tik,ssanak	+[SUBJ/IMPER_INDEF_PL_3]
+s z t i k	>	-ztik,szanak	+[SUBJ/IMPER_INDEF_PL_3]
+
+
+############################################################
+# magas ajakréses alanyi igeragok
+############################################################
+
+flag *E:
+
+[^k]	>	ve	+[vA_PART_adv]
+[^k]	>	vén	+[vÁn_PART_adv]
+
+# E/1.
+[^k]	>	ek	+[PRES_INDIC_INDEF_SG_1] # mer > merek  (ik!!!!)
+
+# E/2.
+
+eloJE2	>	sz	+[PRES_INDIC_INDEF_SG_2]
+eloSZE2	>	el	+[PRES_INDIC_INDEF_SG_2]
+eloG	>	esz	+[PRES_INDIC_INDEF_SG_2]
+eloL	>	esz	+[PRES_INDIC_INDEF_SG_2]
+eloRR	>	esz	+[PRES_INDIC_INDEF_SG_2]
+eloD	>	esz	+[PRES_INDIC_INDEF_SG_2]
+eloTJT2	>	esz	+[PRES_INDIC_INDEF_SG_2]
+eloZ	>	esz	+[PRES_INDIC_INDEF_SG_2]
+NeloTJE2	>	sz	+[PRES_INDIC_INDEF_SG_2]
+
+# T/1.
+[^k]	>	ünk	+[PRES_INDIC_INDEF_PL_1]
+
+# T/2.
+
+NeloTO	>	tek	+[PRES_INDIC_INDEF_PL_2]
+eloG	>	etek	+[PRES_INDIC_INDEF_PL_2]
+eloL	>	etek	+[PRES_INDIC_INDEF_PL_2]
+eloRR	>	etek	+[PRES_INDIC_INDEF_PL_2]
+eloD	>	etek	+[PRES_INDIC_INDEF_PL_2]
+eloTJT2	>	etek	+[PRES_INDIC_INDEF_PL_2]
+eloZ	>	etek	+[PRES_INDIC_INDEF_PL_2]
+NeloTJT2	>	tek	+[PRES_INDIC_INDEF_PL_2]
+
+# T/3.
+
+NeloT	>	nek	+[PRES_INDIC_INDEF_PL_3]
+eloG	>	enek	+[PRES_INDIC_INDEF_PL_3]
+eloL	>	enek	+[PRES_INDIC_INDEF_PL_3]
+eloRR	>	enek	+[PRES_INDIC_INDEF_PL_3]
+eloD	>	enek	+[PRES_INDIC_INDEF_PL_3]
+eloTJT3	>	enek	+[PRES_INDIC_INDEF_PL_3]
+eloZ	>	enek	+[PRES_INDIC_INDEF_PL_3]
+NeloTJT3	>	nek	+[PRES_INDIC_INDEF_PL_3]
+
+# múlt idõ
+
+# E/1.
+NeloT	>	tem	+[PAST_INDIC_INDEF_SG_1]
+eloG	>	ettem	+[PAST_INDIC_INDEF_SG_1]
+eloL	>	ettem	+[PAST_INDIC_INDEF_SG_1]
+eloRR	>	ettem	+[PAST_INDIC_INDEF_SG_1]
+eloD	>	ettem	+[PAST_INDIC_INDEF_SG_1]
+eloTM	>	ettem	+[PAST_INDIC_INDEF_SG_1]
+eloZ	>	ettem	+[PAST_INDIC_INDEF_SG_1]
+NeloTM	>	tem	+[PAST_INDIC_INDEF_SG_1]
+
+# E/2.
+NeloT	>	tél	+[PAST_INDIC_INDEF_SG_2]
+eloG	>	ettél	+[PAST_INDIC_INDEF_SG_2]
+eloL	>	ettél	+[PAST_INDIC_INDEF_SG_2]
+eloRR	>	ettél	+[PAST_INDIC_INDEF_SG_2]
+eloD	>	ettél	+[PAST_INDIC_INDEF_SG_2]
+eloTM	>	ettél	+[PAST_INDIC_INDEF_SG_2]
+eloZ	>	ettél	+[PAST_INDIC_INDEF_SG_2]
+NeloTM	>	tél	+[PAST_INDIC_INDEF_SG_2]
+
+# T/1.
+
+NeloT	>	tünk	+[PAST_INDIC_INDEF_PL_1]
+eloG	>	ettünk	+[PAST_INDIC_INDEF_PL_1]
+eloL	>	ettünk	+[PAST_INDIC_INDEF_PL_1]
+eloRR	>	ettünk	+[PAST_INDIC_INDEF_PL_1]
+eloD	>	ettünk	+[PAST_INDIC_INDEF_PL_1]
+eloTM	>	ettünk	+[PAST_INDIC_INDEF_PL_1]
+eloZ	>	ettünk	+[PAST_INDIC_INDEF_PL_1]
+NeloTM	>	tünk	+[PAST_INDIC_INDEF_PL_1]
+
+# T/2.
+
+NeloT	>	tetek	+[PAST_INDIC_INDEF_PL_2]
+eloG	>	ettetek	+[PAST_INDIC_INDEF_PL_2]
+eloL	>	ettetek	+[PAST_INDIC_INDEF_PL_2]
+eloRR	>	ettetek	+[PAST_INDIC_INDEF_PL_2]
+eloD	>	ettetek	+[PAST_INDIC_INDEF_PL_2]
+eloZ	>	ettetek	+[PAST_INDIC_INDEF_PL_2]
+eloTM	>	ettetek	+[PAST_INDIC_INDEF_PL_2]
+NeloTM	>	tetek	+[PAST_INDIC_INDEF_PL_2]
+
+# T/3.
+
+NeloT	>	tek	+[PAST_INDIC_INDEF_PL_3]
+eloG	>	ettek	+[PAST_INDIC_INDEF_PL_3]
+eloL	>	ettek	+[PAST_INDIC_INDEF_PL_3]
+eloRR	>	ettek	+[PAST_INDIC_INDEF_PL_3]
+eloD	>	ettek	+[PAST_INDIC_INDEF_PL_3]
+eloTM	>	ettek	+[PAST_INDIC_INDEF_PL_3]
+eloZ	>	ettek	+[PAST_INDIC_INDEF_PL_3]
+NeloTM	>	tek	+[PAST_INDIC_INDEF_PL_3]
+
+
+# fõnévi igenév és személyragozása
+
+NeloT	>	ni	+[ni_INFINITIVE_inf]
+eloG	>	eni	+[ni_INFINITIVE_inf]
+eloL	>	eni	+[ni_INFINITIVE_inf]
+eloRR	>	eni	+[ni_INFINITIVE_inf]
+eloD	>	eni	+[ni_INFINITIVE_inf]
+eloTJT3	>	eni	+[ni_INFINITIVE_inf]
+eloZ	>	eni	+[ni_INFINITIVE_inf]
+NeloTJT3	>	ni	+[ni_INFINITIVE_inf]
+
+# E/1
+
+NeloT	>	nem	+[INF_SG_1]
+eloG	>	enem	+[INF_SG_1]
+eloL	>	enem	+[INF_SG_1]
+eloRR	>	enem	+[INF_SG_1]
+eloD	>	enem	+[INF_SG_1]
+eloTJT3	>	enem	+[INF_SG_1]
+eloZ	>	enem	+[INF_SG_1]
+NeloTJT3	>	nem	+[INF_SG_1]
+
+# E/2
+
+NeloT	>	ned	+[INF_SG_2]
+eloG	>	ened	+[INF_SG_2]
+eloL	>	ened	+[INF_SG_2]
+eloRR	>	ened	+[INF_SG_2]
+eloD	>	ened	+[INF_SG_2]
+eloTJT3	>	ened	+[INF_SG_2]
+eloZ	>	ened	+[INF_SG_2]
+NeloTJT3	>	ned	+[INF_SG_2]
+
+# E/3
+
+NeloT	>	nie	+[INF_SG_3]
+eloG	>	enie	+[INF_SG_3]
+eloL	>	enie	+[INF_SG_3]
+eloRR	>	enie	+[INF_SG_3]
+eloD	>	enie	+[INF_SG_3]
+eloTJT3	>	enie	+[INF_SG_3]
+eloZ	>	enie	+[INF_SG_3]
+NeloTJT3	>	nie	+[INF_SG_3]
+
+# T/1
+
+NeloT	>	nünk	+[INF_PL_1]
+eloG	>	enünk	+[INF_PL_1]
+eloL	>	enünk	+[INF_PL_1]
+eloRR	>	enünk	+[INF_PL_1]
+eloD	>	enünk	+[INF_PL_1]
+eloTJT3	>	enünk	+[INF_PL_1]
+eloZ	>	enünk	+[INF_PL_1]
+NeloTJT3	>	nünk	+[INF_PL_1]
+
+# T/2
+
+NeloT	>	netek	+[INF_PL_2]
+eloG	>	enetek	+[INF_PL_2]
+eloL	>	enetek	+[INF_PL_2]
+eloRR	>	enetek	+[INF_PL_2]
+eloD	>	enetek	+[INF_PL_2]
+eloTJT3	>	enetek	+[INF_PL_2]
+eloZ	>	enetek	+[INF_PL_2]
+NeloTJT3	>	netek	+[INF_PL_2]
+
+# T/3
+
+NeloT	>	niük	+[INF_PL_3]
+eloG	>	eniük	+[INF_PL_3]
+eloL	>	eniük	+[INF_PL_3]
+eloRR	>	eniük	+[INF_PL_3]
+eloD	>	eniük	+[INF_PL_3]
+eloTJT3	>	eniük	+[INF_PL_3]
+eloZ	>	eniük	+[INF_PL_3]
+NeloTJT3	>	niük	+[INF_PL_3]
+
+NeloT	>	niök	+[INF_PL_3]	&
+eloG	>	eniök	+[INF_PL_3]	&
+eloL	>	eniök	+[INF_PL_3]	&
+eloRR	>	eniök	+[INF_PL_3]	&
+eloD	>	eniök	+[INF_PL_3]	&
+eloTJT3	>	eniök	+[INF_PL_3]	&
+eloZ	>	eniök	+[INF_PL_3]	&
+NeloTJT3	>	niök	+[INF_PL_3]	&
+
+# feltételes mód
+
+NeloT	>	nék	+[PRES_COND_INDEF_SG_1]
+eloG	>	enék	+[PRES_COND_INDEF_SG_1]
+eloL	>	enék	+[PRES_COND_INDEF_SG_1]
+eloRR	>	enék	+[PRES_COND_INDEF_SG_1]
+eloD	>	enék	+[PRES_COND_INDEF_SG_1]
+eloTJT3	>	enék	+[PRES_COND_INDEF_SG_1]
+eloZ	>	enék	+[PRES_COND_INDEF_SG_1]
+NeloTJT3	>	nék	+[PRES_COND_INDEF_SG_1]
+
+. h e t > nékem   +[nék_WISH_noun_poss]+[POSS_SG_1]{+[NOM]} VÓ×n
+. h e t > néked   +[nék_WISH_noun_poss]+[POSS_SG_2]{+[NOM]} VÓ×n
+. h e t > nékje   +[nék_WISH_noun_poss]+[POSS_SG_3]{+[NOM]} VÓÕÐ
+. h e t > néke    +[nék_WISH_noun_poss]+[POSS_SG_3]{+[NOM]} VÓÕÐ
+. h e t > nékünk  +[nék_WISH_noun_poss]+[POSS_PL_1]{+[NOM]} VÓ×n
+. h e t > néketek +[nék_WISH_noun_poss]+[POSS_PL_1]{+[NOM]} VÓ×n
+. h e t > néktek +[nék_WISH_noun_poss]+[POSS_PL_1]{+[NOM]} VÓ×n
+. h e t > nékük   +[nék_WISH_noun_poss]+[POSS_PL_1]{+[NOM]} VÓ×n
+
+. h e t > nékem   +[nék_WISH_noun_poss]+[POSS_SG_1]+[ACC]	&
+. h e t > néked   +[nék_WISH_noun_poss]+[POSS_SG_2]+[ACC]	&
+. h e t > nékünk  +[nék_WISH_noun_poss]+[POSS_PL_1]+[ACC]	&
+. h e t > néketek +[nék_WISH_noun_poss]+[POSS_PL_2]+[ACC]	&
+. h e t > néktek +[nék_WISH_noun_poss]+[POSS_PL_2]+[ACC]	&
+. h e t > nékük   +[nék_WISH_noun_poss]+[POSS_PL_3]+[ACC]	&
+
+NeloT	>	nél	+[PRES_COND_INDEF_SG_2]
+eloG	>	enél	+[PRES_COND_INDEF_SG_2]
+eloL	>	enél	+[PRES_COND_INDEF_SG_2]
+eloRR	>	enél	+[PRES_COND_INDEF_SG_2]
+eloD	>	enél	+[PRES_COND_INDEF_SG_2]
+eloTJT3	>	enél	+[PRES_COND_INDEF_SG_2]
+eloZ	>	enél	+[PRES_COND_INDEF_SG_2]
+NeloTJT3	>	nél	+[PRES_COND_INDEF_SG_2]
+
+NeloT	>	ne 	+[PRES_COND_INDEF_SG_3]
+eloG	>	ene 	+[PRES_COND_INDEF_SG_3]
+eloL	>	ene 	+[PRES_COND_INDEF_SG_3]
+eloRR	>	ene 	+[PRES_COND_INDEF_SG_3]
+eloD	>	ene 	+[PRES_COND_INDEF_SG_3]
+eloTJT3	>	ene 	+[PRES_COND_INDEF_SG_3]
+eloZ	>	ene 	+[PRES_COND_INDEF_SG_3]
+NeloTJT3	>	ne 	+[PRES_COND_INDEF_SG_3]
+
+
+NeloT	>	nénk	+[PRES_COND_INDEF_PL_1]
+eloG	>	enénk	+[PRES_COND_INDEF_PL_1]
+eloL	>	enénk	+[PRES_COND_INDEF_PL_1]
+eloRR	>	enénk	+[PRES_COND_INDEF_PL_1]
+eloD	>	enénk	+[PRES_COND_INDEF_PL_1]
+eloTJT3	>	enénk	+[PRES_COND_INDEF_PL_1]
+eloZ	>	enénk	+[PRES_COND_INDEF_PL_1]
+NeloTJT3	>	nénk	+[PRES_COND_INDEF_PL_1]
+
+NeloT	>	nétek	+[PRES_COND_INDEF_PL_2]
+eloG	>	enétek	+[PRES_COND_INDEF_PL_2]
+eloL	>	enétek	+[PRES_COND_INDEF_PL_2]
+eloRR	>	enétek	+[PRES_COND_INDEF_PL_2]
+eloD	>	enétek	+[PRES_COND_INDEF_PL_2]
+eloTJT3	>	enétek	+[PRES_COND_INDEF_PL_2]
+eloZ	>	enétek	+[PRES_COND_INDEF_PL_2]
+NeloTJT3	>	nétek	+[PRES_COND_INDEF_PL_2]
+
+NeloT	>	nének	+[PRES_COND_INDEF_PL_3]
+eloG	>	enének	+[PRES_COND_INDEF_PL_3]
+eloL	>	enének	+[PRES_COND_INDEF_PL_3]
+eloRR	>	enének	+[PRES_COND_INDEF_PL_3]
+eloD	>	enének	+[PRES_COND_INDEF_PL_3]
+eloTJT3	>	enének	+[PRES_COND_INDEF_PL_3]
+eloZ	>	enének	+[PRES_COND_INDEF_PL_3]
+NeloTJT3	>	nének	+[PRES_COND_INDEF_PL_3]
+
+# felszólító mód
+[^sztk]	>	jek	+[SUBJ/IMPER_INDEF_SG_1]
+s	>	sek	+[SUBJ/IMPER_INDEF_SG_1]
+[^s] z	>	zek	+[SUBJ/IMPER_INDEF_SG_1]
+s z	>	-z,szek	+[SUBJ/IMPER_INDEF_SG_1]
+ts 	>	sek	+[SUBJ/IMPER_INDEF_SG_1]
+nemts	>	-t,ssek	+[SUBJ/IMPER_INDEF_SG_1]
+s z t	>	-zt,szek	+[SUBJ/IMPER_INDEF_SG_1]
+
+[^sztk]	>	j	+[SUBJ/IMPER_INDEF_SG_2]
+[^sztk]	>	jél	+[SUBJ/IMPER_INDEF_SG_2]
+s	>	s	+[SUBJ/IMPER_INDEF_SG_2]
+s	>	sél	+[SUBJ/IMPER_INDEF_SG_2]
+[^s] z	>	z	+[SUBJ/IMPER_INDEF_SG_2]
+s z	>	-z,sz	+[SUBJ/IMPER_INDEF_SG_2]
+[^s] z	>	zél	+[SUBJ/IMPER_INDEF_SG_2]
+s z	>	-z,szél	+[SUBJ/IMPER_INDEF_SG_2]
+ts 	>	s	+[SUBJ/IMPER_INDEF_SG_2]
+ts 	>	sél	+[SUBJ/IMPER_INDEF_SG_2]
+nemts	>	-t,ss	+[SUBJ/IMPER_INDEF_SG_2]
+nemts	>	-t,ssél	+[SUBJ/IMPER_INDEF_SG_2]
+s z t	>	-zt,sz	+[SUBJ/IMPER_INDEF_SG_2]
+s z t	>	-zt,szél	+[SUBJ/IMPER_INDEF_SG_2]
+
+[^sztk]	>	jen	+[SUBJ/IMPER_INDEF_SG_3]
+s	>	sen	+[SUBJ/IMPER_INDEF_SG_3]
+[^s] z	>	zen	+[SUBJ/IMPER_INDEF_SG_3]
+s z	>	-z,szen	+[SUBJ/IMPER_INDEF_SG_3]
+ts 	>	sen	+[SUBJ/IMPER_INDEF_SG_3]
+nemts	>	-t,ssen	+[SUBJ/IMPER_INDEF_SG_3]
+s z t	>	-zt,szen	+[SUBJ/IMPER_INDEF_SG_3]
+
+[^sztk]	>	jünk	+[SUBJ/IMPER_INDEF_PL_1]
+s	>	sünk	+[SUBJ/IMPER_INDEF_PL_1]
+[^s] z	>	zünk	+[SUBJ/IMPER_INDEF_PL_1]
+s z	>	-z,szünk	+[SUBJ/IMPER_INDEF_PL_1]
+ts 	>	sünk	+[SUBJ/IMPER_INDEF_PL_1]
+nemts	>	-t,ssünk	+[SUBJ/IMPER_INDEF_PL_1]
+s z t	>	-zt,szünk	+[SUBJ/IMPER_INDEF_PL_1]
+
+[^sztk]	>	jetek	+[SUBJ/IMPER_INDEF_PL_2]
+s	>	setek	+[SUBJ/IMPER_INDEF_PL_2]
+[^s] z	>	zetek	+[SUBJ/IMPER_INDEF_PL_2]
+s z	>	-z,szetek	+[SUBJ/IMPER_INDEF_PL_2]
+ts 	>	setek	+[SUBJ/IMPER_INDEF_PL_2]
+nemts	>	-t,ssetek	+[SUBJ/IMPER_INDEF_PL_2]
+s z t	>	-zt,szetek	+[SUBJ/IMPER_INDEF_PL_2]
+
+[^sztk]	>	jenek	+[SUBJ/IMPER_INDEF_PL_3]
+s	>	senek	+[SUBJ/IMPER_INDEF_PL_3]
+[^s] z	>	zenek	+[SUBJ/IMPER_INDEF_PL_3]
+s z	>	-z,szenek	+[SUBJ/IMPER_INDEF_PL_3]
+ts 	>	senek	+[SUBJ/IMPER_INDEF_PL_3]
+nemts	>	-t,ssenek	+[SUBJ/IMPER_INDEF_PL_3]
+s z t	>	-zt,szenek	+[SUBJ/IMPER_INDEF_PL_3]
+
+# ikes
+
+majdnemdupik	>	-ik,ve	+[vA_PART_adv]
+majdnemsdupik	>	-ik,ve	+[vA_PART_adv]
+nemdupik	>	-ik,ve	+[vA_PART_adv]
+d z i k	>	-ik,ve	+[vA_PART_adv]
+
+majdnemdupik	>	-ik,vén	+[vÁn_PART_adv]
+majdnemsdupik	>	-ik,vén	+[vÁn_PART_adv]
+nemdupik	>	-ik,vén	+[vÁn_PART_adv]
+d z i k	>	-ik,vén	+[vÁn_PART_adv]
+
+# jelen idõ
+
+# E/1.
+
+i k	>	-ik,em	+[PRES_INDIC_INDEF_SG_1] # bújik > bújom
+i k	>	-ik,ek	+[PRES_INDIC_INDEF_SG_1] # bújik > bújok köznyelvi
+
+# E/2.
+
+[^l] i k	>	-ik,el	+[PRES_INDIC_INDEF_SG_2]
+
+dupik	>	-ik,esz	+[PRES_INDIC_INDEF_SG_2]
+sdupik	>	-ik,esz	+[PRES_INDIC_INDEF_SG_2]
+majdnemzdupik	>	-ik,sz	+[PRES_INDIC_INDEF_SG_2] # nincs étkezsz
+#majdnemsdupik	>	-ik,sz # nincs mászasz
+nemdupiks	>	-ik,sz	+[PRES_INDIC_INDEF_SG_2] # nincs késsz
+
+# T/1.
+
+i k	>	-ik,ünk	+[PRES_INDIC_INDEF_PL_1] # bújik > bújok
+
+# T/2.
+
+dupik	>	-ik,etek	+[PRES_INDIC_INDEF_PL_2]
+sdupik	>	-ik,etek	+[PRES_INDIC_INDEF_PL_2]
+majdnemdupik	>	-ik,tek	+[PRES_INDIC_INDEF_PL_2]
+majdnemsdupik	>	-ik,tek	+[PRES_INDIC_INDEF_PL_2]
+nemdupik	>	-ik,tek	+[PRES_INDIC_INDEF_PL_2]
+
+# T/3.
+
+dupik	>	-ik,enek	+[PRES_INDIC_INDEF_PL_3]
+sdupik	>	-ik,enek	+[PRES_INDIC_INDEF_PL_3]
+majdnemdupik	>	-ik,nek	+[PRES_INDIC_INDEF_PL_3]
+majdnemsdupik	>	-ik,nek	+[PRES_INDIC_INDEF_PL_3]
+nemdupik	>	-ik,nek	+[PRES_INDIC_INDEF_PL_3]
+d z i k	>	-ik,nek	+[PRES_INDIC_INDEF_PL_3]
+
+# ikes múlt
+
+# E/1.
+
+dupik	>	-ik,ettem	+[PAST_INDIC_INDEF_SG_1]
+sdupik	>	-ik,ettem	+[PAST_INDIC_INDEF_SG_1]
+majdnemdupik	>	-ik,tem	+[PAST_INDIC_INDEF_SG_1]
+majdnemsdupik	>	-ik,tem	+[PAST_INDIC_INDEF_SG_1]
+nemdupik	>	-ik,tem	+[PAST_INDIC_INDEF_SG_1]
+d z i k	>	-ik,tem	+[PAST_INDIC_INDEF_SG_1]
+
+# E/2.
+
+dupik	>	-ik,ettél	+[PAST_INDIC_INDEF_SG_2]
+sdupik	>	-ik,ettél	+[PAST_INDIC_INDEF_SG_2]
+majdnemdupik	>	-ik,tél	+[PAST_INDIC_INDEF_SG_2]
+majdnemsdupik	>	-ik,tél	+[PAST_INDIC_INDEF_SG_2]
+nemdupik	>	-ik,tél	+[PAST_INDIC_INDEF_SG_2]
+d z i k	>	-ik,tél	+[PAST_INDIC_INDEF_SG_2]
+
+# E/3.
+
+# külön (ige_kepzo.aff)
+
+# T/1.
+
+dupik	>	-ik,ettünk	+[PAST_INDIC_INDEF_PL_1]
+sdupik	>	-ik,ettünk	+[PAST_INDIC_INDEF_PL_1]
+majdnemdupik	>	-ik,tünk	+[PAST_INDIC_INDEF_PL_1]
+majdnemsdupik	>	-ik,tünk	+[PAST_INDIC_INDEF_PL_1]
+nemdupik	>	-ik,tünk	+[PAST_INDIC_INDEF_PL_1]
+d z i k	>	-ik,tünk	+[PAST_INDIC_INDEF_PL_1]
+
+# T/2.
+
+dupik	>	-ik,ettetek	+[PAST_INDIC_INDEF_PL_2]
+sdupik	>	-ik,ettetek	+[PAST_INDIC_INDEF_PL_2]
+majdnemdupik	>	-ik,tetek	+[PAST_INDIC_INDEF_PL_2]
+majdnemsdupik	>	-ik,tetek	+[PAST_INDIC_INDEF_PL_2]
+nemdupik	>	-ik,tetek	+[PAST_INDIC_INDEF_PL_2]
+d z i k	>	-ik,tetek	+[PAST_INDIC_INDEF_PL_2]
+
+# T/3.
+
+dupik	>	-ik,ettek	+[PAST_INDIC_INDEF_PL_3]
+sdupik	>	-ik,ettek	+[PAST_INDIC_INDEF_PL_3]
+majdnemdupik	>	-ik,tek	+[PAST_INDIC_INDEF_PL_3]
+majdnemsdupik	>	-ik,tek	+[PAST_INDIC_INDEF_PL_3]
+nemdupik	>	-ik,tek	+[PAST_INDIC_INDEF_PL_3]
+d z i k	>	-ik,tek	+[PAST_INDIC_INDEF_PL_3]
+
+# fõnévi igenév és személyragozása
+
+dupik	>	-ik,eni	+[ni_INFINITIVE_inf]
+sdupik	>	-ik,eni	+[ni_INFINITIVE_inf]
+majdnemdupik	>	-ik,ni	+[ni_INFINITIVE_inf]
+majdnemsdupik	>	-ik,ni	+[ni_INFINITIVE_inf]
+nemdupik	>	-ik,ni	+[ni_INFINITIVE_inf]
+d z i k	>	-ik,ni	+[ni_INFINITIVE_inf]
+
+# E/1.
+
+dupik	>	-ik,enem	+[INF_SG_1]
+sdupik	>	-ik,enem	+[INF_SG_1]
+majdnemdupik	>	-ik,nem	+[INF_SG_1]
+majdnemsdupik	>	-ik,nem	+[INF_SG_1]
+nemdupik	>	-ik,nem	+[INF_SG_1]
+d z i k	>	-ik,nem	+[INF_SG_1]
+
+# E/2.
+
+dupik	>	-ik,ened	+[INF_SG_2]
+sdupik	>	-ik,ened	+[INF_SG_2]
+majdnemdupik	>	-ik,ned	+[INF_SG_2]
+majdnemsdupik	>	-ik,ned	+[INF_SG_2]
+nemdupik	>	-ik,ned	+[INF_SG_2]
+d z i k	>	-ik,ned	+[INF_SG_2]
+
+# E/3.
+
+dupik	>	-ik,enie	+[INF_SG_3]
+sdupik	>	-ik,enie	+[INF_SG_3]
+majdnemdupik	>	-ik,nie	+[INF_SG_3]
+majdnemsdupik	>	-ik,nie	+[INF_SG_3]
+nemdupik	>	-ik,nie	+[INF_SG_3]
+d z i k	>	-ik,nie	+[INF_SG_3]
+
+# T/1.
+
+dupik	>	-ik,enünk	+[INF_PL_1]
+sdupik	>	-ik,enünk	+[INF_PL_1]
+majdnemdupik	>	-ik,nünk	+[INF_PL_1]
+majdnemsdupik	>	-ik,nünk	+[INF_PL_1]
+nemdupik	>	-ik,nünk	+[INF_PL_1]
+d z i k	>	-ik,nünk	+[INF_PL_1]
+
+# T/2.
+
+dupik	>	-ik,enetek	+[INF_PL_2]
+sdupik	>	-ik,enetek	+[INF_PL_2]
+majdnemdupik	>	-ik,netek	+[INF_PL_2]
+majdnemsdupik	>	-ik,netek	+[INF_PL_2]
+nemdupik	>	-ik,netek	+[INF_PL_2]
+d z i k	>	-ik,netek	+[INF_PL_2]
+
+# T/3.
+
+dupik	>	-ik,eniük	+[INF_PL_3]
+sdupik	>	-ik,eniük	+[INF_PL_3]
+majdnemdupik	>	-ik,niük	+[INF_PL_3]
+majdnemsdupik	>	-ik,niük	+[INF_PL_3]
+nemdupik	>	-ik,niük	+[INF_PL_3]
+d z i k	>	-ik,niük	+[INF_PL_3]
+
+dupik	>	-ik,eniök	+[INF_PL_3]	&
+sdupik	>	-ik,eniök	+[INF_PL_3]	&
+majdnemdupik	>	-ik,niök	+[INF_PL_3]	&
+majdnemsdupik	>	-ik,niök	+[INF_PL_3]	&
+nemdupik	>	-ik,niök	+[INF_PL_3]	&
+d z i k	>	-ik,niök	+[INF_PL_3]	&
+
+# feltételes mód
+
+# E/1.
+
+dupik	>	-ik,eném	+[PRES_COND_INDEF_SG_1]
+sdupik	>	-ik,eném	+[PRES_COND_INDEF_SG_1]
+majdnemdupik	>	-ik,ném	+[PRES_COND_INDEF_SG_1]
+majdnemsdupik	>	-ik,ném	+[PRES_COND_INDEF_SG_1]
+nemdupik	>	-ik,ném	+[PRES_COND_INDEF_SG_1]
+d z i k	>	-ik,ném	+[PRES_COND_INDEF_SG_1]
+
+dupik	>	-ik,enék	+[PRES_COND_INDEF_SG_1]
+sdupik	>	-ik,enék	+[PRES_COND_INDEF_SG_1]
+majdnemdupik	>	-ik,nék	+[PRES_COND_INDEF_SG_1]
+majdnemsdupik	>	-ik,nék	+[PRES_COND_INDEF_SG_1]
+nemdupik	>	-ik,nék	+[PRES_COND_INDEF_SG_1]
+d z i k	>	-ik,nék	+[PRES_COND_INDEF_SG_1]
+
+# E/2.
+
+dupik	>	-ik,enél	+[PRES_COND_INDEF_SG_2]
+sdupik	>	-ik,enél	+[PRES_COND_INDEF_SG_2]
+majdnemdupik	>	-ik,nél	+[PRES_COND_INDEF_SG_2]
+majdnemsdupik	>	-ik,nél	+[PRES_COND_INDEF_SG_2]
+nemdupik	>	-ik,nél	+[PRES_COND_INDEF_SG_2]
+d z i k	>	-ik,nél	+[PRES_COND_INDEF_SG_2]
+
+# E/3.
+
+dupik	>	-ik,ene	+[PRES_COND_INDEF_SG_3]
+sdupik	>	-ik,ene	+[PRES_COND_INDEF_SG_3]
+majdnemdupik	>	-ik,ne	+[PRES_COND_INDEF_SG_3]
+majdnemsdupik	>	-ik,ne	+[PRES_COND_INDEF_SG_3]
+nemdupik	>	-ik,ne	+[PRES_COND_INDEF_SG_3]
+d z i k	>	-ik,ne	+[PRES_COND_INDEF_SG_3]
+
+# T/1.
+
+dupik	>	-ik,enénk	+[PRES_COND_INDEF_PL_1]
+sdupik	>	-ik,enénk	+[PRES_COND_INDEF_PL_1]
+majdnemdupik	>	-ik,nénk	+[PRES_COND_INDEF_PL_1]
+majdnemsdupik	>	-ik,nénk	+[PRES_COND_INDEF_PL_1]
+nemdupik	>	-ik,nénk	+[PRES_COND_INDEF_PL_1]
+d z i k	>	-ik,nénk	+[PRES_COND_INDEF_PL_1]
+
+# T/2.
+
+dupik	>	-ik,enétek	+[PRES_COND_INDEF_PL_2]
+sdupik	>	-ik,enétek	+[PRES_COND_INDEF_PL_2]
+majdnemdupik	>	-ik,nétek	+[PRES_COND_INDEF_PL_2]
+majdnemsdupik	>	-ik,nétek	+[PRES_COND_INDEF_PL_2]
+nemdupik	>	-ik,nétek	+[PRES_COND_INDEF_PL_2]
+d z i k	>	-ik,nétek	+[PRES_COND_INDEF_PL_2]
+
+# T/3.
+
+dupik	>	-ik,enének	+[PRES_COND_INDEF_PL_3]
+sdupik	>	-ik,enének	+[PRES_COND_INDEF_PL_3]
+majdnemdupik	>	-ik,nének	+[PRES_COND_INDEF_PL_3]
+majdnemsdupik	>	-ik,nének	+[PRES_COND_INDEF_PL_3]
+nemdupik	>	-ik,nének	+[PRES_COND_INDEF_PL_3]
+d z i k	>	-ik,nének	+[PRES_COND_INDEF_PL_3]
+
+# felszólító mód
+nemdupikfelsz	>	-ik,jek	+[SUBJ/IMPER_INDEF_SG_1]
+majdnemzdupik	>	-ik,jek	+[SUBJ/IMPER_INDEF_SG_1]
+nemdupikfelsz	>	-ik,jem	+[SUBJ/IMPER_INDEF_SG_1]
+majdnemzdupik	>	-ik,jem	+[SUBJ/IMPER_INDEF_SG_1]
+s i k	>	-ik,sek	+[SUBJ/IMPER_INDEF_SG_1]
+s i k	>	-ik,sem	+[SUBJ/IMPER_INDEF_SG_1]
+nemdbzik	>	-ik,zek	+[SUBJ/IMPER_INDEF_SG_1]
+nemdbzik	>	-ik,zem	+[SUBJ/IMPER_INDEF_SG_1]
+d z i k	>	-zik,dzek	+[SUBJ/IMPER_INDEF_SG_1]
+d z i k	>	-zik,dzem	+[SUBJ/IMPER_INDEF_SG_1]
+s z i k	>	-zik,szek	+[SUBJ/IMPER_INDEF_SG_1]
+s z i k	>	-zik,szem	+[SUBJ/IMPER_INDEF_SG_1]
+ts i k 	>	-ik,sek	+[SUBJ/IMPER_INDEF_SG_1]
+ts i k 	>	-ik,sem	+[SUBJ/IMPER_INDEF_SG_1]
+nemts i k	>	-tik,ssek	+[SUBJ/IMPER_INDEF_SG_1]
+nemts i k	>	-tik,ssem	+[SUBJ/IMPER_INDEF_SG_1]
+s z t i k	>	-ztik,szek	+[SUBJ/IMPER_INDEF_SG_1]
+s z t i k	>	-ztik,szem	+[SUBJ/IMPER_INDEF_SG_1]
+
+nemdupikfelsz	>	-ik,j	+[SUBJ/IMPER_INDEF_SG_2]
+majdnemzdupik	>	-ik,j	+[SUBJ/IMPER_INDEF_SG_2]
+nemdupikfelsz	>	-ik,jél	+[SUBJ/IMPER_INDEF_SG_2]
+majdnemzdupik	>	-ik,jél	+[SUBJ/IMPER_INDEF_SG_2]
+s i k	>	-ik,s	+[SUBJ/IMPER_INDEF_SG_2]
+s i k	>	-ik,sél	+[SUBJ/IMPER_INDEF_SG_2]
+nemdbzik	>	-ik,z	+[SUBJ/IMPER_INDEF_SG_2]
+nemdbzik	>	-ik,zél	+[SUBJ/IMPER_INDEF_SG_2]
+d z i k	>	-zik,dz	+[SUBJ/IMPER_INDEF_SG_2]
+d z i k	>	-zik,dzél	+[SUBJ/IMPER_INDEF_SG_2]
+s z i k	>	-zik,sz	+[SUBJ/IMPER_INDEF_SG_2]
+s z i k	>	-zik,szél	+[SUBJ/IMPER_INDEF_SG_2]
+ts i k	>	-ik,s	+[SUBJ/IMPER_INDEF_SG_2]
+ts i k 	>	-ik,sél	+[SUBJ/IMPER_INDEF_SG_2]
+nemts i k	>	-tik,ss	+[SUBJ/IMPER_INDEF_SG_2]
+nemts i k	>	-tik,ssél	+[SUBJ/IMPER_INDEF_SG_2]
+s z t i k	>	-ztik,sz	+[SUBJ/IMPER_INDEF_SG_2]
+s z t i k	>	-ztik,szél	+[SUBJ/IMPER_INDEF_SG_2]
+
+nemdupikfelsz	>	-ik,jen	+[SUBJ/IMPER_INDEF_SG_3]
+majdnemzdupik	>	-ik,jen	+[SUBJ/IMPER_INDEF_SG_3]
+nemdupikfelsz	>	-ik,jék	+[SUBJ/IMPER_INDEF_SG_3]
+majdnemzdupik	>	-ik,jék	+[SUBJ/IMPER_INDEF_SG_3]
+s i k	>	-ik,sen	+[SUBJ/IMPER_INDEF_SG_3]
+s i k	>	-ik,sék	+[SUBJ/IMPER_INDEF_SG_3]
+nemdbzik	>	-ik,zen	+[SUBJ/IMPER_INDEF_SG_3]
+nemdbzik	>	-ik,zék	+[SUBJ/IMPER_INDEF_SG_3]
+d z i k	>	-zik,dzen	+[SUBJ/IMPER_INDEF_SG_3]
+d z i k	>	-zik,dzék	+[SUBJ/IMPER_INDEF_SG_3]
+s z i k	>	-zik,szen	+[SUBJ/IMPER_INDEF_SG_3]
+s z i k	>	-zik,szék	+[SUBJ/IMPER_INDEF_SG_3]
+ts i k 	>	-ik,sen	+[SUBJ/IMPER_INDEF_SG_3]
+ts i k 	>	-ik,sék	+[SUBJ/IMPER_INDEF_SG_3]
+nemts i k	>	-tik,ssen	+[SUBJ/IMPER_INDEF_SG_3]
+nemts i k	>	-tik,ssék	+[SUBJ/IMPER_INDEF_SG_3]
+s z t i k	>	-ztik,szen	+[SUBJ/IMPER_INDEF_SG_3]
+s z t i k	>	-ztik,szék	+[SUBJ/IMPER_INDEF_SG_3]
+
+nemdupikfelsz	>	-ik,jünk	+[SUBJ/IMPER_INDEF_PL_1]
+majdnemzdupik	>	-ik,jünk	+[SUBJ/IMPER_INDEF_PL_1]
+s i k	>	-ik,sünk	+[SUBJ/IMPER_INDEF_PL_1]
+nemdbzik	>	-ik,zünk	+[SUBJ/IMPER_INDEF_PL_1]
+d z i k	>	-zik,dzünk	+[SUBJ/IMPER_INDEF_PL_1]
+s z i k	>	-zik,szünk	+[SUBJ/IMPER_INDEF_PL_1]
+ts i k 	>	-ik,sünk	+[SUBJ/IMPER_INDEF_PL_1]
+nemts i k	>	-tik,ssünk	+[SUBJ/IMPER_INDEF_PL_1]
+s z t i k	>	-ztik,szünk	+[SUBJ/IMPER_INDEF_PL_1]
+
+nemdupikfelsz	>	-ik,jetek	+[SUBJ/IMPER_INDEF_PL_2]
+majdnemzdupik	>	-ik,jetek	+[SUBJ/IMPER_INDEF_PL_2]
+s i k	>	-ik,setek	+[SUBJ/IMPER_INDEF_PL_2]
+nemdbzik	>	-ik,zetek	+[SUBJ/IMPER_INDEF_PL_2]
+d z i k	>	-zik,dzetek	+[SUBJ/IMPER_INDEF_PL_2]
+s z i k	>	-zik,szetek	+[SUBJ/IMPER_INDEF_PL_2]
+ts i k 	>	-ik,setek	+[SUBJ/IMPER_INDEF_PL_2]
+nemts i k	>	-tik,ssetek	+[SUBJ/IMPER_INDEF_PL_2]
+s z t i k	>	-ztik,szetek	+[SUBJ/IMPER_INDEF_PL_2]
+
+nemdupikfelsz	>	-ik,jenek	+[SUBJ/IMPER_INDEF_PL_3]
+majdnemzdupik	>	-ik,jenek	+[SUBJ/IMPER_INDEF_PL_3]
+s i k	>	-ik,senek	+[SUBJ/IMPER_INDEF_PL_3]
+nemdbzik	>	-ik,zenek	+[SUBJ/IMPER_INDEF_PL_3]
+d z i k	>	-zik,dzenek	+[SUBJ/IMPER_INDEF_PL_3]
+s z i k	>	-zik,szenek	+[SUBJ/IMPER_INDEF_PL_3]
+ts i k 	>	-ik,senek	+[SUBJ/IMPER_INDEF_PL_3]
+nemts i k	>	-tik,ssenek	+[SUBJ/IMPER_INDEF_PL_3]
+s z t i k	>	-ztik,szenek	+[SUBJ/IMPER_INDEF_PL_3]
+
+############################################################
+# magas ajakkerekítéses alanyi igeragok
+############################################################
+  	
+flag *P:
+
+[^k]	>	ve	+[vA_PART_adv]
+[^k]	>	vén	+[vÁn_PART_adv]
+
+# E/1.
+[^k]	>	ök	+[PRES_INDIC_INDEF_SG_1] # mer > merek  (ik!!!!)
+
+# E/2.
+
+eloJE2	>	sz	+[PRES_INDIC_INDEF_SG_2]
+eloSZE2	>	öl	+[PRES_INDIC_INDEF_SG_2]
+eloG	>	esz	+[PRES_INDIC_INDEF_SG_2]
+eloL	>	esz	+[PRES_INDIC_INDEF_SG_2]
+eloRR	>	esz	+[PRES_INDIC_INDEF_SG_2]
+eloD	>	esz	+[PRES_INDIC_INDEF_SG_2]
+eloTJT2	>	esz	+[PRES_INDIC_INDEF_SG_2]
+NeloTJE2	>	sz	+[PRES_INDIC_INDEF_SG_2]
+
+# T/1.
+[^k]	>	ünk	+[PRES_INDIC_INDEF_PL_1]
+
+# T/2.
+
+NeloT	>	tök	+[PRES_INDIC_INDEF_PL_2]
+eloG	>	ötök	+[PRES_INDIC_INDEF_PL_2]
+eloL	>	ötök	+[PRES_INDIC_INDEF_PL_2]
+eloRR	>	ötök	+[PRES_INDIC_INDEF_PL_2]
+eloD	>	ötök	+[PRES_INDIC_INDEF_PL_2]
+eloTJT2	>	ötök	+[PRES_INDIC_INDEF_PL_2]
+NeloTJT2	>	tök	+[PRES_INDIC_INDEF_PL_2]
+
+# T/3.
+
+NeloT	>	nek	+[PRES_INDIC_INDEF_PL_3]
+eloG	>	enek	+[PRES_INDIC_INDEF_PL_3]
+eloL	>	enek	+[PRES_INDIC_INDEF_PL_3]
+eloRR	>	enek	+[PRES_INDIC_INDEF_PL_3]
+eloD	>	enek	+[PRES_INDIC_INDEF_PL_3]
+eloTJT3	>	enek	+[PRES_INDIC_INDEF_PL_3]
+NeloTJT3	>	nek	+[PRES_INDIC_INDEF_PL_3]
+
+# múlt idõ
+
+# E/1.
+NeloTO	>	tem	+[PAST_INDIC_INDEF_SG_1]
+eloG	>	öttem	+[PAST_INDIC_INDEF_SG_1]
+eloL	>	öttem	+[PAST_INDIC_INDEF_SG_1]
+eloD	>	öttem	+[PAST_INDIC_INDEF_SG_1]
+eloTM	>	öttem	+[PAST_INDIC_INDEF_SG_1]
+NeloTM	>	tem	+[PAST_INDIC_INDEF_SG_1]
+
+# E/2.
+NeloTO	>	tél	+[PAST_INDIC_INDEF_SG_2]
+eloG	>	öttél	+[PAST_INDIC_INDEF_SG_2]
+eloL	>	öttél	+[PAST_INDIC_INDEF_SG_2]
+eloD	>	öttél	+[PAST_INDIC_INDEF_SG_2]
+eloTM	>	öttél	+[PAST_INDIC_INDEF_SG_2]
+NeloTM	>	tél	+[PAST_INDIC_INDEF_SG_2]
+
+# T/1.
+
+NeloTO	>	tünk	+[PAST_INDIC_INDEF_PL_1]
+eloG	>	öttünk	+[PAST_INDIC_INDEF_PL_1]
+eloL	>	öttünk	+[PAST_INDIC_INDEF_PL_1]
+eloD	>	öttünk	+[PAST_INDIC_INDEF_PL_1]
+eloTM	>	öttünk	+[PAST_INDIC_INDEF_PL_1]
+NeloTM	>	tünk	+[PAST_INDIC_INDEF_PL_1]
+
+# T/2.
+
+NeloTO	>	tetek	+[PAST_INDIC_INDEF_PL_2]
+eloG	>	öttetek	+[PAST_INDIC_INDEF_PL_2]
+eloL	>	öttetek	+[PAST_INDIC_INDEF_PL_2]
+eloD	>	öttetek	+[PAST_INDIC_INDEF_PL_2]
+eloTM	>	öttetek	+[PAST_INDIC_INDEF_PL_2]
+NeloTM	>	tetek	+[PAST_INDIC_INDEF_PL_2]
+
+# T/3.
+
+NeloTO	>	tek	+[PAST_INDIC_INDEF_PL_3]
+eloG	>	öttek	+[PAST_INDIC_INDEF_PL_3]
+eloL	>	öttek	+[PAST_INDIC_INDEF_PL_3]
+eloD	>	öttek	+[PAST_INDIC_INDEF_PL_3]
+eloTM	>	öttek	+[PAST_INDIC_INDEF_PL_3]
+NeloTM	>	tek	+[PAST_INDIC_INDEF_PL_3]
+
+# fõnévi igenév és személyragozása
+
+NeloT	>	ni	+[ni_INFINITIVE_inf]
+eloG	>	eni	+[ni_INFINITIVE_inf]
+eloL	>	eni	+[ni_INFINITIVE_inf]
+eloRR	>	eni	+[ni_INFINITIVE_inf]
+eloD	>	eni	+[ni_INFINITIVE_inf]
+eloTJT3	>	eni	+[ni_INFINITIVE_inf]
+NeloTJT3	>	ni	+[ni_INFINITIVE_inf]
+
+# E/1
+
+NeloT	>	nöm	+[INF_SG_1]
+eloG	>	enem	+[INF_SG_1]# költenem
+eloL	>	enem	+[INF_SG_1]
+eloRR	>	enem	+[INF_SG_1]
+eloD	>	enem	+[INF_SG_1]
+eloTJT3	>	enem	+[INF_SG_1]
+NeloTJT3	>	nöm	+[INF_SG_1]
+
+# E/2
+
+NeloT	>	nöd	+[INF_SG_2]
+eloG	>	ened	+[INF_SG_2]
+eloL	>	ened	+[INF_SG_2]
+eloRR	>	ened	+[INF_SG_2]
+eloD	>	ened	+[INF_SG_2]
+eloTJT3	>	ened	+[INF_SG_2]
+NeloTJT3	>	nöd	+[INF_SG_2]
+
+# E/3
+
+NeloT	>	nie	+[INF_SG_3]
+eloG	>	enie	+[INF_SG_3]
+eloL	>	enie	+[INF_SG_3]
+eloRR	>	enie	+[INF_SG_3]
+eloD	>	enie	+[INF_SG_3]
+eloTJT3	>	enie	+[INF_SG_3]
+NeloTJT3	>	nie	+[INF_SG_3]
+
+# T/1
+
+NeloT	>	nünk	+[INF_PL_1]
+eloG	>	enünk	+[INF_PL_1]
+eloL	>	enünk	+[INF_PL_1]
+eloRR	>	enünk	+[INF_PL_1]
+eloD	>	enünk	+[INF_PL_1]
+eloTJT3	>	enünk	+[INF_PL_1]
+NeloTJT3	>	nünk	+[INF_PL_1]
+
+# T/2
+
+NeloT	>	nötök	+[INF_PL_2]
+eloG	>	enetek	+[INF_PL_2]
+eloL	>	enetek	+[INF_PL_2]
+eloRR	>	enetek	+[INF_PL_2]
+eloD	>	enetek	+[INF_PL_2]
+eloTJT3	>	enetek	+[INF_PL_2]
+NeloTJT3	>	nötök	+[INF_PL_2]
+
+# T/3
+
+NeloT	>	niük	+[INF_PL_3]
+eloG	>	eniük	+[INF_PL_3]
+eloL	>	eniük	+[INF_PL_3]
+eloRR	>	eniük	+[INF_PL_3]
+eloD	>	eniük	+[INF_PL_3]
+eloTJT3	>	eniük	+[INF_PL_3]
+NeloTJT3	>	niük	+[INF_PL_3]
+
+NeloT	>	niök	+[INF_PL_3]	&
+eloG	>	eniök	+[INF_PL_3]	&
+eloL	>	eniök	+[INF_PL_3]	&
+eloRR	>	eniök	+[INF_PL_3]	&
+eloD	>	eniök	+[INF_PL_3]	&
+eloTJT3	>	eniök	+[INF_PL_3]	&
+NeloTJT3	>	niök	+[INF_PL_3]	&
+
+# feltételes mód
+
+NeloT	>	nék	+[PRES_COND_INDEF_SG_1]
+eloG	>	enék	+[PRES_COND_INDEF_SG_1]
+eloL	>	enék	+[PRES_COND_INDEF_SG_1]
+eloRR	>	enék	+[PRES_COND_INDEF_SG_1]
+eloD	>	enék	+[PRES_COND_INDEF_SG_1]
+eloTJT3	>	enék	+[PRES_COND_INDEF_SG_1]
+NeloTJT3	>	nék	+[PRES_COND_INDEF_SG_1]
+
+. h e t > nékem   +[nék_WISH_noun_poss]+[POSS_SG_1]{+[NOM]} VÓ×n
+. h e t > néked   +[nék_WISH_noun_poss]+[POSS_SG_2]{+[NOM]} VÓ×n
+. h e t > nékje   +[nék_WISH_noun_poss]+[POSS_SG_3]{+[NOM]} VÓÕÐ
+. h e t > néke    +[nék_WISH_noun_poss]+[POSS_SG_3]{+[NOM]} VÓÕÐ
+. h e t > nékünk  +[nék_WISH_noun_poss]+[POSS_PL_1]{+[NOM]} VÓ×n
+. h e t > néketek +[nék_WISH_noun_poss]+[POSS_PL_1]{+[NOM]} VÓ×n
+. h e t > néktek +[nék_WISH_noun_poss]+[POSS_PL_1]{+[NOM]} VÓ×n
+. h e t > nékük   +[nék_WISH_noun_poss]+[POSS_PL_1]{+[NOM]} VÓ×n
+
+. h e t > nékem   +[nék_WISH_noun_poss]+[POSS_SG_1]+[ACC]	&
+. h e t > néked   +[nék_WISH_noun_poss]+[POSS_SG_2]+[ACC]	&
+. h e t > nékünk  +[nék_WISH_noun_poss]+[POSS_PL_1]+[ACC]	&
+. h e t > néketek +[nék_WISH_noun_poss]+[POSS_PL_2]+[ACC]	&
+. h e t > néktek +[nék_WISH_noun_poss]+[POSS_PL_2]+[ACC]	&
+. h e t > nékük   +[nék_WISH_noun_poss]+[POSS_PL_3]+[ACC]	&
+
+NeloT	>	nél	+[PRES_COND_INDEF_SG_2]
+eloG	>	enél	+[PRES_COND_INDEF_SG_2]
+eloL	>	enél	+[PRES_COND_INDEF_SG_2]
+eloRR	>	enél	+[PRES_COND_INDEF_SG_2]
+eloD	>	enél	+[PRES_COND_INDEF_SG_2]
+eloTJT3	>	enél	+[PRES_COND_INDEF_SG_2]
+NeloTJT3	>	nél	+[PRES_COND_INDEF_SG_2]
+
+NeloT	>	ne 	+[PRES_COND_INDEF_SG_3]
+eloG	>	ene 	+[PRES_COND_INDEF_SG_3]
+eloL	>	ene 	+[PRES_COND_INDEF_SG_3]
+eloRR	>	ene 	+[PRES_COND_INDEF_SG_3]
+eloD	>	ene 	+[PRES_COND_INDEF_SG_3]
+eloTJT3	>	ene 	+[PRES_COND_INDEF_SG_3]
+NeloTJT3	>	ne 	+[PRES_COND_INDEF_SG_3]
+
+NeloT	>	nénk	+[PRES_COND_INDEF_PL_1]
+eloG	>	enénk	+[PRES_COND_INDEF_PL_1]
+eloL	>	enénk	+[PRES_COND_INDEF_PL_1]
+eloRR	>	enénk	+[PRES_COND_INDEF_PL_1]
+eloD	>	enénk	+[PRES_COND_INDEF_PL_1]
+eloTJT3	>	enénk	+[PRES_COND_INDEF_PL_1]
+NeloTJT3	>	nénk	+[PRES_COND_INDEF_PL_1]
+
+NeloT	>	nétek	+[PRES_COND_INDEF_PL_2]
+eloG	>	enétek	+[PRES_COND_INDEF_PL_2]
+eloL	>	enétek	+[PRES_COND_INDEF_PL_2]
+eloRR	>	enétek	+[PRES_COND_INDEF_PL_2]
+eloD	>	enétek	+[PRES_COND_INDEF_PL_2]
+eloTJT3	>	enétek	+[PRES_COND_INDEF_PL_2]
+NeloTJT3	>	nétek	+[PRES_COND_INDEF_PL_2]
+
+NeloT	>	nének	+[PRES_COND_INDEF_PL_3]
+eloG	>	enének	+[PRES_COND_INDEF_PL_3]
+eloL	>	enének	+[PRES_COND_INDEF_PL_3]
+eloRR	>	enének	+[PRES_COND_INDEF_PL_3]
+eloD	>	enének	+[PRES_COND_INDEF_PL_3]
+eloTJT3	>	enének	+[PRES_COND_INDEF_PL_3]
+NeloTJT3	>	nének	+[PRES_COND_INDEF_PL_3]
+
+# felszólító mód
+[^sztk]	>	jek	+[SUBJ/IMPER_INDEF_SG_1]
+s	>	sek	+[SUBJ/IMPER_INDEF_SG_1]
+z	>	zek	+[SUBJ/IMPER_INDEF_SG_1]
+ts 	>	sek	+[SUBJ/IMPER_INDEF_SG_1]
+nemts	>	-t,ssek	+[SUBJ/IMPER_INDEF_SG_1]
+s z t	>	-zt,szek	+[SUBJ/IMPER_INDEF_SG_1]
+
+[^sztk]	>	j	+[SUBJ/IMPER_INDEF_SG_2]
+[^sztk]	>	jél	+[SUBJ/IMPER_INDEF_SG_2]
+s	>	s	+[SUBJ/IMPER_INDEF_SG_2]
+s	>	sél	+[SUBJ/IMPER_INDEF_SG_2]
+z	>	z	+[SUBJ/IMPER_INDEF_SG_2]
+z	>	zél	+[SUBJ/IMPER_INDEF_SG_2]
+ts 	>	s	+[SUBJ/IMPER_INDEF_SG_2]
+ts 	>	sél	+[SUBJ/IMPER_INDEF_SG_2]
+nemts	>	-t,ss	+[SUBJ/IMPER_INDEF_SG_2]
+nemts	>	-t,ssél	+[SUBJ/IMPER_INDEF_SG_2]
+s z t	>	-zt,sz	+[SUBJ/IMPER_INDEF_SG_2]
+s z t	>	-zt,szél	+[SUBJ/IMPER_INDEF_SG_2]
+
+[^sztk]	>	jön	+[SUBJ/IMPER_INDEF_SG_3]
+s	>	sön	+[SUBJ/IMPER_INDEF_SG_3]
+z	>	zön	+[SUBJ/IMPER_INDEF_SG_3]
+s z	>	-z,szön	+[SUBJ/IMPER_INDEF_SG_3]
+ts 	>	sön	+[SUBJ/IMPER_INDEF_SG_3]
+nemts	>	-t,ssön	+[SUBJ/IMPER_INDEF_SG_3]
+s z t	>	-zt,szön	+[SUBJ/IMPER_INDEF_SG_3]
+
+[^sztk]	>	jünk	+[SUBJ/IMPER_INDEF_PL_1]
+s	>	sünk	+[SUBJ/IMPER_INDEF_PL_1]
+z	>	zünk	+[SUBJ/IMPER_INDEF_PL_1]
+ts 	>	sünk	+[SUBJ/IMPER_INDEF_PL_1]
+nemts	>	-t,ssünk	+[SUBJ/IMPER_INDEF_PL_1]
+s z t	>	-zt,szünk	+[SUBJ/IMPER_INDEF_PL_1]
+
+[^sztk]	>	jetek	+[SUBJ/IMPER_INDEF_PL_2]
+s	>	setek	+[SUBJ/IMPER_INDEF_PL_2]
+[^ds] z	>	zetek	+[SUBJ/IMPER_INDEF_PL_2]
+ts 	>	setek	+[SUBJ/IMPER_INDEF_PL_2]
+nemts	>	-t,ssetek	+[SUBJ/IMPER_INDEF_PL_2]
+s z t	>	-zt,szetek	+[SUBJ/IMPER_INDEF_PL_2]
+
+[^sztk]	>	jenek	+[SUBJ/IMPER_INDEF_PL_3]
+s	>	senek	+[SUBJ/IMPER_INDEF_PL_3]
+z	>	zenek	+[SUBJ/IMPER_INDEF_PL_3]
+ts 	>	senek	+[SUBJ/IMPER_INDEF_PL_3]
+nemts	>	-t,ssenek	+[SUBJ/IMPER_INDEF_PL_3]
+s z t	>	-zt,szenek	+[SUBJ/IMPER_INDEF_PL_3]
+
+# ikes
+
+# E/1.
+
+i k	>	-ik,ve	+[vA_PART_adv]
+i k	>	-ik,vén	+[vÁn_PART_adv]
+
+i k	>	-ik,öm	+[PRES_INDIC_INDEF_SG_1]  # tükrözõdik > tükrözõdöm
+i k	>	-ik,ök	+[PRES_INDIC_INDEF_SG_1]  # tükrözõdik > tükrözõdök
+
+# E/2.
+
+[^l] i k	>	-ik,öl	+[PRES_INDIC_INDEF_SG_2] # nem bomlol
+dupik	>	-ik,esz	+[PRES_INDIC_INDEF_SG_2]
+sdupik	>	-ik,esz	+[PRES_INDIC_INDEF_SG_2]
+majdnemzdupik	>	-ik,sz	+[PRES_INDIC_INDEF_SG_2] # nincs ütközsz
+#majdnemsdupik	>	-ik,sz # nincs mászasz
+nemdupiks	>	-ik,sz	+[PRES_INDIC_INDEF_SG_2]
+
+# T/1.
+
+i k	>	-ik,ünk	+[PRES_INDIC_INDEF_PL_1] # bújik > bújok
+
+# T/2.
+
+dupik	>	-ik,ötök	+[PRES_INDIC_INDEF_PL_2]
+sdupik	>	-ik,ötök	+[PRES_INDIC_INDEF_PL_2]
+majdnemdupik	>	-ik,tök	+[PRES_INDIC_INDEF_PL_2]
+majdnemsdupik	>	-ik,tök	+[PRES_INDIC_INDEF_PL_2]
+nemdupik	>	-ik,tök	+[PRES_INDIC_INDEF_PL_2]
+
+# T/3.
+
+dupik	>	-ik,enek	+[PRES_INDIC_INDEF_PL_3]
+sdupik	>	-ik,enek	+[PRES_INDIC_INDEF_PL_3]
+majdnemdupik	>	-ik,nek	+[PRES_INDIC_INDEF_PL_3]
+majdnemsdupik	>	-ik,nek	+[PRES_INDIC_INDEF_PL_3]
+nemdupik	>	-ik,nek	+[PRES_INDIC_INDEF_PL_3]
+d z i k	>	-ik,nek	+[PRES_INDIC_INDEF_PL_3]
+
+# ikes múlt
+
+# E/1.
+
+dupik	>	-ik,öttem	+[PAST_INDIC_INDEF_SG_1]
+sdupik	>	-ik,öttem	+[PAST_INDIC_INDEF_SG_1]
+majdnemdupik	>	-ik,tem	+[PAST_INDIC_INDEF_SG_1]
+majdnemsdupik	>	-ik,tem	+[PAST_INDIC_INDEF_SG_1]
+nemdupik	>	-ik,tem	+[PAST_INDIC_INDEF_SG_1]
+d z i k	>	-ik,tem	+[PAST_INDIC_INDEF_SG_1]
+
+# E/2.
+
+dupik	>	-ik,öttél	+[PAST_INDIC_INDEF_SG_2]
+sdupik	>	-ik,öttél	+[PAST_INDIC_INDEF_SG_2]
+majdnemdupik	>	-ik,tél	+[PAST_INDIC_INDEF_SG_2]
+majdnemsdupik	>	-ik,tél	+[PAST_INDIC_INDEF_SG_2]
+nemdupik	>	-ik,tél	+[PAST_INDIC_INDEF_SG_2]
+d z i k	>	-ik,tél	+[PAST_INDIC_INDEF_SG_2]
+
+# E/3.
+
+# külön (ige_kepzo.aff)
+
+# T/1.
+
+dupik	>	-ik,öttünk	+[PAST_INDIC_INDEF_PL_1]
+sdupik	>	-ik,öttünk	+[PAST_INDIC_INDEF_PL_1]
+majdnemdupik	>	-ik,tünk	+[PAST_INDIC_INDEF_PL_1]
+majdnemsdupik	>	-ik,tünk	+[PAST_INDIC_INDEF_PL_1]
+nemdupik	>	-ik,tünk	+[PAST_INDIC_INDEF_PL_1]
+d z i k	>	-ik,tünk	+[PAST_INDIC_INDEF_PL_1]
+
+# T/2.
+
+dupik	>	-ik,öttetek	+[PAST_INDIC_INDEF_PL_2]
+sdupik	>	-ik,öttetek	+[PAST_INDIC_INDEF_PL_2]
+majdnemdupik	>	-ik,tetek	+[PAST_INDIC_INDEF_PL_2]
+majdnemsdupik	>	-ik,tetek	+[PAST_INDIC_INDEF_PL_2]
+nemdupik	>	-ik,tetek	+[PAST_INDIC_INDEF_PL_2]
+d z i k	>	-ik,tetek	+[PAST_INDIC_INDEF_PL_2]
+
+# T/3.
+
+dupik	>	-ik,öttek	+[PAST_INDIC_INDEF_PL_3]
+sdupik	>	-ik,öttek	+[PAST_INDIC_INDEF_PL_3]
+majdnemdupik	>	-ik,tek	+[PAST_INDIC_INDEF_PL_3]
+majdnemsdupik	>	-ik,tek	+[PAST_INDIC_INDEF_PL_3]
+nemdupik	>	-ik,tek	+[PAST_INDIC_INDEF_PL_3]
+d z i k	>	-ik,tek	+[PAST_INDIC_INDEF_PL_3]
+
+# fõnévi igenév és személyragozása
+
+dupik	>	-ik,eni	+[ni_INFINITIVE_inf]
+sdupik	>	-ik,eni	+[ni_INFINITIVE_inf]
+majdnemdupik	>	-ik,ni	+[ni_INFINITIVE_inf]
+majdnemsdupik	>	-ik,ni	+[ni_INFINITIVE_inf]
+nemdupik	>	-ik,ni	+[ni_INFINITIVE_inf]
+d z i k	>	-ik,ni	+[ni_INFINITIVE_inf]
+
+# E/1.
+
+dupik	>	-ik,enem	+[INF_SG_1]
+sdupik	>	-ik,enem	+[INF_SG_1]
+majdnemdupik	>	-ik,nöm	+[INF_SG_1]
+majdnemsdupik	>	-ik,nöm	+[INF_SG_1]
+nemdupik	>	-ik,nöm	+[INF_SG_1]
+d z i k	>	-ik,nöm	+[INF_SG_1]
+
+# E/2.
+
+dupik	>	-ik,ened	+[INF_SG_2]
+sdupik	>	-ik,ened	+[INF_SG_2]
+majdnemdupik	>	-ik,nöd	+[INF_SG_2]
+majdnemsdupik	>	-ik,nöd	+[INF_SG_2]
+nemdupik	>	-ik,nöd	+[INF_SG_2]
+d z i k	>	-ik,nöd	+[INF_SG_2]
+
+# E/3.
+
+dupik	>	-ik,enie	+[INF_SG_3]
+sdupik	>	-ik,enie	+[INF_SG_3]
+majdnemdupik	>	-ik,nie	+[INF_SG_3]
+majdnemsdupik	>	-ik,nie	+[INF_SG_3]
+nemdupik	>	-ik,nie	+[INF_SG_3]
+d z i k	>	-ik,nie	+[INF_SG_3]
+
+# T/1.
+
+dupik	>	-ik,enünk	+[INF_PL_1]
+sdupik	>	-ik,enünk	+[INF_PL_1]
+majdnemdupik	>	-ik,nünk	+[INF_PL_1]
+majdnemsdupik	>	-ik,nünk	+[INF_PL_1]
+nemdupik	>	-ik,nünk	+[INF_PL_1]
+d z i k	>	-ik,nünk	+[INF_PL_1]
+
+# T/2.
+
+dupik	>	-ik,enetek	+[INF_PL_2]
+sdupik	>	-ik,enetek	+[INF_PL_2]
+majdnemdupik	>	-ik,nötök	+[INF_PL_2]
+majdnemsdupik	>	-ik,nötök	+[INF_PL_2]
+nemdupik	>	-ik,nötök	+[INF_PL_2]
+d z i k	>	-ik,nötök	+[INF_PL_2]
+
+# T/3.
+
+dupik	>	-ik,eniük	+[INF_PL_3]
+sdupik	>	-ik,eniük	+[INF_PL_3]
+majdnemdupik	>	-ik,niük	+[INF_PL_3]
+majdnemsdupik	>	-ik,niük	+[INF_PL_3]
+nemdupik	>	-ik,niük	+[INF_PL_3]
+d z i k	>	-ik,niük	+[INF_PL_3]
+
+dupik	>	-ik,eniök	+[INF_PL_3]	&
+sdupik	>	-ik,eniök	+[INF_PL_3]	&
+majdnemdupik	>	-ik,niök	+[INF_PL_3]	&
+majdnemsdupik	>	-ik,niök	+[INF_PL_3]	&
+nemdupik	>	-ik,niök	+[INF_PL_3]	&
+d z i k	>	-ik,niök	+[INF_PL_3]	&
+
+# feltételes mód
+
+# E/1.
+
+dupik	>	-ik,enék	+[PRES_COND_INDEF_SG_1]
+sdupik	>	-ik,enék	+[PRES_COND_INDEF_SG_1]
+majdnemdupik	>	-ik,nék	+[PRES_COND_INDEF_SG_1]
+majdnemsdupik	>	-ik,nék	+[PRES_COND_INDEF_SG_1]
+nemdupik	>	-ik,nék	+[PRES_COND_INDEF_SG_1]
+d z i k	>	-ik,nék	+[PRES_COND_INDEF_SG_1]
+
+dupik	>	-ik,eném	+[PRES_COND_INDEF_SG_1]
+sdupik	>	-ik,eném	+[PRES_COND_INDEF_SG_1]
+majdnemdupik	>	-ik,ném	+[PRES_COND_INDEF_SG_1]
+majdnemsdupik	>	-ik,ném	+[PRES_COND_INDEF_SG_1]
+nemdupik	>	-ik,ném	+[PRES_COND_INDEF_SG_1]
+d z i k	>	-ik,ném	+[PRES_COND_INDEF_SG_1]
+
+# E/2.
+
+dupik	>	-ik,enél	+[PRES_COND_INDEF_SG_2]
+sdupik	>	-ik,enél	+[PRES_COND_INDEF_SG_2]
+majdnemdupik	>	-ik,nél	+[PRES_COND_INDEF_SG_2]
+majdnemsdupik	>	-ik,nél	+[PRES_COND_INDEF_SG_2]
+nemdupik	>	-ik,nél	+[PRES_COND_INDEF_SG_2]
+d z i k	>	-ik,nél	+[PRES_COND_INDEF_SG_2]
+
+# E/3.
+
+dupik	>	-ik,ene	+[PRES_COND_INDEF_SG_3]
+sdupik	>	-ik,ene	+[PRES_COND_INDEF_SG_3]
+majdnemdupik	>	-ik,ne	+[PRES_COND_INDEF_SG_3]
+majdnemsdupik	>	-ik,ne	+[PRES_COND_INDEF_SG_3]
+nemdupik	>	-ik,ne	+[PRES_COND_INDEF_SG_3]
+d z i k	>	-ik,ne	+[PRES_COND_INDEF_SG_3]
+
+# T/1.
+
+dupik	>	-ik,enénk	+[PRES_COND_INDEF_PL_1]
+sdupik	>	-ik,enénk	+[PRES_COND_INDEF_PL_1]
+majdnemdupik	>	-ik,nénk	+[PRES_COND_INDEF_PL_1]
+majdnemsdupik	>	-ik,nénk	+[PRES_COND_INDEF_PL_1]
+nemdupik	>	-ik,nénk	+[PRES_COND_INDEF_PL_1]
+d z i k	>	-ik,nénk	+[PRES_COND_INDEF_PL_1]
+
+# T/2.
+
+dupik	>	-ik,enétek	+[PRES_COND_INDEF_PL_2]
+sdupik	>	-ik,enétek	+[PRES_COND_INDEF_PL_2]
+majdnemdupik	>	-ik,nétek	+[PRES_COND_INDEF_PL_2]
+majdnemsdupik	>	-ik,nétek	+[PRES_COND_INDEF_PL_2]
+nemdupik	>	-ik,nétek	+[PRES_COND_INDEF_PL_2]
+d z i k	>	-ik,nétek	+[PRES_COND_INDEF_PL_2]
+
+# T/3.
+
+dupik	>	-ik,enének	+[PRES_COND_INDEF_PL_3]
+sdupik	>	-ik,enének	+[PRES_COND_INDEF_PL_3]
+majdnemdupik	>	-ik,nének	+[PRES_COND_INDEF_PL_3]
+majdnemsdupik	>	-ik,nének	+[PRES_COND_INDEF_PL_3]
+nemdupik	>	-ik,nének	+[PRES_COND_INDEF_PL_3]
+d z i k	>	-ik,nének	+[PRES_COND_INDEF_PL_3]
+
+# felszólító mód
+nemdupikfelsz	>	-ik,jek	+[SUBJ/IMPER_INDEF_SG_1]
+majdnemzdupik	>	-ik,jek	+[SUBJ/IMPER_INDEF_SG_1]
+nemdupikfelsz	>	-ik,jem	+[SUBJ/IMPER_INDEF_SG_1]
+majdnemzdupik	>	-ik,jem	+[SUBJ/IMPER_INDEF_SG_1]
+s i k	>	-ik,sek	+[SUBJ/IMPER_INDEF_SG_1]
+s i k	>	-ik,sem	+[SUBJ/IMPER_INDEF_SG_1]
+nemdbzik	>	-ik,zek	+[SUBJ/IMPER_INDEF_SG_1]
+nemdbzik	>	-ik,zem	+[SUBJ/IMPER_INDEF_SG_1]
+d z i k	>	-zik,dzek	+[SUBJ/IMPER_INDEF_SG_1]
+d z i k	>	-zik,dzem	+[SUBJ/IMPER_INDEF_SG_1]
+s z i k	>	-zik,szek	+[SUBJ/IMPER_INDEF_SG_1]
+s z i k	>	-zik,szem	+[SUBJ/IMPER_INDEF_SG_1]
+ts i k 	>	-ik,sek	+[SUBJ/IMPER_INDEF_SG_1]
+ts i k 	>	-ik,sem	+[SUBJ/IMPER_INDEF_SG_1]
+nemts i k	>	-tik,ssek	+[SUBJ/IMPER_INDEF_SG_1]
+nemts i k	>	-tik,ssem	+[SUBJ/IMPER_INDEF_SG_1]
+s z t i k	>	-ztik,szek	+[SUBJ/IMPER_INDEF_SG_1]
+s z t i k	>	-ztik,szem	+[SUBJ/IMPER_INDEF_SG_1]
+
+nemdupikfelsz	>	-ik,j	+[SUBJ/IMPER_INDEF_SG_2]
+majdnemzdupik	>	-ik,j	+[SUBJ/IMPER_INDEF_SG_2]
+nemdupikfelsz	>	-ik,jél	+[SUBJ/IMPER_INDEF_SG_2]
+majdnemzdupik	>	-ik,jél	+[SUBJ/IMPER_INDEF_SG_2]
+s i k	>	-ik,s	+[SUBJ/IMPER_INDEF_SG_2]
+s i k	>	-ik,sél	+[SUBJ/IMPER_INDEF_SG_2]
+nemdbzik	>	-ik,z	+[SUBJ/IMPER_INDEF_SG_2]
+nemdbzik	>	-ik,zél	+[SUBJ/IMPER_INDEF_SG_2]
+d z i k	>	-zik,dz	+[SUBJ/IMPER_INDEF_SG_2]
+d z i k	>	-zik,dzél	+[SUBJ/IMPER_INDEF_SG_2]
+s z i k	>	-zik,sz	+[SUBJ/IMPER_INDEF_SG_2]
+s z i k	>	-zik,szél	+[SUBJ/IMPER_INDEF_SG_2]
+ts i k	>	-ik,s	+[SUBJ/IMPER_INDEF_SG_2]
+ts i k 	>	-ik,sél	+[SUBJ/IMPER_INDEF_SG_2]
+nemts i k	>	-tik,ss	+[SUBJ/IMPER_INDEF_SG_2]
+nemts i k	>	-tik,ssél	+[SUBJ/IMPER_INDEF_SG_2]
+s z t i k	>	-ztik,sz	+[SUBJ/IMPER_INDEF_SG_2]
+s z t i k	>	-ztik,szél	+[SUBJ/IMPER_INDEF_SG_2]
+
+nemdupikfelsz	>	-ik,jön	+[SUBJ/IMPER_INDEF_SG_3]
+majdnemzdupik	>	-ik,jön	+[SUBJ/IMPER_INDEF_SG_3]
+nemdupikfelsz	>	-ik,jék	+[SUBJ/IMPER_INDEF_SG_3]
+majdnemzdupik	>	-ik,jék	+[SUBJ/IMPER_INDEF_SG_3]
+s i k	>	-ik,sön	+[SUBJ/IMPER_INDEF_SG_3]
+s i k	>	-ik,sék	+[SUBJ/IMPER_INDEF_SG_3]
+nemdbzik	>	-ik,zön	+[SUBJ/IMPER_INDEF_SG_3]
+nemdbzik	>	-ik,zék	+[SUBJ/IMPER_INDEF_SG_3]
+d z i k	>	-zik,dzön	+[SUBJ/IMPER_INDEF_SG_3]
+d z i k	>	-zik,dzék	+[SUBJ/IMPER_INDEF_SG_3]
+s z i k	>	-zik,szön	+[SUBJ/IMPER_INDEF_SG_3]
+s z i k	>	-zik,szék	+[SUBJ/IMPER_INDEF_SG_3]
+ts i k 	>	-ik,sön	+[SUBJ/IMPER_INDEF_SG_3]
+ts i k 	>	-ik,sék	+[SUBJ/IMPER_INDEF_SG_3]
+nemts i k	>	-tik,ssön	+[SUBJ/IMPER_INDEF_SG_3]
+nemts i k	>	-tik,ssék	+[SUBJ/IMPER_INDEF_SG_3]
+s z t i k	>	-ztik,szön	+[SUBJ/IMPER_INDEF_SG_3]
+s z t i k	>	-ztik,szék	+[SUBJ/IMPER_INDEF_SG_3]
+
+nemdupikfelsz	>	-ik,jünk	+[SUBJ/IMPER_INDEF_PL_1]
+majdnemzdupik	>	-ik,jünk	+[SUBJ/IMPER_INDEF_PL_1]
+s i k	>	-ik,sünk	+[SUBJ/IMPER_INDEF_PL_1]
+nemdbzik	>	-ik,zünk	+[SUBJ/IMPER_INDEF_PL_1]
+d z i k	>	-zik,dzünk	+[SUBJ/IMPER_INDEF_PL_1]
+s z i k	>	-zik,szünk	+[SUBJ/IMPER_INDEF_PL_1]
+ts i k 	>	-ik,sünk	+[SUBJ/IMPER_INDEF_PL_1]
+nemts i k	>	-tik,ssünk	+[SUBJ/IMPER_INDEF_PL_1]
+s z t i k	>	-ztik,szünk	+[SUBJ/IMPER_INDEF_PL_1]
+
+nemdupikfelsz	>	-ik,jetek	+[SUBJ/IMPER_INDEF_PL_2]
+majdnemzdupik	>	-ik,jetek	+[SUBJ/IMPER_INDEF_PL_2]
+s i k	>	-ik,setek	+[SUBJ/IMPER_INDEF_PL_2]
+nemdbzik	>	-ik,zetek	+[SUBJ/IMPER_INDEF_PL_2]
+d z i k	>	-zik,dzetek	+[SUBJ/IMPER_INDEF_PL_2]
+s z i k	>	-zik,szetek	+[SUBJ/IMPER_INDEF_PL_2]
+ts i k 	>	-ik,setek	+[SUBJ/IMPER_INDEF_PL_2]
+nemts i k	>	-tik,ssetek	+[SUBJ/IMPER_INDEF_PL_2]
+s z t i k	>	-ztik,szetek	+[SUBJ/IMPER_INDEF_PL_2]
+
+nemdupikfelsz	>	-ik,jenek	+[SUBJ/IMPER_INDEF_PL_3]
+majdnemzdupik	>	-ik,jenek	+[SUBJ/IMPER_INDEF_PL_3]
+s i k	>	-ik,senek	+[SUBJ/IMPER_INDEF_PL_3]
+nemdbzik	>	-ik,zenek	+[SUBJ/IMPER_INDEF_PL_3]
+d z i k	>	-zik,dzenek	+[SUBJ/IMPER_INDEF_PL_3]
+s z i k	>	-zik,szenek	+[SUBJ/IMPER_INDEF_PL_3]
+ts i k 	>	-ik,senek	+[SUBJ/IMPER_INDEF_PL_3]
+nemts i k	>	-tik,ssenek	+[SUBJ/IMPER_INDEF_PL_3]
+s z t i k	>	-ztik,szenek	+[SUBJ/IMPER_INDEF_PL_3]

@@ -1,0 +1,4 @@
+Név: zene
+Leírás: pár zenei szakszó
+Felelős: Németh László <nemethl@gyorsposta.hu>
+Szavak száma: ~4
