@@ -222,7 +222,9 @@ echo_n .
 cat mezok.txt |
 # kapcsolók törlése (pl. tizennyolc)
 sed 's#/.*\[#	[#' |
-sort | uniq | sed 's/_/ /g;s/sszsz/ssz/g;/^észszer/!s/szsz/ssz/g;s/zszs/zzs/g;s/nyny/nny/g;s/\(.\)\1\1/\1\1/g;s/,\([a-z][a-z]:\)/	\1/g;s/[[]/\t/;s/\]//g' >mezok2.txt
+sort | uniq | sed 's/_/ /g;s/sszsz/ssz/g;/^észszer/!s/szsz/ssz/g;s/zszs/zzs/g;s/nyny/nny/g;s/\(.\)\1\1/\1\1/g;s/,\([a-z][a-z]:\)/	\1/g;s/[[]/\t/;s/\]//g' |
+# shorten hy: patterns with position: hy:ablak|keret -> hy:5
+awk 'match($0, /hy:([^ \t]*)\|[^ \t]*/,m) && m[1]!~/\|.*\|/ && m[0]!~/[-.=]/ && m[0]!~/(c\|cs|c\|s|d\|dz|d\|z|g\|gy|l\|ly|n\|ny|t\|ty|[^cz]s\|sz|[^cz]s\|z|[^s]z\|s|[^s]z\|zs)/ {$0=gensub("hy:[^ \t]*", "hy:"length(m[1]),1,$0)}{print}' >mezok2.txt
 cat mezok2.txt | iconv -f latin2 -t utf-8 | sed -f $BINDIR/l1_u8.sed >mezok_utf.txt
 echo_n .
 
