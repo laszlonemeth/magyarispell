@@ -43,10 +43,10 @@ of hu_HU.aff and hu_HU.dic of a LibreOffice installation.
 
 Morphological analysis (see man 5 hunspell):
 
-$ echo szó | h -d hu_HU -m
+$ echo szó | hunspell -d hu_HU -m
 szó  st:szó po:noun ts:NOM al:szavak
 
-$ echo szótár | h -d hu_HU -m
+$ echo szótár | hunspell -d hu_HU -m
 szótár  st:szótár po:noun ts:NOM al:szótárak hy:3
 
 Install all components
