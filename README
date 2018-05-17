@@ -1,4 +1,5 @@
-* Szabad magyar szótár (Magyar Ispell) – Hungarian spelling dictionary for Hunspell *
+* Szabad magyar szótár (Magyar Ispell) –
+  Hungarian spelling and morphological dictionary for Hunspell *
 
  Copyright 2008-2018, László Németh & Ferenc Godó
 
@@ -9,31 +10,44 @@
  Home: http://magyarispell.sourceforge.net and
        https://github.com/laszlonemeth/magyarispell
 
+       See also: https://github.com/hunspell/zsort
+       (Hungarian sorting script based on this dicitonary)
+
  Extension of the dictionary to cover the new Hungarian orthography
  rules (AkH. 12., 2015) was supported by FSF.hu Foundation, Hungary
  (http://www.fsf.hu) between October, 2017 and May, 2018.
 
-Requirements
-============
+= Requirements =
 
- COMPONENT			ENVIRONMENTS REQUIRED
- 			COMPILATION		INSTALLATION	USE
- ---------------------------------------------------------------------
- ispell			(gnu) make		install		ispell
-			(gnu) m4
-			(ispell) buildhash
- myspell		(gnu) make				ispell
-			(gnu) m4
-			(ispell) buildhash
- LibreOffice		(gnu) make		install		ispell
-			(gnu) m4
-			(ispell) buildhash
+Hunspell: https://github.com/hunspell/hunspell
 
-Install
-=======
+GNU recode, m4, awk
 
- make			# default target: same as
-			# 'Install all components' - see below
+= Build =
+
+make
+
+= Usage =
+
+Filter bad words from a text file:
+
+cat x.txt | hunspell -d hu_HU_u8_gen_alias -l
+
+With suggestions:
+
+cat x.txt | hunspell -d hu_HU_u8_gen_alias -l
+
+or install the dictionary files hu_HU_u8_gen_alias.aff and
+hu_HU_u8_gen_alias.dic, for example, in the place
+of hu_HU.aff and hu_HU.dic of a LibreOffice installation.
+
+Morphological analysis (see man 5 hunspell):
+
+$ echo szó | h -d hu_HU -m
+szó  st:szó po:noun ts:NOM al:szavak
+
+$ echo szótár | h -d hu_HU -m
+szótár  st:szótár po:noun ts:NOM al:szótárak hy:3
 
 Install all components
 ======================
@@ -164,7 +178,7 @@ http://almos.vein.hu/~vonyoa
 History
 =======
 
-2018-05-15 Magyar Ispell 1.7
+2018-05-17 Magyar Ispell 1.7
 2017–18    Magyar Ispell 1.7 beta 2–5
 2015-10-27 Magyar Ispell 1.7 beta
 2010-03-29 Magyar Ispell 1.6.1

@@ -11,6 +11,9 @@
  Honlap: http://magyarispell.sourceforge.net és
          https://github.com/laszlonemeth/magyarispell
 
+         Lásd még: https://github.com/hunspell/zsort
+         (Ezen a szótáron alapuló magyar betűrendbe soroló program)
+
  Az Akadémiai helyesírás 12. kiadásának megfelelő átdolgozást, és a
  Magyar helyesírási szótár 2017-es kiadása új átírásainak felvételét,
  a magyar betűrendbe soroláshoz szükséges egyértelműsítéseket, valamint
@@ -21,72 +24,82 @@
  A kiadásban található dokumentáció részben elavult. Ennek frissítését,
  a szótár átdolgozását a 2.0 változat fogja tartalmazni.
 
-Használat
-=========
+= Követelmények =
 
-A szótár a Hunspell programmal működik tökéletesen együtt!
+Hunspell: https://github.com/hunspell/hunspell
 
-Lásd: http://hunspell.sourceforge.net.
+GNU recode, m4 és awk
 
-hunspell -d hu_HU valami.txt
+= Fordítás =
 
-Amennyiben mégis az Ispell, vagy MySpell (például LibreOffice)
-programokkal szeretnénk használni a szótárat, akkor a Magyar Ispell
-0.99.4-es változatára van szükség kell, ami még nem kettős
-toldaléklevágással kezeli a képzett szavakat.
+make
 
-ispell -d magyar <ellenőrizendő állományok> (lásd: man ispell)
+= Használat =
 
-Morfológiai elemzéshez, tövezéshez a hu_HU_morph állományokra van szükség.
+Például hibás szavak kiszűrése:
 
-Megjegyzés: a hu_HU_u8_morph állományok javításra szorulnak, mivel a
-morfológiai leírás egy része ISO-8859-2-es karakterkódolású maradt,
-nem pedig UTF-8.
+cat text.txt | hunspell -d hu_HU_u8_gen_alias -l
 
-A szótárállományok:
+Javaslatokkal:
 
-tmp/hu_HU.aff - Hunspell affixumállomány
-tmp/hu_HU.dic - Hunspell szótárállomány
-tmp/hu_HU_morph.aff - Hunspell affixumállomány morfológiai kódokkal
-tmp/hu_HU_morph.dic - Hunspell szótárállomány morfológiai kódokkal
-tmp/hu_HU_morph2.aff - affixumállomány más (K&R) morfológiai kódokkal
-tmp/hu_HU_morph2.dic - szótárállomány más (K&R) morfológiai kódokkal
-tmp/hu_HU_u8.aff - Hunspell affixumállomány (Unicode)
-tmp/hu_HU_u8.dic - Hunspell szótárállomány (Unicode)
-tmp/hu_HU_u8_morph.aff - Hunspell affixumállomány morfológiai kódokkal (Unicode)
-tmp/hu_HU_u8_morph.dic - Hunspell szótárállomány morfológiai kódokkal (Unicode)
+cat text.txt | hunspell -d hu_HU_u8_gen_alias
+
+Vagy telepítsük a hu_HU_u8_gen_alias.aff és dic állományokat
+pl. egy LibreOffice telepítés hu_HU.aff és hu_HU.dic állományainak
+helyére.
+
+Morfológiai elemzés (l. man 5 hunspell):
+
+$ echo szó | h -d hu_HU -m
+szó  st:szó po:noun ts:NOM al:szavak
+
+$ echo szótár | h -d hu_HU -m
+szótárról  st:szótár po:noun ts:NOM al:szótárak hy:3 is:DEL
+
+Azaz a tő (st: mint stem) „szó”, illetve „szótárak”.
+
+A szófaj (pa: mint part of speech) köznév.
+
+A toldalék, ha nincs egyéb toldalék még megadva (ts: mint
+terminal suffix), alanyeset (NOM, mint nominativus). A második esetben
+ezt írja felül a -ról rag (is: mint inflectional suffix).
+
+A „szótár” alternatív (al:) szótári „töve” a „szótárak”, a teljes
+toldalékoláshoz ezt is vizsgálja a toldalékolás során a Hunspell program.
+
+A „szótár” összetett szó, amelynek összetételi határa a tő
+harmadik betűje (hy:3) után található: szó|tár. Bonyolultabb esetben a
+szóhatárok, illetve az elválasztás nem számmal, hanem a tő, vagy annak
+egy részletének felhasználásávan van megadva:
+
+$echo kisszótár | hunspell -m
+kisszótár  st:kisszótár po:noun ts:NOM al:kisszótárak hy:kis||szó|tár
+
+= Szótárállományok =
+
+A javasolt, LibreOffice által is használt tömörített, UTF-8-as
+szótárállományok a toldalékoláshoz (pl. toldalékoló szinonimaszótár
+a LibreOffice-ban) és betűrendbe soroláshoz (zsort) használt kódokkal:
+
+hu_HU_u8_gen_alias.aff
+hu_HU_u8_gen_alias.dic
+
+Egyéb:
+
+hu_HU.aff - Hunspell affixumállomány
+hu_HU.dic - Hunspell szótárállomány
+hu_HU_morph.aff - Hunspell affixumállomány morfológiai kódokkal
+hu_HU_morph.dic - Hunspell szótárállomány morfológiai kódokkal
+hu_HU_morph2.aff - affixumállomány más (K&R) morfológiai kódokkal
+hu_HU_morph2.dic - szótárállomány más (K&R) morfológiai kódokkal
+hu_HU_u8.aff - Hunspell affixumállomány (Unicode)
+hu_HU_u8.dic - Hunspell szótárállomány (Unicode)
+hu_HU_u8_morph.aff - Hunspell affixumállomány morfológiai kódokkal (Unicode)
+hu_HU_u8_morph.dic - Hunspell szótárállomány morfológiai kódokkal (Unicode)
 
 A morfológiai kódokról a http://www.szoszablya.hu oldalon található
 leírás.
 
-
-Követelmények
-=============
-
-m4
-recode
-gawk (GNU awk)
-
-
- KOMPONENS			SZÜKSÉGES KÖRNYEZETEK
- 			telepítéshez		installáláshoz	használathoz
- ---------------------------------------------------------------------
- ispell			(gnu) make		install		ispell
-			(gnu) m4
-			(ispell) buildhash
- myspell		(gnu) make
-			(gnu) m4
-			(ispell) buildhash
- LibreOffice		(gnu) make		install
-			(gnu) m4
-			(ispell) buildhash
-
-
-Telepítés
-=========
-
- make			# a default target ugyanaz mint
-			# 'Minden komponens telepítése' - lásd alább
 
 Minden komponens telepítése
 ===========================
@@ -112,12 +125,12 @@ Telepítés (csak) Ispellhez
  make install_ispell	# magyar.hash, magyar.aff a helyére (ISPELLDIR) + linkek
  make clean		# átmeneti állományok törlése az új szótárkészítés előtt
 
-Telepítés (csak) LibreOffice-hoz 
+Telepítés (csak) LibreOffice-hoz
 ===============================
 
  make menu		# kihagyható, ha a default szóállományt kívánjuk telepíteni
  make			# hu_HU.aff, hu_HU.dic a LibreOffice részére
- make install_OO	# hu_HU.aff, hu_HU.dic a helyére (LODIR)
+ make install_LO	# hu_HU.aff, hu_HU.dic a helyére (LODIR)
  make clean		# átmeneti állományok törlése az új szótárkészítés előtt
 
 Célkönyvtárak
@@ -239,7 +252,7 @@ http://almos.vein.hu/~vonyoa
 Történet
 ========
 
-2018-05-15 Magyar Ispell 1.7
+2018-05-17 Magyar Ispell 1.7
 2017–18    Magyar Ispell 1.7 béta 2–5
 2015       Magyar Ispell 1.7 béta
 2010-03-29 Magyar Ispell 1.6.1
