@@ -70,9 +70,9 @@ toldalékoláshoz ezt is vizsgálja a toldalékolás során a Hunspell program.
 A „szótár” összetett szó, amelynek összetételi határa a tő
 harmadik betűje (hy:3) után található: szó|tár. Bonyolultabb esetben a
 szóhatárok, illetve az elválasztás nem számmal, hanem a tő, vagy annak
-egy részletének felhasználásávan van megadva:
+egy részletének felhasználásával van megadva:
 
-$echo kisszótár | hunspell -m
+$ echo kisszótár | hunspell -m
 kisszótár  st:kisszótár po:noun ts:NOM al:kisszótárak hy:kis||szó|tár
 
 = Szótárállományok =
