@@ -34,6 +34,14 @@ GNU recode, m4 és awk
 
 make
 
+= Tesztelés =
+
+make check
+
+vagy
+
+HUNSPELL=~/hunspell/src/tools/hunspell make check
+
 = Használat =
 
 Például hibás szavak kiszűrése:
