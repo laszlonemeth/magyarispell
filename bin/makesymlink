@@ -28,7 +28,7 @@ DICCONF=${2:-"szotar.konf"}
 pwd
 grep -v '^#' $DICCONF | grep -v '^$' |
 while read i
-do 
+do
   test -d $WRKDIR/`basename $i`.modul || ln -s ../$i $WRKDIR/`basename $i`.modul
 done
 

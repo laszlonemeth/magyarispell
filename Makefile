@@ -4,7 +4,7 @@
 #######################################################################
 # Felhasználói beállítás
 
-# KÖNYVTÁRAK 
+# KÖNYVTÁRAK
 # célkönyvtárak prefixuma
 PREFIX?=/usr
 # ispell célkönyvtár; ide kerülnek: magyar.hash hungarian.hash magyar.aff
@@ -78,8 +78,8 @@ menu:
 	make myspell
 
 # munkakönyvtárak létrehozása
-$(WRKDIR) $(LODIR) $(HUNSPELLDIR) $(ISPELLDIR): 
-	@mkdir -p $@ 
+$(WRKDIR) $(LODIR) $(HUNSPELLDIR) $(ISPELLDIR):
+	@mkdir -p $@
 
 # hasítótábla létrehozása a megfelelő helyesírás-ellenőrzőhöz (Ispell/Myspell)
 # magyar4X.hash ahol X={ispell,myspell}
@@ -181,23 +181,23 @@ install_myspell: myspell $(HUNSPELLDIR)
 	@echo "	célkönyvtár: $(HUNSPELLDIR)" | $(CATUTF)
 
 	@cp -f $(WRKDIR)/hu_HU.{dic,aff} $(HUNSPELLDIR)/
-#	
+#
 # magyar.aff -> hu_HU.aff kötés létrehozása
 	@echo " myspell linkek ({magyar,hungarian}.{dic,aff}) létrehozása" | $(CATUTF)
 	@if [ ! -h $(HUNSPELLDIR)/magyar.aff ]; then \
 		ln -s hu_HU.aff $(HUNSPELLDIR)/magyar.aff; \
 	fi
-#	
+#
 # magyar.dic -> hu_HU.dic kötés létrehozása
 	@if [ ! -h $(HUNSPELLDIR)/magyar.dic ]; then \
 		ln -s hu_HU.dic $(HUNSPELLDIR)/magyar.dic; \
 	fi
-#	
+#
 # hungarian.aff -> hu_HU.aff kötés létrehozása
 	@if [ ! -h $(HUNSPELLDIR)/hungarian.aff ]; then \
 		ln -s hu_HU.aff $(HUNSPELLDIR)/hungarian.aff; \
-	fi	 
-#	
+	fi
+#
 # hungarian.dic -> hu_HU.dic kötés létrehozása
 	@if [ ! -h $(HUNSPELLDIR)/hungarian.dic ]; then \
 		ln -s hu_HU.dic $(HUNSPELLDIR)/hungarian.dic; \
@@ -210,9 +210,9 @@ install_OO: myspell $(LODIR)
 
 install: install_all
 
-install_all: install_myspell install_ispell install_OO 
+install_all: install_myspell install_ispell install_OO
 
-# ispell opcióval kompilált hashtábla 
+# ispell opcióval kompilált hashtábla
 #ispell: magyar4ispell.hash
 
 # hu_HU.aff myspell ragozási táblázat és a hu_HU.dic szótár előállítása
@@ -225,7 +225,7 @@ hu_HU.aff: magyar.aff
 	@echo "===> myspell ragozási táblázat (hu_HU.aff) előállítása" | $(CATUTF)
 	@$(SH) bin/i2myspell $(WRKDIR)/magyar.aff HUNSPELL_heading \
 		A-ZÁÉÍÓÖŐÚÜŰ a-záéíóöőúüű | sed 's/q\([^[]*\]\)/-\1/' | \
-                bin/newsyntax >$(ROOTDIR)/hu_HU_morph.aff                
+                bin/newsyntax >$(ROOTDIR)/hu_HU_morph.aff
 	@cat $(ROOTDIR)/hu_HU_morph.aff | bin/aff2gen | \
 	        sed 's/&i[ua]grave;//g;s/&oslash;//g' >$(ROOTDIR)/hu_HU_gen.aff
 	@cat $(ROOTDIR)/hu_HU_gen.aff | \
@@ -263,7 +263,7 @@ alias: u8
 	@LC_ALL=C $(SH) bin/makealias $(ROOTDIR)/hu_HU_u8.dic $(ROOTDIR)/hu_HU_u8.aff
 	@LC_ALL=C $(SH) bin/makealias $(MINIMIZE_OPTION) $(MINIMIZE_COMPRESSED_AFF_FILE) $(ROOTDIR)/hu_HU_u8_gen.dic $(ROOTDIR)/hu_HU_u8_gen.aff
 
-kr: hu_HU.aff hu_HU.dic u8 
+kr: hu_HU.aff hu_HU.dic u8
 	@cd kr; make
 
 # minden komponens kompilálása
@@ -278,8 +278,8 @@ check:
 	bin/check
 
 # takarítás
-clean: 
-	@-rm -rf $(WRKDIR) *~ $(ROOTDIR)/hu_*
+clean:
+	-rm -rf $(WRKDIR) *~ $(ROOTDIR)/hu_*
 
 # a modulválasztás defaultra való visszaállítása
 # a kizárandó modulok explicite megadandók az "if"-ben

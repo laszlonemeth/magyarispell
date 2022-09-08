@@ -28,7 +28,7 @@ test -f /usr/bin/ispell.orig && ISPELL=ispell.orig || ISPELL=ispell
 
 case "$#" in
 0|1)
-	echo "i2myspell ispell->myspell affix table and 
+	echo "i2myspell ispell->myspell affix table and
 dictionary converter
 
 to generate Myspell aff file:
@@ -37,7 +37,7 @@ to generate Myspell aff file:
 to generate Myspell dic file:
  2. i2myspell -d ispell_dict_file
 
-Example: 
+Example:
 1. i2myspell magyar hu_HU_heading.txt A-ZÁÉÍÓÖÕÚÜÛ a-záéíóöõúüû > hu_HU.aff
 2. i2myspell -d magyar.dict > hu_HU.dic
 
@@ -57,19 +57,19 @@ case "$1" in
 -d)
 	# dict file uniq
 	sed 's#/# #' $2 | sort -r -k 1 | uniq | grep -v ^$ |
-	$AWK '{ 
-    if (p!=$1) { 
-	printf "\n%s", $0; 
-	p=$1 } 
-    else { 
-	if ($2!="") printf "/%s", $2; 
+	$AWK '{
+    if (p!=$1) {
+	printf "\n%s", $0;
+	p=$1 }
+    else {
+	if ($2!="") printf "/%s", $2;
     }
 }' | sed 's#/##g
 s# #/#' |
 # uniq duplicated flags, and parse spec. syntax (-FLAG)
 $AWK '
 BEGIN { FS = "/" }
-/^__/ { 
+/^__/ {
     # words with roots, for example __vizek/víz, handled by Magyar MySpell
     print $0;
     next
@@ -132,18 +132,18 @@ LOWER=a-z
 if [ -n "$3" ]; then UPPER=$3; fi;
 if [ -n "$4" ]; then LOWER=$4; fi;
 
-cut -c 8- /tmp/i2my$$.1 | 
+cut -c 8- /tmp/i2my$$.1 |
 tr $UPPER $LOWER |
-paste -d "\0" /tmp/i2my$$.2 - | 
+paste -d "\0" /tmp/i2my$$.2 - |
 egrep -v '^(suffixes|prefixes|flagmarker)' |
 sort -k 2 | $AWK '
     NR==1 { o1=$1; o2=$2; o3=$3; n[o2]=-1; }
-    { 
+    {
     printf "%s %s   %-4s %-12s %-25s %s\n", $1, $2, $4, $5, $6, $7;
-    if ($2==o2) { 
-	n[$2]++; 
-    } else { 
-	printf "%s %s %s %s\n", o1, o2, o3, n[o2]+1; 
+    if ($2==o2) {
+	n[$2]++;
+    } else {
+	printf "%s %s %s %s\n", o1, o2, o3, n[o2]+1;
 	o1=$1; o2=$2; o3=$3;
     }
 } END { printf "%s %s %s %s\n", o1, o2, o3, n[o2]+1; } ' |
@@ -151,9 +151,9 @@ sed 's/  *$//' | sort -r | sed 's/\(^.*[0-9]\)$/\
 \1/' | $AWK '
 # [a-fq-x] -> [abcdefqrstuvwx] converter
 BEGIN { abc="abcdefghijklmnopqrstuvwxyz" }
-/\[.*-.*\]/ { 
+/\[.*-.*\]/ {
 	r=$0;
-	while (x=index(r,"-")) { 
+	while (x=index(r,"-")) {
 		a=index(abc,substr(r,x-1,1));
 		b=index(abc,substr(r,x+1,1));
 		r = substr(r,0,x-2) substr(abc,a,b-a) substr(r,x+1)

@@ -4,8 +4,8 @@
 # module selection menu for Magyar Ispell
 #
 #	Version 1.2 (2002.11.22.)
-#	Version 1.1 (2002.09.06.) 
-#	Version 1.0 (2002.07.30.) 
+#	Version 1.1 (2002.09.06.)
+#	Version 1.0 (2002.07.30.)
 #
 #	(c) Copyright 2002 László Németh, All Rights Reserved
 #
@@ -44,7 +44,7 @@ capitalize() {
 }
 
 makemenu() {
-	for i in _*; do 
+	for i in _*; do
 		name=`echo $i | sed 's/^.//'`
 		if [ -d `capitalize $name` ]; then
 			echo_n "==>$name "

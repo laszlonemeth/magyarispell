@@ -167,7 +167,7 @@ FILENAME ~ /.dic$/ && match($0, "^([^ \t/]+)(/([^ \t]*))?([ \t]*(.*))?", flds) {
             a2[mfld]=m
             c[m]=mfld
             m++
-        } 
+        }
         end = "\t" a2[mfld]
     }
     print flds[1] flags end
