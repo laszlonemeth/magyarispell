@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # igek 0.1
 # verbs
 #

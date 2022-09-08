@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # nyelvtani szabályok ellenõrzése
 hunspell -m -d ../tmp/hu_HU /dev/stdin
 #cat ../aff/* | grep -o '<[^ 	*]*>' | ../../hunspell-0.9.8b/hunspell -d ../tmp/hu_HU

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 export LC_ALL=C
 # K&R kódolás prototípusa
 DIR=echo `dirname $0`

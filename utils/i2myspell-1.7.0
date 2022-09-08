@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # i2myspell
 # Ispell->MySpell ragozási táblázat és szótár konvertálása
 # Ispell->MySpell affix table and dictionary converter

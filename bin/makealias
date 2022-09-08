@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # makealias: make alias compressed dic and aff files
 # Author: László Németh
 # Version: 2019-05-10

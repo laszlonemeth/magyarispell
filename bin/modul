@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # modul
 # modulválasztási menü a Magyar Ispellhez
 # module selection menu for Magyar Ispell

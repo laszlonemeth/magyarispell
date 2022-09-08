@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # A szotar könyvtárban állva kigyûjti a szótár szavait
 export LC_ALL=C
 cd ../szotar
