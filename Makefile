@@ -302,3 +302,6 @@ distclean:
 distbin:
 	make clean
 	pwd=$$(pwd); cd ..; tar cv --exclude-vcs $$(basename $$pwd) | gzip >$$pwd.tar.gz
+
+# This Makefile is not ready for parallel execution.
+.NOTPARALLEL:
