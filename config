@@ -5,7 +5,7 @@
 LC_ALL=C
 
 # GNU vagy BSD awk!
-AWK="/usr/bin/awk"
+AWK="awk"
 
 # ne valtoztasd.  csak ha tudod mit csinalsz...
 AWKDIR="$ROOT/awk"
