@@ -1244,6 +1244,7 @@ kilencven	>	et +[ACC]
 
 g y	> et +[ACC]
 [^aáeéiíoóöõuúüû] [^g] y	>	et +[ACC]
+hely	>	et +[ACC]
 [aáeéiíoóöõuúüû] [^g] y	>	t +[ACC]
 c s	>	et +[ACC]
 [^aáeéiíoóöõuúüû] z s	>	et +[ACC]
