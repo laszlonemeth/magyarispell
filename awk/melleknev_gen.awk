@@ -5,6 +5,7 @@ BEGIN {
     while ((getline var < "melleknev_a.1") > 0) { a_kotohangzo[var]=1; }
     while ((getline var < "melleknev_e.1") > 0) { e_kotohangzo[var]=1; }
     while ((getline var < "melleknev_mely.1") > 0) { mely[var]=1; }
+    while ((getline var < "melleknev_magas.1") > 0) { magas[var]=1; }
     while ((getline var < "melleknev_ing.1") > 0) { ingadozo[var]=1; }
     while ((getline var < "melleknev_jaje.1") > 0) { jaje[var]=1; }
     while ((getline var < "melleknev_ae.1") > 0) { ae[var]=1; }
@@ -43,13 +44,12 @@ function ka(s) {
 /[eéií]$/ { if (mely[$1]==1) {print "[adj]" $1 "/AÒÕÏ/F/U/Î/Q"; next } 
     else {print "[adj]" $1 "/BÓÕÐ/G/V/Ë/R"; next } }
 
-(/[aáoóuú][-bcdfghjklmnpqrstvwxyz]+$/ || 
-/^.*[uúoóaá][bcdfghjklmnpqrstvwxyz]*i[bcdfghjklmnpqrstvwxyz]+$/) &&
-($1 != "fair") && ($1 != "unfair") && ($1 != "átvitt") { 
+(magas[$1]!=1 && (/[aáoóuú][-bcdfghjklmnpqrstvwxyz]+$/ ||
+/^.*[uúoóaá][bcdfghjklmnpqrstvwxyz]*i[bcdfghjklmnpqrstvwxyz]+$/)) {
     s = fn_s[$1]?"ö":"mô"
     print "[adj]" $1 "/ÒÙ/F/U/Î" s a_koto($1,"/KÖ") jaje_e($1,"/Q","/S/s") ka("k"); next }
 
-/[iíeé][-bcdfghjklmnpqrstvwxyz]+$/ { 
+/[iíeéa][-bcdfghjklmnpqrstvwxyz]+$/ {
   s = fn_s[$1]?"õ":"nò"
   s2 = fn_s[$1]?"ö":"mô"
   if (mely[$1]==1) {print "[adj]" $1 "/ÒÙ/F/U/Î" s2 a_koto($1,"/KÖ") jaje_e($1,"/Q","/S/s") ka("k")} 

@@ -163,3 +163,5 @@
 <*Nagaszakire>
 <szájhagyományútján>
 <*szociapátia>
+
+<magyarországnyi>

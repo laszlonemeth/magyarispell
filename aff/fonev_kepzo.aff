@@ -983,7 +983,7 @@ n n y              > ``-ny,$1'' $2 $3$4$5$6$7$8$9$10$11$12
 )
 
 define(`k_verb',
-`k_'(nyi, +_nyi_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last) # <körömnyimet> <fészeknyidrõl>
+`k_'(nyi, +_nyi_, noun_vow, noun_On, Noun_, Adj_, noun_jA, compound_last, upper2lower) # <körömnyimet> <fészeknyidrõl>
 )
 
 flag *i: BACK k_verb(a,á,o,ó,ú)

@@ -147,7 +147,7 @@ NR>1 {print ""}
         # morfológiai leírás elõtt található egyenlõségjel törlése
         sed 's/^\[[^]]*\]//
 s/^\[[^]]*\]//
-s/	=/	/' | awk 'BEGIN{FS="\t"}{a=gensub(/_/," ","g",$1);print a substr($0,length(a)+1)}' >/tmp/i2my$$.1
+s/	=/	/' | awk 'BEGIN{FS="\t"}{a=gensub(/_/,"_","g",$1);print a substr($0,length(a)+1)}' >/tmp/i2my$$.1
 
 	cat /tmp/i2my$$.1 | wc -l | tr -cd '0-9\n'
 	cat /tmp/i2my$$.1

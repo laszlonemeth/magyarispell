@@ -16,6 +16,7 @@ define(szik_rag,
 szik_rag(alap,a,o,u,a,ul)
 szik_rag(beteg,e,e,ü,e,edik)
 szik_rag(cselek,e,e,ü,e,edik)
+[vrb]cselekszed	cselekedik[vrb]+[PRES_INDIC_DEF_SG_2]
 [vrb]cselekszi	cselekedik[vrb]+[PRES_INDIC_DEF_SG_3]
 szik_rag(dicsek,e,e,ü,e,edik)
 [vrb]dicsekszi	dicsekedik[vrb]+[PRES_INDIC_DEF_SG_3]

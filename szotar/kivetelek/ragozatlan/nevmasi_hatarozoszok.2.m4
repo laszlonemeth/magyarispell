@@ -152,6 +152,8 @@ tieitek/VÓ×n	én[noun_pron]+[PL_2]+[POSS]+[PLUR]{+[NOM]}
 #<tielibétek>	elibé
 #<fölibétek>	fölibé
 #<tifölibétek>	fölibé
+#<fölébem>	fölébe
+#<fölébük>	fölébe
 #<közibétek>	közibé
 #<tiközibétek>	közibé
 
@@ -265,6 +267,7 @@ nevmas_uto(elejb,e,e,ü,e,e,,+[SUBS])
 nevmas_rag(hozz,á,o,u,[ALL]+[SUBS],a,ig)
 nevmas_rag(érett,e,e,ü,[CAUS/FIN]+[SUBS])
 nevmas_uto(fölib,é,e,ü,e,e,,+[SUBS])
+nevmas_uto(föléb,e,e,ü,e,e,,+[SUBS])
 nevmas_uto(körül,e,e,ü,,,,+[SUBS])
 nevmas_uto(közib,é,e,ü,e,e,,+[SUBS])
 

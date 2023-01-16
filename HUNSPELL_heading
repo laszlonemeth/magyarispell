@@ -280,8 +280,6 @@ REP ^nagy nagy_ #->nagyfokú->nagy fokú
 REP ^kis kis_ # kisfokú->kis fokú
 REP ^magas magas_ # magasfokú->magas fokú
 REP ^másfél másfél_ # másfélezer->másfél ezer
-REP ^melegvíz meleg_víz
-REP ^hidegvíz hideg_víz
 REP kor _kor
 REP ószer ó_szer # rovarirtószer->rovarirtó szer (ésszerû->és szerû miatt ószer)
 REP õszer õ_szer
@@ -312,3 +310,5 @@ REP ^rám rám_ # rámváró->rám váró
 REP ^rád rád_ # rádváró->rád váró
 REP ^hû hûe # hûn->hûen, hûk->hûek
 REP ^orr orv # orrvadász->orvvadász
+REP tejhatal teljhatal # tejhatalom->teljhatalom
+REP kissebb kisebb
