@@ -39,7 +39,7 @@ define(_ei_,`') # korábban (_ei_,`#')
 
 define(nev_rag,
 COMMENT(********************* -t, -at, -et, tárgyeset!!!)
-`ifelse(regexp('$2`,[^aáeéiíoóöõuúüû123456789]$),-1,
+`ifelse(regexp('$2`,[^aáeéiíoóöõuúùüû123456789]$),-1,
 $1	>	$2t $8+[ACC] $9,
 $1	>	$2$4t $8+[ACC] $9)'
 COMMENT(********************* -nak, -nek *******)
@@ -51,7 +51,7 @@ $1	>	$2b$4 $8+[ILL] $9
 COMMENT(********************* -ból, -bõl *******)
 $1	>	$2b$3l $8+[ELA] $9
 COMMENT(********************* -n, -on, -en, -ön **)
-`ifelse(regexp('$2`,[aáeéiíoóöõuúüû123456789]$),-1,
+`ifelse(regexp('$2`,[aáeéiíoóöõuúùüû123456789]$),-1,
 $1	>	$2$5n $8+[SUE] $9,
 $1	>	$2n $8+[SUE] $9)'
 COMMENT(********************* -ról, -rõl ********)
@@ -67,17 +67,17 @@ $1	>	$2h$5z $8+[ALL] $9
 COMMENT(********************* -ig *************)
 $1	>	$2ig $8+[TERM] $9
 COMMENT(********************* -vá,-vé *********)
-`ifelse(regexp('$2`,[^aáeéiíoóöõuúüû0123456789]$),-1,
+`ifelse(regexp('$2`,[^aáeéiíoóöõuúùüû0123456789]$),-1,
 $1	>	$2v$6 $8+[TRANS] $9,
 $1	>	$2`'substr($2,eval(len($2)-1))$6 $8+[TRANS] $9)'
 COMMENT(********************* -val,-vel *******)
-`ifelse(regexp(`'$2`',[^aáeéiíoóöõuúüû0123456789]$),-1,
+`ifelse(regexp(`'$2`',[^aáeéiíoóöõuúùüû0123456789]$),-1,
 $1	>	$2`'v$4l $8+[INSTR] $9,
 $1	>	$2`'substr($2,eval(len($2)-1))$4l $8+[INSTR] $9)'
 COMMENT(********************* -ért ************)
 $1	>	$2ért $8+[CAUS/FIN] $9
 COMMENT(********************* -nként, -onként, -enként, de nincs birtokjel)
-COMMENT(`ifelse(regexp('$2`,[aáeéiíoóöõuúüû123456789]$),-1,
+COMMENT(`ifelse(regexp('$2`,[aáeéiíoóöõuúùüû123456789]$),-1,
 $1	>	$2$5nként $8+[nként_PERIOD_adv] $9,
 $1	>	$2nként $8+[nként_PERIOD_adv] $9)')
 COMMENT(********************* -ul,-ül)
@@ -193,7 +193,7 @@ nev_rag_2($1,$2j$4ink,$3,$4,$9,$6,$7,$11+[PLUR]+[POSS_PL_1],$12)
 flag *F:
 
 nev_birtokjel2([^aeáéiíóõúû&agrave;&ugrave;&oslash;],`abb',ó,a,o,á,u,+Abb,D)
-nev_jel_jaje2([^aáéóõuúüû&agrave;&ugrave;&oslash;],`abb',ó,a,o,á,u,o,o,ú,+Abb,D)
+nev_jel_jaje2([^aáéóõuúùüû&agrave;&ugrave;&oslash;],`abb',ó,a,o,á,u,o,o,ú,+Abb,D)
 nev_birtokjel2(a,``-a,ább'',ó,a,o,á,u,+Abb,D)
 nev_jel_jaje2(a,``-a,ább'',ó,a,o,á,u,o,o,ú,+Abb,D)
 nev_birtokjel2([áéiíóõúû&agrave;&ugrave;&oslash;],`bb',ó,a,o,á,u,+Abb,D)
@@ -567,7 +567,7 @@ COMMENT($1	>	$2$4nta)
 )
 
 define(nev_rag_magan_valvel,
-[-áéiíóõuúüûy&agrave;&ugrave;&oslash;] >	v$1 $2
+[-áéiíóõuúùüûy&agrave;&ugrave;&oslash;] >	v$1 $2
 )
 
 define(nev_rag_massal_valvel,
@@ -827,17 +827,17 @@ flag *A:
 nev_jel_a(a,`-a,á',ó,a,o,á,u,o,o,ú)
 nev_jel_a([^o]o,`-o,ó',ó,a,o,á,u,o,o,ú)
 nev_jel_a(oo,`',ó,a,o,á,u,o,o,ú)
-nev_jel_a([áéiíóõuúüûy-&agrave;&ugrave;&oslash;],`',ó,a,o,á,u,o,o,ú)
+nev_jel_a([áéiíóõuúùüûy-&agrave;&ugrave;&oslash;],`',ó,a,o,á,u,o,o,ú)
 
 COMMENT(********************* -nként, -onként, -enként, de nincs birtokjel)
-[áéiíóõuúüû-&agrave;&ugrave;&oslash;]	>	nként +[nként_PERIOD_adv]
-[^aáeéiíoóöõuúüû&agrave;&ugrave;&oslash;]	>	onként +[nként_PERIOD_adv]
+[áéiíóõuúùüû-&agrave;&ugrave;&oslash;]	>	nként +[nként_PERIOD_adv]
+[^aáeéiíoóöõuúùüû&agrave;&ugrave;&oslash;]	>	onként +[nként_PERIOD_adv]
 a		>	-a,ánként +[nként_PERIOD_adv]
 [^o]o	>	-o,ónként +[nként_PERIOD_adv]
 oo	>	nként +[nként_PERIOD_adv]
 
-[áéiíóõuúüû-&agrave;&ugrave;&oslash;]	>	nkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
-[^aáeéiíoóöõuúüû&agrave;&ugrave;&oslash;]	>	onkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
+[áéiíóõuúùüû-&agrave;&ugrave;&oslash;]	>	nkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
+[^aáeéiíoóöõuúùüû&agrave;&ugrave;&oslash;]	>	onkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
 a		>	-a,ánkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
 [^o]o	>	-o,ónkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
 oo	>	nkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
@@ -850,8 +850,8 @@ oo	>	kénti +[kénti_FORM_adj]{+[NOM]} UFÖ
 kk	>	-k,kénti +[kénti_FORM_adj]{+[NOM]} UFÖ
 
 COMMENT(********************* -stul,-stül, -ostul)
-[áéiíóõuúüû-&agrave;&ugrave;&oslash;]	>	stul +[stUl_COMITATIVE_adv]
-[^aáeéiíoóöõuúüû&agrave;&ugrave;&oslash;]	>	ostul +[stUl_COMITATIVE_adv]
+[áéiíóõuúùüû-&agrave;&ugrave;&oslash;]	>	stul +[stUl_COMITATIVE_adv]
+[^aáeéiíoóöõuúùüû&agrave;&ugrave;&oslash;]	>	ostul +[stUl_COMITATIVE_adv]
 a		>	-a,ástul +[stUl_COMITATIVE_adv]
 [^o]o	>	-o,óstul +[stUl_COMITATIVE_adv]
 oo	>	stul +[stUl_COMITATIVE_adv]
@@ -1002,8 +1002,8 @@ flag *Ò:
 
 COMMENT(********************* -n,-on,-en,-ön **)
 # kötõjelre és y-ra végzõdõ szavak is -on toldalékot kapnak
-[^aáeéiíoóõuúüû&agrave;&ugrave;&oslash;]	>	on +[SUE]
-[áéiíóõuúüû&agrave;&ugrave;&oslash;]	>	n +[SUE]
+[^aáeéiíoóõuúùüû&agrave;&ugrave;&oslash;]	>	on +[SUE]
+[áéiíóõuúùüû&agrave;&ugrave;&oslash;]	>	n +[SUE]
 a		>	-a,án +[SUE]
 [^o]o	>	-o,ón +[SUE]
 oo	>	n +[SUE]
@@ -1015,7 +1015,7 @@ oo	>	n +[SUE]
 flag *Õ:
 
 COMMENT(********************* -t **)
-[áéiíóõuúüûhy-&agrave;&ugrave;&oslash;]	>	t +[ACC]
+[áéiíóõuúùüûhy-&agrave;&ugrave;&oslash;]	>	t +[ACC]
 a		>	-a,át +[ACC]
 [^o]o	>	-o,ót +[ACC]
 oo	>	t +[ACC]
@@ -1029,7 +1029,7 @@ e		>	-e,ét +[ACC]
 flag *Ù:
 
 COMMENT(********************* -at **)
-[^aáeéiíoóöõuúüû&agrave;&ugrave;&oslash;]	>	at +[ACC]
+[^aáeéiíoóöõuúùüû&agrave;&ugrave;&oslash;]	>	at +[ACC]
 
 ############################################################
 # Ö osztály: -ot, -t mássalhangzóra végzõdõ szavakhoz
@@ -1039,8 +1039,8 @@ flag *Ö:
 
 - > ot +[ACC]
 
-[áéiíóöõuúüûlnrx&agrave;&ugrave;&oslash;] > t +[ACC]
-[^aáeéiíóöõuúüûcs] [hj]	>	ot +[ACC]
+[áéiíóöõuúùüûlnrx&agrave;&ugrave;&oslash;] > t +[ACC]
+[^aáeéiíóöõuúùüûcs] [hj]	>	ot +[ACC]
 
 # <Bachot> <*Bacht>
 # <übermenscht> <*übermenschet>?
@@ -1052,8 +1052,8 @@ flag *Ö:
 t s c h	>	ot +[ACC]
 s h	>	t +[ACC]
 
-[aáeéiíóöõuúüû] j	>	t +[ACC]
-[^aáeéiíoóöõuúüûjlnrsyz] > ot +[ACC]
+[aáeéiíóöõuúùüû] j	>	t +[ACC]
+[^aáeéiíoóöõuúùüûjlnrsyz] > ot +[ACC]
 
 # <rajzot> <rajzt>? <földrajzt>
 # <spejzot> <spejzt>
@@ -1075,8 +1075,8 @@ s h	>	t +[ACC]
 [^bkp] sz	>	t +[ACC]
 
 g y	> ot +[ACC]
-[^aáeéiíoóöõuúüû] [^g] y	>	ot +[ACC]
-[aáeéiíoóöõuúüû] [^g] y	>	t +[ACC]
+[^aáeéiíoóöõuúùüû] [^g] y	>	ot +[ACC]
+[aáeéiíoóöõuúùüû] [^g] y	>	t +[ACC]
 
 #<abszorbenset> <abszorbenst>
 #<borsot> <*borst>
@@ -1085,8 +1085,8 @@ g y	> ot +[ACC]
 #<tapsot> <*tapst>
 
 c s	>	ot +[ACC]
-[^aáeéiíoóöõuúüû] z s	>	ot +[ACC]
-[aáeéiíoóöõuúüû] z s	>	t +[ACC]
+[^aáeéiíoóöõuúùüû] z s	>	ot +[ACC]
+[aáeéiíoóöõuúùüû] z s	>	t +[ACC]
 [knsprty] s	>	ot +[ACC]
 [^ckprtz] s	>	t +[ACC]
 
@@ -1103,16 +1103,16 @@ flag *B:
 
 nev_jel_a([^ae]e,`-e,é',õ,e,e,é,ü,ö,e,û)
 nev_jel_a([ae]e,`',õ,e,e,é,ü,ö,e,û)
-nev_jel_a([áéiíóõuúüûy-],`',õ,e,e,é,ü,ö,e,û)
+nev_jel_a([áéiíóõuúùüûy-],`',õ,e,e,é,ü,ö,e,û)
 
 COMMENT(********************* -nként, -onként, -enként, de nincs birtokjel)
-[áéiíóõöuúüû-]	>	nként +[nként_PERIOD_adv]
-[^aáeéiíoóöõuúüû]		>	enként +[nként_PERIOD_adv]
+[áéiíóõöuúùüû-]	>	nként +[nként_PERIOD_adv]
+[^aáeéiíoóöõuúùüû]		>	enként +[nként_PERIOD_adv]
 [^ae]e		>	-e,énként +[nként_PERIOD_adv]
 [ae]e		>	nként +[nként_PERIOD_adv]
 
-[áéiíóõöuúüû-]	>	nkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
-[^aáeéiíoóöõuúüû]		>	enkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
+[áéiíóõöuúùüû-]	>	nkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
+[^aáeéiíoóöõuúùüû]		>	enkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
 [^ae]e		>	-e,énkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
 [ae]e		>	nkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
 
@@ -1122,8 +1122,8 @@ COMMENT(********************* -kénti (tanúkénti) mégsem esetrag)
 kk	>	-k,kénti +[kénti_FORM_adj]{+[NOM]} VG×
 
 COMMENT(********************* -stul,-stül, -ostul)
-[áéiíóõöuúüû-]		>	stül +[stUl_COMITATIVE_adv]
-[^aáeéiíoóöõuúüû]		>	estül +[stUl_COMITATIVE_adv]
+[áéiíóõöuúùüû-]		>	stül +[stUl_COMITATIVE_adv]
+[^aáeéiíoóöõuúùüû]		>	estül +[stUl_COMITATIVE_adv]
 [^ae]e		>	-e,éstül +[stUl_COMITATIVE_adv]
 [ae]e		>	stül +[stUl_COMITATIVE_adv]
 
@@ -1198,8 +1198,8 @@ nev_rag_magan_valvel(é,+[TRANS])
 flag *Ó:
 
 COMMENT(********************* -n,-on,-en,-ön **)
-[^aáeéiíóõuúüû&agrave;&ugrave;&oslash;]	>	en +[SUE]
-[áéiíóõuúüû&agrave;&ugrave;&oslash;]	>	n +[SUE]
+[^aáeéiíóõuúùüû&agrave;&ugrave;&oslash;]	>	en +[SUE]
+[áéiíóõuúùüû&agrave;&ugrave;&oslash;]	>	n +[SUE]
 [^ae]e		>	-e,én +[SUE]
 [ae]e		>	n +[SUE]
 
@@ -1214,17 +1214,17 @@ COMMENT(********************* -t **)
 [ae]e		>	t +[ACC]
 - > et +[ACC]
 
-[áéiíóöõuúüûlnrx&agrave;&ugrave;&oslash;] > t +[ACC]
-[^aáeéiíóöõuúüûcs] [hj]	>	et +[ACC]
+[áéiíóöõuúùüûlnrx&agrave;&ugrave;&oslash;] > t +[ACC]
+[^aáeéiíóöõuúùüûcs] [hj]	>	et +[ACC]
 
 [^s] c h	>	et +[ACC]
 [^t] s c h	>	t +[ACC]
 t s c h	>	et +[ACC]
 s h	>	t +[ACC]
 
-[aáeéiíóöõuúüû] j	>	t +[ACC]
+[aáeéiíóöõuúùüû] j	>	t +[ACC]
 
-[^aáeéiíoóöõuúüûjlnrsyz&agrave;&ugrave;&oslash;] > et +[ACC]
+[^aáeéiíoóöõuúùüûjlnrsyz&agrave;&ugrave;&oslash;] > et +[ACC]
 negyven	>	et +[ACC]
 ötven	>	et +[ACC]
 hetven	>	et +[ACC]
@@ -1243,12 +1243,12 @@ kilencven	>	et +[ACC]
 [^bkp] sz	>	t +[ACC]
 
 g y	> et +[ACC]
-[^aáeéiíoóöõuúüû] [^g] y	>	et +[ACC]
+[^aáeéiíoóöõuúùüû] [^g] y	>	et +[ACC]
 hely	>	et +[ACC]
-[aáeéiíoóöõuúüû] [^g] y	>	t +[ACC]
+[aáeéiíoóöõuúùüû] [^g] y	>	t +[ACC]
 c s	>	et +[ACC]
-[^aáeéiíoóöõuúüû] z s	>	et +[ACC]
-[aáeéiíoóöõuúüû] z s	>	t +[ACC]
+[^aáeéiíoóöõuúùüû] z s	>	et +[ACC]
+[aáeéiíoóöõuúùüû] z s	>	t +[ACC]
 [knsprty] s	>	et +[ACC]
 [^ckprtz] s	>	t +[ACC]
 
@@ -1266,15 +1266,15 @@ flag *C:
 # <Malmõnk> <*Malmönk>
 
 nev_jel_a(ö,`-ö,õ',õ,e,ö,é,ü,ö,e,û)
-nev_jel_a([áéiíoóõuúüûy-&oslash;],`',õ,e,ö,é,ü,ö,e,û)
+nev_jel_a([áéiíoóõuúùüûy-&oslash;],`',õ,e,ö,é,ü,ö,e,û)
 
 COMMENT(********************* -nként, -onként, -enként, de nincs birtokjel)
-[áéiíoóõuúüû-&oslash;]	>	nként +[nként_PERIOD_adv]
-[^aáeéiíóõöuúüû&oslash;]	>	önként +[nként_PERIOD_adv]
+[áéiíoóõuúùüû-&oslash;]	>	nként +[nként_PERIOD_adv]
+[^aáeéiíóõöuúùüû&oslash;]	>	önként +[nként_PERIOD_adv]
 ö		>	-ö,õnként +[nként_PERIOD_adv]
 
-[áéiíoóõuúüû-&oslash;]	>	nkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
-[^aáeéiíóõöuúüû&oslash;]	>	önkénti +[nként_PERIOD_adv] VG×
+[áéiíoóõuúùüû-&oslash;]	>	nkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
+[^aáeéiíóõöuúùüû&oslash;]	>	önkénti +[nként_PERIOD_adv] VG×
 ö		>	-ö,õnkénti +[nként_PERIOD_adv] VG×
 
 COMMENT(********************* -kénti (tanúkénti) mégsem esetrag)
@@ -1284,8 +1284,8 @@ COMMENT(********************* -kénti (tanúkénti) mégsem esetrag)
 kk	>	-k,kénti +[kénti_FORM_adj]{+[NOM]}  VG×
 
 COMMENT(********************* -stul,-stül, -ostul)
-[áéiíoóõuúüû-&oslash;]	>	stül +[stUl_COMITATIVE_adv]
-[^aáeéiíóõöuúüû&oslash;]	>	östül +[stUl_COMITATIVE_adv]
+[áéiíoóõuúùüû-&oslash;]	>	stül +[stUl_COMITATIVE_adv]
+[^aáeéiíóõöuúùüû&oslash;]	>	östül +[stUl_COMITATIVE_adv]
 ö		>	-ö,õstül +[stUl_COMITATIVE_adv]
 
 ############################################################
@@ -1355,8 +1355,8 @@ e		>	-e,évé +[TRANS]
 flag *Ô:
 
 COMMENT(********************* -n,-on,-en,-ön **)
-[^aáeéiíóõuúüû]	>	ön +[SUE]
-[áéiíóõuúüû]	>	n +[SUE]
+[^aáeéiíóõuúùüû]	>	ön +[SUE]
+[áéiíóõuúùüû]	>	n +[SUE]
 ö		>	-ö,õn +[SUE]
 
 ############################################################
@@ -1369,16 +1369,16 @@ COMMENT(********************* -t, -öt **)
 ö		>	-ö,õt +[ACC]
 - > t +[ACC]
 
-[áéiíóöõuúüûlnrx&agrave;&ugrave;&oslash;] > t +[ACC]
-[^aáeéiíóöõuúüûcs] [hj]	>	öt +[ACC]
+[áéiíóöõuúùüûlnrx&agrave;&ugrave;&oslash;] > t +[ACC]
+[^aáeéiíóöõuúùüûcs] [hj]	>	öt +[ACC]
 
 [^s] c h	>	öt +[ACC]
 [^t] s c h	>	t +[ACC]
 t s c h	>	öt +[ACC]
 s h	>	t +[ACC]
 
-[aáeéiíóöõuúüû] j	>	t +[ACC]
-[^aáeéiíoóöõuúüûjlnrsyz&agrave;&ugrave;&oslash;] > öt +[ACC]
+[aáeéiíóöõuúùüû] j	>	t +[ACC]
+[^aáeéiíoóöõuúùüûjlnrsyz&agrave;&ugrave;&oslash;] > öt +[ACC]
 
 [cjrt] z	> öt +[ACC]
 [^cjrst] z	> t +[ACC]
@@ -1393,11 +1393,11 @@ s h	>	t +[ACC]
 [^bkp] sz	>	t +[ACC]
 
 g y	> öt +[ACC]
-[^aáeéiíoóöõuúüû] [^g] y	>	öt +[ACC]
-[aáeéiíoóöõuúüû] [^g] y	>	t +[ACC]
+[^aáeéiíoóöõuúùüû] [^g] y	>	öt +[ACC]
+[aáeéiíoóöõuúùüû] [^g] y	>	t +[ACC]
 c s	>	öt +[ACC]
-[^aáeéiíoóöõuúüû] z s	>	öt +[ACC]
-[aáeéiíoóöõuúüû] z s	>	t +[ACC]
+[^aáeéiíoóöõuúùüû] z s	>	öt +[ACC]
+[aáeéiíoóöõuúùüû] z s	>	t +[ACC]
 [knsprty] s	>	öt +[ACC]
 [^ckprtz] s	>	t +[ACC]
 
@@ -1411,11 +1411,11 @@ c s	>	öt +[ACC]
 ############################################################
 
 flag *K:
-nev_jel_massal([^aáéiíoóöõuúüû&agrave;&ugrave;&oslash;],`',ó,a,o,á,u,o,o,ú,o)
+nev_jel_massal([^aáéiíoóöõuúùüû&agrave;&ugrave;&oslash;],`',ó,a,o,á,u,o,o,ú,o)
 
-[^aáeéiíoóöõuúüû&agrave;&ugrave;&oslash;]	>	onként +[nként_PERIOD_adv]
-[^aáeéiíoóöõuúüû&agrave;&ugrave;&oslash;]	>	onkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
-[^aáeéiíoóöõuúüû&agrave;&ugrave;&oslash;]	>	ostul +[stUl_COMITATIVE_adv]
+[^aáeéiíoóöõuúùüû&agrave;&ugrave;&oslash;]	>	onként +[nként_PERIOD_adv]
+[^aáeéiíoóöõuúùüû&agrave;&ugrave;&oslash;]	>	onkénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
+[^aáeéiíoóöõuúùüû&agrave;&ugrave;&oslash;]	>	ostul +[stUl_COMITATIVE_adv]
 
 ############################################################
 # L osztály: ajakréses magas hangrendû birtokos személyragok 
@@ -1427,11 +1427,11 @@ nev_jel_massal([^aáéiíoóöõuúüû&agrave;&ugrave;&oslash;],`',ó,a,o,á,u,o,o,ú,o)
 ############################################################
 
 flag *L:
-nev_jel_massal([^eáéiíoóöõuúüû],`',õ,e,e,é,ü,ö,e,û,e)
+nev_jel_massal([^eáéiíoóöõuúùüû],`',õ,e,e,é,ü,ö,e,û,e)
 
-[^aáeéiíoóöõuúüû]	>	enként +[nként_PERIOD_adv]
-[^aáeéiíoóöõuúüû]	>	enkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
-[^aáeéiíoóöõuúüû]	>	estül +[stUl_COMITATIVE_adv]
+[^aáeéiíoóöõuúùüû]	>	enként +[nként_PERIOD_adv]
+[^aáeéiíoóöõuúùüû]	>	enkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
+[^aáeéiíoóöõuúùüû]	>	estül +[stUl_COMITATIVE_adv]
 
 ############################################################
 # M osztály: ajakkerekítéses magas hangrendû birtokos személyragok 
@@ -1443,11 +1443,11 @@ nev_jel_massal([^eáéiíoóöõuúüû],`',õ,e,e,é,ü,ö,e,û,e)
 ############################################################
 
 flag *M:
-nev_jel_massal([^eáéiíoóöõuúüû],`',õ,e,ö,é,ü,ö,ö,û,e)
+nev_jel_massal([^eáéiíoóöõuúùüû],`',õ,e,ö,é,ü,ö,ö,û,e)
 
-[^aáeéiíoóöõuúüû]	>	önként +[nként_PERIOD_adv]
-[^aáeéiíoóöõuúüû]	>	önkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
-[^aáeéiíoóöõuúüû]	>	östül +[stUl_COMITATIVE_adv]
+[^aáeéiíoóöõuúùüû]	>	önként +[nként_PERIOD_adv]
+[^aáeéiíoóöõuúùüû]	>	önkénti +[nként_PERIOD_adv]+_i_{+[NOM]} VG×
+[^aáeéiíoóöõuúùüû]	>	östül +[stUl_COMITATIVE_adv]
 
 ############################################################
 # $ osztály: ,,a'' kötõhangzós mély hangrendû birtokos személyragok 
@@ -1459,11 +1459,11 @@ nev_jel_massal([^eáéiíoóöõuúüû],`',õ,e,ö,é,ü,ö,ö,û,e)
 ############################################################
 
 flag *$:
-nev_jel_massal_a([^aáéiíoóöõuúüû],`',ó,a,o,á,u,o,o,ú,o)
-[^aáeéiíoóöõuúüûjlnrsyz] > at +[ACC]
-[^aáeéiíoóöõuúüû]	>	anként +[nként_PERIOD_adv]
-[^aáeéiíoóöõuúüû]	>	ankénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
-[^aáeéiíoóöõuúüû]	>	astul +[stUl_COMITATIVE_adv]
+nev_jel_massal_a([^aáéiíoóöõuúùüû],`',ó,a,o,á,u,o,o,ú,o)
+[^aáeéiíoóöõuúùüûjlnrsyz] > at +[ACC]
+[^aáeéiíoóöõuúùüû]	>	anként +[nként_PERIOD_adv]
+[^aáeéiíoóöõuúùüû]	>	ankénti +[nként_PERIOD_adv]+_i_{+[NOM]} UFÖ
+[^aáeéiíoóöõuúùüû]	>	astul +[stUl_COMITATIVE_adv]
 
 # ----3. személyû birtokos személyjelek---(ja/je v. a/e)-------------------
 # ----és birtoktöbbesítõ jeles toldalékok (jaim/jeim v. aim/eim)-----------
@@ -1487,11 +1487,11 @@ nev_rag_2($1,$2j$7k,$3,$4,$8,$6,$7,+[POSS_PL_3])
 
 flag *Q:
 
-nev_jel_jaje([^aáéoóõuúüû&agrave;&ugrave;&oslash;],`',ó,a,o,á,u,o,o,ú)
+nev_jel_jaje([^aáéoóõuúùüû&agrave;&ugrave;&oslash;],`',ó,a,o,á,u,o,o,ú)
 nev_birtokjel_magan(a,`-a,á',ó,a,o,á,u,o,o,ú)
 nev_birtokjel_magan([^o]o,`-o,ó',ó,a,o,á,u,o,o,ú)
 nev_birtokjel_magan(oo,`',ó,a,o,á,u,o,o,ú)
-nev_birtokjel_magan([áéióõuúüûy&agrave;&ugrave;&oslash;],`',ó,a,o,á,u,o,o,ú)
+nev_birtokjel_magan([áéióõuúùüûy&agrave;&ugrave;&oslash;],`',ó,a,o,á,u,o,o,ú)
 
 ############################################################
 # R osztály: -je, -jei, -jük, -jeik
@@ -1501,11 +1501,11 @@ nev_birtokjel_magan([áéióõuúüûy&agrave;&ugrave;&oslash;],`',ó,a,o,á,u,o,o,ú)
 ############################################################
 
 flag *R:
-nev_jel_jaje([^áeéóöõuúüû],`',õ,e,e,é,ü,ö,e,û)
+nev_jel_jaje([^áeéóöõuúùüû],`',õ,e,e,é,ü,ö,e,û)
 nev_birtokjel_magan([^ae]e,`-e,é',õ,e,e,é,ü,ö,e,û)
 nev_birtokjel_magan([ae]e,`',õ,e,e,é,ü,ö,e,û)
 nev_birtokjel_magan(ö,`-ö,õ',õ,e,e,é,ü,ö,e,û)
-nev_birtokjel_magan([áéiíóõuúüûy],`',õ,e,e,é,ü,ö,e,û)
+nev_birtokjel_magan([áéiíóõuúùüûy],`',õ,e,e,é,ü,ö,e,û)
 
 ############################################################
 # S osztály: -a, -uk

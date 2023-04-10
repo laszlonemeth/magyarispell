@@ -157,7 +157,7 @@ ICONV &fl; fl
 # - multicharacter suggestions
 # - well-sorted suggestions
 
-REP 154
+REP 165
 REP í i
 REP i í
 REP ó o
@@ -312,3 +312,14 @@ REP ^hû hûe # hûn->hûen, hûk->hûek
 REP ^orr orv # orrvadász->orvvadász
 REP tejhatal teljhatal # tejhatalom->teljhatalom
 REP kissebb kisebb
+REP élõ élõ_
+REP belsõ belsõ_
+REP elõzõ elõzõ_
+REP következõ következõ_
+REP katolikus katolikus_
+REP hasonló hasonló_
+REP megfelelõ megfelelõ_
+REP tartozó tartozó_
+REP növekvõ növekvõ_
+REP csökkenõ csökkenõ_
+REP jól jól_
