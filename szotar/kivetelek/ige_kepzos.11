@@ -49,6 +49,13 @@ viszontlát	viszontlátás	viszontlátó	viszontlátott	viszontlátandó		viszon
 van	levés	levő		leendő	lehet		lehető	lehetőség	lehetetlen	lehetetlenség
 van	levés	lévő
 
+# meglehet, ellehet, hátralehet, odalehet, kilehet
+van	levés	levő		leendő	meglehet		lehető	lehetőség	lehetetlen	lehetetlenség
+van	levés	levő		leendő	ellehet		lehető	lehetőség	lehetetlen	lehetetlenség
+van	levés	levő		leendő	hátralehet		lehető	lehetőség	lehetetlen	lehetetlenség
+van	levés	levő		leendő	odalehet		lehető	lehetőség	lehetetlen	lehetetlenség
+van	levés	levő		leendő	kilehet		lehető	lehetőség	lehetetlen	lehetetlenség
+
 # telik
 
 telik	telés	telő	telt		telhet		telhető	telhetőség	telhetetlen	telhetetlenség

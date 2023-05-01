@@ -211,10 +211,17 @@ cat melleknev_nyelv.1 | sed 's/\(^.*$\)/\1nyelv-/' |
 tee -a fonev_osszetett.1 | tee -a fonev_eleje.1 |
 field | $AWK -f $AWKDIR/fonev_gen.awk >>$DICT
 
+# legmagyarabb, legtörökebb, legtamilabb
+# *magyari, *magyarú
+cat melleknev_nyelv.1 | \
+sed -n 's/\(.*\)\([aáoóú]\)\([^aeiouöüóúéáíûõ/]\+\)$/\1\2\3\/-²\/-·\/-»\/-³\/-¸\/-½\/-¼\
+\1\2\3abb\/mAD$UÙÒQ/p
+s/\(.*\)\([üö]\)\([gk]\)$/\1\2\3ebb\/×nÓBDLVR/p' >>$DICT
+echo_n .
 
 # melléknevek
 
-cat melleknev_nyelv.1 melleknev.1 ige_ando.1 ige_hato.1 ige_hatatlan.1 | \
+cat melleknev.1 ige_ando.1 ige_hato.1 ige_hatatlan.1 | \
     field | $AWK -f $AWKDIR/melleknev_gen.awk >> $DICT
 echo_n .
 
