@@ -69,7 +69,7 @@ echo_n .
 # melléknevek -ság/-ség képzõs alakjainak elõállítása,
 # és ragozási osztályokba való sorolása
 
-cat melleknev.1 | field | $AWK -f $AWKDIR/mellek_sag2.awk  >>$DICT
+cat melleknev.1 melleknev_nyelv.1 | field | $AWK -f $AWKDIR/mellek_sag2.awk  >>$DICT
 
 echo_n .
 

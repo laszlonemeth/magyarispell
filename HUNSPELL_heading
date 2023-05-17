@@ -157,7 +157,7 @@ ICONV &fl; fl
 # - multicharacter suggestions
 # - well-sorted suggestions
 
-REP 169
+REP 170
 REP í i
 REP i í
 REP ó o
@@ -327,3 +327,4 @@ REP ssel$ sszel
 REP ssal$ sszal
 REP ssé$ sszé
 REP ssá$ sszá
+REP ^megfed megfedd
