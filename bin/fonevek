@@ -201,9 +201,15 @@ cat melleknev_nyelv.1 | sed 's/\(^.*$\)/\1barát\
 \1centrikus\
 \1gyûlölõ/' >>melleknev.1
 
+cat melleknev_nyelv.1 | sed 's/\(^.*$\)/\1gyûlölet\
+\1imádat/' >>fonev_ae.1
+
 cat melleknev_nyelv.1 | sed 's/\(^.*$\)/\1üldözés\
 \1centrikusság\
+\1barátság\
+\1ellenesség\
 \1tanítás\
+\1gyûlölet\
 \1imádat/' |
 tee -a fonev_osszetett.1 | field | $AWK -f $AWKDIR/fonev_gen.awk >>$DICT
 

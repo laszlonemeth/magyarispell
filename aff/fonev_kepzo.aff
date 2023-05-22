@@ -1287,6 +1287,7 @@ define(`k_',
 
 define(`k_verb',
 `k_'(, +[mentes_FREE_adj]{+[NOM]}, noun_con, noun_On, Noun_, Adj_, noun_A, noun_Ai)
+`k_'(en, +[mentes_FREE_adj]+[An_MODE_adv]) # <torzulásmentesen>
 `k_'(s$2g, +[mentes_FREE_adj]+sAg, noun_con, noun_On, Noun_, noun_A, noun_Ai, compound_)
 `k_'(ít, +[mentes_FREE_adj]+_it_, verb_, verb_sub_, pfx_verb, non_compound)
 `k_'(ített, +[mentes_FREE_adj]+_it_+Ott, noun_con, noun_On, noun_nonmorph_, Adj_, noun_jA, noun_Ai, non_compound)
