@@ -165,3 +165,9 @@
 <*szociapátia>
 
 <magyarországnyi>
+
+<OpenStreetMapről> <openstreetmapeseket> <OpenStreetMapes:openstreetmapes>
+<pedofileket>
+<*stócban:stószban>
+<egyneműsítettétek>
+
