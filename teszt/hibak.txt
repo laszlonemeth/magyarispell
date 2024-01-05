@@ -171,3 +171,29 @@
 <*stócban:stószban>
 <egyneműsítettétek>
 
+# -szerte
+
+<birodalomszerte>
+<bolygószerte>
+<fővárosszerte>
+<galaxisszerte>
+<iskolaszerte>
+<járásszerte>
+<kerületszerte>
+<kontinensszerte>
+<környékszerte>
+<közösségszerte>
+<médiaszerte>
+<piacszerte>
+<régiószerte>
+<sajtószerte>
+<szakmaszerte>
+<táborszerte>
+<udvarszerte>
+<uniószerte>
+<vállalatszerte>
+<vidékszerte>
+
+<Dubai:Dubaj>
+<dubai:dubaji>
+
