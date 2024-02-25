@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
-# compare 
-# 
+# compare
+#
 # line diff disregarding duplicates
 # dump lines found in file1 but NOT found in file2
 

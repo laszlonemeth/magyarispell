@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 case "$LANG" in
 *UTF-8) iconv -f latin2 -t utf-8;;
 *) cat;;

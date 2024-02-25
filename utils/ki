@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # description: subtract $1 from $2 without sorting
 # usage: ki $1 $2
 case $# in

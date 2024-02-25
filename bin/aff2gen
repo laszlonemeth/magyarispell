@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 export LC_ALL=C
 # convert morphological codes in affix files
 awk '/^.FX /{print $1,$2,$3,$4,$5"\t"$6;next}{print$0}' |

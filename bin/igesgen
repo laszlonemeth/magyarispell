@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # igébõl képzett szavak elõállítása
 # generate words derived from verbs
 #

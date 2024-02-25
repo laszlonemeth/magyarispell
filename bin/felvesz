@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #set -x
 echo "Szótárkezelő segédprogram az új szavak felvételére.
 Az új szó megadása után mintaszavakat adhatunk meg, és a
