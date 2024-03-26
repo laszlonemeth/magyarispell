@@ -303,15 +303,15 @@ flag *D:
 
 flag *a:
 
-.	>	tizen     [adj_num]+
-.	>	huszon    [adj_num]+
-.	>	harminc   [adj_num]+
-.	>	negyven   [adj_num]+
-.	>	ötven     [adj_num]+
-.	>	hatvan    [adj_num]+
-.	>	hetven    [adj_num]+
-.	>	nyolcvan  [adj_num]+
-.	>	kilencven [adj_num]+
+.	>	tizen     tizen[adj_num]+
+.	>	huszon    huszon[adj_num]+
+.	>	harminc   harminc[adj_num]+
+.	>	negyven   negyven[adj_num]+
+.	>	ötven     ötven[adj_num]+
+.	>	hatvan    hatvan[adj_num]+
+.	>	hetven    hetven[adj_num]+
+.	>	nyolcvan  nyolcvan[adj_num]+
+.	>	kilencven kilencven[adj_num]+
 
 ############################################################
 # b osztály: százasok számnevekhez
@@ -321,15 +321,15 @@ flag *a:
 
 flag *b:
 
-.	>	száz       [adj_num]+
-.	>	kétszáz    [adj_num]+
-.	>	háromszáz  [adj_num]+
-.	>	négyszáz   [adj_num]+
-.	>	ötszáz     [adj_num]+
-.	>	hatszáz    [adj_num]+
-.	>	hétszáz    [adj_num]+
-.	>	nyolcszáz  [adj_num]+
-.	>	kilencszáz [adj_num]+
+.	>	száz       száz[adj_num]+
+.	>	kétszáz    két|száz[adj_num]+
+.	>	háromszáz  három|száz[adj_num]+
+.	>	négyszáz   négy|száz[adj_num]+
+.	>	ötszáz     öt|száz[adj_num]+
+.	>	hatszáz    hat|száz[adj_num]+
+.	>	hétszáz    hét|száz[adj_num]+
+.	>	nyolcszáz  nyolc|száz[adj_num]+
+.	>	kilencszáz kilenc|száz[adj_num]+
 
 ############################################################
 # h osztály: ezeregyszáz-, ezerkétszáz- számnevekhez, mivel
@@ -340,20 +340,20 @@ flag *b:
 
 flag *h:
 
-.	>	ezer    [adj_num]+
-.	>	ezerszáz    [adj_num]+
-.	>	ezeregyszáz    [adj_num]+
-.	>	ezerkétszáz    [adj_num]+
-.	>	ezerháromszáz  [adj_num]+
-.	>	ezernégyszáz   [adj_num]+
-.	>	ezerötszáz     [adj_num]+
-.	>	ezerhatszáz    [adj_num]+
-.	>	ezerhétszáz    [adj_num]+
-.	>	ezernyolcszáz  [adj_num]+
-.	>	ezerkilencszáz [adj_num]+
-.	>	ezervalahányszáz [adj_num]+
-.	>	kétezer [adj_num]+
-.	>	kettõezer [adj_num]+
+.	>	ezer    ezer[adj_num]+
+.	>	ezerszáz    ezer|száz[adj_num]+
+.	>	ezeregyszáz    ezer|egy|száz[adj_num]+
+.	>	ezerkétszáz    ezer|két|száz[adj_num]+
+.	>	ezerháromszáz  ezer|három|száz[adj_num]+
+.	>	ezernégyszáz   ezer|négy|száz[adj_num]+
+.	>	ezerötszáz     ezer|öt|száz[adj_num]+
+.	>	ezerhatszáz    ezer|hat|száz[adj_num]+
+.	>	ezerhétszáz    ezer|hét|száz[adj_num]+
+.	>	ezernyolcszáz  ezer|nyolc|száz[adj_num]+
+.	>	ezerkilencszáz ezer|kilenc|száz[adj_num]+
+.	>	ezervalahányszáz ezer|valahány|száz[adj_num]+
+.	>	kétezer két|ezer[adj_num]+
+.	>	kettõezer kettõ|ezer[adj_num]+
 
 ############################################################
 # ! osztály: a magyar helyesírás szabályai 119. pontjában
@@ -368,35 +368,35 @@ flag *h:
 
 flag *!:
 
-.       >       sok       [adj_num]+     %
-[^b]    >       több      [adj_num]+     %   # *többbázisú
-.       >       fél       [adj_num]+     %
+.       >       sok       sok[adj_num]+     %
+[^b]    >       több      több[adj_num]+     %   # *többbázisú
+.       >       fél       fél[adj_num]+     %
 
-.       >       nulla     [adj_num]+     %
-.       >       egy       [adj_num]+     %
-.       >       két       [adj_num]+     %
-.       >       három     [adj_num]+     %
-.       >       négy      [adj_num]+     %
-.       >       öt        [adj_num]+     %
-.       >       hat       [adj_num]+     %
-.       >       hét       [adj_num]+     %
-.       >       nyolc     [adj_num]+     %
-.       >       kilenc    [adj_num]+     %
-.       >       tíz       [adj_num]+     %
-.       >       húsz      [adj_num]+     %
-.       >       harminc   [adj_num]+     %
-.       >       negyven   [adj_num]+     %
-.       >       ötven     [adj_num]+     %
-.       >       hatvan    [adj_num]+     %
-.       >       hetven    [adj_num]+     %
-.       >       nyolcvan  [adj_num]+     %
-.       >       kilencven [adj_num]+     %
-.       >       száz      [adj_num]+     %
-.       >       ezer      [adj_num]+     %
-.       >       millió    [adj_num]+     %
-.       >       milliárd  [adj_num]+     %
-.       >       billió    [adj_num]+     %
-.       >       trillió   [adj_num]+     %
+.       >       nulla     nulla[adj_num]+     %
+.       >       egy       egy[adj_num]+     %
+.       >       két       két[adj_num]+     %
+.       >       három     három[adj_num]+     %
+.       >       négy      négy[adj_num]+     %
+.       >       öt        öt[adj_num]+     %
+.       >       hat       hat[adj_num]+     %
+.       >       hét       hét[adj_num]+     %
+.       >       nyolc     nyolc[adj_num]+     %
+.       >       kilenc    kilenc[adj_num]+     %
+.       >       tíz       tíz[adj_num]+     %
+.       >       húsz      húsz[adj_num]+     %
+.       >       harminc   harminc[adj_num]+     %
+.       >       negyven   negyven[adj_num]+     %
+.       >       ötven     ötven[adj_num]+     %
+.       >       hatvan    hatvan[adj_num]+     %
+.       >       hetven    hetven[adj_num]+     %
+.       >       nyolcvan  nyolcvan[adj_num]+     %
+.       >       kilencven kilencven[adj_num]+     %
+.       >       száz      száz[adj_num]+     %
+.       >       ezer      ezer[adj_num]+     %
+.       >       millió    millió[adj_num]+     %
+.       >       milliárd  milliárd[adj_num]+     %
+.       >       billió    billió[adj_num]+     %
+.       >       trillió   trillió[adj_num]+     %
 
 ############################################################
 # " osztály: nagy kezdõbetû kis kezdõbetûssé alakítása a

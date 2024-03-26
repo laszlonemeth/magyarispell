@@ -1,3 +1,43 @@
+2024-03-27  Németh László <nemeth@numbertext.org>:
+	* új szavak: Csíkszentmihályi, Hamvas (hamvasi), Karikó stb.
+	* ~4000 szó összetételi határainak megadása a fonev_osszetett
+	  és melleknev_osszetett állományokban a LibreOffice 24-hez,
+	  amely támogatja az összetételi szóhatártól való távolság beállítását:
+	  – LibreOffice 24.2-ben még kísérleti jelleggel, az elválasztási zóna
+	    bekapcsolásával 4 karakter, vagy annál rövidebb távolságon belül
+	    nem választ el az összetételi szóhatárok után, az összetett
+	    szó tövén belül).
+	  – LibreOffice 24.8-ban pedig az új "Legalább ennyi karakter
+	    maradjon az utótagból" elválasztási opció 2-nél több karakterre
+	    állításával.
+	  – l. https://bugs.documentfoundation.org/show_bug.cgi?id=158885
+	    "Hyphenate compound words at stem boundaries within the hyphenation zone".
+	* hibás szóösszetételek tiltása:
+	  *percíz -> precíz, *asszú -> aszú, *íjjász -> íjász stb.
+	* új, eddig hibásan összetételként elfogadott szavak felvétele
+	  az elválasztás tesztelése alapján (csenderes, gyökérzet,
+	  lapátka, poroszló, rovarász stb.)
+	* javasolt szavak felvétele: vizuáltechnika, elektroakusztikus (Gyuris
+	  Gellért), szavahihetetlen, hidegvíz-mérő óra, Gmail (Tuna András);
+	  pedagógiai szakszókincs (Pénzes Dávid); OpenStreetMap, rövidpályás,
+	  hidrológiai szakszókincs (Úr Balázs); boksa, dugalj, robotizál, sztóma
+	  (Lutischán Ferenc)
+	* rövidtáv, hosszútáv -> sport modul
+
+2023-05-17  Németh László <nemeth@numbertext.org>:
+	* Javítások a Hunspell 1.7.2 pontosított összetettszó-kezeléséhez:
+	  A Hunspell helyesírás-ellenőrző elutasítja a 3-tagú összetett
+	  szavakat, ha elütéssel előállnak egy szótári szóból, pl.
+	  rend|ős|ég -> rendőrség. A szótárba felvételre kerültek a
+	  valóban helyes 3-tagú összetételek.
+	* Hibás egybeírások elutasítása, helyes javaslattal:
+	  pl. kitud -> ki tud, túlvan -> túl van stb.
+	* toldalékolt szavakként elfogadott hibás alakok tiltása:
+	  pl. megfed -> megfedd, kisérthet -> kísérthet stb.
+	* A többtagú idegen kifejezések, pl. "vica versa", egy szótári
+	  bejegyzésként szerepelnek a szótárban, a LibreOffice
+	  helyesírás-ellenőrzőjének pontosítása céljából
+
 2018-05-10  Németh László <nemeth@numbertext.org>:
 	* AkH. 12. kiadásnak megfelelő szabályok és bővítés
 	* kiejtési adatok és új magyar átírások
@@ -8,7 +48,7 @@
 	* AkH. 12. kiadásnak megfelelő szabályok és bővítés
 
 2010-03-29  Németh László <nemeth@openoffice.org>:
-	* szotar/alap: valósi (Gyuris Gellért), elemi (főnév, pl. 
+	* szotar/alap: valósi (Gyuris Gellért), elemi (főnév, pl.
 	  most elfogadva: hat elemis). Hibajavítások: *serifjelvény
 	  (seriffjelvény); Gdańsk (Gdansk helyett); számjegyekkel leírt
 	  ezresek (>2000) és milliárdok toldalékolása (11000-rel, 3000-es);

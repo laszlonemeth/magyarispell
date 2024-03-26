@@ -117,6 +117,12 @@ $1=="ketchup" { # [kecsap]-[kecsöp]
             next
 }
 /[aáoóuúAÁOÓUÚ]['bcdfghjklmnpqrstvwxyz£¥¦©ª«¬®¯³µ¶¹º»¼¾¿ÀÅÆÇÈÏÐÑÒØÝÞßàåïðñòøýþ]+$/ { 
+    if (ingadozo[$1]==1) {
+	s = fn_s[$1]?"nõ":"nò"
+	s2 = fn_s[$1]?"mö":"mô"
+	print $1 "/U/V/Ê/®/Ë/¯/i/j" (y_i[$1]?"ÕABÏÐÑ":"Ö×KLÒÓ" s s2)  tulaj("/á/é", "µ¶", "Ç¿ßÈÀà", "çè²Ãã³Ää") jaje_e($1,"/Q/R","/T/t") kulon($1) ju("·","»") ju("¸","¼") ka("kl") _s("÷ø")
+	next
+    }
     if (magas[$1]==1) {
 		s = fn_s[$1]?"nõ":"nò"
 	    print $1 "/V/Ë/¯/j" (y_i[$1]?"ÕBÐÑ": "×LnÓ" s) tulaj("/é", "¶", "ÈÀà", "è³Ää") jaje_e($1,"/R","/T/t") kulon($1) ju("¸","¼") ka("l") _s("ø")
@@ -129,7 +135,7 @@ $1=="ketchup" { # [kecsap]-[kecsöp]
 	s = fn_s[$1]?"nõ":"nò"
 	s2 = fn_s[$1]?"mö":"mô"
     if (ingadozo[$1]==1) {
-		print $1 "/U/V/Ê/®/Ë/¯/i/j" (y_i[$1]?"ÕABÏÐÑ":"Ö×KLÒÓ" s s2)  tulaj("/á/é", "µ¶", "Ç¿ßÈ", "çè²Ãã³Ää") jaje_e($1,"/Q/R","/T/t") kulon($1) ju("·","»") ju("¸","¼") ka("kl") _s("÷ø")
+		print $1 "/U/V/Ê/®/Ë/¯/i/j" (y_i[$1]?"ÕABÏÐÑ":"Ö×KLÒÓ" s s2)  tulaj("/á/é", "µ¶", "Ç¿ßÈÀà", "çè²Ãã³Ää") jaje_e($1,"/Q/R","/T/t") kulon($1) ju("·","»") ju("¸","¼") ka("kl") _s("÷ø")
     } else {
 	if (mely[$1]==1) {
 	    print $1 "/U/Ê/®/i" (y_i[$1]?"ÕAÏÑ":"ÖKÒ" s2) tulaj("/á", "µ", "Ç¿ß", "ç²Ãã") jaje_e($1,"/Q","/S/s") kulon($1) ju("·","»") ka("k") _s("÷")

@@ -47,7 +47,11 @@ function ka(s) {
 (magas[$1]!=1 && (/[aАoСuЗ][-bcdfghjklmnpqrstvwxyz]+$/ ||
 /^.*[uЗoСaА][bcdfghjklmnpqrstvwxyz]*i[bcdfghjklmnpqrstvwxyz]+$/)) {
     s = fn_s[$1]?"Ж":"mТ"
-    print "[adj]" $1 "/ры/F/U/н" s a_koto($1,"/Kж") jaje_e($1,"/Q","/S/s") ka("k"); next }
+    s2 = fn_s[$1]?"У":"nР"
+    if (ingadozo[$1]==1) { 
+        print "[adj]" $1 "/ры/F/U/н" s2 a_koto($1,"/Kж") jaje_e($1,"/Q","/S/s") "/св/G/V/к" s a_koto($1,"/L") jaje_e($1,"/R","/T/t") ka("kl") }
+    else { print "[adj]" $1 "/ры/F/U/н" s a_koto($1,"/Kж") jaje_e($1,"/Q","/S/s") ka("k") }
+    next }
 
 /[iМeИa][-bcdfghjklmnpqrstvwxyz]+$/ {
   s = fn_s[$1]?"У":"nР"

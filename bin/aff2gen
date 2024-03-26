@@ -5,6 +5,7 @@ awk '/^.FX /{print $1,$2,$3,$4,$5"\t"$6;next}{print$0}' |
 sed -e 's/\t[[]\([^]]*LATIVE[^]]*\)\]+/\tip:\1\t/
 s/\t\([^[\t]\+\)[[]PREF\]+/\tip:PREF\tsp:\1\t/
 s/{+[[]\([^}]*\)\]}$/\tts:\1/
+s/\t\([^[]\+\)\[\(adj_num\)\]/\tpo:\2\tpa:\1\t/g
 s/\t\[\([^][]*\)\]/\tpo:\1\t/g
 s/{[^{]*}//g
 s/+[[]\([^[]\+\)\]/\tis:\1\t/g
@@ -12,5 +13,5 @@ s/\t\(ts:[^]]*\)\]+[[]/\t\1\tts:/
 s/\t\+/\t/g
 s/\t*$//
 s/\t+$//' |
-sed 's/is:\([^_\t]*_\)\(ABLE\|ABSTRACT\|ACTION\|ATTRIBUTE\|DIMINUTIVE\|FACTITIVE\|FORMAL\|FREE\|FREQ\|FUTPART\|LESS\|LOCATIVE\|MEDIAL\|MRS\|MULTIPLICATION\|MULTORD\|OCCUPATION\|PASSIVE\|PASTPART\|PRESPART\|PROCESS\/RESULT\|SORT\|SUPPLY\|TRANSITIVE\|UNABLE\)_/ds:\1\2_/g' |
+sed 's/is:\([^_\t]*_\)\(ABLE\|ABSTRACT\|ACTION\|ATTRIBUTE\|DIMINUTIVE\|FACTITIVE\|FORMAL\|FREE\|FREQ\|FUTPART\|LESS\|LOCATIVE\|MEDIAL\|MRS\|MULTIPLICATION\|MULTORD\|OCCUPATION\|ORDINAL\|PASSIVE\|PASTPART\|PRESPART\|PROCESS\/RESULT\|SORT\|SUPPLY\|TRANSITIVE\|UNABLE\)_/ds:\1\2_/g' |
 sed 's/is:\(.*ds:\)/ds:\1/g'

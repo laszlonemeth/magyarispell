@@ -129,3 +129,4 @@ s/\&ffl;/ﬄ/
 s/\&apos;/’/
 s/\&nbhp;/‑/
 s/\&rquo;/”/
+s/\&gbreve;/ğ/

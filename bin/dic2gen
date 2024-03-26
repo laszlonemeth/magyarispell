@@ -11,7 +11,7 @@ s/+[[]\([^[]\+\)\]/\tis:\1\t/g
 s/\t\(ts:[^]]*\)\]+[[]/\t\1\tts:/
 s/\t\+/\t/g;s/\t*$//' |
 sed 's/\t[^\t:]\+\t/\t/g;s/\t[^\t:]\+$//g
-s/is:\([^_\t]*_\)\(ABLE\|ABSTRACT\|ACTION\|ATTRIBUTE\|DIMINUTIVE\|FACTITIVE\|FORMAL\|FREE\|FREQ\|FUTPART\|LESS\|LOCATIVE\|MEDIAL\|MODE\|MRS\|MULTIPLICATION\|MULTORD\|OCCUPATION\|PASSIVE\|PASTPART\|PRESPART\|PROCESS\/RESULT\|SORT\|SUPPLY\|TRANSITIVE\|UNABLE\)_/ds:\1\2_/g' |
+s/is:\([^_\t]*_\)\(ABLE\|ABSTRACT\|ACTION\|ATTRIBUTE\|DIMINUTIVE\|FACTITIVE\|FORMAL\|FREE\|FREQ\|FUTPART\|LESS\|LOCATIVE\|MEDIAL\|MODE\|MRS\|MULTIPLICATION\|MULTORD\|OCCUPATION\|ORDINAL\|PASSIVE\|PASTPART\|PRESPART\|PROCESS\/RESULT\|SORT\|SUPPLY\|TRANSITIVE\|UNABLE\)_/ds:\1\2_/g' |
 sed 's/is:\(.*ds:\)/ds:\1/g;s/\tst:\t/\t/' >tmp/x.dic
 
 # create allomorph table

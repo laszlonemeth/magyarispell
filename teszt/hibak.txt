@@ -166,7 +166,7 @@
 
 <magyarországnyi>
 
-<OpenStreetMapről> <openstreetmapeseket> <OpenStreetMapes:openstreetmapes>
+<OpenStreetMapről> <openstreetmapeseket> <*OpenStreetMapes:openstreetmapes>
 <pedofileket>
 <*stócban:stószban>
 <egyneműsítettétek>
@@ -194,6 +194,24 @@
 <vállalatszerte>
 <vidékszerte>
 
-<Dubai:Dubaj>
-<dubai:dubaji>
+<*Dubai:Dubaj>
+<*dubai:dubaji>
+
+<*percíz:precíz>
+<*asszú:aszú>
+<*íjjász:íjász>
+<*lengépszerűbb:legnépszerűbb>
+<podcastok> <podcastek>
+<legvadregényesebb>
+<suttyóság>
+<Reykjavíkban>
+<basszusgitározik>
+<legbunkóbb>
+<legbulvárabb>
+<*féláron:fél áron> <*félár:fél ár>
+<*féláru:félárú> <*féláruakat:félárúakat>
+<közművelődésügyi> <közművelődésügyének>
+<földművelődésügyi> <földművelődésügyének>
+<sajtburgeres> <sajtburgeros>
+<robotizált> <robotizálás>
 

@@ -34,7 +34,7 @@ közzétesz	közzétevés	közzétevő	közzétett	közzéteendő		közzétehet	
 tönkretesz	tönkretevés	tönkretevő	tönkretett	tönkreteendő		tönkretehet	tönkretehető	tönkretehetőség	tönkretehetetlen	tönkretehetetlenség #NEM_IKES
 vesz	vevés	vevő	vett	veendő		vehet	vehető	vehetőség	vehetetlen	vehetetlenség
 észrevesz	észrevevés	észrevevő	észrevett	észreveendő		észrevehet	észrevehető	észrevehetőség	észrevehetetlen	észrevehetetlenség #NEM_IKES
-visz	vivés	vivő	vitt			vihet	vihető	vihetőség	vihetetlen	vihetetlenség
+visz	vivés	vivő	vitt	viendő		vihet	vihető	vihetőség	vihetetlen	vihetetlenség
 eszik	evés	evő	evett			ehet	ehető	ehetőség	ehetetlen	ehetetlenség
 iszik	ivás	ivó	ivott			ihat	iható	ihatóság	ihatatlan	ihatatlanság
 
