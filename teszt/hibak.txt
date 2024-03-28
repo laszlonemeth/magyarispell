@@ -199,7 +199,7 @@
 
 <*percíz:precíz>
 <*asszú:aszú>
-<*íjjász:íjász>
+<*íjjász:íjász> <*íjjászos:íjászos>
 <*lengépszerűbb:legnépszerűbb>
 <podcastok> <podcastek>
 <legvadregényesebb>
@@ -214,4 +214,7 @@
 <földművelődésügyi> <földművelődésügyének>
 <sajtburgeres> <sajtburgeros>
 <robotizált> <robotizálás>
-
+<*ventilláció:ventiláció> <*hiperventilláció:hiperventiláció>
+<*vízierőművi>
+<*raktárhelység:raktárhelyiség>
+<*ponchó:poncsó> <*poncho:poncsó>
