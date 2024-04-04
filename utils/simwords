@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # hasonló szavak kiszûrésére
 # Németh László <nemeth@gyorsposta.hu>
 # Usage: simwords < file

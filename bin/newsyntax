@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 export LC_ALL=C
 # convert to "affix/flags_of_continuation_classes" format from "affix morph_desc flags_of_con.."
 awk '/^[SP]FX/ && NF==7{print $1,$2,$3,$4"/"$7,$5,$6;next}{print $0}'

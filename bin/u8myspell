@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 export LANG=en_US
 export LC_ALL=C
 
