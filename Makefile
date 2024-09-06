@@ -227,7 +227,7 @@ hu_HU.aff: magyar.aff
 		A-ZÁÉÍÓÖŐÚÜŰ a-záéíóöőúüű | sed 's/q\([^[]*\]\)/-\1/' | \
                 bin/newsyntax >$(ROOTDIR)/hu_HU_morph.aff                
 	@cat $(ROOTDIR)/hu_HU_morph.aff | bin/aff2gen | \
-	        sed 's/&i[ua]grave;//g;s/&oslash;//g' >$(ROOTDIR)/hu_HU_gen.aff
+	        sed 's/&[iua]grave;//g;s/&oslash;//g' >$(ROOTDIR)/hu_HU_gen.aff
 	@cat $(ROOTDIR)/hu_HU_gen.aff | \
 		LC_ALL=C sed 's/\t\([^p].\|.[^h]\):[^\t]*//g' >$(ROOTDIR)/hu_HU.aff
 
