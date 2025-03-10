@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # szimbolikus kötések létrehozása a szotar.konf alapján
 # make symlinks for setting dictionary modules
 # see dic.conf
@@ -28,7 +28,7 @@ DICCONF=${2:-"szotar.konf"}
 pwd
 grep -v '^#' $DICCONF | grep -v '^$' |
 while read i
-do 
+do
   test -d $WRKDIR/`basename $i`.modul || ln -s ../$i $WRKDIR/`basename $i`.modul
 done
 

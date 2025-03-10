@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # OpenOffice.org custom.dic converter
 # Authors: Khiraly <khiraly123@gmx.net> and others
 

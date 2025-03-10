@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # sort by ends of words, Németh László <nemeth@gyorsposta.hu>
 # Usage: tros < file >file.out
 reverse () {

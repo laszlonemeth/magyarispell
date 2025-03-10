@@ -1,12 +1,12 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # breaking a file to words, 1.2v (c) László Németh, BSD License
 # 1.2: fix space, HTML, etc. problems.
 # 1.1: fix tabulator, ISO-8859-2, etc. problems
 break_lines()
 {
 tr -c '\-a-zA-Z\241-\254\256-\326\330-\366\370-\377' ' ' | # ISO-8859-2
-tr ' ' '\n' | 
-sort | 
+tr ' ' '\n' |
+sort |
 uniq
 }
 
@@ -18,7 +18,7 @@ esac
 case $1 in
  -html)
  shift
- cat $@ | 
+ cat $@ |
  tr '\n' ' ' | # make 1 line from files
  sed 's/</\
  </g' | # break at HTML tags
@@ -33,4 +33,3 @@ case $1 in
  cat $@ | break_lines;;
 
 esac
-
