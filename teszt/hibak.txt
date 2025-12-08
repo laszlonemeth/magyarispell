@@ -218,3 +218,4 @@
 <*vízierőművi>
 <*raktárhelység:raktárhelyiség>
 <*ponchó:poncsó> <*poncho:poncsó>
+<*semmikép:semmiképp>

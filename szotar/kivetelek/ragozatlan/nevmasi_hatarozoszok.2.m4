@@ -15,56 +15,58 @@
 
 define(nevmas_rag,
 $1$2m$7	$1$2[noun_pron]+[SG_1]+$5
-én$1$2m$7	$1$2[noun_pron]+[SG_1]+$5+[EMPH]
+én$1$2m$7	$1$2[noun_pron]+[SG_1]+$5+[EMPH] # HY:én|$1
 $1$2d$7	$1$2[noun_pron]+[SG_2]+$5
-te$1$2d$7	$1$2[noun_pron]+[SG_2]+$5+[EMPH]
+te$1$2d$7	$1$2[noun_pron]+[SG_2]+$5+[EMPH] # HY:te|$1
 `ifelse(regexp('$7`,.),-1,
 $1$2$7	$1$2[noun_pron]+[SG_3]+$5,
 $1$2$7	$1$2[noun_pron]+[SG_3]+$5)'
-ő$1$2$7	$1$2[noun_pron]+[SG_3]+$5+[EMPH]
+ő$1$2$7	$1$2[noun_pron]+[SG_3]+$5+[EMPH] # HY:ő|$1
 `ifelse(regexp('$2`,[áé]),-1,
 $1$4nk$7	$1$2[noun_pron]+[PL_1]+$5
-mi$1$4nk$7	$1$2[noun_pron]+[PL_1]+$5+[EMPH]
+mi$1$4nk$7	$1$2[noun_pron]+[PL_1]+$5+[EMPH] # HY:mi|$1
 $1$2t$3k$7	$1$2[noun_pron]+[PL_2]+$5
-ti$1$2t$3k$7	$1$2[noun_pron]+[PL_2]+$5+[EMPH]
+ti$1$2t$3k$7	$1$2[noun_pron]+[PL_2]+$5+[EMPH] # HY:ti|$1
 $1$4k$7	$1$2[noun_pron]+[PL_3]+$5
-ő$1$4k$7	$1$2[noun_pron]+[PL_3]+$5+[EMPH]
+ő$1$4k$7	$1$2[noun_pron]+[PL_3]+$5+[EMPH] # HY:ő|$1
 ,
 $1$2j$6$7	$1$2[noun_pron]+[SG_3]+$5
-ő$1$2j$6$7	$1$2[noun_pron]+[SG_3]+$5+[EMPH]
+ő$1$2j$6$7	$1$2[noun_pron]+[SG_3]+$5+[EMPH] # HY:ő|$1
 $1$2nk$7	$1$2[noun_pron]+[PL_1]+$5
-mi$1$2nk$7	$1$2[noun_pron]+[PL_1]+$5+[EMPH]
+mi$1$2nk$7	$1$2[noun_pron]+[PL_1]+$5+[EMPH] # HY:mi|$1
 $1$2t$3k	$1$2[noun_pron]+[PL_2]+$5
-ti$1$2t$3k	$1$2[noun_pron]+[PL_2]+$5+[EMPH]
+ti$1$2t$3k	$1$2[noun_pron]+[PL_2]+$5+[EMPH] # HY:ti|$1
 $1$2j$4k$7	$1$2[noun_pron]+[PL_3]+$5
-ő$1$2j$4k$7	$1$2[noun_pron]+[PL_3]+$5+[EMPH])'
+ő$1$2j$4k$7	$1$2[noun_pron]+[PL_3]+$5+[EMPH] # HY:ő|$1
+)' 
 )
 
 define(nevmas_uto,
 $1$2m$7	$1$2[noun_pron]+[POSTP($1$5)]+[SG_1]$8
-én$1$2m$7	$1$2[noun_pron]+[POSTP($1$5)]+[SG_1]+[EMPH]$8
+én$1$2m$7	$1$2[noun_pron]+[POSTP($1$5)]+[SG_1]+[EMPH]$8 # HY:én|$1
 $1$2d$7	$1$2[noun_pron]+[POSTP($1$5)]+[SG_2]$8
-te$1$2d$7	$1$2[noun_pron]+[POSTP($1$5)]+[SG_2]+[EMPH]$8
+te$1$2d$7	$1$2[noun_pron]+[POSTP($1$5)]+[SG_2]+[EMPH]$8 # HY:te|$1
 `ifelse(regexp('$7`,.),-1,
 $1$2$7	$1$2[noun_pron]+[POSTP($1$5)]+[SG_3]$8,
 $1$2$7	$1$2[noun_pron]+[POSTP($1$5)]+[SG_3]$8)'
-ő$1$2$7	$1$2[noun_pron]+[POSTP($1$5)]+[SG_3]+[EMPH]$8
+ő$1$2$7	$1$2[noun_pron]+[POSTP($1$5)]+[SG_3]+[EMPH]$8 # HY:ő|$1
 `ifelse(regexp('$2`,[áé]),-1,
 $1$4nk$7	$1$2[noun_pron]+[POSTP($1$5)]+[PL_1]$8
-mi$1$4nk$7	$1$2[noun_pron]+[POSTP($1$5)]+[PL_1]+[EMPH]$8
+mi$1$4nk$7	$1$2[noun_pron]+[POSTP($1$5)]+[PL_1]+[EMPH]$8 # HY:mi|$1
 $1$2t$3k$7	$1$2[noun_pron]+[POSTP($1$5)]+[PL_2]$8
-ti$1$2t$3k$7	$1$2[noun_pron]+[POSTP($1$5)]+[PL_2]+[EMPH]$8
+ti$1$2t$3k$7	$1$2[noun_pron]+[POSTP($1$5)]+[PL_2]+[EMPH]$8 # HY:ti|$1
 $1$4k$7	$1$2[noun_pron]+[POSTP($1$5)]+[PL_3]$8
-ő$1$4k$7	$1$2[noun_pron]+[POSTP($1$5)]+[PL_3]+[EMPH]$8
+ő$1$4k$7	$1$2[noun_pron]+[POSTP($1$5)]+[PL_3]+[EMPH]$8 # HY:ő|$1
 ,
 $1$2j$6$7	$1$2[noun_pron]+[POSTP($1$5)]+[SG_3]$8
-ő$1$2j$6$7	$1$2[noun_pron]+[POSTP($1$5)]+[SG_3]+[EMPH]$8
+ő$1$2j$6$7	$1$2[noun_pron]+[POSTP($1$5)]+[SG_3]+[EMPH]$8 # HY:ő|$1
 $1$2nk$7	$1$2[noun_pron]+[POSTP($1$5)]+[PL_1]$8
-mi$1$2nk$7	$1$2[noun_pron]+[POSTP($1$5)]+[PL_1]+[EMPH]$8
+mi$1$2nk$7	$1$2[noun_pron]+[POSTP($1$5)]+[PL_1]+[EMPH]$8 # HY:mi|$1
 $1$2t$3k	$1$2[noun_pron]+[POSTP($1$5)]+[PL_2]$8
-ti$1$2t$3k	$1$2[noun_pron]+[POSTP($1$5)]+[PL_2]+[EMPH]$8
+ti$1$2t$3k	$1$2[noun_pron]+[POSTP($1$5)]+[PL_2]+[EMPH]$8 # HY:ti|$1
 $1$2j$4k$7	$1$2[noun_pron]+[POSTP($1$5)]+[PL_3]$8
-ő$1$2j$4k$7	$1$2[noun_pron]+[POSTP($1$5)]+[PL_3]+[EMPH]$8)'
+ő$1$2j$4k$7	$1$2[noun_pron]+[POSTP($1$5)]+[PL_3]+[EMPH]$8 # HY:ő|$1
+)'
 )
 
 
@@ -92,12 +94,12 @@ neki	én[noun_pron]+[SG_3]+[DAT]
 nekünk	én[noun_pron]+[PL_1]+[DAT]
 nektek	én[noun_pron]+[PL_2]+[DAT]
 nekik	én[noun_pron]+[PL_3]+[DAT]
-énnekem	én[noun_pron]+[SG_1]+[DAT]+[EMPH]
-teneked	én[noun_pron]+[SG_2]+[DAT]+[EMPH]
-őneki	én[noun_pron]+[SG_3]+[DAT]+[EMPH]
-minekünk	én[noun_pron]+[PL_1]+[DAT]+[EMPH]
-tinektek	én[noun_pron]+[PL_2]+[DAT]+[EMPH]
-őnekik	én[noun_pron]+[PL_3]+[DAT]+[EMPH]
+énnekem	én[noun_pron]+[SG_1]+[DAT]+[EMPH] # HY:én|nekem
+teneked	én[noun_pron]+[SG_2]+[DAT]+[EMPH] # HY:te|neked
+őneki	én[noun_pron]+[SG_3]+[DAT]+[EMPH] # HY:ő|neki
+minekünk	én[noun_pron]+[PL_1]+[DAT]+[EMPH] # HY:mi|nekünk
+tinektek	én[noun_pron]+[PL_2]+[DAT]+[EMPH] # HY:ti|nektek
+őnekik	én[noun_pron]+[PL_3]+[DAT]+[EMPH] # HY:ő|nekik
 
 enyém/VÓ×n	én[noun_pron]+[SG_1]+[POSS]{+[NOM]}
 enyémek/VÓ×n	én[noun_pron]+[SG_1]+[POSS]+[PLUR]{+[NOM]}
@@ -202,17 +204,17 @@ nevmas_uto(kör,é,e,ü,é,e)
 # körülöttem -> körül névutó körülött helyett
 
 körülöttem	körülötte[noun_pron]+[POSTP(körül)]+[SG_1]
-énkörülöttem	körülötte[noun_pron]+[POSTP(körül)]+[SG_1]+[EMPH]
+énkörülöttem	körülötte[noun_pron]+[POSTP(körül)]+[SG_1]+[EMPH] # HY:én|körülöttem
 körülötted	körülötte[noun_pron]+[POSTP(körül)]+[SG_2]
-tekörülötted	körülötte[noun_pron]+[POSTP(körül)]+[SG_2]+[EMPH]
+tekörülötted	körülötte[noun_pron]+[POSTP(körül)]+[SG_2]+[EMPH] # HY:te|körülötted
 körülötte	[noun_pron]+[POSTP(körül)]+[SG_3]
-őkörülötte	körülötte[noun_pron]+[POSTP(körül)]+[SG_3]+[EMPH]
+őkörülötte	körülötte[noun_pron]+[POSTP(körül)]+[SG_3]+[EMPH] # HY:ő|körülötte
 körülöttünk	körülötte[noun_pron]+[POSTP(körül)]+[PL_1]
-mikörülöttünk	körülötte[noun_pron]+[POSTP(körül)]+[PL_1]+[EMPH]
+mikörülöttünk	körülötte[noun_pron]+[POSTP(körül)]+[PL_1]+[EMPH] # HY:mi|körülöttünk
 körülöttetek	körülötte[noun_pron]+[POSTP(körül)]+[PL_2]
-tikörülöttetek	körülötte[noun_pron]+[POSTP(körül)]+[PL_2]+[EMPH]
+tikörülöttetek	körülötte[noun_pron]+[POSTP(körül)]+[PL_2]+[EMPH] # HY:ti|körülöttetek
 körülöttük	körülötte[noun_pron]+[POSTP(körül)]+[PL_3]
-őkörülöttük	körülötte[noun_pron]+[POSTP(körül)]+[PL_3]+[EMPH]
+őkörülöttük	körülötte[noun_pron]+[POSTP(körül)]+[PL_3]+[EMPH] # HY:ő|körülöttük
 
 
 # egyéb határozói névutókból képzett névmások
@@ -229,23 +231,23 @@ nevmas_uto(iránt,a,o,u)
 # egy-két továbbragozott forma
 
 bennünket	én[noun_pron]+[PL_1]+[ACC]
-mibennünket	én[noun_pron]+[PL_1]+[ACC]+[EMPH]
+mibennünket	én[noun_pron]+[PL_1]+[ACC]+[EMPH] # HY:mi|bennünket
 benneteket	én[noun_pron]+[PL_2]+[ACC]
-tibenneteket	én[noun_pron]+[PL_2]+[ACC]+[EMPH]
+tibenneteket	én[noun_pron]+[PL_2]+[ACC]+[EMPH] # HY:ti|benneteket
 
 # nevmas_rag(nál,a,o,u,,nál) nálanál miatt -->
 nálamnál	én[noun_pron]+[SG_1]+[ADE]
-énnálamnál	én[noun_pron]+[SG_1]+[ADE]+[EMPH]
+énnálamnál	én[noun_pron]+[SG_1]+[ADE]+[EMPH] # HY:én|nálam
 náladnál	én[noun_pron]+[SG_2]+[ADE]
-tenáladnál	én[noun_pron]+[SG_2]+[ADE]+[EMPH]
+tenáladnál	én[noun_pron]+[SG_2]+[ADE]+[EMPH] # HY:te|nálad
 nálánál	én[noun_pron]+[SG_3]+[ADE]
-őnálánál	én[noun_pron]+[SG_3]+[ADE]+[EMPH]
+őnálánál	én[noun_pron]+[SG_3]+[ADE]+[EMPH] # HY:ő|nála
 nálunknál	én[noun_pron]+[PL_1]+[ADE]
-minálunknál	én[noun_pron]+[PL_1]+[ADE]+[EMPH]
+minálunknál	én[noun_pron]+[PL_1]+[ADE]+[EMPH] # HY:mi|nálunk
 nálatoknál	én[noun_pron]+[PL_2]+[ADE]
-tinálatoknál	én[noun_pron]+[PL_2]+[ADE]+[EMPH]
+tinálatoknál	én[noun_pron]+[PL_2]+[ADE]+[EMPH] # HY:ti|nálatok
 náluknál	én[noun_pron]+[PL_3]+[ADE]
-őnáluknál	én[noun_pron]+[PL_3]+[ADE]+[EMPH]
+őnáluknál	én[noun_pron]+[PL_3]+[ADE]+[EMPH] # HY:ő|náluk
 
 ellenemre	ellenére[noun_pron]+[SG_1]+[POSTP(ellenére)]
 ellenedre	ellenére[noun_pron]+[SG_2]+[POSTP(ellenére)]
@@ -280,12 +282,12 @@ néki	[noun_pron]+[SG_1]+[DAT]+[SUBS]
 nékünk	néki[noun_pron]+[SG_1]+[DAT]+[SUBS]
 néktek	néki[noun_pron]+[SG_1]+[DAT]+[SUBS]
 nékik	néki[noun_pron]+[SG_1]+[DAT]+[SUBS]
-énnékem	néki[noun_pron]+[SG_1]+[DAT]+[EMPH]+[SUBS]
-tenéked	néki[noun_pron]+[SG_1]+[DAT]+[EMPH]+[SUBS]
-őnéki	néki[noun_pron]+[SG_1]+[DAT]+[EMPH]+[SUBS]
-minékünk	néki[noun_pron]+[SG_1]+[DAT]+[EMPH]+[SUBS]
-tinéktek	néki[noun_pron]+[SG_1]+[DAT]+[EMPH]+[SUBS]
-őnékik	néki[noun_pron]+[SG_1]+[DAT]+[EMPH]+[SUBS]
+énnékem	néki[noun_pron]+[SG_1]+[DAT]+[EMPH]+[SUBS] # HY:én|nékem
+tenéked	néki[noun_pron]+[SG_1]+[DAT]+[EMPH]+[SUBS] # HY:te|néked
+őnéki	néki[noun_pron]+[SG_1]+[DAT]+[EMPH]+[SUBS] # HY:ő|néki
+minékünk	néki[noun_pron]+[SG_1]+[DAT]+[EMPH]+[SUBS] # HY:mi|nékünk
+tinéktek	néki[noun_pron]+[SG_1]+[DAT]+[EMPH]+[SUBS] # HY:ti|néktek
+őnékik	néki[noun_pron]+[SG_1]+[DAT]+[EMPH]+[SUBS] # HY:ő|nékik
 
 nevmas_uto(körött,e,e,ü,e,,,+[SUBS])
 

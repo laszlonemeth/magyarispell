@@ -100,8 +100,12 @@ magyar4%.dict: $(WRKDIR)
 	@$(SH) bin/copydict $(WRKDIR) $(WRKDIR) $(*F)
 
 	# hy: összetétel
-	@cat  $(SZOTAR)/*/fonev_osszetett.1 | sed -n 's/	\(.*\)/[hy:\1]/p' | recode u8..l2 >>$(WRKDIR)/mezok.txt
-	@cat  $(SZOTAR)/kivetelek/*/* $(WRKDIR)/*.modul/* | grep HY: | sed -n 's/[ 	].*HY:\([^ 	]*\).*/[hy:\1]/p' | recode u8..l2 >>$(WRKDIR)/mezok.txt
+	@cat  $(SZOTAR)/*/fonev_osszetett.1 $(SZOTAR)/*/melleknev_osszetett.1 | sed -n 's/	\(.*\)/[hy:\1]/p' | recode u8..l2 >>$(WRKDIR)/mezok.txt
+	# HY: összetétel (^[con] stb. törlésével)
+	#@cat  $(SZOTAR)/kivetelek/* $(SZOTAR)/kivetelek/*/* $(WRKDIR)/*.modul/* | $(M4) | grep HY: | sed -n 's/^[\[][^]]*[]]//;s/^\([^	\/]*\)\/[^	]*/\1/;s/[ 	].*HY:\([^ 	]*\).*/[hy:\1]/p' | recode u8..l2 >>$(WRKDIR)/mezok.txt
+	@cat  $(SZOTAR)/kivetelek/* $(SZOTAR)/kivetelek/*/* $(WRKDIR)/*.modul/* | $(M4) | grep HY: | sed -n 's/[ 	].*HY:\([^ 	]*\).*/[hy:\1]/p' | recode u8..l2 >>$(WRKDIR)/mezok.txt
+	#@cat  $(WRKDIR)/*.modul/ragozatlan.2 | sed -n 's/ *#.*$//;s/	.*	\(.*\)/[hy:\1]/p' | recode u8..l2 >>$(WRKDIR)/mezok.txt
+	@cat  $(WRKDIR)/*.modul/ragozatlan.2 | sed -n 's/	.*	\(.*\)/[hy:\1]/p' | recode u8..l2 >>$(WRKDIR)/mezok.txt
 	@echo $(EN) ."$(EC)"
 
 	@echo "==> igéből képzett alakok előállítása" | $(CATUTF)

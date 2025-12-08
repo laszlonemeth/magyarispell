@@ -1,6 +1,6 @@
 * Szabad magyar (Magyar Ispell) szótár *
 
- (c) 2008-2024, Németh László és Godó Ferenc
+ (c) 2008-2025, Németh László és Godó Ferenc
 
  (c) 2002-2007 Németh László <nemeth@numbertext.org>
 
@@ -76,12 +76,23 @@ A „szótár” alternatív (al:) szótári „töve” a „szótárak”, a t
 toldalékoláshoz ezt is vizsgálja a toldalékolás során a Hunspell program.
 
 A „szótár” összetett szó, amelynek összetételi határa a tő
-harmadik betűje (hy:3) után található: szó|tár. Bonyolultabb esetben a
-szóhatárok, illetve az elválasztás nem számmal, hanem a tő, vagy annak
-egy részletének felhasználásával van megadva:
+harmadik betűje (hy:3) után található: szó|tár.
+
+Ha az érték 0, akkor a szótőt nem választjuk el:
+
+fair hy:0
+
+Bonyolultabb esetben a szóhatárok, illetve az elválasztás nem számmal,
+hanem a tő, vagy annak egy részletének felhasználásával van megadva:
 
 $ echo kisszótár | hunspell -m
 kisszótár  st:kisszótár po:noun ts:NOM al:kisszótárak hy:kis||szó|tár
+
+Ha a tövet nem választjuk el más helyen, mint az összetételi pontok
+és a megadott elválasztás, akkor azt szó végi kötőjellel jelöljük:
+
+streaming hy:strea-ming=
+roadshow hy:road|show=
 
 = Szótárállományok =
 
@@ -214,13 +225,9 @@ Magyar helyesírási szótár. Szerk. Tóth Etelka, Akadémiai Kiadó, Budapest,
 
 Lackó Krisztina – Mártonfi Attila: Helyesírás, Osiris Kiadó, Budapest, 2004
 
+Magyar Nyelvi Szolgáltató Iroda, https://e-nyelv.hu/
+
 és
-
-Magyar Tudományos Akadémia szerk.: A magyar helyesírás szabályai. 12. kiadás.
-Budapest, 2015.
-
-Magyar helyesírási szótár. Szerk. Tóth Etelka,
-Akadémiai Kiadó, Budapest, 2017.
 
 Deme László, Fábián Pál, Tóth Etelka: Magyar helyesírási szótár.
 Akadémiai Kiadó, Budapest, 1999.
@@ -260,6 +267,7 @@ http://almos.vein.hu/~vonyoa
 Történet
 ========
 
+2025-12-15 Magyar Ispell 1.9
 2024-03-27 Magyar Ispell 1.8.1
 2023-05-17 Magyar Ispell 1.8
 2018-05-17 Magyar Ispell 1.7

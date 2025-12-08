@@ -50,6 +50,15 @@ field_kot () {
   sed 's/\([^ 	]\)[[].*]/\1/'
 }
 
+# morfonetikus alternáns igékbõl folyamatos melléknévi igenevek és fõnevek
+# elõállítása, hy: taghatárral
+
+cat ige_alanyi.1 ige_targy.1 | awk 'BEGIN{FS="["}FILENAME!="-"{m[$1]=1}m[$1]{print}' ige_morfo.1 - | \
+sed 's/\([^\[]*\)[ao]\([^]]\)\(\[[^\[]*\)\?$/\1\2ó\3\
+\1\2ás\3/
+s/\([^\[]*\)[ieö]\([^]]\)\(\[[^\[]*\)\?$/\1\2õ\3\
+\1\2és\3/' >>fonev.1
+echo_n .
 
 # fõnevek ragozási osztályokba sorolása
 
@@ -105,6 +114,8 @@ cat tulajdonnev.2 | grep -v "^	" | cut -f 1 | field >magyar.fonev.1
 $AWK -f $AWKDIR/fonev_gen.awk -v tulaj_e=1 <magyar.fonev.1 >>$DICT
 echo_n .
 
+rm magyar.fonev.1
+
 # képzõs alakok tiltása, ahol külön meg volt adva
 
 cat tulajdonnev*.2 | grep -v "^	" | field | awk 'NF==2{print $1 "/-²-³-Ç-È-µ-¶-¿-À-Á-Ã-Ä-Å"}' >>$DICT
@@ -136,14 +147,7 @@ $AWK -f $AWKDIR/kotojeles.awk -v V1="BVRÐÑÕj" -v V2="LVÓ×nRTtj" -v V3="Ó×nBGVLRG
 cat kotojeles_magas2.7 | field_kot | $AWK -f $AWKDIR/kotojeles.awk -v V1="CWRÞÑÕj" -v V2="MWÔØÝRTtj" -v V3="Ô×nCHWMRH" -v V4="ÑÐÕCHWMTtH" >>$DICT
 
 # morfonetikus alternáns igékbõl folyamatos melléknévi igenevek és fõnevek
-# elõállítása
-
-cat ige_morfo.1 | \
-sed 's/\(.*\)[ao]\(.\)$/\1\2ó\
-\1\2ás/
-s/\(.*\)[ieö]\(.\)$/\1\2õ\
-\1\2és/' >magyar.fonev.1
-echo_n .
+# elõállítása, hy: taghatárral
 
 cat ige_morfo.1 | \
 sed 's/\(.*\)[ao]\(.\)$/\1\2ó\/X\
@@ -158,6 +162,8 @@ sed 's/\(.*\)\([ao]\)\(.\)$/\1\3ó	\1\2\3[vrb]+[Ó_PRESPART_adj]{+[NOM]}\
 s/\(.*\)\([ieö]\)\(.\)$/\1\3õ	\1\2\3[vrb]+[Ó_PRESPART_adj]{+[NOM]}\
 \1\3és	\1\2\3[vrb]+[Ás_PROCESS\/RESULT_noun]{+[NOM]}/' >>$DICT
 echo_n .
+
+# TODO
 
 cat ige_morfo.1 | \
 sed 's/\(.*\)[ao]\(.\)$/\1\2ó/
@@ -196,21 +202,21 @@ cat melleknev_mely.1 >>fonev_mely.1
 cat melleknev_nyelv.1 >>fonev_kulon.1
 $AWK -f $AWKDIR/fonev_gen.awk <melleknev_nyelv.1 >>$DICT
 
-cat melleknev_nyelv.1 | sed 's/\(^.*$\)/\1barát\
-\1ellenes\
-\1centrikus\
-\1gyûlölõ/' >>melleknev.1
+cat melleknev_nyelv.1 | sed 's/\(^.*$\)/\1barát\[hy:\1\|barát\]\
+\1ellenes\[hy:\1\|ellenes\]\
+\1centrikus\[hy:\1\|centrikus\]\
+\1gyûlölõ\[hy:\1\|gyûlölõ\]/' >>melleknev.1
 
 cat melleknev_nyelv.1 | sed 's/\(^.*$\)/\1gyûlölet\
 \1imádat/' >>fonev_ae.1
 
-cat melleknev_nyelv.1 | sed 's/\(^.*$\)/\1üldözés\
-\1centrikusság\
-\1barátság\
-\1ellenesség\
-\1tanítás\
-\1gyûlölet\
-\1imádat/' |
+cat melleknev_nyelv.1 | sed 's/\(^.*$\)/\1üldözés\[hy:\1\|üldözés\]\
+\1centrikusság\[hy:\1\|centrikusság\]\
+\1barátság\[hy:\1\|barátság\]\
+\1ellenesség\[hy:\1\|ellenesség\]\
+\1tanítás\[hy:\1\|tanítás\]\
+\1gyûlölet\[hy:\1\|gyûlölet\]\
+\1imádat\[hy:\1\|imádat\]/' |
 tee -a fonev_osszetett.1 | field | $AWK -f $AWKDIR/fonev_gen.awk >>$DICT
 
 cat melleknev_nyelv.1 | sed 's/\(^.*$\)/\1nyelv-/' |
@@ -238,7 +244,10 @@ sed 's#/.*\[#	[#' |
 #sort | uniq | sed 's/_/ /g;s/sszsz/ssz/g;/^észszer/!s/szsz/ssz/g;s/zszs/zzs/g;s/nyny/nny/g;s/\(.\)\1\1/\1\1/g;s/,\([a-z][a-z]:\)/	\1/g;s/[[]/\t/;s/\]//g' |
 sort | uniq | sed 's/sszsz/ssz/g;/^észszer/!s/szsz/ssz/g;s/zszs/zzs/g;s/nyny/nny/g;s/\(.\)\1\1/\1\1/g;s/,\([a-z][a-z]:\)/	\1/g;s/[[]/\t/;s/\]//g' |
 # shorten hy: patterns with position: hy:ablak|keret -> hy:5
-awk 'match($0, /hy:([^ \t]*)\|[^ \t]*/,m) && m[1]!~/\|.*\|/ && m[0]!~/[-.=]/ && m[0]!~/(c\|cs|c\|s|d\|dz|d\|z|g\|gy|l\|ly|n\|ny|t\|ty|[^cz]s\|sz|[^cz]s\|z|[^s]z\|s|[^s]z\|zs)/ {$0=gensub("hy:[^ \t]*", "hy:"length(m[1]),1,$0)}{print}' >mezok2.txt
+awk 'match($0, /hy:([^ \t]*)\|[^ \t]*/,m) && m[0]!~/\|.*\|/ && m[0]!~/[-.=]/ && m[0]!~/(c\|cs|c\|s|d\|dz|d\|z|g\|gy|l\|ly|n\|ny|t\|ty|[^cz]s\|sz|[^cz]s\|z|[^s]z\|s|[^s]z\|zs)/ {$0=gensub("hy:[^ \t]*", "hy:"length(m[1]),1,$0)}
+# remove terminating -a, -e to hyphenate affixed versions, e.g. bor|issza, bor|isszát
+match($0, /hy:([^ \t]*)[ae]([^ \t]*)/,m) && length(m[2])==0{$0=gensub("hy:[^ \t]*", "hy:"m[1], 1)}
+{print}' | sed 's/ *#.*$//' >mezok2.txt
 cat mezok2.txt | iconv -f latin2 -t utf-8 | sed -f $BINDIR/l1_u8.sed >mezok_utf.txt
 echo_n .
 

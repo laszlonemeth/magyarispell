@@ -20,9 +20,9 @@
 # jönmegy hat_alanyi hat_targyas
 
 jön	jövés	jövő	jött	jövendő	jöhet
-létrejön	létrejövés	létrejövő	létrejött	létrejövendő	létrejöhet #NEM_IKES
+létrejön	létrejövés	létrejövő	létrejött	létrejövendő	létrejöhet #NEM_IKES HY:létre|jö
 megy	menés	menő	ment		mehet
-tönkremegy	tönkremenés	tönkremenő	tönkrement		tönkremehet #NEM_IKES
+tönkremegy	tönkremenés	tönkremenő	tönkrement		tönkremehet #NEM_IKES HY:tönkre|me
 létrejön	létrejövés	létrejövő	létrejött		létrejöhet #NEM_IKES
 
 # teszvesz (igekötős)
@@ -147,7 +147,7 @@ kicsinyel	kicsinylés	kicsinylő	kicsinylendő
 
 # hall
 hall	hallás	halló	hallott			hallhat	hallható	hallhatóság	hallhatatlan	hallhatatlanság
-nagyotthall	nagyothallás	nagyothalló				nagyothallhat #NEM_IKES
+nagyothall	nagyothallás	nagyothalló				nagyothallhat #NEM_IKES
 
 
 # illik

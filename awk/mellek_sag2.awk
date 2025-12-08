@@ -3,7 +3,7 @@
 #
 BEGIN {
     while ((getline var < "melleknev_mely.1") > 0) { mely[var]=1; }
-    while ((getline var < "melleknev_osszetett.1") > 0) { osszetett[var]=1; }
+    while ((getline var < "melleknev_osszetett.1") > 0) { osszetett[gensub("(^[^	]*).*","\\1",1,var)]=1; }
 }
 {ossz=""}
 osszetett[$1]==1{ossz="y"}

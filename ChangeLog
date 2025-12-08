@@ -1,3 +1,141 @@
+2025-12-15  Németh László <nemeth@numbertext.org>:
+	* Krasznahorkai László köszöntése: 2025. irodalmi Nobel-díjasának
+	  (https://www.nobelprize.org/prizes/literature/2025/krasznahorkai/facts/)
+	  műveihez kapcsolódnak a következő szótárfejlesztések:
+
+	  – első regénye, a Sátántangó alapján a szótárhoz adott szavak és szóalakok:
+	    Apokalipszis (a hiányzó mély hangrend pótlása: pl. Apokalipszisnál,
+	    nemcsak Apokalipszisnél), átmulat (hiányzó tárgyas ragozás: pl. átmulatja),
+	    bádogkrisztus, bárányszelíd, bejelentenivaló, bizonyítékaképpen, borosrekesz,
+	    cipelnivaló, csaposlány, dokikám, egykomám, esőmosta, gyufásskatulya,
+	    halottszürke, hályogszürke, karattyol (hiányzó tárgyas ragozás pótlása:
+	    pl. karattyolta), Románváros, Nagyrománváros, Kisrománváros, kiskomád,
+	    kiskomája, Korin, mackófölső, szegesdoboz, szelemenfa, szolgálatjára
+	    (szolgálatára régies alakja), vájkál (hiányzó tárgyas ragozás: vájkálta).
+	    Forrás: https://reader.dia.hu/document/Krasznahorkai_Laszlo-Satantango-669
+
+	  – a Svéd Királyi Tudományos Akadémián elmondott ünnepi beszédéből:
+	    clochard (ejtsd: klosár), erectus és habilis. Forrás:
+	    https://hvg.hu/kultura/20251208_Krasznahorkai-Laszlo-stockholmi-beszed-nobel-dij
+
+	  – a Nobel-díjasok bankettjén elmondott köszönetnyilvánításában elhangzott nevek,
+	    amelyek még nem szerepeltek a szótárban: Pálnik, Klinkovics, Pynchon, Smith,
+	    Baltsa, Dessay, Larmore, Caballe, Berganza, Kirkby, Ginsberg, Sebald,
+	    Extremadura, Sziddhárta. Forrás:
+	    https://hvg.hu/kultura/20251211_krasznahorkai-laszlo-irodalmi-nobel-dij-bankett-beszed
+
+	  – svéd eredetű szavak hozzáadása, javítása: saga (ejtsd: szága), királysaga,
+	    püspöksaga, űrsaga, szlöjd, snüssz. A Torvalds név toldalékolásának javítása
+	    a kiejtésen alapuló helyesírásnak megfelelően, a korábbi hibás alakok elfogadása
+	    helyett:
+
+	    *Torvaldsszal -> Torvaldscal vagy Torvaldsdzal
+	    *Torvaldsszá -> Torvaldscá vagy Torvaldsdzá
+
+	* teljes köznyelvi elválasztási szótár az összetett és igekötős
+	  szavak taghatárainak jelölésével, valamint az idegen eredetű és
+	  régies írásmódú szavak elválasztásának jelölésével. A korábban
+	  már elkezdett szótári munka lezárása több mint 25 ezer szótári
+	  szó kézi feldolgozásával valósult meg, amely 15 ezer sor beszúrását,
+	  7 ezer sor törlését eredményezte a közel 200 módosított forrásállományban.
+
+	  Ennek eredményei:
+
+	* Javított helyesírás-ellenőrzés:
+
+	  – a szótagszám szerint nem engedélyezett szóösszetételek
+	    felismerése és elutasítása további ~3500 szótári főnév,
+	    valamint ~4400 melléknévből és ~3100 igéből képzett főnév
+	    esetében. Pl.
+
+	    *energiaáremelés -> energiaár-emelés,
+	    *jövedelemközpontosítás -> jövedelem-központosítás,
+	    *népszerűségnövelő -> népszerűség-növelő,
+	    *polietilénfólia -> polietilén fólia,
+	    *szárazanyagtartalom -> szárazanyag-tartalom,
+	    *túlfeszültségvédelem -> túlfeszültség-védelem,
+	    *túrakerékpározás -> túra-kerékpározás.
+
+	* Javított elválasztás:
+
+	  – taghatáron való elválasztás a LibreOffice Writerben a
+	    fenti ~3500 szótári főnév, ~4400 melléknév, ~3100 ige
+	    mellett még további 355 ige, és 1845 határozószó, névmás
+	    és egyéb szó esetében. További információ:
+
+	    Összetett szavak taghatáron való automatikus elválasztása a
+	    nyílt forráskódú LibreOffice Writer dokumentumszerkesztőben,
+	    https://numbertext.org/typography/automatikus_magyar_elv%C3%A1laszt%C3%A1s_a_LibreOffice-ban.pdf
+
+	  Megjegyzés: A hunspell -m (morfológiai elemzés) kapcsolójával
+	  kiírathatók a szóösszetételi határok és az elválasztási
+	  kivételek.
+
+	  Kapcsolódó szótárhibák javítása:
+
+	* Hibásan összetettként jelölt szavak javítása, pl.:
+
+	   *ér|intő -> érintő,
+	   *eskü|vő -> esküvő,
+	   *kém|lelő -> kémlelő,
+	   *kor|rektor -> korrektor,
+	   *kor|reláció -> korreláció
+	   *kos|árka -> kosárka,
+	   *lényeg|ülés -> lényegülés,
+	   *malac|hit -> malachit,
+	   *per|mutáció -> permutáció,
+	   *per|verzió -> perverzió
+	   *semmis|ég -> semmiség,
+	   *zöld|ellő -> zöldellő.
+
+	* Hibás összetételi határ javítása, pl.:
+
+	  *barnak|őszén -> barna||kő|szén,
+	  *enyhe|ly -> eny|hely,
+	  *fonom|éter -> fono|méter,
+	  *ki|salföldi -> kis||al|földi,
+	  *kultúra|utó -> kultúr|autó.
+
+	* Hibás összetételek elutasítása, pl.:
+
+	  *kurdarc -> kudarc,
+	  *látnivalóan -> látni valóan,
+	  *semmibevevő -> semmibe vevő,
+	  *semmitérő -> semmit érő,
+	  *semmiesetre -> semmi esetre,
+	  *semmiképen -> semmiképpen,
+	  *raktárhelység -> raktárhelyiség,
+	  *tartalékrendszer -> tartalék rendszer,
+	  *végkép -> végképp.
+
+	* Hibás szavak, kerülendő szóalakok törlése, pl.:
+
+	  * búsás -> busás,
+	  * csira -> csíra (de kiscsira, csiraállat, csiraborjú, csiratehén, csiraistálló),
+	  * íjjász -> íjász,
+	  * grafiti -> graffiti,
+	  * kicsirázott -> kicsírázott,
+	  * orvgazdává -> orgazdává,
+	  * polifón -> polifon,
+	  * teakfa, tíkfa -> tikfa,
+	  * transzszilvanizmus -> transzilvanizmus,
+	  * türközi -> tükrözi,
+	  * ventillációs -> ventilációs.
+
+	* Egyéb új szavak a szótárban, pl.:
+
+	  bully, bullying, hamisleves, hózentróger, humántudomány, intimpirszing, karing,
+	  kufirc, mélyépítéstudomány, óellenzék, para, parapet, pőrekocsi, sniccer,
+	  territorialitás, transzilvanista.
+
+	* Kiejtési adatok bővítése, pontosabb javaslattevés, pl.:
+
+	  *barkóbázik -> barkochbázik (és nem barkócázik, barkóboázik, barkóbázis...),
+	  *bonszáj -> bonszai (és nem bon száj, bon-száj, bobszáj...),
+	  *grefiti, *grafiti -> graffiti (és nem grafiti)
+	  *plébekk -> playback (és nem lébekk, pléhbekk, plédbekk),
+	  *weekend -> víkend (és nem kendtek).
+
 2024-03-27  Németh László <nemeth@numbertext.org>:
 	* új szavak: Csíkszentmihályi, Hamvas (hamvasi), Karikó stb.
 	* ~4000 szó összetételi határainak megadása a fonev_osszetett

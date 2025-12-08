@@ -91,7 +91,7 @@ sed 's/	/[vrb]+[tt_PASTPART_adj]{+[NOM]}	[adj]/' >>ige_kepzos.2
 
 cut -sf 5 ige_kepzos.11 | grep -v '^[ 	]*$' >>ige_ando.1
 cut -f 1,5 ige_kepzos.11 | grep '	.' | grep -v '^[ 	]*$' |
-sed 's/	/[vrb]+[AndÓ_FUTPART_adj]{+[NOM]}	[adj]/' >>ige_kepzos.2
+sed 's/	/[vrb]+[AndÓ_FUTPART_adj]{+[NOM]}	[adj] # HY:létre|jöven/' >>ige_kepzos.2
 cut -sf 5 ige_kepzos.11 | grep -v '^[ 	]*$' | sed 's#^#[adj]#
 s#$#/X#' >>$DICT
 
