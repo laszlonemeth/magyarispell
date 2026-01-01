@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # fonevek 0.1
 # nouns
 #
@@ -140,7 +140,7 @@ echo_n .
 
 # idegen kiejtésû, és mozaikszavak feldolgozása
 
-cat kotojeles_mely.7 |  field_kot | 
+cat kotojeles_mely.7 |  field_kot |
 $AWK -f $AWKDIR/kotojeles.awk -v V1="AUQÏÑÕi" -v V2="KUÒÖmQSsi" -v V3="ÒÙmAFUKQF" -v V4="ÑÏÕAFUKSsF" >>$DICT
 cat kotojeles_magas.7 | field_kot |
 $AWK -f $AWKDIR/kotojeles.awk -v V1="BVRÐÑÕj" -v V2="LVÓ×nRTtj" -v V3="Ó×nBGVLRG" -v V4="ÑÐÕBGVLTtG" >>$DICT

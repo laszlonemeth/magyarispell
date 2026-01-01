@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # tiltott szavak 0.1
 # forbidden words
 #

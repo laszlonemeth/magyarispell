@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # file1 - file2,  Németh László <nemeth@gyorsposta.hu>
 # Usage: sub file1 file2 >file3
 comm -23 <(sort $1 | uniq) <(sort $2 | uniq)

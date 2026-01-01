@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # fonevek 0.1
 # nouns
 #
