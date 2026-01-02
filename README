@@ -5,6 +5,10 @@
 
  Copyright 2002-2007, László Németh <nemeth@numbertext.org>
 
+* hy.py hyphenator with custom partitioning and syllabification *
+
+ Copyright 2026, László Németh <nemeth@numbertext.org>
+
  License: GNU GPL/GNU LGPL/Mozilla MPL, see COPYING
 
  Home: http://magyarispell.sourceforge.net and
@@ -57,6 +61,25 @@ szó  st:szó po:noun ts:NOM al:szavak
 
 $ echo szótár | hunspell -d hu_HU -m
 szótár  st:szótár po:noun ts:NOM al:szótárak hy:3
+
+= Usage of py/hy.py =
+
+Examples of hyphenation, partitioning (-p) and syllabification (-s)
+and full tagging (or --raw/-r):
+
+$ echo Mosonmagyaróvár | python3 py/hy.py /dev/stdin
+Mo=son=ma=gyar=ó=vár
+
+echo Mosonmagyaróvár | python3 py/hy.py -p /dev/stdin
+Moson=magyar=óvár
+
+echo tanórai | python3 py/hy.py -s /dev/stdin
+
+echo Mosonmagyaróvár | python3 py/hy.py -r /dev/stdin
+Mo-son||ma-gyar||ó|vár
+
+echo tanórai | python3 py/hy.py -r /dev/stdin
+tan||ó=ra=i
 
 Install all components
 ======================

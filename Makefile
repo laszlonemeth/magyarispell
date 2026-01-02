@@ -270,7 +270,7 @@ alias: u8
 kr: hu_HU.aff hu_HU.dic u8 
 	@cd kr; make
 
-# minden komponens kompilálása
+# minden komponens lefordítása
 all: ispell myspell
 
 # új modul létrehozása
@@ -281,7 +281,7 @@ new:
 check:
 	bin/check
 
-# takarítás
+# takarítás (megváltozott elválasztási mintáknál mindenképp!)
 clean: 
 	@-rm -rf $(WRKDIR) *~ $(ROOTDIR)/hu_*
 

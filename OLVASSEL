@@ -4,6 +4,10 @@
 
  (c) 2002-2007 Németh László <nemeth@numbertext.org>
 
+* hy.py elbálasztó, tagoló és szótagoló program *
+
+ (c) 2026 Németh László <nemeth@numbertext.org>
+
  Licenc: GNU GPL/GNU LGPL/Mozilla MPL, lásd a mellékelt COPYING állományokat.
  (A licencek alkönyvtárban az FSF.hu Alapítvány és a Novell Magyarország
  által készített licencfordítások előzetes változatai olvashatók magyarul.)
@@ -93,6 +97,25 @@ Ha a tövet nem választjuk el más helyen, mint az összetételi pontok
 
 streaming hy:strea-ming=
 roadshow hy:road|show=
+
+= hy.py elválasztó, tagoló és szótagoló használata =
+
+Példák elválasztásra, tagolásra (-p) és szótagolásra (-s),
+valamint teljes jelölésre (-r):
+
+$ echo Mosonmagyaróvár | python3 py/hy.py /dev/stdin
+Mo=son=ma=gyar=ó=vár
+
+echo Mosonmagyaróvár | python3 py/hy.py -p /dev/stdin
+Moson=magyar=óvár
+
+echo tanórai | python3 py/hy.py -s /dev/stdin
+
+echo Mosonmagyaróvár | python3 py/hy.py -r /dev/stdin
+Mo-son||ma-gyar||ó|vár
+
+echo tanórai | python3 py/hy.py -r /dev/stdin
+tan||ó=ra=i
 
 = Szótárállományok =
 
