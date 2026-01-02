@@ -6,11 +6,11 @@
 # GPL/LGPL/MPL license as published by the FSF and Mozilla Foundation.
 #
 #
-# Version: December 2025, 1.9
+# Version: February 2026, 1.9.1
 #
 # Home page: http://magyarispell.sourceforge.net
 #
-# 2002-2024 (c) László Németh <nemeth@numbertext.org> and Ferenc Godó
+# 2002-2026 (c) László Németh <nemeth@numbertext.org> and Ferenc Godó
 #
 # Thanks to
 # Tamás Szántó <tszanto@mol.hu>,
@@ -30,7 +30,7 @@
 # amelyet Németh László és Godó Ferenc készített, és a GPL/LGPL/MPL licenc
 # alatt közzétett a http://magyarispell.sourceforge.net oldalon.
 #
-# Magyar Ispell 1.9, 2025-12
+# Magyar Ispell 1.9.1, 2026-02
 #
 # Köszönet illeti a következõket:
 #
@@ -52,7 +52,7 @@
 NAME Magyar Ispell helyesírási szótár
 LANG hu_HU
 HOME http://magyarispell.sourceforge.net
-VERSION Magyar 1.9
+VERSION Magyar 1.9.1
 SET ISO8859-2
 KEY öüó|qwertzuiopõú|asdfghjkléáû|íyxcvbnm
 TRY íóútaeslzánorhgkiédmyõpvöbucfjüûxwq-.&agrave;

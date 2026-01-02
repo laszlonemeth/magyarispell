@@ -12,9 +12,15 @@
 # <gépfüggetlen>, <környezetfüggetlen>
 [adj]független/Y #ISPELL
 [adj]független/x #MYSPELL
+
 # <népellenes>, <dohányellenes>
 [adj]ellenes/Y #ISPELL
-[adj]ellenes/x #MYSPELL
+# javító: hy:demokrácia|ellenesnek, nem demokrácia|ellen|esnek
+ellenes/x	ellenes[adj]{+[NOM]} # hy:el-le-nes
+ellenesebb/x×nÓB/L/V/R	ellenes[adj]+[bb_COMPARATIVE_adj]{+[NOM}
+ellenesebben/x	ellenes[adj]+[bb_COMPARATIVE_adj]{+[An_MODE_adv]
+ellenesebbik/x/Tt×nÓV	ellenes[adj]+[bb_COMPARATIVE_adj]+[bbik_DESIGNATE_adj]{+[NOM]}
+
 # <működőképes>, <harcképes>
 [adj]képes/Y #ISPELL
 [adj]képes/x #MYSPELL
@@ -32,105 +38,237 @@
 [adj]léptű/x #MYSPELL
 
 # AMHSZ 137
-legszívhezszólóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+szívhez_szóló[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||szívhez|szólóbb
-legszívhezszólóbban	[leg_SUPERLATIVE_adj]+szívhez_szóló[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||szívhez|szólóbb
-legszívhezszólóbbik/ŮmŇUSs	[leg_SUPERLATIVE_adj]+szívhez_szóló[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||szívhez|szólóbb
+legszívhezszólóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+szívhez_szóló[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:szívhez|szólóbb
+legszívhezszólóbban	[leg_SUPERLATIVE_adj]+szívhez_szóló[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:szívhez|szólóbb
+legszívhezszólóbbik/ŮmŇUSs	[leg_SUPERLATIVE_adj]+szívhez_szóló[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:szívhez|szólóbb
 
-legszívbemarkolóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+szívbe_markoló[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||szívbe|markoló
-legszívbemarkolóbban	[leg_SUPERLATIVE_adj]+szívbe_markoló[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||szívbe|markoló
-legszívbemarkolóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+szívbe_markoló[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||szívbe|markoló
+legszívbemarkolóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+szívbe_markoló[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:szívbe|markoló
+legszívbemarkolóbban	[leg_SUPERLATIVE_adj]+szívbe_markoló[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:szívbe|markoló
+legszívbemarkolóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+szívbe_markoló[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:szívbe|markoló
 
-legegetrengetőbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+eget_rengető[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||eget|rengető
-legegetrengetőbben	[leg_SUPERLATIVE_adj]+eget_rengető[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||eget|rengető
-legegetrengetőbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+eget_rengető[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||eget|rengető
+legegetrengetőbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+eget_rengető[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:eget|rengető
+legegetrengetőbben	[leg_SUPERLATIVE_adj]+eget_rengető[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:eget|rengető
+legegetrengetőbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+eget_rengető[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:eget|rengető
 
-legéletbevágóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+életbe_vágó[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||életbe|vágó
-legéletbevágóbban	[leg_SUPERLATIVE_adj]+életbe_vágó[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||életbe|vágó
-legéletbevágóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+életbe_vágó[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||életbe|vágó
+legéleselméjűbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+éles_elméjű[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:éles|elméjű
+legéleselméjűbben	[leg_SUPERLATIVE_adj]+éles_elméjű[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:éles|elméjű
+legéleselméjűbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+éles_elméjű[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:éles|elméjű
 
-legéletreszólóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+életre_szóló[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||életre|szóló
-legéletreszólóbban	[leg_SUPERLATIVE_adj]+életre_szóló[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||életre|szóló
-legéletreszólóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+életre_szóló[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||életre|szóló
+legéletbevágóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+életbe_vágó[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:életbe|vágó
+legéletbevágóbban	[leg_SUPERLATIVE_adj]+életbe_vágó[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:életbe|vágó
+legéletbevágóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+életbe_vágó[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:életbe|vágó
 
-legembertpróbálóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+embert_próbáló[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||embert|próbáló
-legembertpróbálóbban	[leg_SUPERLATIVE_adj]+embert_próbáló[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||embert|próbáló
-legembertpróbálóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+embert_próbáló[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||embert|próbáló
+legéletreszólóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+életre_szóló[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:életre|szóló
+legéletreszólóbban	[leg_SUPERLATIVE_adj]+életre_szóló[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:életre|szóló
+legéletreszólóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+életre_szóló[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:életre|szóló
 
-leghaladószelleműbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+haladó_szellemű[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||haladó|szellemű
-leghaladószelleműbben	[leg_SUPERLATIVE_adj]+haladó_szellemű[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||haladó|szellemű
-leghaladószelleműbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+haladó_szellemű[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||haladó|szellemű
+legellenállóképesebb/×nÓB/L/V/R	[leg_SUPERLATIVE_adj]+ellenálló_képes[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:ellen|álló|képes
+legellenállóképesebben	[leg_SUPERLATIVE_adj]+ellenálló_képes[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:ellen|álló|képes
+legellenállóképesebbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+ellenálló_képes[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:ellen|álló|képes
 
-legharcrakészebb/×nÓB/L/V/R	[leg_SUPERLATIVE_adj]+harcra_kész[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||harcra|kész
-legharcrakészebben	[leg_SUPERLATIVE_adj]+harcra_kész[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||harcra|kész
-legharcrakészebbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+harcra_kész[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||harcra|kész
+legemberhezméltóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+emberhez_méltó[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:emberhez|méltó
+legemberhezméltóbban	[leg_SUPERLATIVE_adj]+emberhez_méltó[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:emberhez|méltó
+legemberhezméltóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+emberhez_méltó[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:emberhez|méltó
 
-leghasznothajtóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+hasznot_hajtó[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||hasznot|hajtó
-leghasznothajtóbban	[leg_SUPERLATIVE_adj]+hasznot_hajtó[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||hasznot|hajtó
-leghasznothajtóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+hasznot_hajtó[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||hasznot|hajtó
+legembertpróbálóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+embert_próbáló[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:embert|próbáló
+legembertpróbálóbban	[leg_SUPERLATIVE_adj]+embert_próbáló[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:embert|próbáló
+legembertpróbálóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+embert_próbáló[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:embert|próbáló
 
-legidőtrablóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+időt_rabló[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||időt|rabló
-legidőtrablóbban	[leg_SUPERLATIVE_adj]+időt_rabló[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||időt|rabló
-legidőtrablóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+időt_rabló[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||időt|rabló
+legevilágibb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+e_világi[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:e|világibb
+legevilágibban	[leg_SUPERLATIVE_adj]+e_világi[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:e|világibb
+legevilágibbik/ŮmŇUSs	[leg_SUPERLATIVE_adj]+e_világi[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:e|világibb
 
-legkézreállóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+kézre_álló[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||kézre|álló
-legkézreállóbban	[leg_SUPERLATIVE_adj]+kézre_álló[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||kézre|álló
-legkézreállóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+kézre_álló[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||kézre|álló
+legféltveőrzöttebb/×nÓB/L/V/R	[leg_SUPERLATIVE_adj]+féltve_őrzött[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:féltve|őrzött
+legféltveőrzöttebben	[leg_SUPERLATIVE_adj]+féltve_őrzött[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:féltve|őrzött
+legféltveőrzöttebbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+féltve_őrzött[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:féltve|őrzött
 
-legsírnivalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+sírni_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||sírni|való
-legsírnivalóbban	[leg_SUPERLATIVE_adj]+sírni_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||sírni|való
-legsírnivalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+sírni_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||sírni|való
+leghadrafoghatóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+hadra_fogható[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:hadra|fogható
+leghadrafoghatóbban	[leg_SUPERLATIVE_adj]+hadra_fogható[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:hadra|fogható
+leghadrafoghatóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+hadra_fogható[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:hadra|fogható
 
-legsokatígérőbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+sokat_ígérő[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||sokat|ígérő
-legsokatígérőbben	[leg_SUPERLATIVE_adj]+sokat_ígérő[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||sokat|ígérő
-legsokatígérőbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+sokat_ígérő[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||sokat|ígérő
+leghaladószelleműbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+haladó_szellemű[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:haladó|szellemű
+leghaladószelleműbben	[leg_SUPERLATIVE_adj]+haladó_szellemű[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:haladó|szellemű
+leghaladószelleműbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+haladó_szellemű[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:haladó|szellemű
 
-legszeretnivalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+szeretni_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||szeretni|való
-legszeretnivalóbban	[leg_SUPERLATIVE_adj]+szeretni_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||szeretni|való
-legszeretnivalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+szeretni_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||szeretni|való
+legharcrakészebb/×nÓB/L/V/R	[leg_SUPERLATIVE_adj]+harcra_kész[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:harcra|kész
+legharcrakészebben	[leg_SUPERLATIVE_adj]+harcra_kész[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:harcra|kész
+legharcrakészebbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+harcra_kész[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:harcra|kész
 
-legtettrekészebb/×nÓB/L/V/R	[leg_SUPERLATIVE_adj]+tettre_kész[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||tettre|kész
-legtettrekészebben	[leg_SUPERLATIVE_adj]+tettre_kész[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||tettre|kész
-legtettrekészebbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+tettre_kész[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||tettre|kész
+leghasznothajtóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+hasznot_hajtó[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:hasznot|hajtó
+leghasznothajtóbban	[leg_SUPERLATIVE_adj]+hasznot_hajtó[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:hasznot|hajtó
+leghasznothajtóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+hasznot_hajtó[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:hasznot|hajtó
 
-legzártkörűbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+zárt_körű[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||zárt|körű
-legzártkörűbben	[leg_SUPERLATIVE_adj]+zárt_körű[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||zárt|körű
-legzártkörűbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+zárt_körű[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||zárt|körű
+leghúsbavágóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+húsba_vágó[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:húsba|vágó
+leghúsbavágóbban	[leg_SUPERLATIVE_adj]+húsba_vágó[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:húsba|vágó
+leghúsbavágóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+húsba_vágó[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:húsba|vágó
+
+legidőtrablóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+időt_rabló[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:időt|rabló
+legidőtrablóbban	[leg_SUPERLATIVE_adj]+időt_rabló[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:időt|rabló
+legidőtrablóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+időt_rabló[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:időt|rabló
+
+legigénybevettebb/×nÓB/L/V/R	[leg_SUPERLATIVE_adj]+igénybe_vett[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:igénybe|vett
+legigénybevettebben	[leg_SUPERLATIVE_adj]+igénybe_vett[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:igénybe|vett
+legigénybevettebbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+igénybe_vett[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:igénybe|vett
+
+legjószándékúbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+jó_szándékú[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:jó|szándékúbb
+legjószándékúbban	[leg_SUPERLATIVE_adj]+jó_szándékú[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:jó|szándékúbb
+legjószándékúbbik/ŮmŇUSs	[leg_SUPERLATIVE_adj]+jó_szándékú[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:jó|szándékúbb
+
+legkedvemrevalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+kedvemre_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:kedvemre|való
+legkedvemrevalóbban	[leg_SUPERLATIVE_adj]+kedvemre_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:kedvemre|való
+legkedvemrevalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+kedvemre_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:kedvemre|való
+
+legkedvedrevalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+kedvedre_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:kedvedre|való
+legkedvedrevalóbban	[leg_SUPERLATIVE_adj]+kedvedre_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:kedvedre|való
+legkedvedrevalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+kedvedre_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:kedvedre|való
+
+legkedvérevalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+kedvére_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:kedvére|való
+legkedvérevalóbban	[leg_SUPERLATIVE_adj]+kedvére_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:kedvére|való
+legkedvérevalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+kedvére_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:kedvére|való
+
+legkedvünkrevalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+kedvünkre_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:kedvünkre|való
+legkedvünkrevalóbban	[leg_SUPERLATIVE_adj]+kedvünkre_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:kedvünkre|való
+legkedvünkrevalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+kedvünkre_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:kedvünkre|való
+
+legkedvetekrevalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+kedvetekre_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:kedvetekre|való
+legkedvetekrevalóbban	[leg_SUPERLATIVE_adj]+kedvetekre_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:kedvetekre|való
+legkedvetekrevalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+kedvetekre_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:kedvetekre|való
+
+legkedvükrevalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+kedvükre_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:kedvükre|való
+legkedvükrevalóbban	[leg_SUPERLATIVE_adj]+kedvükre_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:kedvükre|való
+legkedvükrevalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+kedvükre_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:kedvükre|való
+
+legkedvemszerintvalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+kedvem_szerint_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:kedvem|szerint|való
+legkedvemszerintvalóbban	[leg_SUPERLATIVE_adj]+kedvem_szerint_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:kedvem|szerint|való
+legkedvemszerintvalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+kedvem_szerint_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:kedvem|szerint|való
+
+legkedvedszerintvalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+kedved_szerint_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:kedved|szerint|való
+legkedvedszerintvalóbban	[leg_SUPERLATIVE_adj]+kedved_szerint_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:kedved|szerint|való
+legkedvedszerintvalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+kedved_szerint_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:kedved|szerint|való
+
+legkedveszerintvalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+kedve_szerint_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:kedve|szerint|való
+legkedveszerintvalóbban	[leg_SUPERLATIVE_adj]+kedve_szerint_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:kedve|szerint|való
+legkedveszerintvalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+kedve_szerint_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:kedve|szerint|való
+
+legkedvünkszerintvalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+kedvünk_szerint_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:kedvünk|szerint|való
+legkedvünkszerintvalóbban	[leg_SUPERLATIVE_adj]+kedvünk_szerint_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:kedvünk|szerint|való
+legkedvünkszerintvalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+kedvünk_szerint_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:kedvünk|szerint|való
+
+legkedvetekszerintvalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+kedvetek_szerint_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:kedvetek|szerint|való
+legkedvetekszerintvalóbban	[leg_SUPERLATIVE_adj]+kedvetek_szerint_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:kedvetek|szerint|való
+legkedvetekszerintvalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+kedvetek_szerint_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:kedvetek|szerint|való
+
+legkedvükszerintvalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+kedvük_szerint_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:kedvük|szerint|való
+legkedvükszerintvalóbban	[leg_SUPERLATIVE_adj]+kedvük_szerint_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:kedvük|szerint|való
+legkedvükszerintvalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+kedvük_szerint_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:kedvük|szerint|való
+
+legkézreállóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+kézre_álló[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:kézre|álló
+legkézreállóbban	[leg_SUPERLATIVE_adj]+kézre_álló[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:kézre|álló
+legkézreállóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+kézre_álló[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:kézre|álló
+
+leglényegretörőbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+lényegre_törő[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:lényegre|törő
+leglényegretörőbben	[leg_SUPERLATIVE_adj]+lényegre_törő[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:lényegre|törő
+leglényegretörőbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+lényegre_törő[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:lényegre|törő
+
+legmagátólértetődőbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+magától_értetődő[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:magától|értetődő
+legmagátólértetődőbben	[leg_SUPERLATIVE_adj]+magától_értetődő[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:magától|értetődő
+legmagátólértetődőbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+magától_értetődő[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:magától|értetődő
+
+legmagávalragadóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+magával_ragadó[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:magával|ragadó
+legmagávalragadóbban	[leg_SUPERLATIVE_adj]+magával_ragadó[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:magával|ragadó
+legmagávalragadóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+magával_ragadó[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:magával|ragadó
+
+legrégivágásúbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+régi_vágású[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:régi|vágású
+legrégivágásúbban	[leg_SUPERLATIVE_adj]+régi_vágású[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:régi|vágású
+legrégivágásúbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+régi_vágású[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:régi|vágású
+
+legreménytkeltőbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+reményt_keltő[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:reményt|keltő
+legreménytkeltőbben	[leg_SUPERLATIVE_adj]+reményt_keltő[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:reményt|keltő
+legreménytkeltőbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+reményt_keltő[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:reményt|keltő
+
+legsírnivalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+sírni_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:sírni|való
+legsírnivalóbban	[leg_SUPERLATIVE_adj]+sírni_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:sírni|való
+legsírnivalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+sírni_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:sírni|való
+
+legsokatígérőbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+sokat_ígérő[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:sokat|ígérő
+legsokatígérőbben	[leg_SUPERLATIVE_adj]+sokat_ígérő[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:sokat|ígérő
+legsokatígérőbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+sokat_ígérő[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:sokat|ígérő
+
+legszánnivalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+szánni_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:szánni|való
+legszánnivalóbban	[leg_SUPERLATIVE_adj]+szánni_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:szánni|való
+legszánnivalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+szánni_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:szánni|való
+
+legszedettvedettebb/×nÓB/L/V/R	[leg_SUPERLATIVE_adj]+szedett-vedett[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:szedett|vedett
+legszedettvedettebben	[leg_SUPERLATIVE_adj]+szedett-vedett[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:szedett|vedett
+legszedettvedettebbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+szedett-vedett[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:szedett|vedett
+
+legszemetszúróbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+szemet_szúró[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:szemet|szúró
+legszemetszúróbban	[leg_SUPERLATIVE_adj]+szemet_szúró[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:szemet|szúró
+legszemetszúróbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+szemet_szúró[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:szemet|szúró
+
+legszeretnivalóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+szeretni_való[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:szeretni|való
+legszeretnivalóbban	[leg_SUPERLATIVE_adj]+szeretni_való[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:szeretni|való
+legszeretnivalóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+szeretni_való[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:szeretni|való
+
+legszívetmelengetőbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+szívet_melengető[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:szívet|melengető
+legszívetmelengetőbben	[leg_SUPERLATIVE_adj]+szívet_melengető[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:szívet|melengető
+legszívetmelengetőbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+szívet_melengető[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:szívet|melengető
+
+legszűklátókörűbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+szűk_látókörű[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:szűk|látó|körű
+legszűklátókörűbben	[leg_SUPERLATIVE_adj]+szűk_látókörű[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:szűk|látó|körű
+legszűklátókörűbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+szűk_látókörű[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:szűk|látó|körű
+
+legtettrekészebb/×nÓB/L/V/R	[leg_SUPERLATIVE_adj]+tettre_kész[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:tettre|kész
+legtettrekészebben	[leg_SUPERLATIVE_adj]+tettre_kész[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:tettre|kész
+legtettrekészebbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+tettre_kész[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:tettre|kész
+
+legzártkörűbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+zárt_körű[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:zárt|körű
+legzártkörűbben	[leg_SUPERLATIVE_adj]+zárt_körű[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:zárt|körű
+legzártkörűbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+zárt_körű[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:zárt|körű
 zártkörűen	[adv]
 
-legszűkkörűbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+szűk_körű[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||szűk|körű
-legszűkkörűbben	[leg_SUPERLATIVE_adj]+szűk_körű[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||szűk|körű
-legszűkkörűbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+szűk_körű[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||szűk|körű
+legszűkkörűbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+szűk_körű[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:szűk|körű
+legszűkkörűbben	[leg_SUPERLATIVE_adj]+szűk_körű[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:szűk|körű
+legszűkkörűbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+szűk_körű[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:szűk|körű
 szűkkörűen	[adv]
 
-legszéleskörűbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+széles_körű[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||széles|körű
-legszéleskörűbben	[leg_SUPERLATIVE_adj]+széles_körű[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||széles|körű
-legszéleskörűbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+széles_körű[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||széles|körű
+legszéleskörűbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+széles_körű[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:széles|körű
+legszéleskörűbben	[leg_SUPERLATIVE_adj]+széles_körű[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:széles|körű
+legszéleskörűbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+széles_körű[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:széles|körű
 széleskörűen	[adv]
 
-legteljeskörűbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+teljes_körű[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||teljes|körű
-legteljeskörűbben	[leg_SUPERLATIVE_adj]+teljes_körű[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||teljes|körű
-legteljeskörűbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+teljes_körű[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||teljes|körű
+legteljeskörűbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+teljes_körű[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:teljes|körű
+legteljeskörűbben	[leg_SUPERLATIVE_adj]+teljes_körű[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:teljes|körű
+legteljeskörűbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+teljes_körű[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:teljes|körű
 teljeskörűen	[adv]
 
-legtestreszabottabb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+testre_szabott[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||testre|szabott
-legtestreszabottabban	[leg_SUPERLATIVE_adj]+testre_szabott[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||testre|szabott
-legtestreszabottabbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+testre_szabott[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||testre|szabott
+legszűkreszabottabb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+szűkre_szabott[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:szűkre|szabottabb
+legszűkreszabottabban	[leg_SUPERLATIVE_adj]+szűkre_szabott[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:szűkre|szabottabb
+legszűkreszabottabbik/ŮmŇUSs	[leg_SUPERLATIVE_adj]+szűkre_szabott[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:szűkre|szabottabb
 
-legszembenállóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+szemben_álló[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||szemben|álló
-legszembenállóbban	[leg_SUPERLATIVE_adj]+szemben_álló[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||szemben|álló
-legszembenállóbbik/ŮmŇUSs	[leg_SUPERLATIVE_adj]+szemben_álló[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||szemben|álló
+legtestreszabottabb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+testre_szabott[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:testre|szabott
+legtestreszabottabban	[leg_SUPERLATIVE_adj]+testre_szabott[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:testre|szabott
+legtestreszabottabbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+testre_szabott[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:testre|szabott
 
-legörökérvényűbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+örök_érvényű[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||örök|érvényűbb
-legörökérvényűbben	[leg_SUPERLATIVE_adj]+örök_érvényű[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||örök|érvényűbb
-legörökérvényűbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+örök_érvényű[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||örök|érvényűbb
+legszembenállóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+szemben_álló[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:szemben|álló
+legszembenállóbban	[leg_SUPERLATIVE_adj]+szemben_álló[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:szemben|álló
+legszembenállóbbik/ŮmŇUSs	[leg_SUPERLATIVE_adj]+szemben_álló[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:szemben|álló
 
-leghosszantartóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+hosszan_tartó[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||hosszan|tartóbb
-leghosszantartóbban	[leg_SUPERLATIVE_adj]+hosszan_tartó[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||hosszan|tartóbb
+legörökérvényűbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+örök_érvényű[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:örök|érvényűbb
+legörökérvényűbben	[leg_SUPERLATIVE_adj]+örök_érvényű[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:örök|érvényűbb
+legörökérvényűbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+örök_érvényű[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:örök|érvényűbb
+
+leghosszantartóbb/ŮmŇA/$/U/Q	[leg_SUPERLATIVE_adj]+hosszan_tartó[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:hosszan|tartóbb
+leghosszantartóbban	[leg_SUPERLATIVE_adj]+hosszan_tartó[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:hosszan|tartóbb
 leghosszantartóbbik/SsŮmŇU	[leg_SUPERLATIVE_adj]+hosszan_tartó[adj]+[bbik_DESIGNATE_adj]{+[NOM]}
 
-legzavarbaejtőbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+zavarba_ejtő[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:leg||zavarba|ejtő
-legzavarbaejtőbben	[leg_SUPERLATIVE_adj]+zavarba_ejtő[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:leg||zavarba|ejtő
-legzavarbaejtőbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+zavarba_ejtő[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:leg||zavarba|ejtő
+legvájtfülűbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+vájt_fülű[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:vájt|fülű
+legvájtfülűbben	[leg_SUPERLATIVE_adj]+vájt_fülű[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:vájt|fülű
+legvájtfülűbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+vájt_fülű[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:vájt|fülű
+
+legzavarbaejtőbb/×ŢÔC/M/W/R	[leg_SUPERLATIVE_adj]+zavarba_ejtő[adj]+[bb_COMPARATIVE_adj]{+[NOM]} # HY:zavarba|ejtő
+legzavarbaejtőbben	[leg_SUPERLATIVE_adj]+zavarba_ejtő[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv] # HY:zavarba|ejtő
+legzavarbaejtőbbik/Tt×nÓV	[leg_SUPERLATIVE_adj]+zavarba_ejtő[adj]+[bbik_DESIGNATE_adj]{+[NOM]} # HY:zavarba|ejtő
 
 # látni való
 #!látnivalóan	[adv] #HY:látni|valóan
@@ -216,6 +354,14 @@ közjavaink/U/m/Ň/Ů	közjavak[noun]+[POSS_PL_1]{+[NOM]} # HY:köz|jav
 közjavaitok/U/m/Ň/Ů	közjavak[noun]+[POSS_PL_2]{+[NOM]} # HY:köz|jav
 közjavaik/U/m/Ň/Ů	közjavak[noun]+[POSS_PL_3]{+[NOM]} # HY:köz|jav
 
+koronajavak/UŮmŇ	[noun]{+[NOM]} # HY:korona|jav
+koronajavaim/U/m/Ň/Ů	koronajavak[noun]+[POSS_SG_1]{+[NOM]} # HY:korona|jav
+koronajavaid/U/m/Ň/Ů	koronajavak[noun]+[POSS_SG_2]{+[NOM]} # HY:korona|jav
+koronajavai/U/Ď/Ő/Ň	koronajavak[noun]+[POSS_SG_3]{+[NOM]} # HY:korona|jav
+koronajavaink/U/m/Ň/Ů	koronajavak[noun]+[POSS_PL_1]{+[NOM]} # HY:korona|jav
+koronajavaitok/U/m/Ň/Ů	koronajavak[noun]+[POSS_PL_2]{+[NOM]} # HY:korona|jav
+koronajavaik/U/m/Ň/Ů	koronajavak[noun]+[POSS_PL_3]{+[NOM]} # HY:korona|jav
+
 kultúrjavak/UŮmŇ	[noun]{+[NOM]} # HY:kultúr|jav
 kultúrjavaim/U/m/Ň/Ů	kultúrjavak[noun]+[POSS_SG_1]{+[NOM]} # HY:kultúr|jav
 kultúrjavaid/U/m/Ň/Ů	kultúrjavak[noun]+[POSS_SG_2]{+[NOM]} # HY:kultúr|jav
@@ -223,6 +369,38 @@ kultúrjavai/U/Ď/Ő/Ň	kultúrjavak[noun]+[POSS_SG_3]{+[NOM]} # HY:kultúr|jav
 kultúrjavaink/U/m/Ň/Ů	kultúrjavak[noun]+[POSS_PL_1]{+[NOM]} # HY:kultúr|jav
 kultúrjavaitok/U/m/Ň/Ů	kultúrjavak[noun]+[POSS_PL_2]{+[NOM]} # HY:kultúr|jav
 kultúrjavaik/U/m/Ň/Ů	kultúrjavak[noun]+[POSS_PL_3]{+[NOM]} # HY:kultúr|jav
+
+luxusjavak/UŮmŇ	[noun]{+[NOM]} # HY:luxus|jav
+luxusjavaim/U/m/Ň/Ů	luxusjavak[noun]+[POSS_SG_1]{+[NOM]} # HY:luxus|jav
+luxusjavaid/U/m/Ň/Ů	luxusjavak[noun]+[POSS_SG_2]{+[NOM]} # HY:luxus|jav
+luxusjavai/U/Ď/Ő/Ň	luxusjavak[noun]+[POSS_SG_3]{+[NOM]} # HY:luxus|jav
+luxusjavaink/U/m/Ň/Ů	luxusjavak[noun]+[POSS_PL_1]{+[NOM]} # HY:luxus|jav
+luxusjavaitok/U/m/Ň/Ů	luxusjavak[noun]+[POSS_PL_2]{+[NOM]} # HY:luxus|jav
+luxusjavaik/U/m/Ň/Ů	luxusjavak[noun]+[POSS_PL_3]{+[NOM]} # HY:luxus|jav
+
+magánjavak/UŮmŇ	[noun]{+[NOM]} # HY:magán|jav
+magánjavaim/U/m/Ň/Ů	magánjavak[noun]+[POSS_SG_1]{+[NOM]} # HY:magán|jav
+magánjavaid/U/m/Ň/Ů	magánjavak[noun]+[POSS_SG_2]{+[NOM]} # HY:magán|jav
+magánjavai/U/Ď/Ő/Ň	magánjavak[noun]+[POSS_SG_3]{+[NOM]} # HY:magán|jav
+magánjavaink/U/m/Ň/Ů	magánjavak[noun]+[POSS_PL_1]{+[NOM]} # HY:magán|jav
+magánjavaitok/U/m/Ň/Ů	magánjavak[noun]+[POSS_PL_2]{+[NOM]} # HY:magán|jav
+magánjavaik/U/m/Ň/Ů	magánjavak[noun]+[POSS_PL_3]{+[NOM]} # HY:magán|jav
+
+tőkejavak/UŮmŇ	[noun]{+[NOM]} # HY:tőke|jav
+tőkejavaim/U/m/Ň/Ů	tőkejavak[noun]+[POSS_SG_1]{+[NOM]} # HY:tőke|jav
+tőkejavaid/U/m/Ň/Ů	tőkejavak[noun]+[POSS_SG_2]{+[NOM]} # HY:tőke|jav
+tőkejavai/U/Ď/Ő/Ň	tőkejavak[noun]+[POSS_SG_3]{+[NOM]} # HY:tőke|jav
+tőkejavaink/U/m/Ň/Ů	tőkejavak[noun]+[POSS_PL_1]{+[NOM]} # HY:tőke|jav
+tőkejavaitok/U/m/Ň/Ů	tőkejavak[noun]+[POSS_PL_2]{+[NOM]} # HY:tőke|jav
+tőkejavaik/U/m/Ň/Ů	tőkejavak[noun]+[POSS_PL_3]{+[NOM]} # HY:tőke|jav
+
+tudásjavak/UŮmŇ	[noun]{+[NOM]} # HY:tudás|jav
+tudásjavaim/U/m/Ň/Ů	tudásjavak[noun]+[POSS_SG_1]{+[NOM]} # HY:tudás|jav
+tudásjavaid/U/m/Ň/Ů	tudásjavak[noun]+[POSS_SG_2]{+[NOM]} # HY:tudás|jav
+tudásjavai/U/Ď/Ő/Ň	tudásjavak[noun]+[POSS_SG_3]{+[NOM]} # HY:tudás|jav
+tudásjavaink/U/m/Ň/Ů	tudásjavak[noun]+[POSS_PL_1]{+[NOM]} # HY:tudás|jav
+tudásjavaitok/U/m/Ň/Ů	tudásjavak[noun]+[POSS_PL_2]{+[NOM]} # HY:tudás|jav
+tudásjavaik/U/m/Ň/Ů	tudásjavak[noun]+[POSS_PL_3]{+[NOM]} # HY:tudás|jav
 
 # java (személyragos főnév), leg-, legesleg-
 
@@ -376,4 +554,10 @@ hívebben/D	hív[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv]
 # szemét
 szemetebb/DVÓ×n	szemét[adj]+[bb_COMPARATIVE_adj]{+[NOM]} <*legszemétebb:legszemetebb>
 szemetebben/D	szemét[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv]
+
+# parázs
+
+parázsabb/ŮmŇAD/$/U/Q	parázs[adj]+[bb_COMPARATIVE_adj]{+[NOM]}
+parázsabban/D	parázs[adj]+[bb_COMPARATIVE_adj]+[An_MODE_adv]
+parázsabbik/ŮmŇUDQSs	parázs[adj]+[bbik_DESIGNATE_adj]{+[NOM]}
 

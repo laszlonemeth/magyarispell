@@ -219,3 +219,15 @@
 <*raktárhelység:raktárhelyiség>
 <*ponchó:poncsó> <*poncho:poncsó>
 <*semmikép:semmiképp>
+
+<legfontosabbakként>
+<legtöbbike>
+<legmagávalragadóbb>
+<legtöbbikében>
+<legkülönbfélébb>
+<leggyakoriabbak>
+<legutóbbikán>
+<legtehetségesebbjeik>
+<legkorábbikát>
+<leghamarabbra>
+<legragyogóbbika>

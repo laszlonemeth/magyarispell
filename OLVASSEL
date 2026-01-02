@@ -1,8 +1,12 @@
 * Szabad magyar (Magyar Ispell) szótár *
 
- (c) 2008-2025, Németh László és Godó Ferenc
+ (c) 2008-2026, Németh László és Godó Ferenc
 
  (c) 2002-2007 Németh László <nemeth@numbertext.org>
+
+* hy.py elválasztó, tagoló és szótagoló program *
+
+ (c) 2026 Németh László <nemeth@numbertext.org>
 
  Licenc: GNU GPL/GNU LGPL/Mozilla MPL, lásd a mellékelt COPYING állományokat.
  (A licencek alkönyvtárban az FSF.hu Alapítvány és a Novell Magyarország
@@ -93,6 +97,25 @@ Ha a tövet nem választjuk el más helyen, mint az összetételi pontok
 
 streaming hy:strea-ming=
 roadshow hy:road|show=
+
+= hy.py elválasztó, tagoló és szótagoló használata =
+
+Példák elválasztásra, tagolásra (-p) és szótagolásra (-s),
+valamint teljes jelölésre (-r):
+
+$ echo Mosonmagyaróvár | python3 py/hy.py /dev/stdin
+Mo=son=ma=gyar=ó=vár
+
+echo Mosonmagyaróvár | python3 py/hy.py -p /dev/stdin
+Moson=magyar=óvár
+
+echo tanórai | python3 py/hy.py -s /dev/stdin
+
+echo Mosonmagyaróvár | python3 py/hy.py -r /dev/stdin
+Mo-son||ma-gyar||ó|vár
+
+echo tanórai | python3 py/hy.py -r /dev/stdin
+tan||ó=ra=i
 
 = Szótárállományok =
 
@@ -267,6 +290,7 @@ http://almos.vein.hu/~vonyoa
 Történet
 ========
 
+2026-02-05 Magyar Ispell 1.9.1
 2025-12-15 Magyar Ispell 1.9
 2024-03-27 Magyar Ispell 1.8.1
 2023-05-17 Magyar Ispell 1.8

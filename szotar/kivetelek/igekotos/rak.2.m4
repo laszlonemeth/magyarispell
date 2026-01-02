@@ -32,7 +32,7 @@ K(rakta,	csukta,		bökte,	lökte,	pökte, [PAST_INDIC_DEF_SG_3])
 K(raktuk,	csuktuk,	böktük,löktük,pöktük, [PAST_INDIC_DEF_PL_1])
 K(raktunk,	csuktunk,	böktünk,löktünk,pöktünk, [PAST_INDIC_INDEF_PL_1])
 K(raktatok,	csuktatok,	böktetek,löktetek,pöktetek, [PAST_INDIC_INDEF_PL_2])
-K(raktátok,	csuktátok,	böktetek,löktetek,pöktetek, [PAST_INDIC_DEF_PL_2])
+K(raktátok,	csuktátok,	böktétek,löktétek,pöktétek, [PAST_INDIC_DEF_PL_2])
 K(raktak,	csuktak,	böktek,	löktek,	pöktek, [PAST_INDIC_INDEF_PL_3])
 K(rakták,	csukták,	bökték,	lökték,	pökték, [PAST_INDIC_DEF_PL_3])
 

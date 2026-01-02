@@ -238,15 +238,16 @@ cat melleknev.1 ige_ando.1 ige_hato.1 ige_hatatlan.1 | \
 echo_n .
 
 # kiejtés javítása (kivéve "^észszer" mintájú sorokban)
-cat mezok.txt |
+cat mezok.txt mezok_ige_kepzos.txt |
 # kapcsolók törlése (pl. tizennyolc)
+# kivételek: észszerû, Jász||szent|andrás és -lászló, szórvány||nyelv|emlék
 sed 's#/.*\[#	[#' |
-#sort | uniq | sed 's/_/ /g;s/sszsz/ssz/g;/^észszer/!s/szsz/ssz/g;s/zszs/zzs/g;s/nyny/nny/g;s/\(.\)\1\1/\1\1/g;s/,\([a-z][a-z]:\)/	\1/g;s/[[]/\t/;s/\]//g' |
-sort | uniq | sed 's/sszsz/ssz/g;/^észszer/!s/szsz/ssz/g;s/zszs/zzs/g;s/nyny/nny/g;s/\(.\)\1\1/\1\1/g;s/,\([a-z][a-z]:\)/	\1/g;s/[[]/\t/;s/\]//g' |
+sort | uniq | sed 's/sszsz/ssz/g;/^\(észszer\|Jászszent\)/!s/szsz/ssz/g;s/zszs/zzs/g;/^szórványnyelv/!s/nyny/nny/g;s/\(.\)\1\1/\1\1/g;s/,\([a-z][a-z]:\)/	\1/g;s/[[]/\t/;s/\]//g' |
 # shorten hy: patterns with position: hy:ablak|keret -> hy:5
 awk 'match($0, /hy:([^ \t]*)\|[^ \t]*/,m) && m[0]!~/\|.*\|/ && m[0]!~/[-.=]/ && m[0]!~/(c\|cs|c\|s|d\|dz|d\|z|g\|gy|l\|ly|n\|ny|t\|ty|[^cz]s\|sz|[^cz]s\|z|[^s]z\|s|[^s]z\|zs)/ {$0=gensub("hy:[^ \t]*", "hy:"length(m[1]),1,$0)}
 # remove terminating -a, -e to hyphenate affixed versions, e.g. bor|issza, bor|isszát
-match($0, /hy:([^ \t]*)[ae]([^ \t]*)/,m) && length(m[2])==0{$0=gensub("hy:[^ \t]*", "hy:"m[1], 1)}
+# also -sz -> -s, -zs -> s, z (é=thosszal -> hy:é=thos -> é=thosz-szal
+match($0, /hy:([^ \t]*)([ae]|sz|zs)([^ \t]*)/,m) && length(m[3])==0{$0=gensub("hy:[^ \t]*", "hy:"m[1] ((length(m[2])>1)?substr(m[2],1,1):""), 1)}
 {print}' | sed 's/ *#.*$//' >mezok2.txt
 cat mezok2.txt | iconv -f latin2 -t utf-8 | sed -f $BINDIR/l1_u8.sed >mezok_utf.txt
 echo_n .

@@ -1,3 +1,62 @@
+2026-02-05  Németh László <nemeth@numbertext.org>:
+	* py/hy.py: Magyar Ispell alapú elválasztóprogram a
+
+	  1) Huhyphn-LibO elválasztási minták tesztelésére és javítására,
+
+	  2) tagolásra és szótagolásra,
+
+	  3) a libhyphen tagoló és szótagoló képességekkel való bővítésére.
+
+	* Torvaldsszal, Torvaldsszá alakokat ismét tartalmazza a szótár;
+
+	Elválasztási adatok javítása:
+
+	* ~2150 magyar földrajzi és ~250 botanikai szóösszetétel jelölése a
+	  helyes elválasztáshoz, tagoláshoz és szótagoláshoz;
+
+	* ~2050 magyar családnév helyes elválasztásának jelölése;
+
+	* több száz számos egyéb szóalak elválasztási adatainak pótlása és javítása:
+	  azám-> az|ám, egyelőre -> egy|előre stb.; hibás összetételek:
+	  *in|digó, *kemény|szik, *vad|asi; többszörös igekötők tiltása:
+	  *be|le|rontott; stb.
+
+	Szókincs javítása:
+
+	* súlyos ékezethiba: *Műpa, *műpabeli -> Müpa, müpabeli (AkH. revízió);
+
+	* javasolt szavak felvétele: alulműküdés, evangelikál, lokalista,
+	  lokalizmus, mentorság, perfekcionizmus, régiónkbeli (Gyuris Gellért);
+	  eshetőleges, hibás szóösszetételek kizárása: *fiatalságagán,
+	  *megtisztelőválasz (Tuna András); pedagógiai szakszókincs: együtthatás,
+	  együttmunkálkodás, ellenreform, hiperfókuszálás, időskor, rekrutáció,
+	  szociodemográfia, tudománymetria (Pénzes Dávid); anélküli, CRM, ERP,
+	  gyorsítótáraz, irattat, lejátszatlan, lünetta, kohorsz, véletlenszerűsít,
+	  hibás összetétel kizárása *szervízdíj (Úr Balázs), löktétek (plusz
+	  ennek mintájára „böktétek”, „pöktétek”) (xefoci7612).
+
+	* hiányzó felsőfokú melléknevek pótlása az összetett szavak szótári
+	  felvételével: legárnyéktűrőbb, legborúlátóbb, legelítélendőbb,
+	  legérdekfeszítőbb, legerdősültebb, legészbontóbb, legészveszejtőbb,
+	  legkalandvágyóbb, legkellősebb [közepén], legkitörőbb, legkiugróbb,
+	  legkoldusabbá, legkörnyezetszennyezőbb, leglégszennyezőbb,
+	  legmegvetettebb, legponterősebb, legszívszorítóbb, legzsírszegényebb.
+
+	  – többszörös képzők esetén összetétel engedélyezése:
+	  nyomonkövethetőség, szűkreszabottság, lényegretörőség, evilágiság;
+
+	  – izmusok: fototropizmus, geotropizmis, iszlamizmus, posztfasizmus
+	  (l. Tamás Gáspár Miklós: Post-fascism), posztkommunizmus,
+	  szociáldarwinizmus, transzatlantizmus.
+
+	  – egyéb szavak: benchmarking, bitcoin, bizgettyű, brainstorming,
+	  dekriminalizál, démonizál, diszkomfort, etnicizál, fixáció, hangszerész,
+	  Hammurapi, immobilitás, improduktivitás, ívat (pl. halívató), kinnlévőség,
+	  konteó (l. Tóth Tibor Tiboru: Konteó 1–3.), Maugli, mechatronika,
+	  muzikológus, oldtimer, össz-GDP, pomogács, Pride, qubit, redisztribúció,
+	  reprivatizál, Rotary, stigmatizáció, szinterel/szinterez, szipuzik,
+	  teokrácia, újszülöttkor, válságmenedzsel.
+
 2025-12-15  Németh László <nemeth@numbertext.org>:
 	* Krasznahorkai László köszöntése: 2025. irodalmi Nobel-díjasának
 	  (https://www.nobelprize.org/prizes/literature/2025/krasznahorkai/facts/)
